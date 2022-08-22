@@ -1,7 +1,12 @@
 import "./App.css";
+import LandingBlog from "./Components/content/Landing-Blog/landing-blog.component";
 
 function App() {
-  return <div className="App text-gray-500 text-center">Hello World</div>;
+  return (
+    <div className="App text-center">
+      <LandingBlog />
+    </div>
+  );
 }
 
 export default App;
