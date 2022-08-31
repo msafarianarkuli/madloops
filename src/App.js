@@ -3,7 +3,7 @@ import LandingBlog from "./Components/content/Landing-Blog/landing-blog.componen
 
 function App() {
   return (
-    <div className="App text-center">
+    <div className="App">
       <LandingBlog />
     </div>
   );
