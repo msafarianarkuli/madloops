@@ -6,6 +6,9 @@ module.exports = {
       backgroundImage: {
         "eye-fill": "url('Assets/eye-fill-white.svg')",
       },
+      colors: {
+        'deep-purple': '#422F7E',
+      },
     },
   },
   plugins: [],
