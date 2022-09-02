@@ -31,7 +31,7 @@ const Navigation = () => {
         </div>
         <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
           <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            {/* <a
+            <a
               className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
               href="#"
             >
@@ -54,8 +54,8 @@ const Navigation = () => {
               href="#"
             >
               تماس با ما
-            </a> */}
-            {navlines.map((navlines) => {
+            </a>
+            {/* {navlines.map((navlines) => {
               return (
                 <a
                   className={({ isActive }) =>
@@ -70,7 +70,7 @@ const Navigation = () => {
                   {navlines.title}
                 </a>
               );
-            })}
+            })} */}
             <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
           </div>
         </div>

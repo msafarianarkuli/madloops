@@ -5,7 +5,7 @@ import LandingBlog from "./Components/content/Landing-Blog/landing-blog.componen
 function App() {
   return (
     <div className="App">
-      <LandingBlog />
+      <Navigation />
     </div>
   );
 }
