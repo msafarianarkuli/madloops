@@ -1,22 +1,18 @@
 import { useState } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.css";
-import { BsJustify } from "react-icons/bs";
+import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
+import { RiShoppingCartFill } from "react-icons/ri";
 
 const Navigation = () => {
-  const [open, setOpen] = useState(true);
-
-  // const burger = document.querySelector("#burger");
-  // const menu = document.querySelectorAll(".menu");
-
-  // burger.addEventListener("click", () => {
-  //   if (menu.classList.contains("hidden")) {
-  //     menu.classList.remove("hidden");
-  //   } else {
-  //     menu.classList.add("hidden");
-  //   }
-  // });
+  const [open, setOpen] = useState(false);
+  const [navlines, setNavlines] = useState([
+    { id: 1, title: "خانه", path: "" },
+    { id: 2, title: "دوره ها", path: "" },
+    { id: 3, title: "اخبار و مقالات", path: "" },
+    { id: 4, title: "تماس با ما", path: "" },
+  ]);
 
   return (
     <div className="container m-auto">
@@ -35,7 +31,7 @@ const Navigation = () => {
         </div>
         <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
           <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            <a
+            {/* <a
               className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
               href="#"
             >
@@ -58,58 +54,106 @@ const Navigation = () => {
               href="#"
             >
               تماس با ما
-            </a>
+            </a> */}
+            {navlines.map((navlines) => {
+              return (
+                <a
+                  className={({ isActive }) =>
+                    isActive
+                      ? "inline-block relative z-10 m-auto pt-4 border-t-4 h-16 active:border-deep-purple active:text-deep-purple"
+                      : "inline-block relative z-10 m-auto pt-4 border-t-4 border-transparent h-16"
+                  }
+                  key={navlines.id}
+                  to={""}
+                  end
+                >
+                  {navlines.title}
+                </a>
+              );
+            })}
             <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
           </div>
         </div>
-        <div className="menu xl:col-span-1 lg:col-span-2 md:block hidden">
+        <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
           <div className="grid grid-cols-2 h-16">
             <div className="flex justify-end items-center col-span-1">
-              <img
-                className="xl:ml-2 h-6 lg:ml-6 md:ml-12"
-                src={require("../../Assets/img/shopping-card.png")}
-                alt="shopping"
-              />
+              <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
             </div>
             <div className="flex justify-center items-center col-span-1">
               <Button
-                classButton="btn border-2 border-deep-purple duration-300 ease-in-out 
-                text-deep-purple pt-1 pb-3 px-10 rounded-3xl text-lg hover:bg-deep-purple hover:text-white hover:text-white"
+                classButton="btn border-2 border-deep-purple duration-300 ease-in-out lg:ml-0 md:ml-12
+                text-deep-purple pt-1 pb-3 lg:px-10 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
               >
                 ورود
               </Button>
             </div>
           </div>
         </div>
-        {/* <div className="flex justify-end px-4 md:hidden col-span-1" id="burger">
-          <svg
-            className="w-6 cursor-pointer"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-            />
-          </svg>
-        </div> */}
 
-        <div className="flex justify-end md:hidden">
+        <div className="flex justify-end md:hidden relative">
           <div
-            className={`bg-deep-purple h-screen p-5 pt-8 ${
-              open ? "w-80" : "w-0 "
+            className={`${
+              open
+                ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10 absolute"
+                : "w-10 z-0"
             } duration-300 ease-in-out relative`}
           >
-            <BsArrowLeftShort
-              className={`bg-white text-deep-purple rounded-full border-2
-             border-deep-purple text-3xl absolute -right-3 top-9 cursor-pointer ${!open ? '' : ''}`}
-              onClick={() => setOpen(!open)}
-            />
+            {open && (
+              <div className="h-5/6">
+                <Button
+                  classButton="btn bg-deep-purple border-r-2 border-b-2 border-white float-left duration-300 ease-in-out 
+                text-white pt-1 pb-3 px-10 rounded-r-xl rounded-t-none text-lg hover:translate-x-1"
+                >
+                  ورود
+                </Button>
+                <div className="float-left text-white m-3">
+                  <RiShoppingCartFill className="text-xl cursor-pointer duration-100 ease-in-out hover:scale-125" />
+                </div>
+                <div className="pt-14 text-lg text-white text-center">
+                  <a
+                    className="block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple"
+                    href="#"
+                  >
+                    خانه
+                  </a>
+                  <a
+                    className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
+                    href="#"
+                  >
+                    دوره ها
+                  </a>
+                  <a
+                    className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
+                    href="#"
+                  >
+                    اخبار و مقالات
+                  </a>
+                  <a
+                    className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
+                    href="#"
+                  >
+                    تماس با ما
+                  </a>
+                </div>
+                <p className="m-5 text-xs text-gray-400 absolute bottom-0 left-0">
+                  Designed By Mad Loops -{" "}
+                </p>
+              </div>
+            )}
+
+            {!open ? (
+              <BsList
+                className={`bg-white text-deep-purple rounded-full border-2
+             border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
+                onClick={() => setOpen(!open)}
+              />
+            ) : (
+              <BsArrowLeftShort
+                className={`bg-white text-deep-purple rounded-full border-2
+              border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
+                onClick={() => setOpen(!open)}
+              />
+            )}
           </div>
         </div>
       </div>
