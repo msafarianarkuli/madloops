@@ -3,6 +3,7 @@ import { Button } from "./../../common/button-component/button.component";
 import { BsFillCircleFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import "./landing-blog.styles.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 
