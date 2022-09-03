@@ -26,7 +26,7 @@ const LandingBlog = () => {
       <Swiper
         navigation={true}
         modules={[Navigation]}
-        className="sm:mt-6 rounded z-0"
+        className="mySwiper swiper-h sm:mt-6 rounded z-0"
       >
         <SwiperSlide>
           <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
