@@ -1,2 +1,121 @@
+import { Fragment } from "react";
 import { Button } from "./../../common/button-component/button.component";
+import { FieldName } from "../../common/field-name-component/field-name.component";
 
+const LandingHeader = () => {
+  return (
+    <div className="container m-auto">
+      <div className="grid grid-cols-7 2xl:h-700 xl:h-600 lg:h-500 md:h-550 sm:h-450 h-400">
+        <div className="sm:col-span-3 col-span-7">
+          <div className="grid h-3/6">
+            <div className="grid">
+              <FieldName
+                showH2
+                title="برنامه نویسی با پژوهشگاه سپهر"
+                classH2Field="pt-6 xl:text-4xl lg:text-2xl xl:mr-10 lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
+              />
+            </div>
+            <div className="grid">
+              <FieldName
+                showP
+                field="برنامه نویسی با پژوهشگاه ی سپهر بهترین قدم شما برای  سپهر کسب
+                            رسیدن به اهدافتون است تا با توانایی و علم هایی که به تنهایی بر 
+                            توسط پژوهشگاه سپهر کسب کردیدبتواند از طرق ان هزینه ها
+                            به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون
+                            علاوه بر آن بتوانید به تنهایی یصورت فری لنس علم هایی که به 
+                            کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید."
+                classPfield="xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:text-xs text-gray-700"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-4 h-1/6 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:text-xs">
+            <div className="col-span-1">
+              <img
+                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                src={require("../../../Assets/img/students.png")}
+                alt="student"
+              />
+              <FieldName
+                showP
+                field="984 کاربر"
+                classPfield="mt-3 text-center"
+              />
+            </div>
+            <div className="col-span-1">
+              <img
+                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                src={require("../../../Assets/img/online-learning.png")}
+                alt="online-learning"
+              />
+              <FieldName
+                showP
+                field="210 دوره"
+                classPfield="mt-3 text-center"
+              />
+            </div>
+            <div className="col-span-1">
+              <img
+                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                src={require("../../../Assets/img/newsletter.png")}
+                alt="newsletter"
+              />
+              <FieldName
+                showP
+                field="430 مقاله"
+                classPfield="mt-3 text-center"
+              />
+            </div>
+            <div className="col-span-1">
+              <img
+                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                src={require("../../../Assets/img/presentation.png")}
+                alt="presentation"
+              />
+              <FieldName
+                showP
+                field="12 استاد"
+                classPfield="mt-3 text-center"
+              />
+            </div>
+          </div>
+          <div className="grid grid-cols-5 h-2/6">
+            <div className="col-span-3">
+              <Button
+                classButton="btn lg:py-5 md:py-3 sm:py-3 2xl:mt-5 2xl:px-24 xl:mt-3 xl:mx-12 xl:px-16 lg:mt-5 lg:mx-4 lg:px-16 md:mt-0 md:mx-2 md:px-12 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
+                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
+              >
+                شروع یادگیری
+              </Button>
+            </div>
+            <div className="col-span-2">
+              <Button
+                classButton="btn lg:py-5 md:py-3 sm:py-3 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-3 xl:px-6 lg:mx-1 lg:mt-5 lg:px-4 md:mx-0 md:mt-0 md:px-4 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs rounded-xl
+                hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
+              >
+                مشاوره تخصصی
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div className="sm:col-span-4 col-span-0 sm:block hidden relative">
+          <img
+            className="-z-10"
+            src={
+              require("../../../Assets/img/shadow-falling-custom.svg").default
+            }
+            alt="shadow-falling-custom"
+          />
+          <div className="absolute xl:right-40 lg:right-20 md:right-14 sm:right-10 md:top-96 sm:top-80 w-[60%] h-48 rounded-full drop-shadow-xl shadow-black">
+            <img
+              className="absolute -top-72"
+              src={require("../../../Assets/img/manlapcustom.png")}
+              alt="man-with-lap"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LandingHeader;

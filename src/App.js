@@ -1,16 +1,16 @@
 import "./App.css";
 import Navigation from "../src/Components/Navigation/navigation.component";
-import LandingPage from "./Screens/Landing/landing-page";
-import Footer from "./Components/Footer/footer.component";
+import LandingPage from "./Screens/Landing/landing-page.component";
+import BlogsPage from "./Screens/Blogs/blogs-page.component";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Navigation />
+      {/*  <BlogsPage />*/}
       <LandingPage />
-      {/* <Footer /> */}
     </div>
   );
-}
+};
 
 export default App;
