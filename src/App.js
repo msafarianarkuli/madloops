@@ -1,6 +1,5 @@
 import "./App.css";
 import Navigation from "../src/Components/Navigation/navigation.component";
-<<<<<<< HEAD
 import LandingBlog from "./Components/content/Landing-Blog/landing-blog.component";
 import LandingHeader from "./Components/content/Landing-Header/landing-header.component";
 =======
