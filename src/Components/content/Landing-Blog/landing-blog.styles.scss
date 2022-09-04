@@ -1,4 +1,4 @@
-.swiper-button-next {
+.swiper-h .swiper-button-next {
   background-image: url("../../../Assets/blog-arrow-left.svg");
   background-repeat: no-repeat;
   background-size: 100% auto;
@@ -7,10 +7,10 @@
   height: 10% !important;
   margin-top: 50px !important;
 }
-.swiper-button-next::after {
+.swiper-h .swiper-button-next::after {
   display: none;
 }
-.swiper-button-prev {
+.swiper-h .swiper-button-prev {
   background-image: url("../../../Assets/blog-arrow-right.svg");
   background-repeat: no-repeat;
   background-size: 100% auto;
@@ -19,38 +19,38 @@
   height: 10% !important;
   margin-top: 50px !important;
 }
-.swiper-button-prev::after {
+.swiper-h .swiper-button-prev::after {
   display: none;
 }
 
 @media (max-width: 1024px) {
-  .swiper-button-next {
+  .swiper-h .swiper-button-next {
     margin-top: 0 !important;
     height: 15% !important;
   }
-  .swiper-button-prev {
+  .swiper-h .swiper-button-prev {
     margin-top: 0 !important;
     height: 15% !important;
   }
 }
 
 @media (max-width: 768px) {
-  .swiper-button-next {
+  .swiper-h .swiper-button-next {
     position: absolute !important;
     top: 80% !important;
   }
-  .swiper-button-prev {
+  .swiper-h .swiper-button-prev {
     position: absolute !important;
     top: 80% !important;
     right: 88% !important;
   }
 }
 @media (max-width: 680px) {
-  .swiper-button-next {
+  .swiper-h .swiper-button-next {
     position: absolute !important;
     top: 80% !important;
   }
-  .swiper-button-prev {
+  .swiper-h .swiper-button-prev {
     position: absolute !important;
     top: 80% !important;
     right: 87% !important;
