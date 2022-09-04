@@ -4,14 +4,15 @@ import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { RiShoppingCartFill } from "react-icons/ri";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [navlines, setNavlines] = useState([
-    { id: 1, title: "خانه", path: "" },
-    { id: 2, title: "دوره ها", path: "" },
-    { id: 3, title: "اخبار و مقالات", path: "" },
-    { id: 4, title: "تماس با ما", path: "" },
+    { id: 1, title: "خانه", path: "/" },
+    { id: 2, title: "دوره ها", path: "/kasi" },
+    { id: 3, title: "اخبار و مقالات", path: "/morghi" },
+    { id: 4, title: "تماس با ما", path: "/gavazn" },
   ]);
 
   return (
@@ -31,7 +32,7 @@ const Navigation = () => {
         </div>
         <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
           <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            {/* <a
+            <a
               className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
               href="#"
             >
@@ -54,23 +55,24 @@ const Navigation = () => {
               href="#"
             >
               تماس با ما
-            </a> */}
-            {navlines.map((navline) => {
+            </a>
+            {/* {navlines.map((navline) => {
               return (
-                <a
-                  className={({ isActive }) =>
+                <NavLink
+                  className={(isActive) =>
                     isActive
                       ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
                       : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
                   }
                   key={navline.id}
+                  to={navline.path}
                   end
                 >
                   {navline.title}
-                </a>
+                </NavLink>
               );
-            })}
-            {/* <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div> */}
+            })} */}
+            <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
           </div>
         </div>
         <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
