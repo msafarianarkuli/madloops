@@ -12,7 +12,7 @@ const LandingHeader = () => {
               <FieldName
                 showH2
                 title="برنامه نویسی با پژوهشگاه سپهر"
-                classH2Field="pt-6 xl:text-4xl lg:text-2xl xl:mr-10 lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
+                classH2Field="pt-6 text-xl xl:text-4xl xl:mr-10 lg:text-2xl lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
             <div className="grid">
@@ -24,14 +24,14 @@ const LandingHeader = () => {
                             به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون
                             علاوه بر آن بتوانید به تنهایی یصورت فری لنس علم هایی که به 
                             کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید."
-                classPfield="xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:text-xs text-gray-700"
+                classPfield="text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700"
               />
             </div>
           </div>
-          <div className="grid grid-cols-4 h-1/6 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:text-xs">
+          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:text-xs">
             <div className="col-span-1">
               <img
-                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
                 src={require("../../../Assets/img/students.png")}
                 alt="student"
               />
@@ -43,7 +43,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
                 src={require("../../../Assets/img/online-learning.png")}
                 alt="online-learning"
               />
@@ -55,7 +55,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
                 src={require("../../../Assets/img/newsletter.png")}
                 alt="newsletter"
               />
@@ -67,7 +67,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
                 src={require("../../../Assets/img/presentation.png")}
                 alt="presentation"
               />
@@ -78,19 +78,21 @@ const LandingHeader = () => {
               />
             </div>
           </div>
-          <div className="grid grid-cols-5 h-2/6">
-            <div className="col-span-3">
+          <div className="grid sm:grid-cols-5 h-2/6">
+            <div className="col-span-5 sm:col-span-3">
               <Button
-                classButton="btn lg:py-5 md:py-3 sm:py-3 2xl:mt-5 2xl:px-24 xl:mt-3 xl:mx-12 xl:px-16 lg:mt-5 lg:mx-4 lg:px-16 md:mt-0 md:mx-2 md:px-12 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
-                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
+                classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-3 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
+                md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
+                rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
               >
                 شروع یادگیری
               </Button>
             </div>
-            <div className="col-span-2">
+            <div className="col-span-5 sm:col-span-2">
               <Button
-                classButton="btn lg:py-5 md:py-3 sm:py-3 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-3 xl:px-6 lg:mx-1 lg:mt-5 lg:px-4 md:mx-0 md:mt-0 md:px-4 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs rounded-xl
-                hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
+                classButton="btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-3 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
+                md:mx-0 md:mt-0 md:px-4 sm:py-3 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs 
+                rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
               >
                 مشاوره تخصصی
               </Button>
