@@ -20,18 +20,18 @@ const Navigation = () => {
         <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
           <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
             <img
-              className="xl:mr-6 lg:mr-1 lg:w-16 md:w-12 w-12 h-auto"
+              className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
               src={require("../../Assets/img/site-logo.png")}
               alt="shopping"
             />
-            <span className="text-lg mr-2 text-deep-purple lg:block md:hidden">
+            <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
               Mad Loops
             </span>
           </div>
         </div>
         <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
           <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            <a
+            {/* <a
               className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
               href="#"
             >
@@ -54,24 +54,23 @@ const Navigation = () => {
               href="#"
             >
               تماس با ما
-            </a>
-            {/* {navlines.map((navlines) => {
+            </a> */}
+            {navlines.map((navline) => {
               return (
                 <a
                   className={({ isActive }) =>
                     isActive
-                      ? "inline-block relative z-10 m-auto pt-4 border-t-4 h-16 active:border-deep-purple active:text-deep-purple"
-                      : "inline-block relative z-10 m-auto pt-4 border-t-4 border-transparent h-16"
+                      ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
+                      : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
                   }
-                  key={navlines.id}
-                  to={""}
+                  key={navline.id}
                   end
                 >
-                  {navlines.title}
+                  {navline.title}
                 </a>
               );
-            })} */}
-            <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
+            })}
+            {/* <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div> */}
           </div>
         </div>
         <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
@@ -82,7 +81,7 @@ const Navigation = () => {
             <div className="flex justify-center items-center col-span-1">
               <Button
                 classButton="btn border-2 border-deep-purple duration-300 ease-in-out lg:ml-0 md:ml-12
-                text-deep-purple pt-1 pb-3 lg:px-10 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
+                text-deep-purple pt-1 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
               >
                 ورود
               </Button>
