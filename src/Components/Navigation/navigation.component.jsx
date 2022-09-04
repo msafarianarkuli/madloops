@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
-import "../Navigation/navigation.styles.css";
+import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { RiShoppingCartFill } from "react-icons/ri";

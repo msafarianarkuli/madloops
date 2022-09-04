@@ -3,6 +3,7 @@ import { Button } from "./../../common/button-component/button.component";
 import { BsFillCircleFill } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
+import "./landing-blog.styles.scss";
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -25,7 +26,7 @@ const LandingBlog = () => {
       <Swiper
         navigation={true}
         modules={[Navigation]}
-        className="sm:mt-6 rounded z-0"
+        className="mySwiper swiper-h sm:mt-6 rounded z-0"
       >
         <SwiperSlide>
           <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
