@@ -1,13 +1,13 @@
 import React from 'react';
-import Button from '../button-component/button.component';
-import starFill from '../../../Assets/img/star-fill.svg';
+import { Button } from '../button-component/button.component';
+import starFill from '../../../Assets/star-fill.svg';
 import { HiOutlineUser, HiOutlineUsers } from 'react-icons/hi';
-// img ro import kon
+import cource from '../../../Assets/cource.svg';
 
 const Card = ({ item }) => {
   return (
     <div className="border-gray-500 text-gray-500 border-2 rounded-md p-3">
-      <img src={img} className="rounded-md w-full" alt="" />
+      <img src={cource} className="rounded-md w-full" alt="" />
       <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
         {item.archive ? 'آرشیو شده' : 'آرشیو نشده'}
       </p>
