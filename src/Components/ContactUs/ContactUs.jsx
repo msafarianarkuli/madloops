@@ -5,7 +5,26 @@ import {
   BsGeoAltFill,
 } from 'react-icons/bs';
 import Call from './Call';
+import SwitchItem from './common/SwitchItem';
 import Message from './Message';
+
+const switchItems = [
+  {
+    id: 1,
+    icon: 'BsEnvelopeFill',
+    title: 'ارسال پیام',
+  },
+  {
+    id: 2,
+    icon: 'BsTelephoneFill',
+    title: 'تلفن تماس و ایمیل',
+  },
+  {
+    id: 3,
+    icon: 'BsGeoAltFill',
+    title: 'مکان پژوهشگاه',
+  },
+];
 
 const ContactUs = () => {
   return (
@@ -20,18 +39,11 @@ const ContactUs = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 lg:gap-8">
-        <div className="flex flex-col justify-center items-center bg-[#7F56DA] rounded-2xl py-14">
-          <BsEnvelopeFill className="text-3xl text-white mb-3" />
-          <p className="text-white">ارسال پیام</p>
-        </div>
-        <div className="flex flex-col justify-center items-center border-2 border-[#7F56DA] rounded-2xl py-14">
-          <BsTelephoneFill className="text-3xl text-[#7F56DA] mb-3" />
-          <p className="text-[#7F56DA]">تلفن تماس و ایمیل</p>
-        </div>
-        <div className="flex flex-col justify-center items-center border-2 border-[#7F56DA] rounded-2xl py-14">
-          <BsGeoAltFill className="text-3xl text-[#7F56DA] mb-3" />
-          <p className="text-[#7F56DA]">مکان پژوهشگاه</p>
-        </div>
+        {switchItems.map((item) => (
+          <SwitchItem key={item.id} icon={item.icon}>
+            {item.title}
+          </SwitchItem>
+        ))}
       </div>
       <div className="border-2 border-[#7F56DA] rounded-3xl mt-8 p-10">
         {/* <Message /> */}
