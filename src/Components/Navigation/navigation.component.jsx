@@ -10,9 +10,9 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [navlines, setNavlines] = useState([
     { id: 1, title: "خانه", path: "/" },
-    { id: 2, title: "دوره ها", path: "/kasi" },
-    { id: 3, title: "اخبار و مقالات", path: "/morghi" },
-    { id: 4, title: "تماس با ما", path: "/gavazn" },
+    { id: 2, title: "دوره ها", path: "/dede" },
+    { id: 3, title: "اخبار و مقالات", path: "/dedq" },
+    { id: 4, title: "تماس با ما", path: "/frrwfx" },
   ]);
 
   return (
@@ -32,7 +32,7 @@ const Navigation = () => {
         </div>
         <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
           <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            <a
+            {/* <a
               className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
               href="#"
             >
@@ -55,8 +55,8 @@ const Navigation = () => {
               href="#"
             >
               تماس با ما
-            </a>
-            {/* {navlines.map((navline) => {
+            </a> */}
+            {navlines.map((navline) => {
               return (
                 <NavLink
                   className={(isActive) =>
@@ -71,7 +71,7 @@ const Navigation = () => {
                   {navline.title}
                 </NavLink>
               );
-            })} */}
+            })}
             <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
           </div>
         </div>
