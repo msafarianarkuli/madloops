@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply border-2 rounded-xl text-base pt-2 pb-3 px-10 transition ease-out duration-300;
+  }
+  .btn-base {
+    @apply border-gray-500 text-gray-600 
+    hover:bg-[#8055D9] hover:text-white hover:border-[#8055D9] hover:shadow-md;
+  }
+  .btn-primary {
+    @apply border-[#8055D9]  bg-[#8055D9] text-white
+    hover:bg-[#673CC0] hover:border-[#673CC0] hover:shadow-md;
+  }
+  .form {
+    @apply border rounded-xl p-3 flex flex-col border-gray-400;
+  }
+  .groupBtn {
+    @apply py-2 px-5 text-gray-400 bg-white border-t-2 border-b-2 border-[#5DC8B0] 
+    hover:bg-[#5DC8B0] hover:text-white transition ease-in-out duration-300;
+  }
+  .groupBtn-left {
+    @apply rounded-l-xl border-l-2;
+  }
+  .groupBtn-right {
+    @apply rounded-r-xl border-r-2;
+  }
+  .groupBtn-active {
+    @apply bg-[#55C8B0] text-white;
+  }
+  .groupBtn-sm {
+    @apply block sm:hidden;
+  }
+  .groupBtn-lg {
+    @apply hidden sm:inline-flex rounded-md;
+  }
+  .groupBtn-sm-btn {
+    @apply border-2 border-[#55C8B0] w-full px-4 py-2 rounded-lg flex justify-between items-center;
+  }
+  .groupBtn-sm-div {
+    @apply overflow-hidden shadow-md rounded-lg;
+  }
+  .groupBtn-sm-item {
+    @apply pt-2 pb-3 hover:bg-[#55C8B0] hover:text-white transition ease-in duration-200
+    cursor-pointer border-b-2 border-b-[#ededed];
+  }
+  .input {
+    @apply focus:outline-gray-600 focus:outline focus:outline-1 placeholder:text-base;
+  }
+  .swiper-mary {
+    @apply bg-red-800;
+  }
+}
