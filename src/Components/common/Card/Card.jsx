@@ -1,47 +1,63 @@
-import React from 'react';
-import Button from '../button-component/button.component';
-import starFill from '../../../Assets/img/star-fill.svg';
-import { HiOutlineUser, HiOutlineUsers } from 'react-icons/hi';
-// img ro import kon
+import React from "react";
+import Button from "../button-component/button.component";
+import { HiOutlineUser, HiOutlineUsers } from "react-icons/hi";
 
-const Card = ({ item }) => {
+const CardAI = (
+  imgUrl,
+  title,
+  description,
+  teacher,
+  price,
+  archive,
+  date,
+  starFill,
+  showArchive,
+  showPrice,
+  showStar,
+  children
+) => {
   return (
     <div className="border-gray-500 text-gray-500 border-2 rounded-md p-3">
-      <img src={img} className="rounded-md w-full" alt="" />
-      <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
-        {item.archive ? 'آرشیو شده' : 'آرشیو نشده'}
-      </p>
+      <img src={imgUrl} className="rounded-md w-full" alt="" />
+      {showArchive && (
+        <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
+          {archive ? "آرشیو شده" : "آرشیو نشده"}
+        </p>
+      )}
       <div>
-        <p className="text-right text-xl mb-3 text-gray-900">
-          {item.title}
-        </p>
-        <p className="text-gray-500 text-sm mb-3 text-right">
-          {item.description}
-        </p>
+        <p className="text-right text-xl mb-3 text-gray-900">{title}</p>
+        <p className="text-gray-500 text-sm mb-3 text-right">{description}</p>
         <div className="flex justify-between mb-3">
           <div className="flex items-center">
             <HiOutlineUser size="20px" className="ml-3" />
-            <span>{item.teacher}</span>
+            <span>{teacher}</span>
           </div>
-          <div className="flex">
-            <img className="ml-3" src={starFill} alt="" />
-            <span>{item.date}</span>
-          </div>
+          {showStar && (
+            <div className="flex">
+              <img className="ml-3" src={starFill} alt="" />
+              <span>{date}</span>
+            </div>
+          )}
         </div>
-
-        <div className="flex justify-between mb-3">
-          <div className="flex items-center">
-            <HiOutlineUsers size="20px" className="ml-3" />
-            <span>50</span>
+        {showPrice && (
+          <div className="flex justify-between mb-3">
+            <div className="flex items-center">
+              <HiOutlineUsers size="20px" className="ml-3" />
+              <span>50</span>
+            </div>
+            <span>{price} ریال</span>
           </div>
-          <span>{item.price} ریال</span>
-        </div>
-        <Button ButtonType="button" classButton="btn btn-base w-full">
-          جزئیات دوره
-        </Button>
+        )}
       </div>
+      {children}
     </div>
   );
 };
 
-export default Card;
+export default CardAI;
+
+{
+  /* <Button ButtonType="button" classButton="btn btn-base w-full">
+جزئیات دوره
+</Button> */
+}
