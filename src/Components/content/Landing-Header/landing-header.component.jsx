@@ -29,10 +29,10 @@ const LandingHeader = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-1 sm:pt-1 sm:text-xs">
+          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-1 sm:pt-1 sm:text-xs">
             <div className="col-span-1">
               <img
-                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
                 src={require("../../../Assets/img/students.png")}
                 alt="student"
               />
@@ -44,7 +44,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
                 src={require("../../../Assets/img/online-learning.png")}
                 alt="online-learning"
               />
@@ -56,7 +56,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
                 src={require("../../../Assets/img/newsletter.png")}
                 alt="newsletter"
               />
@@ -68,7 +68,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-1">
               <img
-                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
+                className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
                 src={require("../../../Assets/img/presentation.png")}
                 alt="presentation"
               />
@@ -82,7 +82,7 @@ const LandingHeader = () => {
           <div className="grid sm:grid-cols-5 h-2/6">
             <div className="col-span-5 sm:col-span-3">
               <Button
-                classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-3 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
+                classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-6 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
                 md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
               >
@@ -91,7 +91,7 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-5 sm:col-span-2">
               <Button
-                classButton="btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-3 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
+                classButton="btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-6 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
                 md:mx-0 md:mt-0 md:px-4 sm:py-3 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs 
                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
               >
