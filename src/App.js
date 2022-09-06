@@ -24,7 +24,7 @@ const App = () => {
 
       {/* <BlogsPage /> */}
       {/* <LandingServices /> */}
-      <LandingTeacher />
+      {/* <LandingTeacher /> */}
     </div>
   );
 };
