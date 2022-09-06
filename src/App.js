@@ -15,11 +15,16 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
+<<<<<<< HEAD
       {/* <LandingHeader/> */}
       {/* <LandingTeacher /> */}
       {/* <BlogsPage /> */}
       {/* <LandingCource /> */}
       <LandingOffers />
+=======
+
+      <BlogsPage />
+>>>>>>> 5c346d10e5caae5b588a7a1159a0e92f562bc85f
     </div>
   );
 };

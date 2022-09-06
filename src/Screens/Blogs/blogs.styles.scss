@@ -1,0 +1,57 @@
+.anim-blogs {
+  width: 100% !important;
+}
+
+.animation-blogs {
+  height: 100%;
+}
+
+.start-home-blogs {
+  width: 0;
+  right: 20%;
+}
+
+.anim-blogs a:nth-child(1) {
+  width: 20% !important;
+}
+
+.anim-blogs a:nth-child(1):hover ~ .animation-blogs {
+  width: 20% !important;
+  right: 0 !important;
+}
+
+.anim-blogs a:nth-child(2) {
+  width: 20% !important;
+}
+
+.anim-blogs a:nth-child(2):hover ~ .animation-blogs {
+  width: 20% !important;
+  right: 20% !important;
+}
+
+.anim-blogs a:nth-child(3) {
+  width: 20% !important;
+}
+
+.anim-blogs a:nth-child(3):hover ~ .animation-blogs {
+  width: 20% !important;
+  right: 40% !important;
+}
+
+.anim-blogs a:nth-child(4) {
+  width: 20% !important;
+}
+
+.anim-blogs a:nth-child(4):hover ~ .animation-blogs {
+  width: 20% !important;
+  right: 60% !important;
+}
+
+.anim-blogs a:nth-child(5) {
+  width: 20% !important;
+}
+
+.anim-blogs a:nth-child(5):hover ~ .animation-blogs {
+  width: 20% !important;
+  right: 80% !important;
+}
