@@ -13,7 +13,6 @@ const App = () => {
 <<<<<<< HEAD
       {/* <LandingHeader/> */}
       <LandingTeacher/>
-=======
 
       <BlogsPage />
 >>>>>>> fa2759387961d6aba3d01a739ec310e81788d6e6
