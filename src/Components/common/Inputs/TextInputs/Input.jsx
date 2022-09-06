@@ -6,9 +6,12 @@ const Input = ({ label, ...props }) => {
   return (
     <>
       <div>
-        <label className="text-gray-600 inline-block mb-2 text-lg">
-          {label}
-        </label>
+        {label ? (
+          <label className="text-gray-600 inline-block mb-2 text-lg">
+            {label}
+          </label>
+        ) : null}
+
         <div
           className="flex items-center bg-neutral-200 rounded-lg border-2 border-neutral-200
            text-gray-600 focus-within:text-[#673CC0] focus-within:bg-white
