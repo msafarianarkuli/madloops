@@ -16,7 +16,6 @@ const App = () => {
     <div className="App">
       <Navigation />
       <LandingHeader />
-<<<<<<< HEAD
       <LandingServices />
       {/* <LandingTeacher/> */}
 
@@ -24,10 +23,8 @@ const App = () => {
       {/* <LandingOffers /> */}
 
       {/* <BlogsPage /> */}
-=======
       {/* <LandingServices /> */}
       <LandingTeacher />
->>>>>>> c0e53720a9b0f2cc02c4b680725965dc70c8dfbd
     </div>
   );
 };
