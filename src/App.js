@@ -5,7 +5,7 @@ import LandingHeader from "./Components/content/Landing-Header/landing-header.co
 import LandingPage from "./Screens/Landing/landing-page.component";
 import BlogsPage from "./Screens/Blogs/blogs-page.component";
 import LandingTeacher from "./Components/content/Landing-Teacher/teacher.component";
-import LandingCource from "./Components/content/Landing-Course/landing-cource.component";
+import LandingServices from "./Components/content/Landing-Services/landing-services.component";
 
 // imports
 import Card from "./Components/common/Card/Card";
@@ -15,7 +15,8 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
-
+      <LandingHeader />
+      {/* <LandingServices /> */}
       <LandingTeacher />
     </div>
   );

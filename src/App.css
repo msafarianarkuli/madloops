@@ -49,7 +49,6 @@
   .input {
     @apply focus:outline-gray-600 focus:outline focus:outline-1 placeholder:text-base;
   }
-
   .switchItems-icon {
     @apply text-[#7F56DA] text-2xl md:text-4xl font-bold group-hover:text-white mb-4;
   }

@@ -34,34 +34,10 @@ const Navigation = () => {
           </div>
           <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
             <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-              {/* <a
-              className="inline-block relative z-10 m-auto pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
-              href="#"
-            >
-              خانه
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              دوره ها
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              اخبار و مقالات
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              تماس با ما
-            </a> */}
               {navlines.map((navline) => {
                 return (
                   <NavLink
-                    className={(isActive) =>
+                    className={({ isActive }) =>
                       isActive
                         ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
                         : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
