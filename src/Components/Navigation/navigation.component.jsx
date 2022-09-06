@@ -17,49 +17,50 @@ const Navigation = () => {
   ]);
 
   return (
-    <div className="container m-auto">
-      <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
-        <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
-          <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
-            <img
-              className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-              src={require("../../Assets/img/site-logo.png")}
-              alt="shopping"
-            />
-            <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
-              Mad Loops
-            </span>
-          </div>
-        </div>
-        <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
-          <div className="anim text-center h-16 lg:text-lg md:text-md relative">
-            {navlines.map((navline) => {
-              return (
-                <NavLink
-                  className={({ isActive }) =>
-                    isActive
-                      ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
-                      : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
-                  }
-                  key={navline.id}
-                  to={navline.path}
-                  end
-                >
-                  {navline.title}
-                </NavLink>
-              );
-            })}
-            <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
-          </div>
-        </div>
-        <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
-          <div className="grid grid-cols-2 h-16">
-            <div className="flex justify-end items-center col-span-1">
-              <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
+    <Fragment>
+      <div className="container m-auto">
+        <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
+          <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
+            <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
+              <img
+                className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
+                src={require("../../Assets/img/site-logo.png")}
+                alt="shopping"
+              />
+              <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
+                Mad Loops
+              </span>
             </div>
-            <div className="flex justify-center items-center col-span-1">
-              <Button
-                classButton="btn border-2 border-deep-purple duration-300 ease-in-out lg:ml-0 md:ml-12
+          </div>
+          <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
+            <div className="anim text-center h-16 lg:text-lg md:text-md relative">
+              {navlines.map((navline) => {
+                return (
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
+                        : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
+                    }
+                    key={navline.id}
+                    to={navline.path}
+                    end
+                  >
+                    {navline.title}
+                  </NavLink>
+                );
+              })}
+              <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
+            </div>
+          </div>
+          <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
+            <div className="grid grid-cols-2 h-16">
+              <div className="flex justify-end items-center col-span-1">
+                <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
+              </div>
+              <div className="flex justify-center items-center col-span-1">
+                <Button
+                  classButton="btn border-2 border-deep-purple duration-300 ease-in-out lg:ml-0 md:ml-12
                 text-deep-purple pt-1 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
                 >
                   ورود
