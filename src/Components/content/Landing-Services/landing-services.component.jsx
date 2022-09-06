@@ -3,7 +3,7 @@ import { FieldName } from "../../common/field-name-component/field-name.componen
 const LandingServices = () => {
   return (
     <div className="container m-auto">
-      <div className="text-center m-auto mt-20">
+      <div className="text-center m-auto mt-40 lg:mt-20 md:mt-2 sm:mt-2">
         <FieldName
           showH2
           showP
@@ -13,11 +13,11 @@ const LandingServices = () => {
           field="خدماتی در اختیار شما میگذاریم که"
         />
 
-        <div className="bg-lines-dash bg-no-repeat grid grid-cols-4 h-96 mt-44">
-          <div className="col-span-1">
-            <div className="xl:w-32 xl:h-32 xl:mt-14 lg:w-32 lg:h-32 lg:mt-10 rounded-2xl bg-lite-pink m-auto">
+        <div className="xl:bg-lines-dash lg:bg-white bg-no-repeat grid grid-cols-4 h-96 mt-12 lg:mt-36 md:mt-28 sm:mt-28">
+          <div className="sm:col-span-1 col-span-2">
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 rounded-2xl bg-lite-pink m-auto">
               <img
-                className="m-auto pt-8 w-16"
+                className="m-auto sm:pt-8 pt-7 sm:w-16 w-14"
                 src={require("../../../Assets/img/certificate.png")}
                 alt="certificate"
               />
@@ -25,16 +25,16 @@ const LandingServices = () => {
             <FieldName
               showH2
               showP
-              classH2Field="font-bold text-lg m-auto mt-4"
+              classH2Field="font-bold sm:text-lg text-md m-auto mt-4"
               title="مدرک معتبر"
-              classPfield="w-36 m-auto mt-3 text-gray-500"
+              classPfield="w-36 m-auto mt-3 sm:text-md text-sm text-gray-500"
               field="از طریق مجموعه ما میتونی مدرک معتبر بگیری"
             />
           </div>
-          <div className="col-span-1 ">
-            <div className="xl:w-32 xl:h-32 xl:mt-14 lg:w-32 lg:h-32 lg:mt-1 rounded-2xl bg-lite-pink m-auto">
+          <div className="sm:col-span-1 col-span-2">
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 rounded-2xl bg-lite-pink m-auto">
               <img
-                className="m-auto pt-8 w-16"
+                className="m-auto sm:sm:pt-8 pt-7 sm:w-16 w-14"
                 src={require("../../../Assets/img/opportunity.png")}
                 alt="opportunity"
               />
@@ -42,16 +42,16 @@ const LandingServices = () => {
             <FieldName
               showH2
               showP
-              classH2Field="font-bold text-lg m-auto mt-4"
+              classH2Field="font-bold sm:text-lg text-md m-auto mt-4"
               title="فرصت شغلی"
-              classPfield="w-36 m-auto mt-3 text-gray-500"
+              classPfield="w-36 m-auto mt-3 sm:text-md text-sm text-gray-500"
               field="با ارتباط برقرار کردن با ما این فرصت شغلی برات ایجاد میشه"
             />
           </div>
-          <div className="col-span-1 ">
-            <div className="w-32 h-32 rounded-2xl mt-10 bg-lite-pink m-auto">
+          <div className="sm:col-span-1 col-span-2">
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto">
               <img
-                className="m-auto pt-8 w-16"
+                className="m-auto sm:pt-8 pt-7 sm:w-16 w-14"
                 src={require("../../../Assets/img/online-business.png")}
                 alt="opportunity"
               />
@@ -59,16 +59,16 @@ const LandingServices = () => {
             <FieldName
               showH2
               showP
-              classH2Field="font-bold text-lg m-auto mt-4"
+              classH2Field="font-bold sm:text-lg text-md m-auto mt-4"
               title="مشاوره"
-              classPfield="w-36 m-auto mt-3 text-gray-500"
+              classPfield="w-36 m-auto mt-3 sm:text-md text-sm text-gray-500"
               field="اگه جایی برات مبهم بود میتونی با مشاوران ما درمیان بزاری"
             />
           </div>
-          <div className="col-span-1 ">
-            <div className="w-32 h-32 rounded-2xl mt-20 bg-lite-pink m-auto">
+          <div className="sm:col-span-1 col-span-2">
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto">
               <img
-                className="m-auto pt-8 w-16"
+                className="m-auto sm:pt-8 pt-7 sm:w-16 w-14"
                 src={require("../../../Assets/img/exam.png")}
                 alt="opportunity"
               />
@@ -76,9 +76,9 @@ const LandingServices = () => {
             <FieldName
               showH2
               showP
-              classH2Field="font-bold text-lg m-auto mt-4"
+              classH2Field="font-bold sm:text-lg text-md m-auto mt-4"
               title="امتحان"
-              classPfield="w-36 m-auto mt-3 text-gray-500"
+              classPfield="w-36 m-auto mt-3 sm:text-md text-sm text-gray-500"
               field="برای ثبت نام و تعیین سطحت باید یه سری امتحان هارو بدی"
             />
           </div>

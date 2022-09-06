@@ -16,8 +16,8 @@ const App = () => {
     <div className="App">
       <Navigation />
       <LandingHeader />
-      {/* <LandingServices /> */}
-      <LandingTeacher/>
+      <LandingServices />
+      {/* <LandingTeacher/> */}
 
       {/* <BlogsPage /> */}
       {/* <LandingOffers /> */}
