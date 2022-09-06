@@ -1,70 +1,52 @@
-// .swiper-container {
-//   height: 300px;
-//   .swiper-wrapper {
-//     -webkit-box-align: center;
-//     -webkit-align-items: center;
-//     -moz-box-align: center;
-//     -ms-flex-align: center;
-//     align-items: center;
-//   }
-//   .swiper-slide {
-//     background-color: #f0f0f0;
-//     width: 80%;
-//     height: 200px;
-//     @media screen and (min-width: 768px) {
-//       width: 200px;
-//     }
-//     &-active {
-//       background-color: #bd1701;
-//       @media screen and (min-width: 768px) {
-//         width: 500px;
-//         height: 250px;
-//       }
-//     }
-//   }
-// }
-
-// .swiper-icon-right {
-//   width: 100px !important;
-//   margin: 0px !important;
-// }
-// .swiper-button-next::after {
-//   display: none;
-// }
-// .swiper-icon-left {
-//   background-color: aqua;
-//   width: 1000px !important;
-
-//   margin: 0px !important;
-// }
-// .swiper-button-prev::after {
-//   display: none;
-// }
-
-// .swiper-container {
-//   width: 100% !important;
-// }
-
-.swiper-slide {
-  width: 15% !important;
+.swiper-v .swiper {
+  width: 100%;
+  height: 100%;
 }
 
-.swiper-slide-active {
-  width: 55% !important;
+.swiper-v .swiper-slide {
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
 }
 
+// .swiper-v .swiper-slide img {
+//   display: block;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+.swiper-v .swiper-slide {
+  width: 20%;
+}
+.swiper-v .swiper-slide-active {
+  width: 60%;
+}
 .animate-card {
-  animation: identifier 1.2s;
+  animation: identifier 1s;
 }
 
 @keyframes identifier {
   0% {
     // transform: translateY(90%);
     width: 0;
-    height: 285px;
+    height: 275px;
   }
   100% {
     width: 100%;
-    height: 285px;
+    height: 275px;
   }
 }
