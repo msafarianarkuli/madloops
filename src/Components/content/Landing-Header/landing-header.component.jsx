@@ -1,5 +1,6 @@
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
 
 const LandingHeader = () => {
   return (
@@ -14,20 +15,21 @@ const LandingHeader = () => {
                 classH2Field="pt-6 text-xl xl:text-4xl xl:mr-10 lg:text-2xl lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
-            <div className="grid">
-              <FieldName
-                showP
-                field="برنامه نویسی با پژوهشگاه ی سپهر بهترین قدم شما برای  سپهر کسب
-                            رسیدن به اهدافتون است تا با توانایی و علم هایی که به تنهایی بر 
-                            توسط پژوهشگاه سپهر کسب کردیدبتواند از طرق ان هزینه ها
-                            به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون
-                            علاوه بر آن بتوانید به تنهایی یصورت فری لنس علم هایی که به 
-                            کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید."
-                classPfield="text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700"
-              />
+            <div className="grid h-3/6 text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+              <div className="h-[130px]">
+                <Typewriter
+                  words={[
+                    "برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.",
+                  ]}
+                  cursor
+                  cursorStyle=" |"
+                  typeSpeed={40}
+                  delaySpeed={1000}
+                />
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:text-xs">
+          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-2 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-1 sm:pt-1 sm:text-xs">
             <div className="col-span-1">
               <img
                 className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto"
@@ -100,7 +102,7 @@ const LandingHeader = () => {
         </div>
         <div className="sm:col-span-4 col-span-0 sm:block hidden relative">
           <img
-            className="-z-10"
+            className="-z-10 2xl:h-650 xl:h-600 lg:h-550 md:h-450"
             src={
               require("../../../Assets/img/shadow-falling-custom.svg").default
             }

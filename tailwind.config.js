@@ -21,6 +21,7 @@ module.exports = {
         "eye-fill": "url('Assets/eye-fill-white.svg')",
         "heart-fill": "url('Assets/heart-fill-white.svg')",
         "comment-fill": "url('Assets/chat-left-text-fill-white.svg')",
+        "lines-dash": "url('Assets/img/lines-dash.svg')",
       },
       height:{
         "400": "400px",
@@ -35,6 +36,7 @@ module.exports = {
         "deep-purple": "#422F7E",
         "lite-purple": "#7F56DA",
         "dark-purple": "#756496",
+        "lite-pink": "#F4EBFD",
       },
     },
   },

@@ -5,17 +5,17 @@ import LandingHeader from "./Components/content/Landing-Header/landing-header.co
 import LandingPage from "./Screens/Landing/landing-page.component";
 import BlogsPage from "./Screens/Blogs/blogs-page.component";
 import LandingTeacher from "./Components/content/Landing-Teacher/teacher.component";
+import LandingServices from "./Components/content/Landing-Services/landing-services.component";
 
 const App = () => {
   return (
     <div className="App">
       <Navigation />
-<<<<<<< HEAD
-      {/* <LandingHeader/> */}
+      <LandingHeader />
+      <LandingServices />
       <LandingTeacher/>
 
-      <BlogsPage />
->>>>>>> fa2759387961d6aba3d01a739ec310e81788d6e6
+      {/* <BlogsPage /> */}
     </div>
   );
 };
