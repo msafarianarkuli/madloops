@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button } from '../../common/button-component/button.component';
-import Card from '../../common/Card/Card';
-import GroupButton from '../../common/GroupButton/GroupButton';
-import LandingTitle from '../../common/LandingTitle/LandingTitle';
-import Data from '../../../Core/services/Fake Service/Cources';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from "../../common/button-component/button.component";
+import GroupButton from "../../common/GroupButton/GroupButton";
+import LandingTitle from "../../common/LandingTitle/LandingTitle";
+import Data from "../../../Core/services/Fake Service/Cources";
+import CardAI from "./../../common/Card/Card";
 
 const LandingCource = () => {
   const { courses } = Data;
   const [groupBtnList] = useState([
-    'همه',
-    'جدیدترین دوره ها',
-    'محبوب ترین دوره ها',
-    'دوره های در حال پیش فروش',
+    "همه",
+    "جدیدترین دوره ها",
+    "محبوب ترین دوره ها",
+    "دوره های در حال پیش فروش",
   ]);
   return (
     <>
@@ -48,7 +48,7 @@ const LandingCource = () => {
         >
           {courses.map((item, index) => (
             <SwiperSlide key={item.id}>
-              <Card item={item} />
+              <CardAI item={item} />
             </SwiperSlide>
           ))}
         </Swiper>
