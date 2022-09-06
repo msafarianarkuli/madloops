@@ -1,20 +1,18 @@
-import React from 'react';
-import Button from '../button-component/button.component';
-import starFill from '../../../Assets/img/star-fill.svg';
-import { HiOutlineUser, HiOutlineUsers } from 'react-icons/hi';
+import React from "react";
+import { Button } from "./../button-component/button.component";
+import starFill from "../../../Assets/star-fill.svg";
+import { HiOutlineUser, HiOutlineUsers } from "react-icons/hi";
 // img ro import kon
 
-const Card = ({ item }) => {
+const CardAI = (item) => {
   return (
     <div className="border-gray-500 text-gray-500 border-2 rounded-md p-3">
-      <img src={img} className="rounded-md w-full" alt="" />
+      <img src={item.img} className="rounded-md w-full" alt="" />
       <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
-        {item.archive ? 'آرشیو شده' : 'آرشیو نشده'}
+        {item.archive ? "آرشیو شده" : "آرشیو نشده"}
       </p>
       <div>
-        <p className="text-right text-xl mb-3 text-gray-900">
-          {item.title}
-        </p>
+        <p className="text-right text-xl mb-3 text-gray-900">{item.title}</p>
         <p className="text-gray-500 text-sm mb-3 text-right">
           {item.description}
         </p>
@@ -23,6 +21,7 @@ const Card = ({ item }) => {
             <HiOutlineUser size="20px" className="ml-3" />
             <span>{item.teacher}</span>
           </div>
+
           <div className="flex">
             <img className="ml-3" src={starFill} alt="" />
             <span>{item.date}</span>
@@ -44,4 +43,4 @@ const Card = ({ item }) => {
   );
 };
 
-export default Card;
+export default CardAI;
