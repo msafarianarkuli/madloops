@@ -16,7 +16,7 @@ const App = () => {
     <div className="App">
       <Navigation />
 
-      <BlogsPage />
+      <LandingTeacher />
     </div>
   );
 };

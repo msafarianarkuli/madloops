@@ -31,7 +31,7 @@ const LandingTeacher = () => {
           //   delay: 3000,
           //   disableOnInteraction: false,
           // }}
-          slidesPerView={4}
+          slidesPerView={"auto"}
           initialSlide={2}
           spaceBetween={20}
           navigation={{
@@ -51,7 +51,7 @@ const LandingTeacher = () => {
               spaceBetween: 15,
             },
             1024: {
-              slidesPerView: 4,
+              slidesPerView: "auto",
               spaceBetween: 10,
             },
           }}
@@ -64,7 +64,7 @@ const LandingTeacher = () => {
                 isActive ? (
                   <div className="grid lg:grid-cols-2 w-full animate-card rounded-3xl bg-[#F4F5F9]">
                     <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
-                      <div className="flex md:justify-between justify-center">
+                      <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden">
                           {item.teacher}
                         </h2>
@@ -86,7 +86,7 @@ const LandingTeacher = () => {
                       <p className="sm:text-sm text-xs mt-2 text-[#4A4453]">
                         {item.description}
                       </p>
-                      <Button classButton="text-white bg-[#5DC8B2] w-20 rounded-xl p-2 my-10 hover:scale-125 transition-transform ease-in duration-300 ">
+                      <Button classButton="text-white bg-[#5DC8B2] w-20 rounded-xl p-2 my-5 hover:scale-125 transition-transform ease-in duration-300 ">
                         بیشتر
                       </Button>
                     </div>
@@ -154,4 +154,26 @@ export default LandingTeacher;
 </div>
 <div className="swiper-button-next w-full">
 <IoMdArrowDropleft className="swiper-icon-left" />
-</div> */
+</div>
+       className={
+                      isActive
+                        ? "m-auto inline-block rounded-full p-5 bg-gray-200 cursor-pointer hover:bg-slate-400 transition  ease-in delay-200 hover:transition hover:ease-out hover:delay-200"
+                        : isPrev || isNext
+                        ? "m-auto inline-block rounded-full p-5 opacity-75 bg-gray-200"
+                        : "m-auto inline-block rounded-full p-5 opacity-50 bg-gray-200"
+                    }
+                  >
+                    <img
+                      src={require("../../../Assets/mohsen.jpg")}
+                      className={
+                        isActive
+                          ? "rounded-full w-56"
+                          : isPrev || isNext
+                          ? "rounded-full w-36"
+                          : "rounded-full w-28"
+                      }
+                      alt=""
+                    />
+                  </div>
+
+*/
