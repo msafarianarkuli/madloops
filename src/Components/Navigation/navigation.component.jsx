@@ -11,9 +11,9 @@ const Navigation = () => {
   const [open, setOpen] = useState(false);
   const [navlines, setNavlines] = useState([
     { id: 1, title: "خانه", path: "/" },
-    { id: 2, title: "دوره ها", path: "/dede" },
-    { id: 3, title: "اخبار و مقالات", path: "/dedq" },
-    { id: 4, title: "تماس با ما", path: "/frrwfx" },
+    { id: 2, title: "دوره ها", path: "/course" },
+    { id: 3, title: "اخبار و مقالات", path: "/blogs" },
+    { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
   return (

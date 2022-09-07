@@ -1,0 +1,105 @@
+import { v4 as uuidv4 } from "uuid";
+const Data = {
+  courses: [
+    {
+      id: uuidv4(),
+      title: "دوره تخصصی جمشید کَل",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: "دوره تخصصی تقی کُمیسر",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: " 3دوره تخصصی انگولار",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      price: 999.999,
+      date: 42.5,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: "دوره تخصصی علی بخت",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: " 5دوره تخصصی انگولار",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/vipul.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: " 6دوره تخصصی انگولار",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: true,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+    {
+      id: uuidv4(),
+      title: " 7دوره تخصصی انگولار",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      rate: "4/5",
+      date: 42.5,
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: false,
+      image: require("../../../Assets/alexander-shatov.jpg"),
+    },
+  ],
+};
+
+export default Data;
