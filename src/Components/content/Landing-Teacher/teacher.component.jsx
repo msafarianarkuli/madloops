@@ -27,10 +27,10 @@ const LandingTeacher = () => {
         </div>
         <Swiper
           className="mySwiper swiper-v mt-20"
-          // autoplay={{
-          //   delay: 3000,
-          //   disableOnInteraction: false,
-          // }}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           slidesPerView={"auto"}
           initialSlide={2}
           spaceBetween={20}
