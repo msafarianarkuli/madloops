@@ -14,10 +14,13 @@ import { useState } from "react";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/CoursesPage";
-import { Card } from "./../../Components/common/Card/card.component";
+import Accordion from "../../Components/common/accordion.component";
+import CardGridListView from "../../Components/common/CardGridAndList-view.component";
+import GridAndList from "./../../Components/common/gridAndList-item.component";
 
 const CoursesPage = () => {
   const { courses } = Data;
+  const [showGrid, setShowGrid] = useState(false);
   const [groupBtnList] = useState([
     "همه",
     "جدیدترین ها",
@@ -82,81 +85,26 @@ const CoursesPage = () => {
               <BsFilter className="lg:text-5xl md:text-4xl sm:text-2xl text-xl text-[#373F49] group-hover:text-white" />
             </div>
             <div className="m-auto">
-              <GroupButton items={groupBtnList} />
+              <GroupButton
+                items={groupBtnList}
+                width="xl:p-6 xl:w-52 lg:w-36 lg:p-[22px] md:w-28 md:p-[7px] sm:w-[105px] sm:p-[3px]"
+              />
             </div>
-            <div className="m-auto rounded-[20px] sm:flex items-stretch transition ease-in-out duration-200 hidden">
-              <BsListUl className="lg:text-7xl md:text-6xl sm:text-5xl p-3 text-[#373F49] cursor-pointer border-[#5DC8B2] border-y-2 border-r-2 rounded-r-[20px] transition ease-in-out duration-200 hover:bg-[#5DC8B2] hover:rounded-r-[20px] hover:text-white" />
-              <BsFillGrid3X3GapFill className="lg:text-7xl md:text-6xl sm:text-5xl p-3 cursor-pointer border-[#5DC8B2] border-y-2 border-l-2 rounded-l-[20px] text-[#373F49] hover:rounded-l-[20px] transition ease-in-out duration-200 hover:bg-[#5DC8B2] hover:text-white" />
-            </div>
+
+            <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
           </div>
         </div>
-        <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10  mt-10 w-[80%]">
+        <div
+          className={
+            !showGrid
+              ? "grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]"
+              : "sm:mt-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]"
+          }
+        >
           {courses
-            .filter((card, idx) => idx < 6)
-            .map((card) => (
-              <Card
-                showImage
-                showStruc
-                classCard="m-auto text-gray-500 shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col relative"
-                key={card.id}
-                imageUrl={require("../../Assets/code.jpg")}
-                classImage="rounded-t-lg w-full"
-                classMainImg="m-auto w-full"
-                cardBody="w-80 mx-6 mt-5"
-                role={card.title}
-                classRole="text-right font-bold text-2xl text-gray-900"
-              >
-                <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-end absolute top-2 left-2">
-                  ضپط شده
-                </div>
-                <div className="mx-6 my-5">
-                  <div className="flex justify-start">
-                    <div className="flex items-center">
-                      <BsFillCircleFill className="w-2 text-[#1F18DB]" />
-                      <h3 className="text-[#636363] mr-3 pt-1">
-                        {card.lesson} درس
-                      </h3>
-                    </div>
-                    <div className="flex items-center mr-4">
-                      <BsClock className="w-3 text-[#4C0FFB]" />
-                      <h3 className="text-[#636363] mr-3 pt-1">
-                        {card.date} ساعت
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="mx-6 order-last mt-2 mb-5">
-                  <div className="flex justify-between">
-                    <div className="flex items-center">
-                      <BsPerson className="w-5" />
-                      <h3 className="text-[#636363] pr-2">{card.teacher}</h3>
-                    </div>
-                    <div className="flex">
-                      <BsFillStarFill className="text-[#F9A134] m-auto" />
-                      <h3 className="text-[#3A3737] pt-2 pr-2">
-                        <p className="text-[#6C757D] inline-block">5 / </p>
-                        {card.rate}
-                      </h3>
-                    </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <div className="flex items-center">
-                      <BsPeople className="w-5" />
-                      <h3 className="text-[#636363] pr-2 mt-1">
-                        {card.numberOfStudents}
-                      </h3>
-                    </div>
-                    <div className="items-center">
-                      <h3 className="text-[#636363] py-3 inline-block align-middle">
-                        {card.price} ريال
-                      </h3>
-                    </div>
-                  </div>
-                  <Button ButtonType="button" classButton="btn btn-base w-full">
-                    جزئیات دوره
-                  </Button>
-                </div>
-              </Card>
+            .filter((item, idx) => idx < 6)
+            .map((item) => (
+              <CardGridListView item={item} key={item.id} view={showGrid} />
             ))}
         </div>
         <div className="w-full my-20">
@@ -164,6 +112,9 @@ const CoursesPage = () => {
             بیشتر
           </Button>
         </div>
+        {/* <div className="my-52">
+          <Accordion />
+        </div> */}
       </div>
     </section>
   );

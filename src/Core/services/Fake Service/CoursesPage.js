@@ -14,6 +14,7 @@ const Data = {
       numberOfStudents: 50,
       archive: true,
       image: require("../../../Assets/alexander-shatov.jpg"),
+      level: "همه سطح",
     },
     {
       id: uuidv4(),
@@ -28,10 +29,11 @@ const Data = {
       numberOfStudents: 50,
       archive: true,
       image: require("../../../Assets/alexander-shatov.jpg"),
+      level: "ساده",
     },
     {
       id: uuidv4(),
-      title: " 3دوره تخصصی انگولار",
+      title: "دوره تخصصی شال خی",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
       teacher: "مازیار قلی پور",
@@ -42,6 +44,7 @@ const Data = {
       numberOfStudents: 50,
       archive: true,
       image: require("../../../Assets/alexander-shatov.jpg"),
+      level: "پیشرفته",
     },
     {
       id: uuidv4(),
@@ -56,6 +59,7 @@ const Data = {
       numberOfStudents: 50,
       archive: true,
       image: require("../../../Assets/alexander-shatov.jpg"),
+      level: "نرمال",
     },
     {
       id: uuidv4(),

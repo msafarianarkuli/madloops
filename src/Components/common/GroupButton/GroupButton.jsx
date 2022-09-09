@@ -25,19 +25,19 @@ const GroupButton = ({ items, width }) => {
 
   return (
     <>
-      <div className={"groupBtn-lg " + `${width}`}>
+      <div className="groupBtn-lg">
         {items.map((item, index) => (
           <button
             key={item}
             type="button"
-            className={`groupBtn ${GroupBtnClassLg(item, index)}`}
+            className={`groupBtn ${GroupBtnClassLg(item, index)} ${width}`}
             onClick={() => handleGroupBtn(item)}
           >
             {item}
           </button>
         ))}
       </div>
-      <div className={"groupBtn-sm text-gray-500 mx-3 " + `${width}`}>
+      <div className="groupBtn-sm text-gray-500 mx-3">
         <button
           className="groupBtn-sm-btn"
           onClick={() => setOpenGroupBtn(!openGroupBtn)}
