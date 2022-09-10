@@ -7,6 +7,8 @@ import Data from "../../Core/services/Fake Service/CoursesPage";
 import CardGridListView from "../../Components/common/CardGridAndList-view.component";
 import GridAndList from "./../../Components/common/gridAndList-item.component";
 
+const cardPerRow = 3;
+
 const CoursesPage = () => {
   const { courses } = Data;
   const [showGrid, setShowGrid] = useState(false);
@@ -16,6 +18,11 @@ const CoursesPage = () => {
     "محبوب ترین ها",
     "پربازدید ترین ها",
   ]);
+
+  const [nextCard, setNextCard] = useState(cardPerRow);
+  const handleMoreCard = () => {
+    setNextCard(nextCard + cardPerRow);
+  };
   return (
     <section>
       <div className="container m-auto">
@@ -90,20 +97,20 @@ const CoursesPage = () => {
               : "sm:mt-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]"
           }
         >
-          {courses
-            .filter((item, idx) => idx < 6)
-            .map((item) => (
-              <CardGridListView item={item} key={item.id} view={showGrid} />
-            ))}
+          {courses.slice(0, nextCard).map((item) => (
+            <CardGridListView item={item} key={item.id} view={showGrid} />
+          ))}
         </div>
-        <div className="w-full my-20">
-          <Button classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150">
-            بیشتر
-          </Button>
-        </div>
-        {/* <div className="my-52">
-          <Accordion />
-        </div> */}
+        {nextCard < courses.length && (
+          <div className="w-full my-20">
+            <Button
+              onClick={handleMoreCard}
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+            >
+              بیشتر
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );

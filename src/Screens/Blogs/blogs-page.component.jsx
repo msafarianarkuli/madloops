@@ -5,9 +5,17 @@ import { Card } from "./../../Components/common/Card/card.component";
 import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
 import Data from "../../Core/services/Fake Service/Blogs";
 import { Button } from "../../Components/common/button-component/button.component";
+import { useState } from "react";
+
+const cardPerRow = 3;
 
 const BlogsPage = () => {
-  const { cards } = Data;
+  const { blogs } = Data;
+  const [nextCard, setNextCard] = useState(cardPerRow);
+  const handleMoreCard = () => {
+    setNextCard(nextCard + cardPerRow);
+  };
+
   return (
     <section>
       <div className="container m-auto">
@@ -79,64 +87,67 @@ const BlogsPage = () => {
           </div>
         </div>
         <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10 ml-60 mt-10 w-[80%]">
-          {cards
-            .filter((card, idx) => idx < 6)
-            .map((card) => (
-              <Card
-                showImage
-                showStruc
-                classCard="m-auto text-gray-500 shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col"
-                key={card.id}
-                imageUrl={require("../../Assets/code.jpg")}
-                classImage="rounded-t-lg w-full"
-                classMainImg="m-auto w-full"
-                cardBody="w-80 mx-6 order-last"
-                role={card.title}
-                classRole="text-right font-bold text-xl text-gray-900"
-              >
-                <div className="mx-6 my-5">
-                  <div className="flex justify-between">
-                    <div className="flex items-center">
-                      <BsFillCircleFill className="w-2 text-[#1F18DB]" />
-                      <h3 className="text-[#636363] mr-3">
-                        زمان مطالعه: {card.readTime} دقیقه
-                      </h3>
-                    </div>
-                    <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
-                      محبوب ترین
-                    </div>
-                  </div>
+          {blogs.slice(0, nextCard).map((card) => (
+            <Card
+              showImage
+              showStruc
+              classCard="m-auto text-gray-500 shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col"
+              key={card.id}
+              imageUrl={require("../../Assets/code.jpg")}
+              classImage="rounded-t-lg w-full"
+              classMainImg="m-auto w-full"
+              cardBody="w-80 mx-6 order-last"
+              role={card.title}
+              classRole="text-right font-bold text-xl text-gray-900"
+            >
+              <div className="mx-6 my-5">
+                <div className="flex justify-between">
                   <div className="flex items-center">
-                    <BsFillCircleFill className="w-2 text-[#DB1818]" />
-                    <h3 className="text-[#636363] mr-3">{card.date}</h3>
+                    <BsFillCircleFill className="w-2 text-[#1F18DB]" />
+                    <h3 className="text-[#636363] mr-3">
+                      زمان مطالعه: {card.readTime} دقیقه
+                    </h3>
+                  </div>
+                  <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
+                    محبوب ترین
                   </div>
                 </div>
-                <div className="mx-6 order-last mt-10 mb-5">
-                  <div className="flex justify-between">
-                    <div className="flex items-center">
-                      <img
-                        src={require("../../Assets/profile.png")}
-                        className="w-10 rounded-full"
-                        alt=""
-                      />
-                      <h3 className="text-[#636363] pr-2">{card.people}</h3>
-                    </div>
-                    <div className="text-[#636363] flex items-center">
-                      <BsHeart className="pb-1" />
-                      <h3 className="text-sm">{card.like}</h3>
-                      <BsEye className="pb-1" />
-                      <h3 className="text-sm">{card.view}</h3>
-                    </div>
+                <div className="flex items-center">
+                  <BsFillCircleFill className="w-2 text-[#DB1818]" />
+                  <h3 className="text-[#636363] mr-3">{card.date}</h3>
+                </div>
+              </div>
+              <div className="mx-6 order-last mt-10 mb-5">
+                <div className="flex justify-between">
+                  <div className="flex items-center">
+                    <img
+                      src={require("../../Assets/profile.png")}
+                      className="w-10 rounded-full"
+                      alt=""
+                    />
+                    <h3 className="text-[#636363] pr-2">{card.people}</h3>
+                  </div>
+                  <div className="text-[#636363] flex items-center">
+                    <BsHeart className="pb-1" />
+                    <h3 className="text-sm">{card.like}</h3>
+                    <BsEye className="pb-1" />
+                    <h3 className="text-sm">{card.view}</h3>
                   </div>
                 </div>
-              </Card>
-            ))}
+              </div>
+            </Card>
+          ))}
         </div>
-        <div className="w-full my-20">
-          <Button classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150">
-            بیشتر
-          </Button>
-        </div>
+        {nextCard < blogs.length && (
+          <div className="w-full my-20">
+            <Button
+              onClick={handleMoreCard}
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+            >
+              بیشتر
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   );
