@@ -23,7 +23,6 @@ module.exports = {
         "comment-fill": "url('Assets/chat-left-text-fill-white.svg')",
         "lines-dash": "url('Assets/img/lines-dash.svg')",
       },
-<<<<<<< HEAD
       height:{
         "400": "400px",
         "450": "450px",
@@ -34,16 +33,6 @@ module.exports = {
         "700": "700px",
         "750": "750px",
         "800": "800px",
-=======
-      height: {
-        400: "400px",
-        450: "450px",
-        500: "500px",
-        550: "550px",
-        600: "600px",
-        650: "650px",
-        700: "700px",
->>>>>>> af03d341ba9325b2e6cce8b1bf4efed6292c43c2
       },
       colors: {
         "deep-purple": "#422F7E",

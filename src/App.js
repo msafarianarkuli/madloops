@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import "./App.css";
 import Navigation from "../src/Components/Navigation/navigation.component";
 import LandingBlog from "./Components/content/Landing-Blog/landing-blog.component";
@@ -12,28 +11,15 @@ import SingleBlog from "./Screens/Single-Blog/single-blog.component";
 // imports
 import Card from "./Components/common/Card/Card";
 import LandingOffers from "./Components/content/Landing-Offers/landing-offers.component";
-=======
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Navigation from '../src/Components/Navigation/navigation.component';
-import LandingPage from './Screens/Landing/landing-page.component';
-import BlogsPage from './Screens/Blogs/blogs-page.component';
-import Footer from './Components/Footer/footer.component';
-import ContactUs from './Screens/ContactUs/ContactUs';
-import CoursesPage from './Screens/Courses/courses-page.component';
-import SingleCourse from './Screens/SingleCourse/SingleCourse';
->>>>>>> af03d341ba9325b2e6cce8b1bf4efed6292c43c2
 
 const App = () => {
   return (
     <div className="App">
-<<<<<<< HEAD
       <Navigation />
       <SingleBlog />
       {/* <LandingHeader /> */}
       {/* <LandingServices /> */}
       {/* <LandingTeacher/> */}
-=======
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />
@@ -49,7 +35,6 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
->>>>>>> af03d341ba9325b2e6cce8b1bf4efed6292c43c2
 
       <Footer />
     </div>
