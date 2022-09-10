@@ -52,7 +52,7 @@ const CardGridListView = ({ item, view }) => {
             : "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-end absolute top-2 left-2"
         }
       >
-        ضپط شده
+        {item.archive}
       </div>
       {!view ? (
         <div className="mx-6 my-5 order-3">
@@ -119,7 +119,7 @@ const CardGridListView = ({ item, view }) => {
             </div>
             <div className="flex items-center mr-3 text-[#636363]">
               <BsEye className="w-3" />
-              <h3 className="text-sm pt-1 pr-1">123</h3>
+              <h3 className="text-sm pt-1 pr-1">{item.view}</h3>
             </div>
           </div>
         </div>
