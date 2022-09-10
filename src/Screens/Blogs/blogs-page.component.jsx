@@ -4,7 +4,6 @@ import "./blogs.styles.scss";
 import { Card } from "./../../Components/common/Card/card.component";
 import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
 import Data from "../../Core/services/Fake Service/Blogs";
-import { useState } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
 
 const BlogsPage = () => {

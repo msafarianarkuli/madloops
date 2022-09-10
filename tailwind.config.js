@@ -1,7 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/tw-elements/dist/js/**/*.js",
+  ],
   theme: {
     extend: {
       screens: {
@@ -23,14 +26,14 @@ module.exports = {
         "comment-fill": "url('Assets/chat-left-text-fill-white.svg')",
         "lines-dash": "url('Assets/img/lines-dash.svg')",
       },
-      height:{
-        "400": "400px",
-        "450": "450px",
-        "500": "500px",
-        "550": "550px",
-        "600": "600px",
-        "650": "650px",
-        "700": "700px",
+      height: {
+        400: "400px",
+        450: "450px",
+        500: "500px",
+        550: "550px",
+        600: "600px",
+        650: "650px",
+        700: "700px",
       },
       colors: {
         "deep-purple": "#422F7E",
@@ -40,5 +43,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tw-elements/dist/plugin")],
 };
