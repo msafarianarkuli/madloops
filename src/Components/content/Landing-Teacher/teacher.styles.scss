@@ -1,52 +1,28 @@
-.swiper-v .swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-v .swiper-slide {
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.swiper-v .swiper-wrapper {
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
   align-items: center;
+  width: 100% !important;
+}
+.swiper-v .swiper-slide {
+  width: 13% !important;
 }
 
-// .swiper-v .swiper-slide img {
-//   display: block;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
+.swiper-v .swiper-slide-active {
+  width: 60% !important;
+}
+// .animate-card {
+//   animation: identifier 1s;
 // }
 
-.swiper-v .swiper-slide {
-  width: 20%;
-}
-.swiper-v .swiper-slide-active {
-  width: 60%;
-}
-.animate-card {
-  animation: identifier 1s;
-}
-
-@keyframes identifier {
-  0% {
-    // transform: translateY(90%);
-    width: 0;
-    height: 275px;
-  }
-  100% {
-    width: 100%;
-    height: 275px;
-  }
-}
+// @keyframes identifier {
+//   0% {
+//     // transform: translateY(90%);
+//     width: 0;
+//     height: 275px;
+//   }
+//   100% {
+//     width: 100%;
+//     height: 275px;
+//   }
+// }

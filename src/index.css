@@ -2,24 +2,46 @@ body {
   direction: rtl;
   box-sizing: border-box;
   margin: 0;
-  font-family:"roya", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'roya', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New" ,"roya",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    'roya', monospace;
 }
 
 @font-face {
-  font-family: "iran-sans";
-  src: url("/src/Assets/font/Iranian\ Sans.ttf") format("truetype"),
+  font-family: 'iran-sans';
+  src: url('/src/Assets/font/Iranian\ Sans.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "roya";
-  src: url("/src/Assets/font/Far_Roya.ttf") format("truetype"),
+  font-family: 'roya';
+  src: url('/src/Assets/font/Far_Roya.ttf') format('truetype');
+}
+
+.faq-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.faq-container::-webkit-scrollbar-track {
+  /* background: #f1f1f1; */
+  border: 1px solid #e7e7e7;
+  border-radius: 30px;
+}
+
+/* Handle */
+.faq-container::-webkit-scrollbar-thumb {
+  background: #dddddd;
+  border-radius: 30px;
+}
+
+/* Handle on hover */
+.faq-container::-webkit-scrollbar-thumb:hover {
+  background: rgb(177, 177, 177);
 }

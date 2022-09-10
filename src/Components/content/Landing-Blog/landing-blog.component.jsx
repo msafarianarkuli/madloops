@@ -1,13 +1,18 @@
 import { FieldName } from "./../../common/field-name-component/field-name.component";
 import { Button } from "./../../common/button-component/button.component";
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill, BsArrowRight, BsArrowLeft } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper";
-import "./landing-blog.styles.scss";
+import SwiperCore, { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import useSwiperRef from "./swiper-wrapper-button";
+
+SwiperCore.use([Navigation]);
 
 const LandingBlog = () => {
+  const [nextEl, nextElRef] = useSwiperRef();
+  const [prevEl, prevElRef] = useSwiperRef();
+
   return (
     <div className="container m-auto relative">
       <div className="text-center mt-5">
@@ -23,10 +28,13 @@ const LandingBlog = () => {
       <Button classButton="hidden 2xl:absolute 2xl:top-56 2xl:left-1 xl:absolute xl:top-56 xl:left-0 lg:absolute lg:top-60 lg:left-0 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
         همه مطالب
       </Button>
+
       <Swiper
-        navigation={true}
-        modules={[Navigation]}
-        className="mySwiper swiper-h sm:mt-6 rounded z-0"
+        className="external-slider sm:mt-6 rounded z-0 relative"
+        navigation={{
+          prevEl,
+          nextEl,
+        }}
       >
         <SwiperSlide>
           <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
@@ -96,7 +104,20 @@ const LandingBlog = () => {
         </SwiperSlide>
         <SwiperSlide>salam</SwiperSlide>
         <SwiperSlide>salam</SwiperSlide>
+        <div
+          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] sm:top-[80%] md:left-1 sm:left-5 text-3xl rounded-full transition ease-in-out duration-500 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-125"
+          ref={nextElRef}
+        >
+          <BsArrowLeft className="w-full h-full text-[#929292]" />
+        </div>
+        <div
+          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] md:right-1 sm:top-[80%] sm:right-[80%] text-3xl rounded-full transition ease-in-out duration-500 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-125"
+          ref={prevElRef}
+        >
+          <BsArrowRight className="w-full h-full text-[#929292]" />
+        </div>
       </Swiper>
+
       <Button classButton="text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
         همه مطالب
       </Button>
