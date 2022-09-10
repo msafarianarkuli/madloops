@@ -10,7 +10,7 @@ import CourceImproperTo from '../../Components/content/SingleCourse/CourceImprop
 import Tab from '../../Components/common/tabs/Tab';
 
 const details = [];
-const SingleBlog = () => {
+const SingleCourse = () => {
   return (
     <div className="grid grid-cols-1 xl:grid-cols-8 gap-6 p-6">
       <div className="xl:col-span-6 bg-zinc-50 custom-shadow">
@@ -60,4 +60,4 @@ const SingleBlog = () => {
   );
 };
 
-export default SingleBlog;
+export default SingleCourse;

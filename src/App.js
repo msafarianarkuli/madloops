@@ -1,11 +1,12 @@
-import "./App.css";
-import { Route, Routes } from "react-router-dom";
-import Navigation from "../src/Components/Navigation/navigation.component";
-import LandingPage from "./Screens/Landing/landing-page.component";
-import BlogsPage from "./Screens/Blogs/blogs-page.component";
-import Footer from "./Components/Footer/footer.component";
-import ContactUs from "./Screens/ContactUs/ContactUs";
-import CoursesPage from "./Screens/Courses/courses-page.component";
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Navigation from '../src/Components/Navigation/navigation.component';
+import LandingPage from './Screens/Landing/landing-page.component';
+import BlogsPage from './Screens/Blogs/blogs-page.component';
+import Footer from './Components/Footer/footer.component';
+import ContactUs from './Screens/ContactUs/ContactUs';
+import CoursesPage from './Screens/Courses/courses-page.component';
+import SingleCourse from './Screens/SingleCourse/SingleCourse';
 
 const App = () => {
   return (
@@ -16,8 +17,8 @@ const App = () => {
           <Route path="blogs" element={<BlogsPage />} />
           <Route path="course" element={<CoursesPage />} />
           <Route path="contactUs" element={<ContactUs />} />
-          {/* <Route path="single-blog" element={<SingleBlogPage />} /> 
-           <Route path="single-course" element={<SingleCoursePage />} />
+          <Route path="single-course" element={<SingleCourse />} />
+          {/* <Route path="single-blog" element={<SingleBlogPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
