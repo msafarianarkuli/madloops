@@ -1,5 +1,6 @@
 import Data from "../../../Core/services/Fake Service/Teacher";
 import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
+import { BsPlayFill } from "react-icons/bs";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
 import { Button } from "./../../common/button-component/button.component";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,10 +8,13 @@ import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./teacher.styles.scss";
+import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
+SwiperCore.use([Autoplay, Navigation]);
 
 const LandingTeacher = () => {
   const { teachers } = Data;
-  SwiperCore.use([Autoplay, Navigation]);
+  const [nextEl, nextElRef] = useSwiperRef();
+  const [prevEl, prevElRef] = useSwiperRef();
 
   return (
     <section>
@@ -20,46 +24,51 @@ const LandingTeacher = () => {
             showH2
             showP
             classH2Field="text-neutral-900 font-bold sm:text-3xl text-xl mr-4"
-            title="مقالات و خبر ها"
+            title="اساتید برتر"
             classPfield="text-slate-400 sm:text-base text-xs mt-2"
-            field="با خبر های ما بروز باشید"
+            field="با اساتید برتر آشنا شوید."
           />
         </div>
         <Swiper
-          className="mySwiper swiper-v mt-20"
+          className="swiper-v mt-20"
           autoplay={{
             delay: 3000,
             disableOnInteraction: false,
           }}
-          slidesPerView={"auto"}
           initialSlide={2}
-          spaceBetween={20}
+          freeMode={true}
+          slidesPerView={5}
+          roundLengths={true}
+          spaceBetween={0}
           navigation={{
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
+            nextEl,
+            prevEl,
           }}
           breakpoints={{
             0: {
-              slidesPerView: 1,
+              slidesPerView: 5,
             },
             640: {
-              slidesPerView: 2,
-              spaceBetween: 10,
+              slidesPerView: 5,
+              spaceBetween: 80,
             },
             768: {
-              slidesPerView: 2,
-              spaceBetween: 15,
+              slidesPerView: 5,
+              spaceBetween: 60,
             },
             1024: {
-              slidesPerView: "auto",
-              spaceBetween: 10,
+              slidesPerView: 5,
+              spaceBetween: 40,
+            },
+            1280: {
+              slidesPerView: 5,
             },
           }}
           centerInsufficientSlides={true}
           centeredSlides={true}
         >
           {teachers.map((item, index) => (
-            <SwiperSlide className="flex my-auto" key={item.id}>
+            <SwiperSlide className="flex" key={item.id}>
               {({ isActive, isPrev, isNext }) =>
                 isActive ? (
                   <div className="grid lg:grid-cols-2 w-full animate-card rounded-3xl bg-[#F4F5F9]">
@@ -121,8 +130,8 @@ const LandingTeacher = () => {
                       isActive
                         ? "m-auto inline-block rounded-full p-5 bg-gray-200 cursor-pointer hover:bg-slate-400 transition  ease-in delay-200 hover:transition hover:ease-out hover:delay-200"
                         : isPrev || isNext
-                        ? "m-auto inline-block rounded-full p-5 opacity-75 bg-gray-200"
-                        : "m-auto inline-block rounded-full p-5 opacity-50 bg-gray-200"
+                        ? "m-auto inline-block rounded-full w-32 p-3 opacity-75 bg-gray-200"
+                        : "m-auto inline-block rounded-full w-16 p-2 opacity-50 bg-gray-200"
                     }
                   >
                     <img
@@ -141,6 +150,24 @@ const LandingTeacher = () => {
               }
             </SwiperSlide>
           ))}
+          <div className="flex justify-center mt-10">
+            <div
+              className="w-14 h-14 p-1 bg-[#E3E3E3] cursor-pointer rounded-full transition ease-in-out duration-500 hover:bg-[#C6ECE4] group"
+              ref={prevElRef}
+            >
+              <div className="bg-[#F4F5F9] w-12 h-12 rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
+                <BsPlayFill className="w-full h-full -mx-[3px] rounded-sm text-9xl transition ease-in-out duration-500 text-[#707070] group-hover:text-white" />
+              </div>
+            </div>
+            <div
+              className="rotate-180 mr-5 w-14 h-14 p-1 bg-[#E3E3E3] cursor-pointer rounded-full transition ease-in-out duration-500 hover:bg-[#C6ECE4] group"
+              ref={nextElRef}
+            >
+              <div className="bg-[#F4F5F9] w-12 h-12 rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
+                <BsPlayFill className="w-full h-full -mx-[3px] rounded-sm text-9xl transition ease-in-out duration-500 text-[#707070] group-hover:text-white" />
+              </div>
+            </div>
+          </div>
         </Swiper>
       </div>
     </section>

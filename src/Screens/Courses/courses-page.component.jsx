@@ -1,20 +1,9 @@
-import {
-  BsDashLg,
-  BsFillGrid3X3GapFill,
-  BsListUl,
-  BsFilter,
-  BsFillStarFill,
-  BsPerson,
-  BsPeople,
-  BsFillCircleFill,
-  BsClock,
-} from "react-icons/bs";
+import { BsDashLg, BsFilter } from "react-icons/bs";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
 import { useState } from "react";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/CoursesPage";
-import Accordion from "../../Components/common/accordion.component";
 import CardGridListView from "../../Components/common/CardGridAndList-view.component";
 import GridAndList from "./../../Components/common/gridAndList-item.component";
 
