@@ -7,13 +7,13 @@ import CoursePrice from '../../Components/content/SingleCourse/CoursePrice';
 import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrerequisite';
 import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
-import Tab from '../../Components/common/tabs/Tab';
+import CustomTab from '../../Components/common/tabs/CustomTab';
 
 const details = [];
 const SingleCourse = () => {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-8 gap-6 p-6">
-      <div className="xl:col-span-6 bg-zinc-50 custom-shadow">
+    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2">
+      <div className="xl:col-span-9 bg-zinc-50 custom-shadow">
         <div className="rounded-lg overflow-hidden ">
           <img src={singleCourseImg} />
           <div className="px-4 lg:px-16">
@@ -42,10 +42,10 @@ const SingleCourse = () => {
               قرار گیرد.
             </p>
           </div>
-          <Tab />
+          <CustomTab />
         </div>
       </div>
-      <div className="xl:col-span-2">
+      <div className="xl:col-span-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-1">
           <CourseDetails />
           <CourseOpacity />
