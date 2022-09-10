@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 
 const Data = {
-  cards: [
+  blogs: [
     {
       id: uuidv4(),
       people: "جمشید هاشم پور",
