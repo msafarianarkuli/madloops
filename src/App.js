@@ -6,6 +6,7 @@ import LandingPage from "./Screens/Landing/landing-page.component";
 import BlogsPage from "./Screens/Blogs/blogs-page.component";
 import LandingTeacher from "./Components/content/Landing-Teacher/teacher.component";
 import LandingServices from "./Components/content/Landing-Services/landing-services.component";
+import SingleBlog from "./Screens/Single-Blog/single-blog.component";
 
 // imports
 import Card from "./Components/common/Card/Card";
@@ -15,8 +16,9 @@ const App = () => {
   return (
     <div className="App">
       <Navigation />
-      <LandingHeader />
-      <LandingServices />
+      <SingleBlog />
+      {/* <LandingHeader /> */}
+      {/* <LandingServices /> */}
       {/* <LandingTeacher/> */}
 
       {/* <BlogsPage /> */}
