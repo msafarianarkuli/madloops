@@ -111,7 +111,12 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
           </div>
         )}
         {replies.map((reply) => (
-          <Comment2 key={replies.id} />
+          <Comment2
+            key={replies.id}
+            info={reply}
+            onLike={onLike}
+            onDisLike={onDisLike}
+          />
         ))}
       </div>
     </>

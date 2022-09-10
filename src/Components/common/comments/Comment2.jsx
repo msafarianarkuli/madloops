@@ -1,44 +1,72 @@
-import React from 'react';
-import profile from '../../../Assets/profile.png';
-import like from '../../../Assets/likee.png';
-import likeFill from '../../../Assets/likesolid.png';
-import disLike from '../../../Assets/dislikee.png';
-const Comment2 = () => {
+import React, { useState, useRef } from 'react';
+import user from '../../../Assets/user.png';
+import likeFillIcon from '../../../Assets/likee.png';
+import likeIcon from '../../../Assets/likesolid.png';
+import disLikeFillIcon from '../../../Assets/dislikee.png';
+import disLikeIcon from '../../../Assets/dislikesolid.png';
+const Comment2 = ({ info, onDisLike, onLike }) => {
+  const {
+    id,
+    refId,
+    userName,
+    date,
+    time,
+    body,
+    liked,
+    disLiked,
+    likeCount,
+    disLikeCount,
+  } = info;
+
   return (
     <>
-      <div className="border-2 border-[#7F56DA] rounded-xl mb-3">
-        <div className="flex justify-between p-5">
+      <div
+        className="border-2 border-[#7F56DA] rounded-xl p-3 mb-3"
+        dir="rtl"
+      >
+        <div className="flex justify-between">
           <div className="flex">
             <img
-              src={profile}
+              src={user}
               alt=""
-              className="w-14 h-14 rounded-full ml-3"
+              className="w-8 h-8 sm:w-14 sm:h-14 rounded-full ml-3"
             />
             <div className="flex flex-col">
-              <p className="text-2xl mb-1">میکائیل محسنی</p>
+              <p className="text-lg sm:text-xl lg:text-2xl mb-1">
+                {userName}
+              </p>
               <div className="flex">
-                <p className="text-sm text-gray-400 ml-4">
-                  16 خرداد 1401
+                <p className="text-xs sm:text-sm text-gray-400 ml-4">
+                  {date}
                 </p>
-                <p className="text-sm text-gray-400">14:53</p>
+                <p className="text-xs sm:text-sm text-gray-400">
+                  {time}
+                </p>
               </div>
             </div>
           </div>
           <div className="flex items-center text-gray-400 text-lg">
-            <span className="mx-2 mb-2">4</span>
-            <img src={like} className="w-8 h-8 mb-5" />{' '}
-            <span className="mx-2 mb-2">12</span>
-            <img src={disLike} className="w-8 h-8" />{' '}
+            <span className="mr-2 ml-1 mb-1">
+              {likeCount === 0 ? ' ' : likeCount}
+            </span>
+            <img
+              src={liked ? likeFillIcon : likeIcon}
+              className="w-6 h-6 mb-3"
+              onClick={() => onLike(id)}
+            />
+            <span className="mr-2 ml-1 mb-1">
+              {disLikeCount === 0 ? ' ' : disLikeCount}
+            </span>
+            <img
+              src={disLiked ? disLikeFillIcon : disLikeIcon}
+              className="w-6 h-6"
+              onClick={() => onDisLike(id)}
+            />
           </div>
         </div>
-        <div>
-          <p className="text-xl text-gray-400 mt-2 mb-3 mr-8">
-            پروژه محور و کاربردی آموزش داده میشه تا شما عزیزان مطابق
-            با نیاز بازار کار، نمونه کار حرفه ای داشته باشید. (حالا
-            باید فهمیده باشید چرا اسم دوره رو گذاشتم هیولای
-            جاوااسکریپت)
-          </p>
-        </div>
+        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8">
+          {body}
+        </p>
       </div>
     </>
   );

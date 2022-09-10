@@ -237,7 +237,7 @@ const CustomTab = () => {
               ))}
             </TabPanel>
             <TabPanel>
-              {comments.map((comment) => (
+              {refrence.map((comment) => (
                 <Comment
                   key={comment.id}
                   info={comment}
