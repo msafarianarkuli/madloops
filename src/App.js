@@ -6,7 +6,7 @@ import BlogsPage from './Screens/Blogs/blogs-page.component';
 import Footer from './Components/Footer/footer.component';
 import ContactUs from './Screens/ContactUs/ContactUs';
 import CoursesPage from './Screens/Courses/courses-page.component';
-import SingleCourse from './Screens/SingleCourse/SingleBlog';
+import SingleCourse from './Screens/SingleCourse/SingleCourse';
 
 const App = () => {
   return (
