@@ -6,7 +6,7 @@ const CourseOpacity = () => {
       <div className="course-detail-title-box">
         <p className="course-detail-title">ظرفیت</p>
       </div>
-      <div className="flex justify-between text-gray-400 text-lg py-2 px-5 bg-zinc-200">
+      <div className="course-detail-item-odd">
         <div className="flex items-center">
           <FaUsers />
           <p className="mr-3">ظرفیت کل دوره</p>
@@ -15,7 +15,7 @@ const CourseOpacity = () => {
           <p>100</p>
         </div>
       </div>
-      <div className="flex justify-between text-gray-400 bg-zinc-50 text-lg py-2 px-5">
+      <div className="course-detail-item-even">
         <div className="flex items-center">
           <FaUserGraduate />
           <p className="mr-3">تعداد دانشجویان دوره:</p>

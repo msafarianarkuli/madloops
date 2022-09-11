@@ -7,7 +7,7 @@ const CourseTeacher = () => {
       <div className="course-detail-title-box">
         <p className="course-detail-title">مدرس</p>
       </div>
-      <div className="flex text-gray-400 text-lg bg-zinc-200">
+      <div className="flex text-gray-400 text-lg bg-[#E8E8E8]">
         <img src={bahr} alt="" className="w-40" />
         <div className="p-4">
           <h3 className="text-xl">استاد بحرالعلوم</h3>

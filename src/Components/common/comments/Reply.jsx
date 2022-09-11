@@ -4,7 +4,7 @@ import likeFillIcon from '../../../Assets/likee.png';
 import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
 import disLikeIcon from '../../../Assets/dislikesolid.png';
-const Comment2 = ({ info, onDisLike, onLike }) => {
+const Reply = ({ info, onDisLike, onLike }) => {
   const {
     id,
     refId,
@@ -21,7 +21,7 @@ const Comment2 = ({ info, onDisLike, onLike }) => {
   return (
     <>
       <div
-        className="border-2 border-[#7F56DA] rounded-xl p-3 mb-3"
+        className="border-2 border-[#7F56DA] rounded-xl p-3 my-3"
         dir="rtl"
       >
         <div className="flex justify-between">
@@ -51,7 +51,7 @@ const Comment2 = ({ info, onDisLike, onLike }) => {
             </span>
             <img
               src={liked ? likeFillIcon : likeIcon}
-              className="w-6 h-6 mb-3"
+              className="w-5 h-5 sm:w-6 sm:h-6 mb-3"
               onClick={() => onLike(id)}
             />
             <span className="mr-2 ml-1 mb-1">
@@ -59,7 +59,7 @@ const Comment2 = ({ info, onDisLike, onLike }) => {
             </span>
             <img
               src={disLiked ? disLikeFillIcon : disLikeIcon}
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
               onClick={() => onDisLike(id)}
             />
           </div>
@@ -72,4 +72,4 @@ const Comment2 = ({ info, onDisLike, onLike }) => {
   );
 };
 
-export default Comment2;
+export default Reply;

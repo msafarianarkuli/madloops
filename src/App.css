@@ -60,20 +60,20 @@
     @apply custom-shadow rounded-lg mb-8 overflow-hidden;
   }
   .course-detail-title-box {
-    @apply bg-zinc-50 py-3;
+    @apply bg-[#F9F9FF] py-3;
   }
   .course-detail-title {
     @apply text-center font-bold text-xl;
   }
   .course-detail-item-odd {
-    @apply flex justify-between text-gray-400 bg-zinc-200 text-lg py-2 px-5;
+    @apply flex justify-between text-gray-400 bg-[#E8E8E8] text-lg py-2 px-5;
   }
   .course-detail-item-even {
-    @apply flex justify-between text-gray-400 bg-zinc-50 text-lg py-2 px-5;
+    @apply flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5;
   }
 
   .tab {
-    @apply px-4 font-semibold py-2 rounded-t-xl border-t-2 border-r-2 border-l-2 -mb-[1px] ml-3;
+    @apply px-2 lg:px-4 font-semibold py-2 rounded-t-xl border-t-2 border-r-2 border-l-2 -mb-[1px] ml-3;
   }
 
   .tab-active {
@@ -82,5 +82,25 @@
 
   .tab-disabled {
     @apply border-b-2 border-b-[#7F56DA] border-t-gray-400 border-l-gray-400 border-r-gray-400 text-gray-400;
+  }
+
+  .circle {
+    @apply rounded-full;
+  }
+
+  .circleBig {
+    @apply w-6 h-6 flex justify-center items-center;
+  }
+
+  .circleSmall {
+    @apply w-4 h-4;
+  }
+
+  .circleOdd {
+    @apply bg-[#F9F9FF];
+  }
+
+  .circleEven {
+    @apply bg-[#E8E8E8];
   }
 }
