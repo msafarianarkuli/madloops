@@ -7,7 +7,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2017-03-25',
+      likeCount: 300,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -18,7 +19,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2011-03-25',
+      likeCount: 60,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -29,7 +31,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2003-03-25',
+      likeCount: 255,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -40,7 +43,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2022-03-25',
+      likeCount: 400,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -51,7 +55,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2012-03-25',
+      likeCount: 50,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -62,7 +67,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2010-03-25',
+      likeCount: 47,
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
@@ -73,7 +79,8 @@ const Data = {
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
       teacher: 'مازیار قلی پور',
-      date: '4/5/6',
+      date: '2015-03-25',
+      likeCount: 15,
       price: 999.999,
       numberOfStudents: 50,
       archive: false,
