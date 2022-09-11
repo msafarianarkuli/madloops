@@ -30,7 +30,7 @@ const CardGridListView = ({ item, view }) => {
       classMainImg={
         view ? "h-64 w-auto md:w-1/2 sm:w-2/4" : "m-auto w-full h-52"
       }
-      cardBody={!view ? "w-80 mx-6 mt-5" : "w-100 h-[50%] mr-6 mt-4"}
+      cardBody={!view ? "w-80 mx-6 mt-5" : "w-100 h-[50%] sm:mr-3 mr-6 mt-4"}
       role={item.title}
       classRole={
         view
@@ -68,7 +68,7 @@ const CardGridListView = ({ item, view }) => {
           </div>
         </div>
       ) : (
-        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[44%] xl:right-[39%] lg:right-[33%] sm:right-[25%]">
+        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[80%] xl:right-[39%] lg:right-[33%] sm:right-[25%]">
           <div className="flex sm:justify-start sm:m-0 my-3">
             <div className="flex items-center ml-4">
               <BsPerson className="w-5" />

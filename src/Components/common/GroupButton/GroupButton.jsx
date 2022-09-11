@@ -9,6 +9,7 @@ const GroupButton = ({ items, width }) => {
     setSelectedGroupBtn(item);
     setOpenGroupBtn(false);
   };
+
   const GroupBtnClassLg = (item, index) => {
     const classList = [];
     classList.push(selectedGroupBtn === item ? "groupBtn-active" : "");
