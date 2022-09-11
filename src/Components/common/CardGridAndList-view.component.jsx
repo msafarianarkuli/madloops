@@ -63,12 +63,12 @@ const CardGridListView = ({ item, view }) => {
             </div>
             <div className="flex items-center mr-4">
               <BsClock className="w-3 text-[#4C0FFB]" />
-              <h3 className="text-[#636363] mr-3 pt-1">{item.date} ساعت</h3>
+              <h3 className="text-[#636363] mr-3 pt-1">{item.hour} ساعت</h3>
             </div>
           </div>
         </div>
       ) : (
-        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[80%] xl:right-[39%] lg:right-[33%] sm:right-[25%]">
+        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[45%] xl:right-[39%] lg:right-[33%] sm:right-[25%]">
           <div className="flex sm:justify-start sm:m-0 my-3">
             <div className="flex items-center ml-4">
               <BsPerson className="w-5" />
@@ -88,7 +88,7 @@ const CardGridListView = ({ item, view }) => {
             <BsFillStarFill className="text-[#F9A134] mt-2" />
             <BsFillStarFill className="text-[#F9A134] mt-2" />
             <BsFillStarFill className="text-[#F9A134] mt-2" />
-            <h3 className="text-[#3A3737] pt-2 pr-2">{item.rate}</h3>
+            <h3 className="text-[#3A3737] pt-2 pr-2">{item.likeCount}</h3>
             <h5 className="text-[#605d5d] pt-3 pr-2 text-xs">(145,236)</h5>
           </div>
 
@@ -96,7 +96,7 @@ const CardGridListView = ({ item, view }) => {
             <div className="flex items-center">
               <BsClock className="w-2 text-[#4C0FFB]" />
               <h3 className="text-[#636363] text-sm w-16 mr-2 pt-1">
-                {item.date} ساعت
+                {item.hour} ساعت
               </h3>
             </div>
             <div className="flex items-center">
@@ -115,7 +115,7 @@ const CardGridListView = ({ item, view }) => {
           <div className="hidden justify-start sm:flex">
             <div className="flex items-center">
               <BsFillCircleFill className="w-1 text-[#1F18DB]" />
-              <h3 className="text-[#636363] mr-1 text-sm pt-1">1401/2/4</h3>
+              <h3 className="text-[#636363] mr-1 text-sm pt-1">{item.date}</h3>
             </div>
             <div className="flex items-center mr-3 text-[#636363]">
               <BsEye className="w-3" />
@@ -142,7 +142,7 @@ const CardGridListView = ({ item, view }) => {
               <BsFillStarFill className="text-[#F9A134] m-auto" />
               <h3 className="text-[#3A3737] pt-2 pr-2">
                 <p className="text-[#6C757D] inline-block">5 / </p>
-                {item.rate}
+                {item.likeCount}
               </h3>
             </div>
           </div>
@@ -169,7 +169,7 @@ const CardGridListView = ({ item, view }) => {
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
-              <h3 className="text-[#3A3737] pt-2 pr-2">{item.rate}</h3>
+              <h3 className="text-[#3A3737] pt-2 pr-2">{item.likeCount}</h3>
               <h5 className="text-[#605d5d] pt-3 pr-2 text-xs sm:block hidden">
                 (145,236)
               </h5>

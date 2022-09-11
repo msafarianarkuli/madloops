@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button } from '../../common/button-component/button.component';
-import GroupButton from '../../common/GroupButton/GroupButton';
-import LandingTitle from '../../common/LandingTitle/LandingTitle';
-import Data from '../../../Core/services/Fake Service/Cources';
-import CardAI from './../../common/Card/Card';
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from "../../common/button-component/button.component";
+import GroupButton from "../../common/GroupButton/GroupButton";
+import LandingTitle from "../../common/LandingTitle/LandingTitle";
+import Data from "../../../Core/services/Fake Service/Cources";
+import CardAI from "./../../common/Card/Card";
 import {
   handleLikeSorting,
-  handleDateSorting,
-} from '../../../Core/utils/sorting';
+  handleDateSortingDes,
+} from "../../../Core/utils/sorting";
 const LandingCource = () => {
   const { courses } = Data;
   const [groupBtnList] = useState([
-    { id: 1, title: 'همه', type: 'all' },
-    { id: 2, title: 'جدیدترین دوره ها', type: 'new' },
-    { id: 3, title: 'محبوب ترین دوره ها', type: 'like' },
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "جدیدترین دوره ها", type: "new" },
+    { id: 3, title: "محبوب ترین دوره ها", type: "like" },
   ]);
   const [filterCourses, setFilterCourses] = useState(courses);
 
   const handleSorting = (type) => {
     switch (type) {
-      case 'all':
+      case "all":
         setFilterCourses(courses);
         break;
-      case 'view':
-        console.log('view');
+      case "view":
+        console.log("view");
         break;
-      case 'new':
-        setFilterCourses(handleDateSorting(courses, 5));
+      case "new":
+        setFilterCourses(handleDateSortingDes(courses, 5));
         break;
-      case 'like':
+      case "like":
         setFilterCourses(handleLikeSorting(courses, 5));
         break;
     }

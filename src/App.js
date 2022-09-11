@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />
           <Route path="blogs" element={<BlogsPage />} />
-          {/* <Route path="course" element={<CoursesPage />} /> */}
+          <Route path="course" element={<CoursesPage />} />
           {/* <Route path="contactUs" element={<ContactUs />} /> */}
           {/* <Route path="single-blog" element={} /> */}
           {/* <Route path="single-course" element={<SingleCourse />} />
@@ -35,10 +35,10 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
-      <SingleBlog />
+      {/* <SingleBlog /> */}
       <Footer />
     </div>
-  )
+  );
 };
 
 export default App;

@@ -1,13 +1,18 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort, BsList } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/CoursesPage";
 import CardGridListView from "../../Components/common/CardGridAndList-view.component";
 import GridAndList from "./../../Components/common/gridAndList-item.component";
 import Accordion from "./../../Components/common/Accordion/Accordion";
+import {
+  handleDateSortingDes,
+  handleLikeSorting,
+  handleViewSorting,
+} from "./../../Core/utils/sorting";
 
 const cardPerRow = 3;
 
@@ -16,11 +21,35 @@ const CoursesPage = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
-    "همه",
-    "جدیدترین ها",
-    "محبوب ترین ها",
-    "پربازدید ترین ها",
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "جدیدترین ها", type: "new" },
+    { id: 3, title: "محبوب ترین ها", type: "like" },
+    { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
+
+  const [filterCourses, setFilterCourses] = useState(courses);
+
+  const handleSorting = (type) => {
+    switch (type) {
+      case "all":
+        setFilterCourses(courses);
+        break;
+      case "view":
+        setFilterCourses(handleViewSorting(courses, 3));
+        break;
+      case "new":
+        setFilterCourses(handleDateSortingDes(courses, 2));
+        break;
+      case "like":
+        setFilterCourses(handleLikeSorting(courses, 5));
+        break;
+    }
+  };
+
+  const [nextCard, setNextCard] = useState(cardPerRow);
+  const handleMoreCard = () => {
+    setNextCard(nextCard + cardPerRow);
+  };
 
   const [filterList, setFilterList] = useState([
     { id: 1, title: "موضوع", active: true },
@@ -29,24 +58,6 @@ const CoursesPage = () => {
     { id: 4, title: "مدت زمان ویدیو", active: false },
     { id: 5, title: "حدود قیمت", active: false },
   ]);
-
-  const [nextCard, setNextCard] = useState(cardPerRow);
-  const handleMoreCard = () => {
-    setNextCard(nextCard + cardPerRow);
-  };
-
-  // const [view, setView] = useState([]);
-
-  // useEffect(() => {
-  //   setView(courses);
-  // });
-
-  // const handleSortView = () => {
-  //   const sortedData = [...view].sort((a, b) => {
-  //     return b.view > a.view ? 1 : -1;
-  //   });
-  //   setView(sortedData);
-  // };
 
   return (
     <section>
@@ -113,9 +124,9 @@ const CoursesPage = () => {
             </div>
             <div className="m-auto">
               <GroupButton
-                // onMostVisited={handleSortView}
+                onSorting={handleSorting}
                 items={groupBtnList}
-                width="xl:p-6 xl:w-52 lg:w-36 lg:p-[22px] md:w-28 md:p-[7px] sm:w-[105px] sm:p-[3px]"
+                width="sm:text-xl xl:p-6 xl:w-52 lg:w-36 lg:p-[22px] md:w-28 md:p-[7px] sm:w-[105px] sm:p-[3px]"
               />
             </div>
 
@@ -129,11 +140,11 @@ const CoursesPage = () => {
               : "sm:mt-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]"
           }
         >
-          {courses.slice(0, nextCard).map((item) => (
+          {filterCourses.slice(0, nextCard).map((item) => (
             <CardGridListView item={item} key={item.id} view={showGrid} />
           ))}
         </div>
-        {nextCard < courses.length && (
+        {nextCard < filterCourses.length && (
           <div className="w-full my-20">
             <Button
               onClick={handleMoreCard}
