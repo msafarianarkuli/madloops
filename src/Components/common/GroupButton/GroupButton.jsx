@@ -1,26 +1,35 @@
-import React, { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 
-const GroupButton = ({ items, width }) => {
+const GroupButton = ({ items, width, onSorting }) => {
   const [openGroupBtn, setOpenGroupBtn] = useState(false);
-  const [selectedGroupBtn, setSelectedGroupBtn] = useState(items[0]);
+  const [selectedGroupBtn, setSelectedGroupBtn] = useState(
+    items[0].title
+  );
 
-  const handleGroupBtn = (item) => {
-    setSelectedGroupBtn(item);
+  const handleGroupBtn = (title) => {
+    setSelectedGroupBtn(title);
     setOpenGroupBtn(false);
   };
   const GroupBtnClassLg = (item, index) => {
     const classList = [];
-    classList.push(selectedGroupBtn === item ? "groupBtn-active" : "");
-    classList.push(index === 0 ? "groupBtn-right" : "");
-    classList.push(index === items.length - 1 ? "groupBtn-left" : "");
-    return classList.join(" , ");
+    classList.push(
+      selectedGroupBtn === item ? 'groupBtn-active' : ''
+    );
+    classList.push(index === 0 ? 'groupBtn-right' : '');
+    classList.push(index === items.length - 1 ? 'groupBtn-left' : '');
+    return classList.join(' , ');
   };
 
   const GroupBtnClassSm = (item, index) => {
     const classList = [];
-    classList.push(index === items.length - 1 ? "border-0" : "");
-    return classList.join(" , ");
+    classList.push(index === items.length - 1 ? 'border-0' : '');
+    return classList.join(' , ');
+  };
+
+  const sortAndSet = (item) => {
+    handleGroupBtn(item.title);
+    onSorting(item.type);
   };
 
   return (
@@ -28,12 +37,15 @@ const GroupButton = ({ items, width }) => {
       <div className="groupBtn-lg">
         {items.map((item, index) => (
           <button
-            key={item}
+            key={item.id}
             type="button"
-            className={`groupBtn ${GroupBtnClassLg(item, index)} ${width}`}
-            onClick={() => handleGroupBtn(item)}
+            className={`groupBtn ${GroupBtnClassLg(
+              item.title,
+              index
+            )} ${width}`}
+            onClick={() => sortAndSet(item)}
           >
-            {item}
+            {item.title}
           </button>
         ))}
       </div>
@@ -49,16 +61,19 @@ const GroupButton = ({ items, width }) => {
         </button>
         <div
           className={`groupBtn-sm-div absolute w-[95%] left-0 right-0 mx-auto bg-white z-10 ${
-            openGroupBtn ? "block" : "hidden"
+            openGroupBtn ? 'block' : 'hidden'
           }`}
         >
           {items.map((item, index) => (
             <div
-              key={item}
-              className={`groupBtn-sm-item ${GroupBtnClassSm(item, index)}`}
-              onClick={() => handleGroupBtn(item)}
+              key={item.id}
+              className={`groupBtn-sm-item ${GroupBtnClassSm(
+                item.type,
+                index
+              )}`}
+              onClick={() => sortAndSet(item)}
             >
-              {item}
+              {item.title}
             </div>
           ))}
         </div>

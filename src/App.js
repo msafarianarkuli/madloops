@@ -8,6 +8,10 @@ import BlogsPage from "./Screens/Blogs/blogs-page.component";
 import LandingTeacher from "./Components/content/Landing-Teacher/teacher.component";
 import LandingServices from "./Components/content/Landing-Services/landing-services.component";
 import SingleBlog from "./Screens/Single-Blog/single-blog.component";
+import CoursesPage from "./Screens/Courses/courses-page.component";
+import ContactUs from "./Screens/ContactUs/ContactUs";
+import SingleCourse from "./Screens/SingleCourse/SingleCourse";
+import Footer from "./Components/Footer/footer.component";
 
 // imports
 import Card from "./Components/common/Card/Card";
@@ -32,9 +36,9 @@ const App = () => {
         </Route>
       </Routes>
       <SingleBlog />
-      {/* <Footer /> */}
+      <Footer />
     </div>
-  );
+  )
 };
 
 export default App;
