@@ -7,7 +7,7 @@ const SingleBlog = () => {
     <div className="container m-auto">
       <div className="grid grid-cols-8 mt-5">
         <div className="col-span-5">
-          <div className="w-10/12 m-auto rounded-xl shadow-xl">
+          <div className="w-10/12 float-left ml-5 rounded-xl shadow-xl">
             <div className="h-96">
               <img
                 className="rounded-t-xl w-full h-96"
@@ -39,12 +39,12 @@ const SingleBlog = () => {
                       alt="profile"
                     />
                   </span>
-                  <h2 className="text-lg ml-5 mt-3">
+                  <h2 className="text-lg ml-10 mt-4">
                     میکائیل محسنی
                   </h2>
                 </div>
                 <div className="col-span-5 flex justify-between border-r-2 border-deep-purple">
-                  <div className="mt-3 mr-3 text-md">
+                  <div className="mt-4 mr-3 text-lg">
                     آیا این مطلب براتون مفید بود ؟
                   </div>
                   <div className="">a</div>
@@ -53,15 +53,15 @@ const SingleBlog = () => {
                   <div className="">
                     <FiClock className="mt-5 mr-5 text-lg text-gray-600" />
                   </div>
-                  <div className="mt-4 ml-4 text-gray-600"><span>24 تیر 1403</span></div>
+                  <div className="mt-4 ml-4 text-gray-600"><span className="text-lg">24 تیر 1403</span></div>
                 </div>
               </div>
             </div>
             <div className="h-96 bg-blue-700">e</div>
           </div>
         </div>
-        <div className="col-span-3 bg-red-500">
-          <div className="w-9/12 h-800 m-auto bg-purple-300 rounded-xl">
+        <div className="col-span-3">
+          <div className="w-9/12 h-800 ml-auto shadow-xl rounded-xl">
             <div className="h-20 flex justify-center">
                 <h2 className="text-2xl mt-5">اخبار پیشنهادی</h2>
             </div>
