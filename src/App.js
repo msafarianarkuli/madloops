@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import Navigation from "../src/Components/Navigation/navigation.component";
 import LandingBlog from "./Components/content/Landing-Blog/landing-blog.component";
@@ -15,19 +16,14 @@ import LandingOffers from "./Components/content/Landing-Offers/landing-offers.co
 const App = () => {
   return (
     <div className="App">
-      <Navigation />
-      <SingleBlog />
-      {/* <LandingHeader /> */}
-      {/* <LandingServices /> */}
-      {/* <LandingTeacher/> */}
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />
           <Route path="blogs" element={<BlogsPage />} />
-          <Route path="course" element={<CoursesPage />} />
-          <Route path="contactUs" element={<ContactUs />} />
-          <Route path="single-course" element={<SingleCourse />} />
-          {/* <Route path="single-blog" element={<SingleBlogPage />} />
+          {/* <Route path="course" element={<CoursesPage />} /> */}
+          {/* <Route path="contactUs" element={<ContactUs />} /> */}
+          {/* <Route path="single-blog" element={} /> */}
+          {/* <Route path="single-course" element={<SingleCourse />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
@@ -35,8 +31,8 @@ const App = () => {
           <Route path="*" element={<NotFoundPage />} /> */}
         </Route>
       </Routes>
-
-      <Footer />
+      <SingleBlog />
+      {/* <Footer /> */}
     </div>
   );
 };
