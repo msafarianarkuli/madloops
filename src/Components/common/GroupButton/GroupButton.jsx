@@ -40,7 +40,7 @@ const GroupButton = ({ items, width, onSorting }) => {
             key={item.id}
             type="button"
             className={`groupBtn ${GroupBtnClassLg(
-              item.type,
+              item.title,
               index
             )} ${width}`}
             onClick={() => sortAndSet(item)}

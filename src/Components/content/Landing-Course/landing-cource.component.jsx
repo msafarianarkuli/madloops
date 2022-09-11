@@ -5,7 +5,10 @@ import GroupButton from '../../common/GroupButton/GroupButton';
 import LandingTitle from '../../common/LandingTitle/LandingTitle';
 import Data from '../../../Core/services/Fake Service/Cources';
 import CardAI from './../../common/Card/Card';
-
+import {
+  handleLikeSorting,
+  handleDateSorting,
+} from '../../../Core/utils/sorting';
 const LandingCource = () => {
   const { courses } = Data;
   const [groupBtnList] = useState([
@@ -13,28 +16,10 @@ const LandingCource = () => {
     { id: 2, title: 'جدیدترین دوره ها', type: 'new' },
     { id: 3, title: 'محبوب ترین دوره ها', type: 'like' },
   ]);
-
   const [filterCourses, setFilterCourses] = useState(courses);
 
-  const handleLikeSorting = (list, numSlice) => {
-    const numDescending = [...list].sort(
-      (a, b) => b.likeCount - a.likeCount
-    );
-    console.log('like sorting');
-    return numDescending.slice(0, numSlice);
-  };
-
-  const handleDateSorting = (list, numSlice) => {
-    const numDescending = [...list].sort(
-      (a, b) =>
-        new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-    console.log('date sorting');
-    return numDescending.slice(0, numSlice);
-  };
-
-  const handleSorting = (item) => {
-    switch (item) {
+  const handleSorting = (type) => {
+    switch (type) {
       case 'all':
         setFilterCourses(courses);
         break;
@@ -44,7 +29,7 @@ const LandingCource = () => {
       case 'new':
         setFilterCourses(handleDateSorting(courses, 5));
         break;
-      case 'like  ':
+      case 'like':
         setFilterCourses(handleLikeSorting(courses, 5));
         break;
     }
