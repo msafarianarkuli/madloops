@@ -1,17 +1,20 @@
-import { BsDashLg, BsFilter } from "react-icons/bs";
+import { BsDashLg, BsFilter, BsArrowLeftShort, BsList } from "react-icons/bs";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/CoursesPage";
 import CardGridListView from "../../Components/common/CardGridAndList-view.component";
 import GridAndList from "./../../Components/common/gridAndList-item.component";
+import Accordion from "./../../Components/common/Accordion/Accordion";
 
 const cardPerRow = 3;
 
 const CoursesPage = () => {
   const { courses } = Data;
   const [showGrid, setShowGrid] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
     "همه",
     "جدیدترین ها",
@@ -19,10 +22,32 @@ const CoursesPage = () => {
     "پربازدید ترین ها",
   ]);
 
+  const [filterList, setFilterList] = useState([
+    { id: 1, title: "موضوع", active: true },
+    { id: 2, title: "سطح", active: false },
+    { id: 3, title: "رتبه بندی", active: false },
+    { id: 4, title: "مدت زمان ویدیو", active: false },
+    { id: 5, title: "حدود قیمت", active: false },
+  ]);
+
   const [nextCard, setNextCard] = useState(cardPerRow);
   const handleMoreCard = () => {
     setNextCard(nextCard + cardPerRow);
   };
+
+  // const [view, setView] = useState([]);
+
+  // useEffect(() => {
+  //   setView(courses);
+  // });
+
+  // const handleSortView = () => {
+  //   const sortedData = [...view].sort((a, b) => {
+  //     return b.view > a.view ? 1 : -1;
+  //   });
+  //   setView(sortedData);
+  // };
+
   return (
     <section>
       <div className="container m-auto">
@@ -74,7 +99,13 @@ const CoursesPage = () => {
             در میان دوره ها کاوش کنید
           </h2>
           <div className="flex justify-around m-auto border-2 border-[#D9D9D9] 2xl:w-[88%] lg:w-[94%] md:w-[98%] sm:w-[100%] h-40 rounded-[25px]">
-            <div className="m-auto p-3 sm:rounded-[20px] rounded-[10px] flex border-2 border-[#5DC8B2] transition ease-in-out duration-200 cursor-pointer hover:bg-[#5DC8B2] group">
+            <div
+              className="m-auto p-3 sm:rounded-[20px] rounded-[10px] flex border-2 border-[#5DC8B2] transition ease-in-out duration-200 cursor-pointer hover:bg-[#5DC8B2] group"
+              onClick={() => {
+                setOpenFilter(!openFilter);
+                console.log(!openFilter);
+              }}
+            >
               <h2 className="lg:text-4xl md:text-3xl sm:text-base text-sm text-[#373F49] group-hover:text-white">
                 فیلتر
               </h2>
@@ -82,6 +113,7 @@ const CoursesPage = () => {
             </div>
             <div className="m-auto">
               <GroupButton
+                // onMostVisited={handleSortView}
                 items={groupBtnList}
                 width="xl:p-6 xl:w-52 lg:w-36 lg:p-[22px] md:w-28 md:p-[7px] sm:w-[105px] sm:p-[3px]"
               />
@@ -112,6 +144,57 @@ const CoursesPage = () => {
           </div>
         )}
       </div>
+      {openFilter ? (
+        <div className="fixed top-0 right-0">
+          <div
+            className={`${
+              openFilter
+                ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10"
+                : "w-10 z-0"
+            } transition duration-800 ease-in-out relative`}
+          >
+            {openFilter && (
+              <div className="h-5/6">
+                {filterList.map((filter) => (
+                  <Accordion
+                    key={filter.id}
+                    item={filter}
+                    items={filterList}
+                    setItems={setFilterList}
+                    dir="rtl"
+                    headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
+                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
+                    headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
+                rounded-tl-xl rounded-tr-xl"
+                    bodyMainStyle="w-10/12 m-auto bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
+                    activeIcon={<FaMinus />}
+                    inactiveIcon={<FaPlus />}
+                  >
+                    <h3>salam</h3>
+                  </Accordion>
+                ))}
+                <Button
+                  onClick={() => setOpenFilter(false)}
+                  classButton="w-10/12 bg-white p-5 rounded-xl absolute bottom-16 left-7 text-2xl hover:opacity-75 transition duration-500"
+                >
+                  ثبت
+                </Button>
+                <p className="m-5 text-xs text-gray-400 absolute bottom-0 left-0">
+                  Designed By Mad Loops -{" "}
+                </p>
+              </div>
+            )}
+
+            {openFilter && (
+              <BsArrowLeftShort
+                className={`bg-white text-deep-purple rounded-full border-2
+              border-deep-purple text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
+                onClick={() => setOpenFilter(!openFilter)}
+              />
+            )}
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 };

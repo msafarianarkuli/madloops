@@ -11,6 +11,7 @@ const GroupButton = ({ items, width, onSorting }) => {
     setSelectedGroupBtn(title);
     setOpenGroupBtn(false);
   };
+
   const GroupBtnClassLg = (item, index) => {
     const classList = [];
     classList.push(

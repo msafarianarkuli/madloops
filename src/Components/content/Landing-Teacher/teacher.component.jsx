@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "./teacher.styles.scss";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
+
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingTeacher = () => {

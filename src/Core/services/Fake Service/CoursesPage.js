@@ -15,7 +15,7 @@ const Data = {
       archive: "پُگ شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
       level: "همه سطح",
-      view: 110,
+      view: 190,
     },
     {
       id: uuidv4(),
@@ -31,7 +31,7 @@ const Data = {
       archive: "تکمیل شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
       level: "ساده",
-      view: 110,
+      view: 180,
     },
     {
       id: uuidv4(),
@@ -63,7 +63,7 @@ const Data = {
       archive: "ضپط شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
       level: "نرمال",
-      view: 110,
+      view: 140,
     },
     {
       id: uuidv4(),
@@ -79,7 +79,7 @@ const Data = {
       archive: "وجی شده",
       image: require("../../../Assets/vipul.jpg"),
       level: "نرمال",
-      view: 110,
+      view: 130,
     },
     {
       id: uuidv4(),
@@ -95,7 +95,7 @@ const Data = {
       archive: "کُمیسر شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
       level: "نرمال",
-      view: 110,
+      view: 100,
     },
     {
       id: uuidv4(),
@@ -111,7 +111,7 @@ const Data = {
       archive: "بخت چه",
       image: require("../../../Assets/alexander-shatov.jpg"),
       level: "نرمال",
-      view: 110,
+      view: 200,
     },
   ],
 };
