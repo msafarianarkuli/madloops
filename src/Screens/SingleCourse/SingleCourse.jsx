@@ -12,8 +12,8 @@ import CustomTab from '../../Components/common/tabs/CustomTab';
 const details = [];
 const SingleCourse = () => {
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2">
-      <div className="xl:col-span-9 bg-zinc-50 custom-shadow">
+    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6">
+      <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow">
         <div className="rounded-lg overflow-hidden ">
           <img src={singleCourseImg} />
           <div className="px-4 lg:px-16">

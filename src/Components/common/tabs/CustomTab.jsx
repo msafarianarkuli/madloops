@@ -130,6 +130,9 @@ const CustomTab = () => {
       userImg: '',
     },
   ]);
+
+  const [answerActive, setAnswerActive] = useState(false);
+
   const handleTabClick = (id) => {
     setTabList(
       tabList.map((tab) => {
@@ -148,6 +151,9 @@ const CustomTab = () => {
               ...comment,
               liked: !comment.liked,
               disLiked: false,
+              disLikeCount: comment.disLiked
+                ? comment.disLikeCount - 1
+                : comment.disLikeCount,
               likeCount: comment.liked
                 ? comment.likeCount - 1
                 : comment.likeCount + 1,
@@ -165,6 +171,9 @@ const CustomTab = () => {
               ...comment,
               disLiked: !comment.disLiked,
               liked: false,
+              likeCount: comment.liked
+                ? comment.likeCount - 1
+                : comment.likeCount,
               disLikeCount: comment.disLiked
                 ? comment.disLikeCount - 1
                 : comment.disLikeCount + 1,
@@ -189,6 +198,7 @@ const CustomTab = () => {
       userImg: '',
     };
     setComments(comments.concat([newReply]));
+    setAnswerActive(false);
   };
 
   const handleReplyes = (id) => {
@@ -213,11 +223,18 @@ const CustomTab = () => {
                 className="w-6 inline ml-3"
               />
               <span>{tab.title}</span>
+              {tab.title === 'نظرات' ? (
+                <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full">
+                  {comments.length}
+                </span>
+              ) : (
+                ''
+              )}
             </Tab>
           ))}
         </TabList>
-        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] p-4 rounded-xl">
-          <div className="overflow-y-scroll faq-container h-80 pl-4">
+        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] p-2 lg:p-4 rounded-xl">
+          <div className="overflow-y-scroll faq-container h-80 pl-2 lg:pl-4">
             <TabPanel>
               {faqList.map((faq) => (
                 <Accordion
@@ -245,6 +262,8 @@ const CustomTab = () => {
                   onDisLike={handleDislike}
                   onSend={handleSend}
                   replies={handleReplyes(comment.id)}
+                  answerActive={answerActive}
+                  setAnswerActive={setAnswerActive}
                 />
               ))}
             </TabPanel>

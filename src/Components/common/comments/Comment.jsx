@@ -1,12 +1,21 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../button-component/button.component';
-import Comment2 from './Comment2';
+import Reply from './Reply';
 import user from '../../../Assets/user.png';
 import likeFillIcon from '../../../Assets/likee.png';
 import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
 import disLikeIcon from '../../../Assets/dislikesolid.png';
-const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
+const Comment = ({
+  info,
+  onDisLike,
+  onLike,
+  onSend,
+  onCommentReply,
+  replies,
+  answerActive,
+  setAnswerActive,
+}) => {
   const {
     id,
     refId,
@@ -19,16 +28,15 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
     likeCount,
     disLikeCount,
   } = info;
-  const [answerActive, setAnswerActive] = useState(false);
-  const [reply, setReply] = useState('');
-  const replyInput = useRef();
 
+  const [reply, setReply] = useState('');
   const handleCommentReply = () => {
     setAnswerActive(true);
     setTimeout(() => {
       replyInput.current.focus();
     }, 10);
   };
+  const replyInput = useRef();
 
   return (
     <>
@@ -60,7 +68,7 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
             </span>
             <img
               src={liked ? likeFillIcon : likeIcon}
-              className="w-6 h-6 mb-3"
+              className="w-5 h-5 sm:w-6 sm:h-6 mb-3"
               onClick={() => onLike(id)}
             />
             <span className="mr-2 ml-1 mb-1">
@@ -68,7 +76,7 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
             </span>
             <img
               src={disLiked ? disLikeFillIcon : disLikeIcon}
-              className="w-6 h-6"
+              className="w-5 h-5 sm:w-6 sm:h-6"
               onClick={() => onDisLike(id)}
             />
           </div>
@@ -77,23 +85,25 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
           {body}
         </p>
         {answerActive ? (
-          <div className="flex">
+          <div className="md:flex">
             <input
               type="text"
-              className=" border border-gray-400 rounded-lg px-3 grow "
+              className="border border-gray-400 rounded-lg px-3 w-full mb-3 lg:mb-0 md:grow"
               ref={replyInput}
               value={reply}
               onChange={(e) => setReply(e.target.value)}
             />
-            <div className="flex-none">
+            <div className="text-left md:flex-none">
               <Button
-                classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2"
+                classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
+                hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
                 onClick={() => onSend(id, reply)}
               >
                 ارسال
               </Button>
               <Button
-                classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2"
+                classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
+                hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
                 onClick={() => setAnswerActive(false)}
               >
                 انصراف
@@ -103,7 +113,8 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
         ) : (
           <div className="text-left">
             <Button
-              classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mb-3"
+              classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md 
+              hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
               onClick={handleCommentReply}
             >
               پاسخ
@@ -111,7 +122,7 @@ const Comment = ({ info, onDisLike, onLike, onSend, replies }) => {
           </div>
         )}
         {replies.map((reply) => (
-          <Comment2
+          <Reply
             key={replies.id}
             info={reply}
             onLike={onLike}
