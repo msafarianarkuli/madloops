@@ -229,7 +229,7 @@ const CustomTab = () => {
                   headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                   headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
                   headerMainStyle="p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-full
-                rounded-tl-xl rounded-tr-xl"
+                  rounded-tl-xl rounded-tr-xl"
                   bodyMainStyle="w-full bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
                   activeIcon={<FaMinus />}
                   inactiveIcon={<FaPlus />}
