@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Accordion = ({
   item,
@@ -29,14 +29,16 @@ const Accordion = ({
         onClick={() => handleToggle(id)}
         className={`${
           active ? headerActiveStyle : headerInactiveStyle
-        } ${headerMainStyle} flex justify-between items-center`}
+        } ${headerMainStyle} flex justify-between items-center text-gray-700 cursor-pointer`}
       >
         <div className="flex items-center gap-2">
           <h4 className="text-xl">{title}</h4>
         </div>
         <span>{active ? activeIcon : inactiveIcon}</span>
       </div>
-      <div className={`${active ? "block" : "hidden"} ${bodyMainStyle}`}>
+      <div
+        className={`${active ? 'block' : 'hidden'} ${bodyMainStyle}`}
+      >
         <p className="text-xl text-gray-400">{description}</p>
         {children}
       </div>

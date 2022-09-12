@@ -46,7 +46,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
             </div>
           </div>
           <div className="flex items-center text-gray-400 text-lg">
-            <span className="mr-2 ml-1 mb-1">
+            <span className="px-3 w-8 mb-1">
               {likeCount === 0 ? ' ' : likeCount}
             </span>
             <img
@@ -54,7 +54,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
               className="w-5 h-5 sm:w-6 sm:h-6 mb-3"
               onClick={() => onLike(id)}
             />
-            <span className="mr-2 ml-1 mb-1">
+            <span className="px-3 w-8 mb-1">
               {disLikeCount === 0 ? ' ' : disLikeCount}
             </span>
             <img

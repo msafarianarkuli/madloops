@@ -1,5 +1,5 @@
-import React from 'react';
-import singleCourseImg from '../../Assets/singleCourse.jpg';
+import React, { useState } from 'react';
+
 import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
 import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
 import CourseTeacher from '../../Components/content/SingleCourse/CourseTeacher';
@@ -9,8 +9,14 @@ import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
 import CustomTab from '../../Components/common/tabs/CustomTab';
 
-const details = [];
+import singleCourseImg from '../../Assets/singleCourse.jpg';
+
+import faqData from '../../Core/services/Fake Service/faqs';
+import commentData from '../../Core/services/Fake Service/CourseComments';
+import tabData from '../../Core/services/Fake Service/CourseTabList';
 const SingleCourse = () => {
+  const [faqList, setFaqList] = useState(faqData);
+
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6">
       <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow">
@@ -42,7 +48,12 @@ const SingleCourse = () => {
               قرار گیرد.
             </p>
           </div>
-          <CustomTab />
+          <CustomTab
+            faqList={faqList}
+            setFaqList={setFaqList}
+            commentData={commentData}
+            tabData={tabData}
+          />
         </div>
       </div>
       <div className="xl:col-span-3">
