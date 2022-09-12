@@ -9,7 +9,7 @@ import { Fragment } from "react";
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
-  const [navlines, setNavlines] = useState([
+  const [navlines] = useState([
     { id: 1, title: "خانه", path: "/" },
     { id: 2, title: "دوره ها", path: "/course" },
     { id: 3, title: "اخبار و مقالات", path: "/blogs" },

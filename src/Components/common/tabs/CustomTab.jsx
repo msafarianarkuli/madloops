@@ -13,7 +13,11 @@ import likeFill from '../../../Assets/likesolid.png';
 import disLike from '../../../Assets/dislikee.png';
 import disLikeFill from '../../../Assets/dislikesolid.png';
 import Comment from '../comments/Comment';
+import Input from '../Inputs/TextInputs/Input';
+import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 const CustomTab = () => {
+  const [commentActive, setCommentActive] = useState(false);
   const [faqList, setFaqList] = useState([
     {
       id: 1,
@@ -89,6 +93,7 @@ const CustomTab = () => {
       likeCount: 15,
       disLikeCount: 0,
       userImg: '',
+      email: '',
     },
     {
       id: 2,
@@ -102,6 +107,7 @@ const CustomTab = () => {
       likeCount: 0,
       disLikeCount: 0,
       userImg: '',
+      email: '',
     },
     {
       id: 3,
@@ -115,6 +121,7 @@ const CustomTab = () => {
       likeCount: 0,
       disLikeCount: 0,
       userImg: '',
+      email: '',
     },
     {
       id: 4,
@@ -128,8 +135,12 @@ const CustomTab = () => {
       likeCount: 0,
       disLikeCount: 0,
       userImg: '',
+      email: '',
     },
   ]);
+
+  const [answerActive, setAnswerActive] = useState(false);
+
   const handleTabClick = (id) => {
     setTabList(
       tabList.map((tab) => {
@@ -148,6 +159,9 @@ const CustomTab = () => {
               ...comment,
               liked: !comment.liked,
               disLiked: false,
+              disLikeCount: comment.disLiked
+                ? comment.disLikeCount - 1
+                : comment.disLikeCount,
               likeCount: comment.liked
                 ? comment.likeCount - 1
                 : comment.likeCount + 1,
@@ -165,6 +179,9 @@ const CustomTab = () => {
               ...comment,
               disLiked: !comment.disLiked,
               liked: false,
+              likeCount: comment.liked
+                ? comment.likeCount - 1
+                : comment.likeCount,
               disLikeCount: comment.disLiked
                 ? comment.disLikeCount - 1
                 : comment.disLikeCount + 1,
@@ -174,7 +191,7 @@ const CustomTab = () => {
     );
   };
 
-  const handleSend = (refId, reply) => {
+  const handleSendReply = (refId, reply) => {
     const newReply = {
       id: comments.length + 1,
       refId: refId,
@@ -187,8 +204,29 @@ const CustomTab = () => {
       likeCount: 0,
       disLikeCount: 0,
       userImg: '',
+      email: '',
     };
     setComments(comments.concat([newReply]));
+    setAnswerActive(false);
+  };
+
+  const handleSendComment = (refId, reply) => {
+    const newReply = {
+      id: comments.length + 1,
+      refId: 0,
+      userName: 'مریم',
+      date: '16 خرداد 1401',
+      time: '14:53',
+      body: reply,
+      liked: false,
+      disLiked: false,
+      likeCount: 0,
+      disLikeCount: 0,
+      userImg: '',
+      email: '',
+    };
+    setComments(comments.concat([newReply]));
+    setAnswerActive(false);
   };
 
   const handleReplyes = (id) => {
@@ -213,11 +251,18 @@ const CustomTab = () => {
                 className="w-6 inline ml-3"
               />
               <span>{tab.title}</span>
+              {tab.title === 'نظرات' ? (
+                <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full">
+                  {comments.length}
+                </span>
+              ) : (
+                ''
+              )}
             </Tab>
           ))}
         </TabList>
-        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] p-4 rounded-xl">
-          <div className="overflow-y-scroll faq-container h-80 pl-4">
+        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] px-2 pt-10 lg:px-4 lg:py-11 rounded-2xl relative">
+          <div className="overflow-y-scroll overflow-x-hidden faq-container h-80 pl-2 lg:pl-4">
             <TabPanel>
               {faqList.map((faq) => (
                 <Accordion
@@ -237,16 +282,104 @@ const CustomTab = () => {
               ))}
             </TabPanel>
             <TabPanel>
-              {refrence.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  info={comment}
-                  onLike={handlelike}
-                  onDisLike={handleDislike}
-                  onSend={handleSend}
-                  replies={handleReplyes(comment.id)}
-                />
-              ))}
+              {commentActive ? (
+                <div className="block md:flex border-2 border-gray-300 rounded-xl p-2 md:p-5">
+                  <div
+                    className="bg-[#7F56DA] text-white absolute -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    onClick={() => setCommentActive(false)}
+                  >
+                    انصراف
+                  </div>
+                  <img
+                    src={profile}
+                    className="w-16 h-16 rounded-full ml-3 mb-2 md:mb-0"
+                  />
+                  <div className="grow">
+                    <Formik
+                      initialValues={{
+                        name: '',
+                        email: '',
+                        body: '',
+                      }}
+                      validationSchema={Yup.object({
+                        name: Yup.string().required(),
+                        email: Yup.string().email().required(),
+                        body: Yup.string().required(),
+                      })}
+                      onSubmit={(values) => {
+                        console.log('values');
+                      }}
+                    >
+                      <Form>
+                        <div className=" text-base md:text-xl text-gray-400">
+                          <div className="flex w-full border rounded-tl-xl rounded-tr-xl">
+                            <div className="flex w-1/2 p-2 md:p-4 border-l">
+                              <label className="ml-2" htmlFor="">
+                                نام:
+                              </label>
+                              <input
+                                className="grow bg-transparent outline-none"
+                                type="text"
+                                name="name"
+                              />
+                            </div>
+                            <div className="flex w-1/2 p-2 md:p-4">
+                              <label className="ml-2" htmlFor="">
+                                ایمیل:
+                              </label>
+                              <input
+                                className="grow bg-transparent outline-none"
+                                type="text"
+                                name="email"
+                              />
+                            </div>
+                          </div>
+                          <div className="flex border-r border-l border-b p-4">
+                            <label className="ml-2" htmlFor="">
+                              متن نظر:
+                            </label>
+                            <textarea
+                              rows="4"
+                              className="grow bg-transparent outline-none"
+                              type="text"
+                              name="body"
+                            />
+                          </div>
+                          <div className="border-r border-l border-b rounded-bl-xl rounded-br-xl bg-lite-purple text-center text-white overflow-hidden">
+                            <button
+                              className="w-full  py-2"
+                              type="submit"
+                            >
+                              ارسال نظر
+                            </button>
+                          </div>
+                        </div>
+                      </Form>
+                    </Formik>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div
+                    className="bg-[#7F56DA] text-white absolute -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    onClick={() => setCommentActive(true)}
+                  >
+                    ارسال دیدگاه
+                  </div>
+                  {refrence.map((comment) => (
+                    <Comment
+                      key={comment.id}
+                      info={comment}
+                      onLike={handlelike}
+                      onDisLike={handleDislike}
+                      onSend={handleSendReply}
+                      replies={handleReplyes(comment.id)}
+                      answerActive={answerActive}
+                      setAnswerActive={setAnswerActive}
+                    />
+                  ))}
+                </div>
+              )}
             </TabPanel>
           </div>
         </div>

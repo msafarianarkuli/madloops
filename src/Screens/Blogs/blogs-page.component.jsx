@@ -6,14 +6,97 @@ import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
 import Data from "../../Core/services/Fake Service/Blogs";
 import { Button } from "../../Components/common/button-component/button.component";
 import { useState } from "react";
+import {
+  handleDateSortingAs,
+  handleDateSortingDes,
+  handleLikeSorting,
+  handleViewSorting,
+} from "./../../Core/utils/sorting";
 
 const cardPerRow = 3;
 
 const BlogsPage = () => {
   const { blogs } = Data;
+  const [groupBtnList] = useState([
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "محبوب ترین ها", type: "like" },
+    { id: 3, title: "پربازدید ترین ها", type: "view" },
+    { id: 4, title: "جدیدترین ها", type: "new" },
+    { id: 5, title: "قدیمی ترین ها", type: "old" },
+  ]);
   const [nextCard, setNextCard] = useState(cardPerRow);
   const handleMoreCard = () => {
     setNextCard(nextCard + cardPerRow);
+  };
+
+  const data = Object.values(blogs);
+
+  const [search, setSearch] = useState("");
+  const [filterBlogs, setFilterBlogs] = useState(data);
+
+  //  const [searchParam] = useState(["title"]);
+  // const searching = (items) => {
+  //   return items.filter((item) => {
+  //     return searchParam.some((newItem) => {
+  //       return (
+  //         item[newItem].toString().toLowerCase().indexOf(search.toLowerCase()) >
+  //         -1
+  //       );
+  //     });
+  //   });
+  // };
+
+  const handleSearch = (value) => {
+    setSearch(value);
+    setFilterBlogs(
+      data.filter(
+        (item) =>
+          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+      )
+    );
+  };
+
+  const handleSorting = (type) => {
+    switch (type) {
+      case "all":
+        setFilterBlogs(blogs);
+        break;
+      case "view":
+        setFilterBlogs(handleViewSorting(blogs));
+        break;
+      case "new":
+        setFilterBlogs(handleDateSortingDes(blogs));
+        break;
+      case "old":
+        setFilterBlogs(handleDateSortingAs(blogs));
+        break;
+      case "like":
+        setFilterBlogs(handleLikeSorting(blogs));
+        break;
+    }
+  };
+
+  const [selectedBlogButton, setSelectedBlogBtn] = useState(
+    groupBtnList[0].title
+  );
+
+  const handleButton = (title) => {
+    setSelectedBlogBtn(title);
+  };
+
+  const activeBtn = (item) => {
+    const classActive = [];
+    classActive.push(
+      selectedBlogButton === item
+        ? "border-deep-purple text-deep-purple"
+        : "border-transparent"
+    );
+    return classActive.join(" , ");
+  };
+
+  const blogSortAndSet = (item) => {
+    handleButton(item.title);
+    handleSorting(item.type);
   };
 
   return (
@@ -49,45 +132,47 @@ const BlogsPage = () => {
           <h1 className="2xl:text-5xl lg:text-3xl sm:text-xl text-base sm:mt-0 mt-4">
             برترین های اخیر
           </h1>
-          <SearchBar />
+          <SearchBar
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+          />
         </div>
         <div className="menu-blogs m-auto w-11/12">
-          <div className="anim-blogs flex m-auto text-center h-16 lg:text-lg md:text-md relative">
-            <a
-              className="inline-block relative z-10 sm:pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple"
-              href="#"
-            >
-              همه
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              محبوب ترین
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              پربازدید ترین
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              جدیدترین
-            </a>
-            <a
-              className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16"
-              href="#"
-            >
-              قدیمی ترین
-            </a>
+          <div className="anim-blogs flex justify-around m-auto text-center h-16 lg:text-lg md:text-md relative">
             <div className="animation-blogs border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home-blogs duration-300 ease-in-out"></div>
+            {groupBtnList.map((item) => {
+              return (
+                <div
+                  onClick={() => blogSortAndSet(item)}
+                  className={`anim-div inline-block w-full z-10 sm:pt-4 border-t-4 h-16 ${activeBtn(
+                    item.title
+                  )} cursor-pointer`}
+                  key={item.id}
+                >
+                  {item.title}
+                </div>
+              );
+            })}
+
+            {/* <div className="inline-block relative z-10 sm:pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple">
+              همه
+            </div>
+            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
+              محبوب ترین
+            </div>
+            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
+              پربازدید ترین
+            </div>
+            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
+              جدیدترین
+            </div>
+            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
+              قدیمی ترین
+            </div> */}
           </div>
         </div>
         <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10 ml-60 mt-10 w-[80%]">
-          {blogs.slice(0, nextCard).map((card) => (
+          {filterBlogs.slice(0, nextCard).map((card) => (
             <Card
               showImage
               showStruc
@@ -98,7 +183,7 @@ const BlogsPage = () => {
               classMainImg="m-auto w-full"
               cardBody="w-80 mx-6 order-last"
               role={card.title}
-              classRole="text-right font-bold text-xl text-gray-900"
+              classRole="text-right h-20 font-bold text-xl text-gray-900"
             >
               <div className="mx-6 my-5">
                 <div className="flex justify-between">
@@ -129,7 +214,7 @@ const BlogsPage = () => {
                   </div>
                   <div className="text-[#636363] flex items-center">
                     <BsHeart className="pb-1" />
-                    <h3 className="text-sm">{card.like}</h3>
+                    <h3 className="text-sm">{card.likeCount}</h3>
                     <BsEye className="pb-1" />
                     <h3 className="text-sm">{card.view}</h3>
                   </div>
