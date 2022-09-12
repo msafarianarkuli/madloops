@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import Input from '../../common/Inputs/TextInputs/Input';
+import InputGroup from '../../common/Inputs/TextInputs/InputGroup';
 import Textarea from '../../common/Inputs/TextareaInputs/Textarea';
 import { Button } from '../../common/button-component/button.component';
 const SendMessage = () => {
@@ -34,13 +34,17 @@ const SendMessage = () => {
         <Form>
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28">
             <div>
-              <Input
+              <InputGroup
                 label="نام و نام خانوادگی"
                 name="name"
                 type="text"
               />
-              <Input label="ایمیل" name="email" type="text" />
-              <Input label="شماره تماس" type="text" name="phone" />
+              <InputGroup label="ایمیل" name="email" type="text" />
+              <InputGroup
+                label="شماره تماس"
+                type="text"
+                name="phone"
+              />
             </div>
             <div>
               <Textarea label="پیام" name="message" />
