@@ -2,14 +2,19 @@
 import { FieldName } from "../../Components/common/field-name-component/field-name.component";
 import { FiClock } from "react-icons/fi";
 import { Button } from "../../Components/common/button-component/button.component";
+import Data from "../../Core/services/Fake Service/SingleBlogSuggestion";
 
 const SingleBlog = () => {
-  const lead =
-    "محمد تقی بعد از نمونه ازمایش های پی در پی توانست بر امریکا قلبه کند و با بایدن گلف بازی کند";
+  const { Suggestions } = Data;
 
-  const trimmedLead =
-    lead.substring(0, 60).substring(0, lead.substring(0, 60).lastIndexOf(" ")) +
-    "...";
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 60)
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-8 mt-5">
@@ -71,38 +76,41 @@ const SingleBlog = () => {
               <h2 className="text-3xl mt-5">اخبار پیشنهادی</h2>
             </div>
             <div className="overflow-y-scroll ml-1 p-1 pr-0 faq-container h-650">
-              <div className="h-36 mb-5 grid grid-cols-5 hover:cursor-pointer hover:-translate-x-2 duration-300">
-                <div className="col-span-2 rounded-l-2xl bg-blue-400 overflow-hidden">
-                  <img
-                    className="w-full h-full"
-                    src={require("../../Assets/img/react-hooks.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="col-span-3">
-                  <FieldName
-                    showH2
-                    showP
-                    title="ری اکت"
-                    classH2Field="text-2xl pt-3 mr-5 text-gray-700"
-                  />
-                  <p className="mr-3 text-lg w-52 text-gray-400">
-                    {trimmedLead}
-                  </p>
-                  <div className="col-span-2 w-36 flex justify-between">
-                    <FiClock className="mt-3 mr-5 text-lg text-gray-600" />
-                    <span className="mt-2 ml-4 text-gray-600 text-lg">
-                      24 تیر 1403
-                    </span>
+              {Suggestions.map((item) => {
+                return (
+                  <div
+                    key={item.id}
+                    className="h-36 mb-5 grid grid-cols-5 hover:cursor-pointer hover:custom-shadow duration-300"
+                  >
+                    <div className="col-span-2 rounded-l-2xl bg-blue-400 overflow-hidden">
+                      <img className="w-full h-full" src={item.img} alt="" />
+                    </div>
+                    <div className="col-span-3">
+                      <FieldName
+                        showH2
+                        showP
+                        title={item.title}
+                        classH2Field="text-2xl pt-3 mr-5 text-gray-700"
+                      />
+                      <p className="mr-3 text-lg w-52 text-gray-400">
+                        {handleLead(item.descibtion)}
+                      </p>
+                      <div className="col-span-2 w-36 flex justify-between">
+                        <FiClock className="mt-3 mr-5 text-lg text-gray-600" />
+                        <span className="mt-2 ml-4 text-gray-600 text-lg">
+                          {item.date}
+                        </span>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              <div className="h-36 mb-5 bg-yellow-300"></div>
+                );
+              })}
+              {/* <div className="h-36 mb-5 bg-yellow-300"></div>
               <div className="h-36 mb-5 bg-yellow-400"></div>
               <div className="h-36 mb-5 bg-yellow-500"></div>
               <div className="h-36 mb-5 bg-yellow-700"></div>
               <div className="h-36 mb-5 bg-yellow-800"></div>
-              <div className="h-36 bg-yellow-900"></div>
+              <div className="h-36 bg-yellow-900"></div> */}
             </div>
             <div className="h-20 flex justify-center">
               <Button
