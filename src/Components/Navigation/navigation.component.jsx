@@ -80,8 +80,8 @@ const Navigation = () => {
               {open && (
                 <div className="h-5/6">
                   <Button
-                    classButton="btn bg-deep-purple border-r-2 border-b-2 border-white float-left duration-300 ease-in-out 
-                text-white pt-1 pb-3 px-10 rounded-r-xl rounded-t-none text-lg hover:translate-x-1"
+                    classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
+                    text-white pt-1 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
                   >
                     ورود
                   </Button>
@@ -115,7 +115,7 @@ const Navigation = () => {
                     </a>
                   </div>
                   <p className="m-5 text-xs text-gray-400 absolute bottom-0 left-0">
-                    Designed By Mad Loops -{" "}
+                    Designed By Mad Loops -
                   </p>
                 </div>
               )}

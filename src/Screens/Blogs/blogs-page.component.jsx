@@ -29,7 +29,32 @@ const BlogsPage = () => {
     setNextCard(nextCard + cardPerRow);
   };
 
-  const [filterBlogs, setFilterBlogs] = useState(blogs);
+  const data = Object.values(blogs);
+
+  const [search, setSearch] = useState("");
+  const [filterBlogs, setFilterBlogs] = useState(data);
+
+  //  const [searchParam] = useState(["title"]);
+  // const searching = (items) => {
+  //   return items.filter((item) => {
+  //     return searchParam.some((newItem) => {
+  //       return (
+  //         item[newItem].toString().toLowerCase().indexOf(search.toLowerCase()) >
+  //         -1
+  //       );
+  //     });
+  //   });
+  // };
+
+  const handleSearch = (value) => {
+    setSearch(value);
+    setFilterBlogs(
+      data.filter(
+        (item) =>
+          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+      )
+    );
+  };
 
   const handleSorting = (type) => {
     switch (type) {
@@ -59,12 +84,11 @@ const BlogsPage = () => {
     setSelectedBlogBtn(title);
   };
 
-  console.log(selectedBlogButton);
   const activeBtn = (item) => {
     const classActive = [];
     classActive.push(
       selectedBlogButton === item
-        ? " border-deep-purple text-deep-purple"
+        ? "border-deep-purple text-deep-purple"
         : "border-transparent"
     );
     return classActive.join(" , ");
@@ -74,8 +98,7 @@ const BlogsPage = () => {
     handleButton(item.title);
     handleSorting(item.type);
   };
-  console.log(groupBtnList[0].title);
-  console.log(activeBtn(groupBtnList.title));
+
   return (
     <section>
       <div className="container m-auto">
@@ -109,15 +132,19 @@ const BlogsPage = () => {
           <h1 className="2xl:text-5xl lg:text-3xl sm:text-xl text-base sm:mt-0 mt-4">
             برترین های اخیر
           </h1>
-          <SearchBar />
+          <SearchBar
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+          />
         </div>
         <div className="menu-blogs m-auto w-11/12">
-          <div className="anim-blogs flex m-auto text-center h-16 lg:text-lg md:text-md relative">
+          <div className="anim-blogs flex justify-around m-auto text-center h-16 lg:text-lg md:text-md relative">
+            <div className="animation-blogs border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home-blogs duration-300 ease-in-out"></div>
             {groupBtnList.map((item) => {
               return (
                 <div
                   onClick={() => blogSortAndSet(item)}
-                  className={`anim-div inline-block relative m-auto z-10 sm:pt-4 border-t-4 h-16 ${activeBtn(
+                  className={`anim-div inline-block w-full z-10 sm:pt-4 border-t-4 h-16 ${activeBtn(
                     item.title
                   )} cursor-pointer`}
                   key={item.id}
@@ -126,7 +153,7 @@ const BlogsPage = () => {
                 </div>
               );
             })}
-            <div className="animation-blogs border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home-blogs duration-300 ease-in-out"></div>
+
             {/* <div className="inline-block relative z-10 sm:pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple">
               همه
             </div>
@@ -156,7 +183,7 @@ const BlogsPage = () => {
               classMainImg="m-auto w-full"
               cardBody="w-80 mx-6 order-last"
               role={card.title}
-              classRole="text-right font-bold text-xl text-gray-900"
+              classRole="text-right h-20 font-bold text-xl text-gray-900"
             >
               <div className="mx-6 my-5">
                 <div className="flex justify-between">

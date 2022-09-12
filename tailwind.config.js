@@ -24,6 +24,9 @@ module.exports = {
         "lines-dash": "url('Assets/img/lines-dash.svg')",
       },
       height:{
+        "100": "100px",
+        "200": "200px",
+        "300": "300px",
         "400": "400px",
         "450": "450px",
         "500": "500px",
@@ -39,6 +42,7 @@ module.exports = {
         "lite-purple": "#7F56DA",
         "dark-purple": "#756496",
         "lite-pink": "#F4EBFD",
+        "lite-white": "#F9F9FF",
       },
     },
   },
