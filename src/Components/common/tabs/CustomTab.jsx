@@ -147,24 +147,6 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
             ) : null}
 
             <TabPanel>
-              {faqList.map((faq) => (
-                <Accordion
-                  key={faq.id}
-                  item={faq}
-                  items={faqList}
-                  setItems={setFaqList}
-                  dir="rtl"
-                  headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
-                  headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
-                  headerMainStyle="p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-full
-                  rounded-tl-xl rounded-tr-xl"
-                  bodyMainStyle="w-full bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
-                  activeIcon={<FaMinus />}
-                  inactiveIcon={<FaPlus />}
-                />
-              ))}
-            </TabPanel>
-            <TabPanel>
               {commentActive ? (
                 <div className="block md:flex border-2 border-gray-300 rounded-xl p-2 md:p-5">
                   <div
