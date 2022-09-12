@@ -33,34 +33,34 @@ const Footer = () => {
             </Form>
           </Formik>
         </div>
-        <div className="flex flex-col items-center justify-between md:justify-evenly py-5">
+        <div className="text-2xl flex flex-col items-center justify-between md:justify-evenly py-5">
           <Link
             to="/"
-            className="text-xl hover:text-gray-500 transition ease-in duration-150"
+            className="hover:text-gray-500 transition ease-in duration-150"
           >
             منو
           </Link>
           <Link
             to="/"
-            className="text-xl hover:text-gray-500 transition ease-in duration-150"
+            className="hover:text-gray-500 transition ease-in duration-150"
           >
             خانه
           </Link>
           <Link
             to="/"
-            className="text-xl hover:text-gray-500 transition ease-in duration-150"
+            className="hover:text-gray-500 transition ease-in duration-150"
           >
             دوره ها
           </Link>
           <Link
             to="/"
-            className="text-xl hover:text-gray-500 transition ease-in duration-150"
+            className="hover:text-gray-500 transition ease-in duration-150"
           >
             اخبار و مقالات
           </Link>
           <Link
             to="/"
-            className="text-xl hover:text-gray-500 transition ease-in duration-150"
+            className="hover:text-gray-500 transition ease-in duration-150"
           >
             تماس با ما
           </Link>

@@ -233,7 +233,7 @@ const CustomTab = () => {
             </Tab>
           ))}
         </TabList>
-        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] p-2 lg:p-4 rounded-xl">
+        <div className="border-l-2 border-r-2 border-b-2 border-t-2 border-[#7F56DA] px-2 pt-10 lg:px-4 lg:py-11 rounded-2xl relative">
           <div className="overflow-y-scroll faq-container h-80 pl-2 lg:pl-4">
             <TabPanel>
               {faqList.map((faq) => (
@@ -254,18 +254,37 @@ const CustomTab = () => {
               ))}
             </TabPanel>
             <TabPanel>
-              {refrence.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  info={comment}
-                  onLike={handlelike}
-                  onDisLike={handleDislike}
-                  onSend={handleSend}
-                  replies={handleReplyes(comment.id)}
-                  answerActive={answerActive}
-                  setAnswerActive={setAnswerActive}
+              {/* <div>
+                <div className="bg-[#7F56DA] text-white absolute -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl">
+                  ارسال دیدگاه
+                </div>
+                {refrence.map((comment) => (
+                  <Comment
+                    key={comment.id}
+                    info={comment}
+                    onLike={handlelike}
+                    onDisLike={handleDislike}
+                    onSend={handleSend}
+                    replies={handleReplyes(comment.id)}
+                    answerActive={answerActive}
+                    setAnswerActive={setAnswerActive}
+                  />
+                ))}
+              </div> */}
+              <div className="flex border-2 border-gray-300 rounded-xl p-5">
+                <img
+                  src={profile}
+                  className="w-16 h-16 rounded-full"
                 />
-              ))}
+                <div className="border border-[#7F56DA] grow rounded-xl">
+                  <div className="flex bg-amber-400 w-full">
+                    <div className="bg-red-400 grow">نام:</div>
+                    <div className="bg-blue-400 grow">ایمیل:</div>
+                  </div>
+                  <div className="bg-green-500">متن نظر:</div>
+                  <div className="bg-yellow-500">ارسال نظر</div>
+                </div>
+              </div>
             </TabPanel>
           </div>
         </div>
