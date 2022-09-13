@@ -30,13 +30,16 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
-          className="swiper-v mt-20 w-auto"
+          className="swiper-v mt-20"
           // autoplay={{
           //   delay: 3000,
           // }}
           initialSlide={2}
-          slidesPerView={4}
+          slidesPerView={"auto"}
           grabCursor={true}
+          freeMode={true}
+          loop={true}
+          roundLengths={false}
           spaceBetween={0}
           navigation={{
             nextEl,
@@ -47,13 +50,16 @@ const LandingTeacher = () => {
               slidesPerView: 1,
             },
             640: {
-              slidesPerView: 1,
+              slidesPerView: 2,
+              spaceBetween: 80,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 2,
+              spaceBetween: 60,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 2,
+              spaceBetween: 40,
             },
             1280: {
               slidesPerView: 3,
@@ -63,10 +69,10 @@ const LandingTeacher = () => {
           centeredSlides={true}
         >
           {teachers.map((item, index) => (
-            <SwiperSlide className="flex w-[100px]" key={item.id}>
+            <SwiperSlide className="flex m-auto" key={item.id}>
               {({ isActive, isPrev, isNext }) =>
                 isActive ? (
-                  <div className="grid lg:grid-cols-2 w-full animate-card rounded-3xl bg-[#F4F5F9]">
+                  <div className="grid lg:grid-cols-2 w-full rounded-3xl bg-[#F4F5F9]">
                     <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden">
