@@ -1,11 +1,6 @@
 .swiper-v .swiper-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100% !important;
-}
-.swiper-v .swiper-slide {
-  width: 13% !important;
+  display: flex !important;
+  align-items: center !important;
 }
 
 .swiper-v .swiper-slide-active {

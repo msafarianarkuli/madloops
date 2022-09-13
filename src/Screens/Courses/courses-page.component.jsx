@@ -2,6 +2,7 @@ import { BsDashLg, BsFilter, BsArrowLeftShort, BsList } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
 import { useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/CoursesPage";
@@ -71,11 +72,15 @@ const CoursesPage = () => {
                 classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4  m-auto md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
-            <div className="grid">
-              <FieldName
-                showP
-                field="یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند"
-                classPfield="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700"
+            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+              <Typewriter
+                words={[
+                  "یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند",
+                ]}
+                cursor
+                cursorStyle=" | "
+                typeSpeed={40}
+                delaySpeed={1000}
               />
             </div>
           </div>
@@ -154,15 +159,13 @@ const CoursesPage = () => {
             </Button>
           </div>
         )}
-      </div>
-      {openFilter ? (
         <div className="fixed top-0 right-0">
           <div
             className={`${
               openFilter
                 ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10"
-                : "w-10 z-0"
-            } transition duration-800 ease-in-out relative`}
+                : "w-0 z-0"
+            } duration-300 ease-in-out relative`}
           >
             {openFilter && (
               <div className="h-5/6">
@@ -205,7 +208,7 @@ const CoursesPage = () => {
             )}
           </div>
         </div>
-      ) : null}
+      </div>
     </section>
   );
 };
