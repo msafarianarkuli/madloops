@@ -1,5 +1,4 @@
 import Data from "../../../Core/services/Fake Service/Teacher";
-import { IoMdArrowDropleft, IoMdArrowDropright } from "react-icons/io";
 import { BsPlayFill } from "react-icons/bs";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
 import { Button } from "./../../common/button-component/button.component";
@@ -31,15 +30,13 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
-          className="swiper-v mt-20"
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
+          className="swiper-v mt-20 w-auto"
+          // autoplay={{
+          //   delay: 3000,
+          // }}
           initialSlide={2}
-          freeMode={true}
-          slidesPerView={5}
-          roundLengths={true}
+          slidesPerView={4}
+          grabCursor={true}
           spaceBetween={0}
           navigation={{
             nextEl,
@@ -47,29 +44,26 @@ const LandingTeacher = () => {
           }}
           breakpoints={{
             0: {
-              slidesPerView: 5,
+              slidesPerView: 1,
             },
             640: {
-              slidesPerView: 5,
-              spaceBetween: 80,
+              slidesPerView: 1,
             },
             768: {
-              slidesPerView: 5,
-              spaceBetween: 60,
+              slidesPerView: 3,
             },
             1024: {
-              slidesPerView: 5,
-              spaceBetween: 40,
+              slidesPerView: 3,
             },
             1280: {
-              slidesPerView: 5,
+              slidesPerView: 3,
             },
           }}
           centerInsufficientSlides={true}
           centeredSlides={true}
         >
           {teachers.map((item, index) => (
-            <SwiperSlide className="flex" key={item.id}>
+            <SwiperSlide className="flex w-[100px]" key={item.id}>
               {({ isActive, isPrev, isNext }) =>
                 isActive ? (
                   <div className="grid lg:grid-cols-2 w-full animate-card rounded-3xl bg-[#F4F5F9]">
@@ -81,7 +75,7 @@ const LandingTeacher = () => {
                         <div className="md:mr-14 lg:hidden sm:block cursor-pointer">
                           <img
                             src={require("../../../Assets/mohsen.jpg")}
-                            className="rounded-full  sm:block lg:hidden sm:w-16 w-24 mt-5"
+                            className="rounded-full sm:block lg:hidden sm:w-16 w-24 mt-5"
                           />
                         </div>
                       </div>
@@ -104,7 +98,7 @@ const LandingTeacher = () => {
                     <div className="relative lg:block sm:hidden lg:mb-7 z-0">
                       <img
                         src={require("../../../Assets/mohsen.jpg")}
-                        className=" cursor-pointer rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
+                        className="rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
                       />
                       <div className="lg:block hidden">
                         <img
@@ -128,9 +122,7 @@ const LandingTeacher = () => {
                 ) : (
                   <div
                     className={
-                      isActive
-                        ? "m-auto inline-block rounded-full p-5 bg-gray-200 cursor-pointer hover:bg-slate-400 transition  ease-in delay-200 hover:transition hover:ease-out hover:delay-200"
-                        : isPrev || isNext
+                      isPrev || isNext
                         ? "m-auto inline-block rounded-full w-32 p-3 opacity-75 bg-gray-200"
                         : "m-auto inline-block rounded-full w-16 p-2 opacity-50 bg-gray-200"
                     }
@@ -138,9 +130,7 @@ const LandingTeacher = () => {
                     <img
                       src={require("../../../Assets/mohsen.jpg")}
                       className={
-                        isActive
-                          ? "rounded-full w-56"
-                          : isPrev || isNext
+                        isPrev || isNext
                           ? "rounded-full w-36"
                           : "rounded-full w-28"
                       }
@@ -176,32 +166,3 @@ const LandingTeacher = () => {
 };
 
 export default LandingTeacher;
-
-/* <div className="swiper-button-prev w-full">
-<IoMdArrowDropright className="swiper-icon-right" />
-</div>
-<div className="swiper-button-next w-full">
-<IoMdArrowDropleft className="swiper-icon-left" />
-</div>
-       className={
-                      isActive
-                        ? "m-auto inline-block rounded-full p-5 bg-gray-200 cursor-pointer hover:bg-slate-400 transition  ease-in delay-200 hover:transition hover:ease-out hover:delay-200"
-                        : isPrev || isNext
-                        ? "m-auto inline-block rounded-full p-5 opacity-75 bg-gray-200"
-                        : "m-auto inline-block rounded-full p-5 opacity-50 bg-gray-200"
-                    }
-                  >
-                    <img
-                      src={require("../../../Assets/mohsen.jpg")}
-                      className={
-                        isActive
-                          ? "rounded-full w-56"
-                          : isPrev || isNext
-                          ? "rounded-full w-36"
-                          : "rounded-full w-28"
-                      }
-                      alt=""
-                    />
-                  </div>
-
-*/
