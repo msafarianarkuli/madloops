@@ -9,6 +9,9 @@ import ContactUs from './Screens/ContactUs/ContactUs';
 import SingleCourse from './Screens/SingleCourse/SingleCourse';
 import Footer from './Components/Footer/footer.component';
 import NotFoundPage from './Screens/Not-Found/not-found.component';
+import Call from './Components/content/ContactUs/Call';
+import SendMessage from './Components/content/ContactUs/SendMessage';
+import Location from './Components/content/ContactUs/Location';
 
 const App = () => {
   return (
