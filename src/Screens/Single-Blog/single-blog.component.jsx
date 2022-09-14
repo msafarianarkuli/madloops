@@ -3,6 +3,9 @@ import { FieldName } from "../../Components/common/field-name-component/field-na
 import { FiClock } from "react-icons/fi";
 import { Button } from "../../Components/common/button-component/button.component";
 import Data from "../../Core/services/Fake Service/SingleBlogSuggestion";
+import CustomTab from "../../Components/common/tabs/CustomTab";
+import commentData from "../../Core/services/Fake Service/CourseComments";
+import tabData from "../../Core/services/Fake Service/BlogTabList";
 
 const SingleBlog = () => {
   const { Suggestions } = Data;
@@ -19,7 +22,7 @@ const SingleBlog = () => {
     <div className="container m-auto">
       <div className="grid grid-cols-8 mt-5">
         <div className="col-span-5">
-          <div className="w-10/12 float-left ml-5 rounded-xl bg-lite-white custom-shadow">
+          <div className="w-10/12 float-left ml-5 rounded-xl bg-lite-white custom-shadow mb-10">
             <div className="h-96">
               <img
                 className="rounded-t-xl w-full h-96"
@@ -67,7 +70,12 @@ const SingleBlog = () => {
                 </div>
               </div>
             </div>
-            <div className="h-96 bg-blue-700">e</div>
+            <div className="my-10">
+              <CustomTab
+                commentData={commentData}
+                tabData={tabData}
+              />
+            </div>
           </div>
         </div>
         <div className="col-span-3">
@@ -80,10 +88,10 @@ const SingleBlog = () => {
                 return (
                   <div
                     key={item.id}
-                    className="h-36 mb-5 grid grid-cols-5 hover:cursor-pointer hover:custom-shadow duration-300"
+                    className="h-36 mb-5 grid grid-cols-5 rounded-2xl hover:cursor-pointer hover:custom-shadow duration-300 group"
                   >
-                    <div className="col-span-2 rounded-l-2xl bg-blue-400 overflow-hidden">
-                      <img className="w-full h-full" src={item.img} alt="" />
+                    <div className="col-span-2 overflow-hidden">
+                      <img className="w-full h-full duration-300 rounded-l-2xl group-hover:rounded-r-2xl group-hover:rounded-l-sm" src={item.img} alt="" />
                     </div>
                     <div className="col-span-3">
                       <FieldName
@@ -105,12 +113,6 @@ const SingleBlog = () => {
                   </div>
                 );
               })}
-              {/* <div className="h-36 mb-5 bg-yellow-300"></div>
-              <div className="h-36 mb-5 bg-yellow-400"></div>
-              <div className="h-36 mb-5 bg-yellow-500"></div>
-              <div className="h-36 mb-5 bg-yellow-700"></div>
-              <div className="h-36 mb-5 bg-yellow-800"></div>
-              <div className="h-36 bg-yellow-900"></div> */}
             </div>
             <div className="h-20 flex justify-center">
               <Button

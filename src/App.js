@@ -1,24 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navigation from '../src/Components/Navigation/navigation.component';
-import LandingBlog from './Components/content/Landing-Blog/landing-blog.component';
-import LandingHeader from './Components/content/Landing-Header/landing-header.component';
 import LandingPage from './Screens/Landing/landing-page.component';
 import BlogsPage from './Screens/Blogs/blogs-page.component';
-import LandingTeacher from './Components/content/Landing-Teacher/teacher.component';
-import LandingServices from './Components/content/Landing-Services/landing-services.component';
 import SingleBlog from './Screens/Single-Blog/single-blog.component';
 import CoursesPage from './Screens/Courses/courses-page.component';
 import ContactUs from './Screens/ContactUs/ContactUs';
 import SingleCourse from './Screens/SingleCourse/SingleCourse';
 import Footer from './Components/Footer/footer.component';
-
-// imports
-import Card from './Components/common/Card/Card';
-import LandingOffers from './Components/content/Landing-Offers/landing-offers.component';
-import Call from './Components/content/ContactUs/Call';
-import SendMessage from './Components/content/ContactUs/SendMessage';
-import Location from './Components/content/ContactUs/Location';
+import NotFoundPage from './Screens/Not-Found/not-found.component';
 
 const App = () => {
   return (
@@ -42,7 +32,8 @@ const App = () => {
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
           <Route path="user-panel/*" element={<UserDashboard />} />
-          <Route path="*" element={<NotFoundPage />} /> */}
+          */}
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
       <Footer />

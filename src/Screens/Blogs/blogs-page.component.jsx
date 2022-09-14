@@ -1,6 +1,6 @@
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
 import SearchBar from "./../../Components/common/search-bar.component";
-import "./blogs.styles.scss";
+import { Typewriter } from "react-simple-typewriter";
 import { Card } from "./../../Components/common/Card/card.component";
 import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
 import Data from "../../Core/services/Fake Service/Blogs";
@@ -99,6 +99,14 @@ const BlogsPage = () => {
     handleSorting(item.type);
   };
 
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 60)
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   return (
     <section>
       <div className="container m-auto">
@@ -111,11 +119,15 @@ const BlogsPage = () => {
                 classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4  m-auto md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
-            <div className="grid">
-              <FieldName
-                showP
-                field="پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی."
-                classPfield="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700"
+            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+              <Typewriter
+                words={[
+                  "پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.",
+                ]}
+                cursor
+                cursorStyle=" | "
+                typeSpeed={40}
+                delaySpeed={1000}
               />
             </div>
           </div>
@@ -153,22 +165,6 @@ const BlogsPage = () => {
                 </div>
               );
             })}
-
-            {/* <div className="inline-block relative z-10 sm:pt-4 border-t-4 h-16 first:border-deep-purple first:text-deep-purple">
-              همه
-            </div>
-            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
-              محبوب ترین
-            </div>
-            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
-              پربازدید ترین
-            </div>
-            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
-              جدیدترین
-            </div>
-            <div className="inline-block relative z-10 m-auto sm:pt-4 border-t-4 border-transparent h-16">
-              قدیمی ترین
-            </div> */}
           </div>
         </div>
         <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10 ml-60 mt-10 w-[80%]">
@@ -182,7 +178,7 @@ const BlogsPage = () => {
               classImage="rounded-t-lg w-full"
               classMainImg="m-auto w-full"
               cardBody="w-80 mx-6 order-last"
-              role={card.title}
+              role={handleLead(card.title)}
               classRole="text-right h-20 font-bold text-xl text-gray-900"
             >
               <div className="mx-6 my-5">

@@ -25,7 +25,7 @@ const LandingOffers = () => {
             <OffersForm />
           </div>
           <div className="hidden md:block">
-            <img className="w-96" src={offers} alt="" />
+            <img className="w-96 pt-2" src={offers} alt="" />
           </div>
         </div>
       </section>
