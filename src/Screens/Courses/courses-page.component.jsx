@@ -1,4 +1,4 @@
-import { BsDashLg, BsFilter, BsArrowLeftShort, BsList } from "react-icons/bs";
+import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
 import { useState } from "react";
@@ -9,6 +9,8 @@ import Data from "../../Core/services/Fake Service/CoursesPage";
 import CardGridListView from "../../Components/common/CardGridAndList-view.component";
 import GridAndList from "./../../Components/common/gridAndList-item.component";
 import Accordion from "./../../Components/common/Accordion/Accordion";
+import { Formik, Form } from "formik";
+import InputGroups from "./../../Components/common/Inputs/TextInputs/Input";
 import {
   handleDateSortingDes,
   handleLikeSorting,
@@ -18,7 +20,7 @@ import {
 const cardPerRow = 3;
 
 const CoursesPage = () => {
-  const { courses } = Data;
+  const { courses, filterList } = Data;
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
@@ -52,13 +54,7 @@ const CoursesPage = () => {
     setNextCard(nextCard + cardPerRow);
   };
 
-  const [filterList, setFilterList] = useState([
-    { id: 1, title: "موضوع", active: true },
-    { id: 2, title: "سطح", active: false },
-    { id: 3, title: "رتبه بندی", active: false },
-    { id: 4, title: "مدت زمان ویدیو", active: false },
-    { id: 5, title: "حدود قیمت", active: false },
-  ]);
+  const [filteredItem, setFilteredItem] = useState(filterList);
 
   return (
     <section>
@@ -168,13 +164,13 @@ const CoursesPage = () => {
             } duration-300 ease-in-out relative`}
           >
             {openFilter && (
-              <div className="h-5/6">
-                {filterList.map((filter) => (
+              <div className="h-full overflow-y-scroll fixed-container ml-2">
+                {filteredItem.map((filter) => (
                   <Accordion
                     key={filter.id}
                     item={filter}
-                    items={filterList}
-                    setItems={setFilterList}
+                    items={filteredItem}
+                    setItems={setFilteredItem}
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
@@ -184,18 +180,48 @@ const CoursesPage = () => {
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
-                    <h3>salam</h3>
+                    <Formik
+                      initialValues={{
+                        checkbox: "",
+                      }}
+                    >
+                      <Form>
+                        {filter.filterServices?.map((item) => {
+                          return (
+                            <div className="m-auto" key={item.id}>
+                              <label
+                                className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
+                                htmlFor="checkbox"
+                              >
+                                ({item.total}) ,
+                                {item.title
+                                  ? item.title
+                                  : item.rate
+                                  ? item.rate
+                                  : item.start}
+                                {item.end}
+                                <InputGroups
+                                  type="checkbox"
+                                  name="checkbox"
+                                  id="checkbox"
+                                  className="inline-block w-10 h-5"
+                                />
+                              </label>
+                            </div>
+                          );
+                        })}
+                      </Form>
+                    </Formik>
                   </Accordion>
                 ))}
-                <Button
-                  onClick={() => setOpenFilter(false)}
-                  classButton="w-10/12 bg-white p-5 rounded-xl absolute bottom-16 left-7 text-2xl hover:opacity-75 transition duration-500"
-                >
-                  ثبت
-                </Button>
-                <p className="m-5 text-xs text-gray-400 absolute bottom-0 left-0">
-                  Designed By Mad Loops -{" "}
-                </p>
+                <div className="w-full bg-deep-purple p-4 absolute bottom-0">
+                  <Button
+                    onClick={() => setOpenFilter(false)}
+                    classButton="w-full text-black bg-white p-4 rounded-xl text-2xl hover:opacity-75 transition duration-500"
+                  >
+                    ثبت
+                  </Button>
+                </div>
               </div>
             )}
 

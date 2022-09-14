@@ -1,6 +1,6 @@
-import React from 'react';
-import { useField } from 'formik';
-import { BsPerson } from 'react-icons/bs';
+import React from "react";
+import { useField } from "formik";
+import { BsPerson } from "react-icons/bs";
 const InputGroups = ({ label, className, ...props }) => {
   const [field, meta] = useField(props);
   return (
