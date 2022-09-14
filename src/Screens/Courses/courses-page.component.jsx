@@ -91,17 +91,23 @@ const CoursesPage = () => {
         </div>
         <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5 mt-10">
           <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm">
-            <div className="text-[#C53F3F] text-4xl mt-6">8452+</div>
+            <div className="text-[#C53F3F] text-4xl mt-6">
+              {filterCourses.reduce((a, b) => a + b.lesson, 0)}+
+            </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl">درس ها</div>
           </div>
           <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm">
-            <div className="text-[#C53F3F] text-4xl mt-6">800+</div>
+            <div className="text-[#C53F3F] text-4xl mt-6">
+              {filterCourses.reduce((a, b) => a + b.hour, 0)}+
+            </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl">ساعت ها</div>
           </div>
           <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm">
-            <div className="text-[#C53F3F] text-4xl mt-6">90+</div>
+            <div className="text-[#C53F3F] text-4xl mt-6">
+              {filterCourses.length}+
+            </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl">دوره ها</div>
           </div>
