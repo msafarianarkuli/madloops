@@ -4,6 +4,7 @@ import {
   BsTelephoneFill,
   BsGeoAltFill,
 } from 'react-icons/bs';
+import { Outlet } from 'react-router-dom';
 import SendMessage from '../../Components/content/ContactUs/SendMessage';
 import ContactItem from '../../Components/content/ContactUs/ContactItem';
 import Call from '../../Components/content/ContactUs/Call';
@@ -49,7 +50,8 @@ const ContactUs = () => {
         ))}
       </div>
       <div className="rounded-3xl mt-8 py-10">
-        <Call />
+        <Outlet />
+        {/* <Call /> */}
         {/* <SendMessage /> */}
         {/* <Location locationApi="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d207344.71954696506!2d51.487740482308496!3d35.70749258978972!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f8e00491ff3dcd9%3A0xf0b3697c567024bc!2z2KrZh9ix2KfZhtiMINin2LPYqtin2YYg2KrZh9ix2KfZhtiMINin24zYsdin2YY!5e0!3m2!1sfa!2s!4v1662450014006!5m2!1sfa!2s" /> */}
       </div>
