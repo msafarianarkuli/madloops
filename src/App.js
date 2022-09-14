@@ -27,10 +27,9 @@ const App = () => {
             <Route path="message" element={<SendMessage />} />
             <Route path="location" element={<Location />} />
           </Route>
-          {/* <Route path="single-blog" element={} /> */}
           <Route path="single-blog" element={<SingleBlog />} />
-          {/* <Route path="contactUs" element={<ContactUs />} /> */}
-          {/* <Route path="single-course" element={<SingleCourse />} />
+          {/*
+          <Route path="single-blog" element={} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
