@@ -20,12 +20,12 @@ const SingleBlog = () => {
 
   return (
     <div className="container m-auto">
-      <div className="grid grid-cols-8 mt-5">
-        <div className="col-span-5">
-          <div className="w-10/12 float-left ml-5 rounded-xl bg-lite-white custom-shadow mb-10">
-            <div className="h-96">
+      <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">
+        <div className="2xl:col-span-5 xl:col-span-8 lg:col-span-7 md:col-span-12 sm:col-span-12 col-span-12">
+          <div className="2xl:w-10/12 xl:w-11/12 lg:w-10/12 md:w-full sm:w-full w-full lg:float-left ml-5 rounded-xl bg-lite-white custom-shadow mb-10">
+            <div className="sm:h-96 h-64">
               <img
-                className="rounded-t-xl w-full h-96"
+                className="rounded-t-xl w-full sm:h-96 h-64"
                 src={require("../../Assets/img/react-hooks.png")}
                 alt="react-hooks"
               />
@@ -40,37 +40,37 @@ const SingleBlog = () => {
                 <FieldName
                   showP
                   field="آموزش پروژه محور انگولار اولین دوره از سری دوره های هیولاشو و پروژه محور در وبسایت ggg است. جاوا اسکریپت محبوب ترین و پرکاربردترین زبان برنامه نویسی سال ۲۰۲۰ است و مطمئنا بخش زیادی از بازار کار فعلی و آینده ایران و جهان را به خودش اختصاص داده، در این آموزش پروژه محور angular با ۱۰ پروژه حرفه ای و متفاوت دوره را شروع میکنیم و تا این تاریخ که من در حال ضبط دوره هستم، سطح دوره و پروژه های کار شده در هیج آموزش جاوااسکریپت فارسی وجود ندارد. در دوره هیولای جاوااسکریپت همه مباحث جاوااسکریپت به صورت پروژه محور و کاربردی آموزش داده میشه تا شما عزیزان مطابق با نیاز با بازاز کار، نمونه کار حرفه ای داشته باشید. (حالا باید فهمیده باشید چرا اسم دوره رو گذاشتم هیولای جاوااسکریپت)"
-                  classPfield="m-auto text-xl pt-3 text-gray-400"
+                  classPfield="m-auto sm:text-xl text-md pt-3 text-gray-400"
                 />
               </div>
             </div>
-            <div className="h-16">
+            <div className="h-16 sm:my-5 my-32 ">
               <div className="w-11/12 m-auto grid grid-cols-10 border-2 border-deep-purple rounded-xl">
-                <div className="col-span-3 flex justify-between">
+                <div className="sm:col-span-3 col-span-10 flex justify-between sm:border-none border-deep-purple border-b-2">
                   <span className="">
                     <img
-                      className="w-10 m-2 mr-5"
+                      className="w-10 m-2 sm:mr-5 mr-20"
                       src={require("../../Assets/img/profile.png")}
                       alt="profile"
                     />
                   </span>
-                  <h2 className="text-lg ml-10 mt-4">میکائیل محسنی</h2>
+                  <h2 className="2xl:text-lg xl:text-md md:ml-10 sm:ml-5 ml-24 mt-4">میکائیل محسنی</h2>
                 </div>
-                <div className="col-span-5 flex justify-between border-r-2 border-deep-purple">
-                  <div className="mt-4 mr-3 text-lg">
+                <div className="sm:col-span-5 col-span-10 flex justify-between sm:border-r-2 sm:border-b-0 border-b-2 border-deep-purple">
+                  <div className="mt-4 sm:mb-0 mb-4 mr-3 2xl:text-lg xl:text-md">
                     آیا این مطلب براتون مفید بود ؟
                   </div>
                   <div className="">a</div>
                 </div>
-                <div className="col-span-2 flex justify-between border-r-2 border-deep-purple">
-                  <FiClock className="mt-5 mr-5 text-lg text-gray-600" />
-                  <span className="mt-4 ml-4 text-gray-600 text-lg">
+                <div className="sm:col-span-2 col-span-10 flex justify-between sm:border-r-2 border-b-none border-deep-purple">
+                  <FiClock className="mt-5 md:mr-5 sm:mr-2 mr-24 text-lg text-gray-600" />
+                  <span className="mt-4 sm:mb-0 mb-4 md:ml-4 sm:ml-2 ml-28 text-gray-600 2xl:text-lg xl:text-md">
                     24 تیر 1403
                   </span>
                 </div>
               </div>
             </div>
-            <div className="my-10">
+            <div className="my-10 pb-5">
               <CustomTab
                 commentData={commentData}
                 tabData={tabData}
@@ -78,8 +78,8 @@ const SingleBlog = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-3">
-          <div className="w-9/12 h-800 ml-auto bg-lite-white custom-shadow rounded-xl">
+        <div className="2xl:col-span-3 xl:col-span-4 lg:col-span-8 md:col-span-12 sm:col-span-12 col-span-12 mb-10">
+          <div className="2xl:w-9/12 xl:w-11/12 lg:w-8/12 md:w-10/12 sm:w-11/12 w-full h-800 xl:mr-0 lg:mr-40 md:mr-16 sm:mr-6 mr-0 bg-lite-white custom-shadow rounded-xl">
             <div className="h-16 flex justify-center">
               <h2 className="text-3xl mt-5">اخبار پیشنهادی</h2>
             </div>
@@ -88,7 +88,7 @@ const SingleBlog = () => {
                 return (
                   <div
                     key={item.id}
-                    className="h-36 mb-5 grid grid-cols-5 rounded-2xl hover:cursor-pointer hover:custom-shadow duration-300 group"
+                    className="sm:h-36 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-2xl hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >
                     <div className="col-span-2 overflow-hidden">
                       <img className="w-full h-full duration-300 rounded-l-2xl group-hover:rounded-r-2xl group-hover:rounded-l-sm" src={item.img} alt="" />
@@ -98,14 +98,14 @@ const SingleBlog = () => {
                         showH2
                         showP
                         title={item.title}
-                        classH2Field="text-2xl pt-3 mr-5 text-gray-700"
+                        classH2Field="sm:text-2xl text-xl pt-3 mr-5 text-gray-700"
                       />
-                      <p className="mr-3 text-lg w-52 text-gray-400">
+                      <p className="mr-3 sm:text-lg text-md sm:w-48 md:w-72 lg:w-80 xl:w-48 w-44 text-gray-400">
                         {handleLead(item.descibtion)}
                       </p>
                       <div className="col-span-2 w-36 flex justify-between">
-                        <FiClock className="mt-3 mr-5 text-lg text-gray-600" />
-                        <span className="mt-2 ml-4 text-gray-600 text-lg">
+                        <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600" />
+                        <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md">
                           {item.date}
                         </span>
                       </div>
