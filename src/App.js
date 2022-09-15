@@ -12,7 +12,11 @@ import NotFoundPage from './Screens/Not-Found/not-found.component';
 import Call from './Components/content/ContactUs/Call';
 import SendMessage from './Components/content/ContactUs/SendMessage';
 import Location from './Components/content/ContactUs/Location';
-
+import UserPanel from './Screens/Panel/UserPanel';
+import Dashboard from './Components/content/Panel/Dashboard';
+import MyCourses from './Components/content/Panel/MyCourses';
+import CoursesList from './Components/content/Panel/CoursesList';
+import EditProfile from './Components/content/Panel/EditProfile';
 const App = () => {
   return (
     <div className="App">
@@ -33,8 +37,14 @@ const App = () => {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
-          <Route path="user-panel/*" element={<UserDashboard />} />
+          
           */}
+          <Route path="user-panel" element={<UserPanel />}>
+            <Route index element={<Dashboard />}></Route>
+            <Route path="myCourses" element={<MyCourses />} />
+            <Route path="courseList" element={<CoursesList />} />
+            <Route path="editProfile" element={<EditProfile />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
