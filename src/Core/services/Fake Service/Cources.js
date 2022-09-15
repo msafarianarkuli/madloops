@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import course from '../../../Assets/cource.svg';
 const Data = {
   courses: [
     {
@@ -12,9 +13,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 2,
+      id: uuidv4(),
       title: ' 2دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -24,9 +26,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 3,
+      id: uuidv4(),
       title: ' 3دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -36,9 +39,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 4,
+      id: uuidv4(),
       title: ' 4دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -48,9 +52,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 5,
+      id: uuidv4(),
       title: ' 5دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -60,9 +65,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 6,
+      id: uuidv4(),
       title: ' 6دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -72,9 +78,10 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: true,
+      image: course,
     },
     {
-      id: 7,
+      id: uuidv4(),
       title: ' 7دوره تخصصی انگولار',
       description:
         'با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...',
@@ -84,6 +91,7 @@ const Data = {
       price: 999.999,
       numberOfStudents: 50,
       archive: false,
+      image: course,
     },
   ],
 };

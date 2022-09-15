@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./teacher.styles.scss";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
 
 SwiperCore.use([Autoplay, Navigation]);
@@ -30,18 +29,22 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
-          className="swiper-v mt-20 w-auto"
-          // autoplay={{
-          //   delay: 3000,
-          // }}
-          initialSlide={2}
-          slidesPerView={4}
+          className="swiper-v mt-20 w-7/12"
+          autoplay={{
+            delay: 3000,
+          }}
+          // initialSlide={2}
+          // slidesPerView={1}
           grabCursor={true}
-          spaceBetween={0}
+          freeMode={true}
+          loop={false}
+          roundLengths={true}
           navigation={{
             nextEl,
             prevEl,
           }}
+          centerInsufficientSlides={true}
+          centeredSlides={true}
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -50,23 +53,19 @@ const LandingTeacher = () => {
               slidesPerView: 1,
             },
             768: {
-              slidesPerView: 3,
+              slidesPerView: 1,
             },
             1024: {
-              slidesPerView: 3,
-            },
-            1280: {
-              slidesPerView: 3,
+              slidesPerView: 1,
             },
           }}
-          centerInsufficientSlides={true}
-          centeredSlides={true}
         >
           {teachers.map((item, index) => (
-            <SwiperSlide className="flex w-[100px]" key={item.id}>
-              {({ isActive, isPrev, isNext }) =>
-                isActive ? (
-                  <div className="grid lg:grid-cols-2 w-full animate-card rounded-3xl bg-[#F4F5F9]">
+            <SwiperSlide className="my-auto flex" key={item.id}>
+              {
+                ({ isActive, isPrev, isNext }) => (
+                  // isActive ? (
+                  <div className="grid lg:grid-cols-2 w-full rounded-3xl bg-[#F4F5F9]">
                     <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden">
@@ -119,25 +118,26 @@ const LandingTeacher = () => {
                       </div>
                     </div>
                   </div>
-                ) : (
-                  <div
-                    className={
-                      isPrev || isNext
-                        ? "m-auto inline-block rounded-full w-32 p-3 opacity-75 bg-gray-200"
-                        : "m-auto inline-block rounded-full w-16 p-2 opacity-50 bg-gray-200"
-                    }
-                  >
-                    <img
-                      src={require("../../../Assets/mohsen.jpg")}
-                      className={
-                        isPrev || isNext
-                          ? "rounded-full w-36"
-                          : "rounded-full w-28"
-                      }
-                      alt=""
-                    />
-                  </div>
                 )
+                // ) : (
+                //   <div
+                //     className={
+                //       isPrev || isNext
+                //         ? "m-auto flex justify-center rounded-full w-36 p-3 opacity-75 bg-gray-200"
+                //         : "m-auto flex rounded-full w-20 p-2 opacity-50 bg-gray-200"
+                //     }
+                //   >
+                //     <img
+                //       src={require("../../../Assets/mohsen.jpg")}
+                //       className={
+                //         isPrev || isNext
+                //           ? "rounded-full w-36"
+                //           : "rounded-full w-28"
+                //       }
+                //       alt=""
+                //     />
+                //   </div>
+                // )
               }
             </SwiperSlide>
           ))}

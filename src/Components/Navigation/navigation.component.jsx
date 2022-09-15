@@ -4,7 +4,7 @@ import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { RiShoppingCartFill } from "react-icons/ri";
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import { Fragment } from "react";
 
 const Navigation = () => {
@@ -59,12 +59,14 @@ const Navigation = () => {
                 <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
               </div>
               <div className="flex justify-center items-center col-span-1">
-                <Button
-                  classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-md lg:ml-0 md:ml-12
+                <Link to="login">
+                  <Button
+                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-md lg:ml-0 md:ml-12
                 text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
-                >
-                   ورود
-                </Button>
+                  >
+                    ورود
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

@@ -34,18 +34,6 @@ const BlogsPage = () => {
   const [search, setSearch] = useState("");
   const [filterBlogs, setFilterBlogs] = useState(data);
 
-  //  const [searchParam] = useState(["title"]);
-  // const searching = (items) => {
-  //   return items.filter((item) => {
-  //     return searchParam.some((newItem) => {
-  //       return (
-  //         item[newItem].toString().toLowerCase().indexOf(search.toLowerCase()) >
-  //         -1
-  //       );
-  //     });
-  //   });
-  // };
-
   const handleSearch = (value) => {
     setSearch(value);
     setFilterBlogs(
