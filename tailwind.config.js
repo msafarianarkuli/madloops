@@ -43,6 +43,7 @@ module.exports = {
         "dark-purple": "#756496",
         "lite-pink": "#F4EBFD",
         "lite-white": "#F9F9FF",
+        "lite-gray": "#F3F4F8",
       },
     },
   },
