@@ -150,7 +150,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               {commentActive ? (
                 <div className="block md:flex border-2 border-gray-300 rounded-xl p-2 md:p-5">
                   <div
-                    className="bg-[#7F56DA] text-white absolute -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    className="bg-[#7F56DA] text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
                     onClick={() => setCommentActive(false)}
                   >
                     انصراف
@@ -226,7 +226,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               ) : (
                 <div>
                   <div
-                    className="bg-[#7F56DA] text-white absolute -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    className="bg-[#7F56DA] text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
                     onClick={() => setCommentActive(true)}
                   >
                     ارسال دیدگاه
