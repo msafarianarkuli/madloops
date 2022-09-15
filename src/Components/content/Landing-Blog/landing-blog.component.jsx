@@ -53,11 +53,8 @@ const LandingBlog = () => {
       >
         {blogs.map((item) => {
           return (
-            <SwiperSlide>
-              <div
-                className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]"
-                key={item.id}
-              >
+            <SwiperSlide key={item.id}>
+              <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
                 <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-10 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl  bg-slate-400 z-100">
                   <img
                     src={item.image}
