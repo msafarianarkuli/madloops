@@ -46,10 +46,10 @@ const LandingBlog = () => {
           prevEl,
           nextEl,
         }}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
       >
         {blogs.map((item) => {
           return (

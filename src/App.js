@@ -1,17 +1,20 @@
-import { Routes, Route } from 'react-router-dom';
-import './App.css';
-import Navigation from '../src/Components/Navigation/navigation.component';
-import LandingPage from './Screens/Landing/landing-page.component';
-import BlogsPage from './Screens/Blogs/blogs-page.component';
-import SingleBlog from './Screens/Single-Blog/single-blog.component';
-import CoursesPage from './Screens/Courses/courses-page.component';
-import ContactUs from './Screens/ContactUs/ContactUs';
-import SingleCourse from './Screens/SingleCourse/SingleCourse';
-import Footer from './Components/Footer/footer.component';
-import NotFoundPage from './Screens/Not-Found/not-found.component';
-import Call from './Components/content/ContactUs/Call';
-import SendMessage from './Components/content/ContactUs/SendMessage';
-import Location from './Components/content/ContactUs/Location';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import Navigation from "../src/Components/Navigation/navigation.component";
+import LandingPage from "./Screens/Landing/landing-page.component";
+import BlogsPage from "./Screens/Blogs/blogs-page.component";
+import SingleBlog from "./Screens/Single-Blog/single-blog.component";
+import CoursesPage from "./Screens/Courses/courses-page.component";
+import ContactUs from "./Screens/ContactUs/ContactUs";
+import SingleCourse from "./Screens/SingleCourse/SingleCourse";
+import Footer from "./Components/Footer/footer.component";
+import NotFoundPage from "./Screens/Not-Found/not-found.component";
+import Call from "./Components/content/ContactUs/Call";
+import SendMessage from "./Components/content/ContactUs/SendMessage";
+import Location from "./Components/content/ContactUs/Location";
+import LoginPage from "./Screens/Login/login.component";
+import ForgetPasswordPage from "./Screens/Forget-Password/forget-password.component";
+import SignUpPage from "./Screens/Sign-up/sign-up.component";
 
 const App = () => {
   return (
@@ -28,6 +31,10 @@ const App = () => {
             <Route path="location" element={<Location />} />
           </Route>
           <Route path="single-blog" element={<SingleBlog />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="sign-up" element={<SignUpPage />} />
+          <Route path="forget-pass" element={<ForgetPasswordPage />} />
+
           {/*
           <Route path="single-blog" element={} />
           <Route path="login" element={<LoginPage />} />
