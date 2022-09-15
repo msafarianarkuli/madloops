@@ -1,25 +1,26 @@
 import React from 'react';
-import { FaTrashAlt } from 'react-icons/fa';
-const TableRow = () => {
+
+const TableRow = ({ course, icon }) => {
+  const { icon: courseIcon, name, price, teacher, data } = course;
   return (
     <tr className="border-b text-lite-purple">
-      <td className="px-xlpy-4 whitespace-nowrap text-sm font-medium text-center">
-        <img src="" alt="" />
+      <td className="px-xl py-4 whitespace-nowrap font-medium text-center hidden lg:block">
+        <img src={courseIcon} className="w-12 mx-auto" />
       </td>
-      <td className="text-xl font-light px-6 py-4 whitespace-nowrap text-center">
-        ری اکت مقدماتی تا پیشرفته
+      <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 whitespace-nowrap text-center">
+        {name}
       </td>
-      <td className="text-xl font-light px-6 py-4 whitespace-nowrap text-center">
-        بحرالعلوم
+      <td className="text-base lg:text-xl font-light px-6 py-4 whitespace-nowrap text-center hidden sm:block">
+        {teacher}
       </td>
-      <td className="text-xl font-light px-6 py-4 whitespace-nowrap text-center">
-        200.000
+      <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 whitespace-nowrap text-center">
+        {price}
       </td>
-      <td className="text-xl font-light px-6 py-4 whitespace-nowrap text-center">
-        1401/05/12
+      <td className="text-base lg:text-xl font-light px-6 py-4 whitespace-nowrap text-center hidden lg:block">
+        {data}
       </td>
-      <td className="text-xl font-light px-6 py-4 whitespace-nowrap">
-        <FaTrashAlt className="mx-auto" />
+      <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 whitespace-nowrap">
+        {icon}
       </td>
     </tr>
   );
