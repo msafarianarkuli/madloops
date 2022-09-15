@@ -13,6 +13,14 @@ SwiperCore.use([Autoplay, Navigation]);
 const LandingBlog = () => {
   const { blogs } = Data;
 
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 200)
+        .substring(0, value.substring(0, 200).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
 
@@ -38,10 +46,10 @@ const LandingBlog = () => {
           prevEl,
           nextEl,
         }}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 3000,
+        //   disableOnInteraction: false,
+        // }}
       >
         {blogs.map((item) => {
           return (
@@ -78,8 +86,8 @@ const LandingBlog = () => {
                       </h5>
                     </div>
                   </div>
-                  <Button classButton="w-10/12 text-right font-bold 2xl:mt-8 xl:text-2xl xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2 sm:text-base text-xs">
-                    {item.title}
+                  <Button classButton="w-10/12 h-[80px] text-right font-bold 2xl:mt-8 xl:text-2xl xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2 sm:text-base text-xs">
+                    {handleLead(item.title)}
                   </Button>
                   <div className="lg:flex 2xl:mt-8 xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2">
                     <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[10px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">

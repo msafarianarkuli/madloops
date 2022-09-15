@@ -120,6 +120,23 @@ const Data = {
       view: 200,
       hour: 42.5,
     },
+    {
+      id: uuidv4(),
+      title: "دوره عمومی حاج کریم کریمی کمیلی",
+      description:
+        "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
+      teacher: "مازیار قلی پور",
+      lesson: 180,
+      likeCount: 1.3,
+      date: "1980-02-12",
+      price: 999.999,
+      numberOfStudents: 50,
+      archive: "بخت چه",
+      image: require("../../../Assets/alexander-shatov.jpg"),
+      level: "نرمال",
+      view: 200,
+      hour: 42.5,
+    },
   ],
   filterList: [
     {
