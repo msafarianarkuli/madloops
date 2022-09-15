@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import "./teacher.styles.scss";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
 
 SwiperCore.use([Autoplay, Navigation]);
@@ -52,15 +51,12 @@ const LandingTeacher = () => {
             },
             640: {
               slidesPerView: 1,
-              // spaceBetween: 10,
             },
             768: {
               slidesPerView: 1,
-              // spaceBetween: 15,
             },
             1024: {
               slidesPerView: 1,
-              // spaceBetween: 10,
             },
           }}
         >

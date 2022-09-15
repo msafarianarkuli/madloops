@@ -13,6 +13,14 @@ SwiperCore.use([Autoplay, Navigation]);
 const LandingBlog = () => {
   const { blogs } = Data;
 
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 200)
+        .substring(0, value.substring(0, 200).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
 
@@ -45,11 +53,8 @@ const LandingBlog = () => {
       >
         {blogs.map((item) => {
           return (
-            <SwiperSlide>
-              <div
-                className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]"
-                key={item.id}
-              >
+            <SwiperSlide key={item.id}>
+              <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
                 <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-10 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl  bg-slate-400 z-100">
                   <img
                     src={item.image}
@@ -78,8 +83,8 @@ const LandingBlog = () => {
                       </h5>
                     </div>
                   </div>
-                  <Button classButton="w-10/12 text-right font-bold 2xl:mt-8 xl:text-2xl xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2 sm:text-base text-xs">
-                    {item.title}
+                  <Button classButton="w-10/12 h-[80px] text-right font-bold 2xl:mt-8 xl:text-2xl xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2 sm:text-base text-xs">
+                    {handleLead(item.title)}
                   </Button>
                   <div className="lg:flex 2xl:mt-8 xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2">
                     <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[10px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">
