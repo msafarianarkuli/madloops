@@ -8,7 +8,7 @@ import {
 const Data = [
   {
     id: uuidv4(),
-    icon: <BsFillGridFill />,
+    icon: <BsFillGridFill className="" />,
     title: 'داشبورد',
     path: '',
   },
