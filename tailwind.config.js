@@ -40,9 +40,30 @@ module.exports = {
       colors: {
         "deep-purple": "#422F7E",
         "lite-purple": "#7F56DA",
+        "button-purple" : "#7A58C9",
         "dark-purple": "#756496",
         "lite-pink": "#F4EBFD",
         "lite-white": "#F9F9FF",
+        "lite-gray": "#F3F4F8",
+        "deep-gray": "#8D8D8D",
+        "sick-gray": "#B7B7B7",
+        "cool-gray": "#555555",
+      },
+      keyframes: {
+        onLoadAnim: {
+          '0%': { transform: 'translateY(-200px)' },
+          '25%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-40px)' },
+          '100%': { transform: 'translateY(0)' },
+        },
+        onLoadHome: {
+          '0%': { transform: 'translateX(-300px)' },
+          '100%': { transform: 'translateX(0)' },
+        },        
+      },
+      animation: {
+        onLoadAnim: 'onLoadAnim 2s ease-in-out',
+        onLoadHome: 'onLoadHome 2s ease-in-out',
       },
     },
   },
