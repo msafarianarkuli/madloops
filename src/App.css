@@ -56,6 +56,10 @@
     box-shadow: 0 0 10px #e2e2e2;
   }
 
+  .shadow-purple {
+    box-shadow: 0 0 10px #887da2;
+  }
+
   .course-Detail-container {
     @apply custom-shadow rounded-lg mb-8 overflow-hidden;
   }
