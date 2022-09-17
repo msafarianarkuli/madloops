@@ -3,13 +3,13 @@ import React from "react";
 export const FieldName = ({
   field,
   text,
+  title,
   showH3,
   showH2,
   showP,
   classH2Field,
-  classH3Field,
   classPfield,
-  title,
+  classH3Field,
 }) => (
   <React.Fragment>
     {showH2 && <h2 className={classH2Field}>{title}</h2>}

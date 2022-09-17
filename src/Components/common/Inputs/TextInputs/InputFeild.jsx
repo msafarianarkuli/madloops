@@ -4,18 +4,19 @@ import { useField } from "formik";
 const InputFeild = ({
   label,
   classInput,
-  formLabel,
-  name,
+  classLabel,
+  id,
   classError,
+  classForm,
   ...props
 }) => {
   const [field, meta] = useField(props);
   return (
-    <div>
-      <label htmlFor={name} className={formLabel} {...props}>
+    <div className={classForm}>
+      <label htmlFor={id} className={classLabel} {...props}>
         {label}
       </label>
-      <input className={classInput} id={name} {...props} {...field} />
+      <input className={classInput} id={id} {...props} {...field} />
       {meta.touched && meta.error ? (
         <div className={classError}>{meta.error}</div>
       ) : null}
