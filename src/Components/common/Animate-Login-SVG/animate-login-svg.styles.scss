@@ -1,15 +1,14 @@
 #logo {
-  width: 420px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: fill 25.5s ease forwards;
+  animation: fill 26.5s ease forwards;
 }
 
 #logo path:nth-child(1) {
-  stroke-dasharray: 2021px;
-  stroke-dashoffset: 2021px;
+  stroke-dasharray: 2020px;
+  stroke-dashoffset: 2020px;
   animation: line-anim 7s ease forwards 0.7s;
 }
 

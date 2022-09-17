@@ -10,6 +10,7 @@ const AnimateLoginSvg = () => {
   return (
     <div className="">
       <svg
+       className="xl:w-96 lg:w-72 md:w-60"
         id="logo"
         width="678"
         height="463"
