@@ -23,7 +23,7 @@ const UserPanel = () => {
               </div>
             </div>
             {/* end: */}
-            <div className="grid grid-cols-6 gap-3 bg-lite-violet rounded-5xl">
+            <div className="grid grid-cols-6 gap-3 bg-lite-violet rounded-5xl h-full">
               {/* start: this section will show in medium size */}
               <div className="hidden md:col-span-1 md:flex flex-col m-3 ml-0">
                 <Profile />
