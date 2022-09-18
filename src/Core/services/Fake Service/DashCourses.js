@@ -4,7 +4,7 @@ const Data = [
   {
     id: uuidv4(),
     icon: reactIcon,
-    name: 'ری اکت مقدماتی تا پیشرفته',
+    name: 'مریم مقدماتی تا پیشرفته',
     teacher: 'بحرالعلوم',
     price: '200.000',
     data: '1401/05/12',

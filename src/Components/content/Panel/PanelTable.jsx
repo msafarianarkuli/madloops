@@ -3,7 +3,7 @@ import React from 'react';
 import TableRow from './TableRow';
 const PanelTable = ({ data, icon }) => {
   return (
-    <table className="min-w-full mt-10">
+    <table className="min-w-full ">
       <thead className="border-b text-base lg:text-xl font-bold">
         <tr>
           <th

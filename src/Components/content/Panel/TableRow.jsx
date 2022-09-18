@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TableRow = ({ course, icon }) => {
-  const { icon: courseIcon, name, price, teacher, data } = course;
+  const { id, icon: courseIcon, name, price, teacher, data } = course;
   return (
     <tr className="border-b text-lite-purple">
       <td className="px-xl py-4 whitespace-nowrap font-medium text-center hidden lg:table-cell">

@@ -12,9 +12,11 @@ import NotFoundPage from './Screens/Not-Found/not-found.component';
 import Call from './Components/content/ContactUs/Call';
 import SendMessage from './Components/content/ContactUs/SendMessage';
 import Location from './Components/content/ContactUs/Location';
-import LoginPage from './Screens/Login/login.component';
-import ForgetPasswordPage from './Screens/Forget-Password/forget-password.component';
-import SignUpPage from './Screens/Sign-up/sign-up.component';
+import UserPanel from './Screens/Panel/UserPanel';
+import Dashboard from './Components/content/Panel/Dashboard';
+import MyCourses from './Components/content/Panel/MyCourses';
+import CoursesList from './Components/content/Panel/CoursesList';
+import EditProfile from './Components/content/Panel/EditProfile';
 
 const App = () => {
   return (
@@ -43,7 +45,6 @@ const App = () => {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
           <Route path="forget-pass" element={<ForgetPassPage />} />
-          
           */}
         <Route path="user-panel" element={<UserPanel />}>
           <Route index element={<Dashboard />}></Route>

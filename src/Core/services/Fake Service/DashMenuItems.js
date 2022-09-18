@@ -8,33 +8,35 @@ import {
 const Data = [
   {
     id: uuidv4(),
-    icon: <BsFillGridFill className="" />,
+    icon: <BsFillGridFill className="inline-block sm:text-2xl" />,
     title: 'داشبورد',
     path: '',
   },
   {
     id: uuidv4(),
-    icon: <BsFillPlayCircleFill />,
+    icon: (
+      <BsFillPlayCircleFill className="inline-block sm:text-2xl" />
+    ),
     title: 'دوره های من',
     path: 'myCourses',
   },
   {
     id: uuidv4(),
-    icon: <FaClipboardList />,
+    icon: <FaClipboardList className="inline-block sm:text-2xl" />,
     title: 'لیست دوره ها',
     path: 'courseList',
   },
   {
     id: uuidv4(),
-    icon: <FaUserEdit />,
+    icon: <FaUserEdit className="inline-block sm:text-2xl" />,
     title: 'ویرایش پروفایل',
     path: 'editProfile',
   },
   {
     id: uuidv4(),
-    icon: <FaTimesCircle />,
+    icon: <FaTimesCircle className="inline-block sm:text-2xl" />,
     title: 'خروج',
-    path: 'fff',
+    path: '/',
   },
 ];
 
