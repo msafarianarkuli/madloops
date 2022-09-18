@@ -135,7 +135,7 @@ const Login = () => {
                     ButtonType="submit"
                   >
                     ادامه با گوگل
-                    <FcGoogle className="text-2xl absolute sm:left-32 left-24 top-3 group-hover:text-3xl group-hover:top-2 duration-200" />
+                    <FcGoogle className="text-2xl group-hover:animate-[onHoverGoogle_1s_ease-in-out_infinite] absolute sm:left-32 left-24 top-3 group-hover:text-3xl group-hover:top-2 duration-200" />
                   </Button>
                 </div>
                 <div className="mt-2 h-8 flex justify-center text-sick-gray">
