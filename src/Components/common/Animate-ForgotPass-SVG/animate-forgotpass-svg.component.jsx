@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import "../Animate-SignUp-SVG/animate-signup-svg.styles.scss";
+import "../Animate-ForgotPass-SVG/animate-forgotpass-svg.styles.scss"
 
-const AnimateSignUpSvg = () => {
-  const signLogo = document.querySelectorAll("#signLogo path");
-  for (let i = 0; i < signLogo.length; i++) {
-    console.log(`Letter ${i} is ${signLogo[i].getTotalLength()}`);
+const AnimateForgotpassSvg = () => {
+  const fogotLogo = document.querySelectorAll("#fogotLogo path");
+  for (let i = 0; i < fogotLogo.length; i++) {
+    console.log(`Letter ${i} is ${fogotLogo[i].getTotalLength()}`);
   }
 
   return (
     <div className="">
       <svg
         className="xl:w-80 lg:w-72 md:w-60"
-        id="signLogo"
+        id="fogotLogo"
         width="234"
         height="234"
         viewBox="0 0 234 234"
@@ -97,4 +97,4 @@ const AnimateSignUpSvg = () => {
   );
 };
 
-export default AnimateSignUpSvg;
+export default AnimateForgotpassSvg;
