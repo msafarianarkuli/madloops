@@ -20,11 +20,12 @@ import EditProfile from "./Components/content/Panel/EditProfile";
 import SignUpPage from "./Screens/Sign-up/sign-up.component";
 import ForgetPasswordPage from "./Screens/Forget-Password/forget-password.component";
 import LoginPage from "./Screens/Login/login.component";
+import AnimateSignUpSvg from "./Components/common/Animate-SignUp-SVG/animate-signup-svg.component";
 
 const App = () => {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />
           <Route path="blogs" element={<BlogsPage />} />
@@ -48,8 +49,9 @@ const App = () => {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-      </Routes>
-      <Footer />
+      </Routes> */}
+      <AnimateSignUpSvg />
+      {/* <Footer /> */}
     </div>
   );
 };

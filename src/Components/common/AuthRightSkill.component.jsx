@@ -146,8 +146,6 @@ const AuthRightSkill = ({ currentPage }) => {
           }  p-3 w-fit h-fit`}
         >
           {currentPage === 3 ? (
-            <BsFillCircleFill className="text-xl text-[#7A58C9]" />
-          ) : currentPage > 3 ? (
             <BsCheckLg className="text-xl text-[#7A58C9]" />
           ) : (
             <BsFillCircleFill className="text-xl text-[#8D8D8D]" />

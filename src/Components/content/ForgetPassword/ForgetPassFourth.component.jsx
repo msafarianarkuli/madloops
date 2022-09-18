@@ -6,7 +6,7 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 const ForgetPassFourthPage = () => {
   return (
     <div className="flex flex-col w-[100%] mt-4 mr-4 h-fit">
-      <div className="mx-auto text-center mt-16">
+      <div className="mx-auto text-center mt-16 animate-[onLoadAnim_2s_ease-in-out]">
         <FieldName
           showH2
           showP
@@ -25,9 +25,9 @@ const ForgetPassFourthPage = () => {
           alt=""
         />
       </div>
-      <div className="bg-[#7A58C9] w-96 p-2 text-center rounded-[15px] mx-auto mt-5 hover:bg-white transition duration-500 ease-in-out group">
+      <div className="mt-2 h-14 flex justify-center">
         <Link to="/login">
-          <Button className="text-white text-xl w-full group-hover:text-deep-purple">
+          <Button className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-4 text-center rounded-[15px] hover:button-shadow duration-300 ease-in-out">
             ادامه
           </Button>
         </Link>

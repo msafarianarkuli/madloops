@@ -64,14 +64,14 @@ module.exports = {
       },
       keyframes: {
         onLoadAnim: {
-          "0%": { transform: "translateY(-200px)" },
-          "25%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-40px)" },
-          "100%": { transform: "translateY(0)" },
+          "0%": { transform: "translateY(-200px)" , opacity:"0" },
+          "25%": { transform: "translateY(0)", opacity:"1" },
+          "50%": { transform: "translateY(-40px)", opacity:"1" },
+          "100%": { transform: "translateY(0)", opacity:"1" },
         },
         onLoadHome: {
-          "0%": { transform: "translateX(-300px)" },
-          "100%": { transform: "translateX(0)" },
+          "0%": { transform: "translateX(-300px)" , opacity:"0" },
+          "100%": { transform: "translateX(0)", opacity:"1"  },
         },
         onHoverGoogle: {
           "0%": { transform: "translateY(0)" },

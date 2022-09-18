@@ -12,7 +12,7 @@ const SignUpSecondPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit">
+    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="flex justify-start">
         <Button classButton="flex items-center text-[#555555]">
           <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
@@ -62,50 +62,50 @@ const SignUpSecondPage = (props) => {
       >
         {(values) => (
           <Form>
-            <div className="flex flex-col items-center mt-16">
+            <div className="flex flex-col items-center mt-14">
               <InputFeild
-                classForm="flex flex-col items-start"
+                classForm="flex flex-col items-start h-24"
                 label="شماره ملی:"
                 name="nationalId"
                 type="text"
                 id="nationalId"
-                classInput="w-96 p-2 border-2 border-[#B7B7B7] focus:border-2 focus:border-blue-900 bg-white rounded-[15px] outline-0"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="شماره ملی خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
               />
               <InputFeild
-                classForm="flex flex-col mt-2"
+                classForm="flex flex-col mt-2 h-24"
                 label="شماره همراه:"
                 name="phoneNumber"
                 type="text"
                 id="phoneNumber"
-                classInput="w-96 p-2 border-2 border-[#B7B7B7] focus:border-2 focus:border-blue-900 bg-white rounded-[15px] outline-0"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="شماره همراه خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
               />
               <InputFeild
-                classForm="flex flex-col mt-2"
+                classForm="flex flex-col mt-2 h-24"
                 label="تاریخ تولد:"
                 name="birthDate"
                 type="text"
                 id="birthDate"
-                classInput="w-96 p-2 border-2 border-[#B7B7B7] focus:border-2 focus:border-blue-900 bg-white rounded-[15px] outline-0"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="تاریخ تولد خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
               />
             </div>
-            <div className="bg-[#7A58C9] w-96 p-2 text-center rounded-[15px] mx-auto mt-5 hover:bg-white transition duration-500 ease-in-out group">
+            <div className="mt-2 h-14 flex justify-center">
               <Button
-                className="text-white text-xl w-full group-hover:text-deep-purple"
+                className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-3 text-center rounded-[15px] hover:button-shadow duration-300 ease-in-out"
                 ButtonType="submit"
               >
                 ادامه
               </Button>
             </div>
-            <div className="mt-2 m-auto w-[32rem]">
+            <div className="mt-3 m-auto w-[32rem]">
               <Button
                 className="flex items-center mr-14"
                 onClick={() => props.prev(values)}
