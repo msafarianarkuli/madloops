@@ -1,4 +1,5 @@
 import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 import React, { useRef } from 'react';
 import editImg from '../../../Assets/img-user-panel/edit.png';
 import Input from '../../common/Inputs/TextInputs/Input';
@@ -33,6 +34,33 @@ const EditProfile = () => {
             birthDate: '',
             phone: '',
           }}
+          validationSchema={Yup.object({
+            name: Yup.string().required(
+              'لطفا فیلد نام و  نام خانوادگی را پر کنید'
+            ),
+            userName: Yup.string()
+              .required('لطفا فیلد نام کابری را پر کنید')
+              .matches(
+                /^[a-zA-Z0-9_-]{3,16}$/,
+                ' نام کاربری باید بین 3 تا 16 کارکتر بوده و می تواند شامل حروف انگلیسی، اعداد و خط تیره باشد'
+              ),
+            nationalNumber: Yup.string()
+              .required('لطفا فیلد کد ملی را پر کنید')
+              .matches(/^[0-9]+$/, 'الگوی وارد شده صحیح نمی باشد')
+              .min(10, 'تعداد ارقام کد ملی صحیح نیست')
+              .max(10, 'تعداد ارقام کد ملی صحیح نیست'),
+            email: Yup.string()
+              .email('الگوی وارد شده صحیح نمی باشد')
+              .required('لطفا فیلد ایمیل را پر کنید'),
+            birthDate: Yup.string().required(
+              'لطفا فیلد تاریخ تولد را پر کنید'
+            ),
+            phone: Yup.string()
+              .required('لطفا فیلد شماره تماس را پر کنید')
+              .matches(/^[0-9]+$/, 'الگوی وارد شده صحیح نمی باشد')
+              .min(11, 'تعداد ارقام شماره تلفن صحیح نیست')
+              .max(11, 'تعداد ارقام شماره تلفن صحیح نیست'),
+          })}
           onSubmit={(values) => {
             console.log(values);
           }}
@@ -45,6 +73,7 @@ const EditProfile = () => {
                   name="name"
                   type="text"
                   label="نام و نام خانوادگی:"
+                  placeholder="میکائیل محسنی"
                 />
               </div>
               <div>
@@ -53,6 +82,7 @@ const EditProfile = () => {
                   name="userName"
                   type="text"
                   label="نام کاربری:"
+                  placeholder="michael"
                 />
               </div>
               <div>
@@ -61,6 +91,7 @@ const EditProfile = () => {
                   name="nationalNumber"
                   type="text"
                   label="کد ملی:"
+                  placeholder="2150008898"
                 />
               </div>
               <div>
@@ -69,6 +100,7 @@ const EditProfile = () => {
                   name="email"
                   type="text"
                   label="ایمیل:"
+                  placeholder="example@gmail.com"
                 />
               </div>
               <div>
@@ -85,6 +117,7 @@ const EditProfile = () => {
                   name="phone"
                   type="text"
                   label="شماره موبایل:"
+                  placeholder="09031471874"
                 />
               </div>
             </div>

@@ -10,13 +10,12 @@ const InputGroups = ({ label, className, ...props }) => {
         </label>
       ) : null}
       <input {...props} {...field} className={className} />
-      {meta.error && (
-        <div className="text-red-500 h-[20px] mb-1">
-          {meta.touched && meta.error ? (
-            <div className="error">{meta.error}</div>
-          ) : null}
-        </div>
-      )}
+
+      <div className="text-red-500 h-[20px] mb-1">
+        {meta.touched && meta.error ? (
+          <div className="error">{meta.error}</div>
+        ) : null}
+      </div>
     </>
   );
 };
