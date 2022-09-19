@@ -6,6 +6,7 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 import InputFeild from "./../../common/Inputs/TextInputs/InputFeild";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const ForgetPassThirdPage = (props) => {
   const handleSubmit = (values) => {
@@ -14,10 +15,12 @@ const ForgetPassThirdPage = (props) => {
   return (
     <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="sm:flex sm:justify-start flex justify-center">
-        <Button classButton="flex items-center text-[#555555]">
-          <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
-          ورود
-        </Button>
+        <Link to="/login">
+          <Button classButton="flex items-center text-[#555555]">
+            <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
+            ورود
+          </Button>
+        </Link>
       </div>
       <div className="mx-auto text-center mt-7">
         <FieldName
@@ -55,7 +58,7 @@ const ForgetPassThirdPage = (props) => {
         })}
         onSubmit={handleSubmit}
       >
-        {(values) => (
+        {({ values }) => (
           <Form>
             <div className="flex flex-col items-center">
               <InputFeild

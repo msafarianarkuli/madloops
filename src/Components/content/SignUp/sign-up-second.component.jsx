@@ -6,6 +6,8 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 import InputFeild from "./../../common/Inputs/TextInputs/InputFeild";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
+import PhoneNumberField from "../../common/Inputs/InputPhoneNumber.component";
 
 const SignUpSecondPage = (props) => {
   const handleSubmit = (values) => {
@@ -14,10 +16,12 @@ const SignUpSecondPage = (props) => {
   return (
     <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="flex justify-start">
-        <Button classButton="flex items-center text-[#555555]">
-          <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
-          ورود
-        </Button>
+        <Link to="/login">
+          <Button classButton="flex items-center text-[#555555]">
+            <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
+            ورود
+          </Button>
+        </Link>
       </div>
       <div className="mx-auto text-center mt-7">
         <FieldName
@@ -41,15 +45,12 @@ const SignUpSecondPage = (props) => {
             .min(99999, "شماره ملی نباید از 5 رقم کمتر باشد")
             .max(9999999999, "شماره ملی نباید از 10 رقم بیشتر باشد"),
 
-          phoneNumber: Yup.number()
-            .typeError("شماره تلفن خود را صحیح وارد کنید")
-            .positive("شماره تلفن نمی تواند با منها شروع شود")
-            .integer("شماره تلفن نمی‌ تواند شامل اعشار باشد")
-            .max(
-              9999999999,
-              "شماره تماس وارد شده نمیتواند بیشتر از 11 رقم باشد"
-            )
-            .required("لطفا فیلد شماره تماس را پر کنید"),
+          phoneNumber: Yup.string()
+            .required("شماره تماس را وارد کنید")
+            .matches(
+              /^(0|0098|\+98|98)9(0[1-5]|[1 3]\d|2[0-2]|98)\d{7}$/,
+              "شماره تلفن صحیح نیست"
+            ),
 
           birthDate: Yup.string()
             .required("لطفا فیلد تاریخ تولد را پر کنید")
@@ -60,7 +61,7 @@ const SignUpSecondPage = (props) => {
         })}
         onSubmit={handleSubmit}
       >
-        {(values) => (
+        {({ values }) => (
           <Form>
             <div className="flex flex-col items-center mt-14">
               <InputFeild
@@ -74,16 +75,14 @@ const SignUpSecondPage = (props) => {
                 placeholder="شماره ملی خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
               />
-              <InputFeild
+              <PhoneNumberField
                 classForm="flex flex-col mt-2 h-24"
                 label="شماره همراه:"
                 name="phoneNumber"
-                type="text"
-                id="phoneNumber"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
+                type="tel"
                 classLabel="text-xl mb-2"
-                placeholder="شماره همراه خود را وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1 mr-1"
+                dropdownClass="bottom-full absolute"
+                classError="text-red-500 h-[20px] mt-1 mr-1"
               />
               <InputFeild
                 classForm="flex flex-col mt-2 h-24"
@@ -91,7 +90,7 @@ const SignUpSecondPage = (props) => {
                 name="birthDate"
                 type="text"
                 id="birthDate"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
+                classInput="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="تاریخ تولد خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
