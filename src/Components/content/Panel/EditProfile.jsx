@@ -1,8 +1,12 @@
+import React, { useRef } from 'react';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import React, { useRef } from 'react';
+import persian from 'react-date-object/calendars/persian';
+import persian_fa from 'react-date-object/locales/persian_fa';
+
 import editImg from '../../../Assets/img-user-panel/edit.png';
 import Input from '../../common/Inputs/TextInputs/Input';
+import CustomDatePicker from '../../common/Date-Picker/date-picker-component';
 const EditProfile = () => {
   const fileInput = useRef();
   return (
@@ -104,11 +108,11 @@ const EditProfile = () => {
                 />
               </div>
               <div>
-                <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                <CustomDatePicker
                   name="birthDate"
-                  type="text"
-                  label="تاریخ تولد:"
+                  label="تاریخ تولد"
+                  placeholder="1401/06/12"
+                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
                 />
               </div>
               <div>
