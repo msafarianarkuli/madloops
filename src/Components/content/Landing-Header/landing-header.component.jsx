@@ -16,7 +16,7 @@ const LandingHeader = () => {
                 classH2Field="pt-6 text-xl xl:text-4xl xl:mr-10 lg:text-2xl lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
-            <div className="grid h-3/6 text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+            <div className="grid h-3/6 text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-sm text-gray-700">
               <div className="h-[130px]">
                 <Typewriter
                   words={[
@@ -30,7 +30,7 @@ const LandingHeader = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-1 sm:pt-1 sm:text-xs">
+          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-2 sm:pt-1 sm:text-xs">
             <div className="col-span-1">
               <img
                 className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
