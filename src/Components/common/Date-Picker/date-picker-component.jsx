@@ -1,25 +1,42 @@
-import React from "react";
-import DatePicker, { DateObject } from "react-multi-date-picker";
-import persian from "react-date-object/calendars/persian";
-import persian_fa from "react-date-object/locales/persian_fa";
+import React from 'react';
+import { useField, useFormikContext } from 'formik';
+import DatePicker from 'react-multi-date-picker';
+import persian from 'react-date-object/calendars/persian';
+import persian_fa from 'react-date-object/locales/persian_fa';
+import 'react-multi-date-picker/styles/colors/purple.css';
 
-const DatePicker = ({ value, onChange }) => {
+const CustomDatePicker = ({ label, className, ...props }) => {
+  const [field, meta] = useField(props);
+  const { setFieldValue } = useFormikContext();
   return (
-    <div>
-      <label className="w-76 mt-3 ml-4 text-gray-400 text-start">
-        تاریخ تولد خود را انتخاب کنید:
-        <DatePicker
-          placeholder="کلیک کنید"
-          inputClass="border-none font-xl rounded-3xl"
-          calendar={persian}
-          locale={persian_fa}
-          calendarPosition="top-bottom"
-          onChange={onChange}
-          value={value}
-        />
-      </label>
-    </div>
+    <>
+      {label ? (
+        <label className="text-gray-600 block mb-2 text-lg">
+          {label}
+        </label>
+      ) : null}
+      <DatePicker
+        calendar={persian}
+        locale={persian_fa}
+        calendarPosition="top-bottom"
+        {...props}
+        {...field}
+        selected={(field.value && new Date(field.value)) || null}
+        onChange={(val) => {
+          setFieldValue(field.name, val);
+        }}
+        inputClass={className}
+        containerStyle={{ width: '100%' }}
+        className="purple"
+      />
+
+      <div className="text-red-500 h-[20px] mb-1">
+        {meta.touched && meta.error ? (
+          <div className="error">{meta.error}</div>
+        ) : null}
+      </div>
+    </>
   );
 };
 
-export default DatePicker;
+export default CustomDatePicker;
