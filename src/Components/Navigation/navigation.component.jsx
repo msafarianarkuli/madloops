@@ -66,8 +66,8 @@ const Navigation = () => {
               <div className="flex justify-center items-center col-span-1">
                 <Link to="login">
                   <Button
-                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-md lg:ml-0 md:ml-12
-                text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
+                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12
+                text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-xl text-lg hover:bg-deep-purple hover:text-white"
                   >
                     ورود
                   </Button>
