@@ -66,8 +66,6 @@ module.exports = {
           '0%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-2px)' },
           '100%': { transform: 'translateY(0)' },
-          '0%': { transform: 'translateX(-300px)' },
-          '100%': { transform: 'translateX(0)' },
         },
       },
       animation: {
