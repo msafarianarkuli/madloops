@@ -33,11 +33,13 @@ const Login = () => {
             <AnimateLoginSvg />
           </div>
           <div className="h-20 w-full absolute bottom-0">
-            <img
-              className="w-12 m-auto mt-4 hover:scale-110 duration-300 cursor-pointer animate-[onLoadHome_2s_ease-in-out]"
-              src={require("../../../Assets/img-auth/home.png")}
-              alt="home"
-            />
+            <Link to="/">
+              <img
+                className="w-12 m-auto mt-4 hover:scale-110 duration-300 cursor-pointer animate-[onLoadHome_2s_ease-in-out]"
+                src={require("../../../Assets/img-auth/home.png")}
+                alt="home"
+              />
+            </Link>
           </div>
         </div>
         <div className="lg:col-span-1 col-span-2 bg-white animate-[onLoadAnim_2s_ease-in-out]">

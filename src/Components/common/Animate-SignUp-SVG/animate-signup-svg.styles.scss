@@ -1,72 +1,35 @@
 #signLogo {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%, -50%);
 }
 
-#signLogo #circle {
-  stroke-dasharray: 750px;
-  stroke-dashoffset: 750px;
-  animation: dash-anim 4s ease forwards 0.7s;
+#signLogo #roundStrock {
+  stroke-dasharray: 1273px;
+  stroke-dashoffset: 1273px;
+  animation: dash-anim 3.5s ease forwards 0.7s;
 }
-#signLogo #circle2 {
-  stroke-dasharray: 750px;
-  stroke-dashoffset: 750px;
-  animation: dash-anim 4s ease forwards 0.7s;
-  animation: fillOne 16s ease forwards;
-}
-
-#signLogo #circle3 {
-  stroke-dasharray: 550px;
-  stroke-dashoffset: 550px;
-  animation: dash-anim 4s ease forwards 0.7s;
+#signLogo #roundStrock2 {
+  stroke-dasharray: 1273px;
+  stroke-dashoffset: 1273px;
+  animation: dash-anim 3.5s ease forwards 0.7s;
+  animation: fill-one 15s ease forwards;
 }
 
-#signLogo #circle4 {
-  stroke-dasharray: 550px;
-  stroke-dashoffset: 550px;
-  animation: dash-anim 4s ease forwards 0.7s;
-  animation: fillTwo 16s ease forwards;
+#signLogo #Tik {
+  stroke-dasharray: 812px;
+  stroke-dashoffset: 812px;
+  animation: dash-anim 3.5s ease forwards 0.7s;
 }
 
-#signLogo #circle5 {
-  stroke-dasharray: 414px;
-  stroke-dashoffset: 414px;
-  animation: dash-anim 4s ease forwards 0.7s;
-}
-#signLogo #circle6 {
-  stroke-dasharray: 414px;
-  stroke-dashoffset: 414px;
-  animation: dash-anim 4s ease forwards 0.7s;
-  animation: fillFour 16s ease forwards;
+#signLogo #Tik2 {
+  stroke-dasharray: 812px;
+  stroke-dashoffset: 812px;
+  animation: dash-anim 3.5s ease forwards 0.7s;
+  animation: fill-two 15s ease forwards;
 }
 
-#signLogo #circle7 {
-  stroke-dasharray: 420px;
-  stroke-dashoffset: 420px;
-  animation: dash-anim 4s ease forwards 0.7s;
-}
-
-#signLogo #circle8 {
-  stroke-dasharray: 420px;
-  stroke-dashoffset: 420px;
-  animation: dash-anim 4s ease forwards 0.7s;
-  animation: fillFour 16s ease forwards;
-}
-
-#signLogo #little-cik {
-  stroke-dasharray: 314px;
-  stroke-dashoffset: 314px;
-  animation: dash-anim 4s ease forwards 0.7s;
-}
-
-#signLogo #little-cik2 {
-  stroke-dasharray: 314px;
-  stroke-dashoffset: 314px;
-  animation: dash-anim 4s ease forwards 0.7s;
-  animation: fillThree 16s ease forwards;
-}
 
 @keyframes dash-anim {
   to {
@@ -74,27 +37,15 @@
   }
 }
 
-@keyframes fillOne {
+@keyframes fill-one {
   to {
-    fill: #ecfdf3;
+    fill: #00C9A3;
   }
 }
 
-@keyframes fillTwo {
+@keyframes fill-two {
   to {
-    fill: #D1F9DE;
-  }
-}
-
-@keyframes fillThree {
-  to {
-    fill: #00c9a3;
-  }
-}
-
-@keyframes fillFour {
-  to {
-    fill: #00c9a3;
+    fill: #422F7E;
   }
 }
 

@@ -1,6 +1,7 @@
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
 const LandingHeader = () => {
   return (
@@ -15,7 +16,7 @@ const LandingHeader = () => {
                 classH2Field="pt-6 text-xl xl:text-4xl xl:mr-10 lg:text-2xl lg:mr-6 lg:pt-28 md:mr-4 m-auto pb-4 md:pt-12 sm:mr-0 sm:pt-12"
               />
             </div>
-            <div className="grid h-3/6 text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+            <div className="grid h-3/6 text-sm mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-sm text-gray-700">
               <div className="h-[130px]">
                 <Typewriter
                   words={[
@@ -23,13 +24,13 @@ const LandingHeader = () => {
                   ]}
                   cursor
                   cursorStyle=" |"
-                  typeSpeed={40}
+                  typeSpeed={30}
                   delaySpeed={1000}
                 />
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-1 sm:pt-1 sm:text-xs">
+          <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-2 sm:pt-1 sm:text-xs">
             <div className="col-span-1">
               <img
                 className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
@@ -81,13 +82,15 @@ const LandingHeader = () => {
           </div>
           <div className="grid sm:grid-cols-5 h-2/6">
             <div className="col-span-5 sm:col-span-3">
-              <Button
-                classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-6 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
+              <Link to="/course">
+                <Button
+                  classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-6 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
                 md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
-              >
-                شروع یادگیری
-              </Button>
+                >
+                  شروع یادگیری
+                </Button>
+              </Link>
             </div>
             <div className="col-span-5 sm:col-span-2">
               <Button

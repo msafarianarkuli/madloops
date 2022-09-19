@@ -1,22 +1,26 @@
+import React, { useRef } from 'react';
 import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
-import React, { useRef } from 'react';
+import persian from 'react-date-object/calendars/persian';
+import persian_fa from 'react-date-object/locales/persian_fa';
+
 import editImg from '../../../Assets/img-user-panel/edit.png';
 import Input from '../../common/Inputs/TextInputs/Input';
+import CustomDatePicker from '../../common/Date-Picker/date-picker-component';
 const EditProfile = () => {
   const fileInput = useRef();
   return (
     <>
       <div>
         <div className="relative">
-          <img src={editImg} className="rounded-t-4xl w-full" />
+          <img src={editImg} className="rounded-t-2xl w-full h-80 object-cover" />
           <div
             className="absolute right-0 left-0 mx-auto w-[60px] h-[60px] sm:w-[120px] sm:h-[100px] top-0 bottom-0 my-auto "
             onClick={() => fileInput.current.click()}
           >
             <button
               className="bg-white text-transparent backdrop-opacity-20 backdrop-blur-[4px] backdrop-brightness-25 opacity-20
-          rounded-tl-3xl rounded-tr-lg rounded-bl-lg rounded-br-3xl w-full h-full
+          rounded-tl-2xl rounded-tr-lg rounded-bl-lg rounded-br-2xl w-full h-full
           
        "
             />
@@ -104,11 +108,11 @@ const EditProfile = () => {
                 />
               </div>
               <div>
-                <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                <CustomDatePicker
                   name="birthDate"
-                  type="text"
-                  label="تاریخ تولد:"
+                  label="تاریخ تولد"
+                  placeholder="1401/06/12"
+                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
                 />
               </div>
               <div>

@@ -39,39 +39,3 @@ const PhoneNumberField = ({ ...props }) => {
 };
 
 export default PhoneNumberField;
-
-/*    
-          
-          
-
-const FlagPhoneInput = ({ ...props }) => {
- 
-    const { styles, label, id, name, type, value, as } = props;
-
-  return (
-    <div className="">
-      <label className={styles.label} htmlFor={name}>
-        {label}
-      </label>
-     
-      <div dir="ltr">
-        <PhoneInput
-          name={name}
-          inputProps={{ onBlur: handleBlur, name: name }}
-          country={"ir"}
-          placeholder="+98 911 123 4567"
-          dropdownClass=" bottom-full absolute"
-          inputClass={styles.numField}
-          value={field.value}
-          onChange={onChange}
-        />
-      </div>
-      <div className=" min-h-[1.5rem] ">
-        <ErrorMessage component="a" className={styles.errorMsg} name={name} />
-      </div>
-    </div>
-  );
-};
-
-
-*/

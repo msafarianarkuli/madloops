@@ -17,7 +17,7 @@ const Textarea = ({ label, ...props }) => {
         id={props.name}
         rows="10"
         cols="20"
-        className="rounded-lg py-2 bg-neutral-200 outline-none w-full px-4 border-2 border-neutral-200 focus:border-[#673CC0] focus:bg-white"
+        className="rounded-lg py-2 bg-neutral-200 outline-none w-full max-h-64 px-4 border-2 border-neutral-200 focus:border-[#673CC0] focus:bg-white"
       />
       <div className="text-red-500 h-[20px] mb-2">
         {meta.touched && meta.error ? (

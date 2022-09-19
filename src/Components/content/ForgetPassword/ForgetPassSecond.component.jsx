@@ -63,7 +63,7 @@ const ForgetPassSecondPage = (props) => {
                 classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="کد عبور ارسال شده را وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1 mr-1"
+                classError="text-red-500 h-[20px] mb-1"
               />
             </div>
             <div className="mt-2 h-14 flex justify-center">

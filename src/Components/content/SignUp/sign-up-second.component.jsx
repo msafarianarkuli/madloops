@@ -14,7 +14,7 @@ const SignUpSecondPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="flex justify-start">
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">
@@ -73,7 +73,7 @@ const SignUpSecondPage = (props) => {
                 classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="شماره ملی خود را وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1 mr-1"
+                classError="text-red-500 h-[20px] mb-1"
               />
               <PhoneNumberField
                 classForm="flex flex-col mt-2 h-24"
@@ -93,7 +93,7 @@ const SignUpSecondPage = (props) => {
                 classInput="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="تاریخ تولد خود را وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1 mr-1"
+                classError="text-red-500 h-[20px] mb-1"
               />
             </div>
             <div className="mt-2 h-14 flex justify-center">

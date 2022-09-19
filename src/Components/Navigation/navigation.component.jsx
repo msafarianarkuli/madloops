@@ -22,14 +22,18 @@ const Navigation = () => {
         <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
           <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
-              <img
-                className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-                src={require("../../Assets/img/site-logo.png")}
-                alt="shopping"
-              />
-              <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
-                Mad Loops
-              </span>
+              <Link to="/">
+                <img
+                  className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
+                  src={require("../../Assets/img/site-logo.png")}
+                  alt="shopping"
+                />
+              </Link>
+              <Link to="/">
+                <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
+                  Mad Loops
+                </span>
+              </Link>
             </div>
           </div>
           <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
@@ -50,6 +54,7 @@ const Navigation = () => {
                   </NavLink>
                 );
               })}
+
               <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
             </div>
           </div>
@@ -61,8 +66,8 @@ const Navigation = () => {
               <div className="flex justify-center items-center col-span-1">
                 <Link to="login">
                   <Button
-                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-md lg:ml-0 md:ml-12
-                text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-3xl text-lg hover:bg-deep-purple hover:text-white"
+                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12
+                text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-xl text-lg hover:bg-deep-purple hover:text-white"
                   >
                     ورود
                   </Button>
@@ -75,7 +80,7 @@ const Navigation = () => {
             <div
               className={`${
                 open
-                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10 absolute"
+                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-50 absolute"
                   : "w-10 z-0"
               } duration-300 ease-in-out relative`}
             >
@@ -91,30 +96,22 @@ const Navigation = () => {
                     <RiShoppingCartFill className="text-xl cursor-pointer duration-100 ease-in-out hover:scale-125" />
                   </div>
                   <div className="pt-14 text-lg text-white text-center">
-                    <a
-                      className="block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple"
-                      href="#"
-                    >
-                      خانه
-                    </a>
-                    <a
-                      className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
-                      href="#"
-                    >
-                      دوره ها
-                    </a>
-                    <a
-                      className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
-                      href="#"
-                    >
-                      اخبار و مقالات
-                    </a>
-                    <a
-                      className="block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
-                      href="#"
-                    >
-                      تماس با ما
-                    </a>
+                    {navlines.map((navline) => {
+                      return (
+                        <NavLink
+                          className={({ isActive }) =>
+                            isActive
+                              ? "block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple"
+                              : "block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
+                          }
+                          key={navline.id}
+                          to={navline.path}
+                          end
+                        >
+                          {navline.title}
+                        </NavLink>
+                      );
+                    })}
                   </div>
                   <p className="m-5 text-xs text-gray-400 absolute bottom-0 left-0">
                     Designed By Mad Loops -
