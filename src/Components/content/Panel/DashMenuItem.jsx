@@ -9,8 +9,8 @@ const DashMenuItemLg = ({ items }) => {
       to={path}
       className={({ isActive }) =>
         isActive
-          ? 'bg-white rounded-md lg:rounded-2xl my-4 p-2 flex shadow-purple text-lite-purple'
-          : 'bg-white rounded-md lg:rounded-2xl my-4 text-gray-500 p-2 flex'
+          ? 'bg-white rounded-md lg:rounded-xl my-4 p-2 flex shadow-purple text-lite-purple'
+          : 'bg-white rounded-md lg:rounded-xl my-4 text-gray-500 p-2 flex'
       }
     >
       <span className="text-2xl">{icon}</span>
