@@ -22,14 +22,18 @@ const Navigation = () => {
         <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
           <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
-              <img
-                className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-                src={require("../../Assets/img/site-logo.png")}
-                alt="shopping"
-              />
-              <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
-                Mad Loops
-              </span>
+              <Link to="/">
+                <img
+                  className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
+                  src={require("../../Assets/img/site-logo.png")}
+                  alt="shopping"
+                />
+              </Link>
+              <Link to="/">
+                <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
+                  Mad Loops
+                </span>
+              </Link>
             </div>
           </div>
           <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
