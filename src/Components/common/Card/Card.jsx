@@ -6,7 +6,7 @@ import { HiOutlineUser, HiOutlineUsers } from 'react-icons/hi';
 
 const CardAI = ({ item }) => {
   return (
-    <div className="border-gray-500 text-gray-500 border-2 rounded-md p-3 flex flex-col">
+    <div className="border-gray-500 text-gray-500 border-2 hover:border-lite-purple rounded-lg p-3 flex flex-col">
       <img src={item.image} className="rounded-md w-full" alt="" />
 
       <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">

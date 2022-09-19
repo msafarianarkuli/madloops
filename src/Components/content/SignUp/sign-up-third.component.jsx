@@ -12,7 +12,7 @@ const SignUpThirdPage = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit">
+    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="flex justify-start">
         <Button classButton="flex items-center text-[#555555]">
           <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
@@ -37,7 +37,7 @@ const SignUpThirdPage = (props) => {
             .required("لطفا رمز عبور خود را وارد کنید")
             .matches(
               /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-              "باید شامل 8 نویسه، یک حروف بزرگ و کوچک، یک عدد و یک نویسه خاص باشد"
+              "باید شامل 8 نویسه، یک حروف بزرگ، یک عدد و یک نویسه خاص باشد"
             ),
           confirmPassword: Yup.string()
             .required("لطفا تکرار رمز عبور خود را وارد کنید")
@@ -52,37 +52,37 @@ const SignUpThirdPage = (props) => {
           <Form>
             <div className="flex flex-col items-center mt-24">
               <InputFeild
-                classForm="flex flex-col items-start"
+                classForm="flex flex-col items-start h-24"
                 label="رمز عبور:"
                 name="password"
                 type="password"
                 id="password"
-                classInput="w-96 p-2 border-2 border-[#B7B7B7] focus:border-2 focus:border-blue-900 bg-white rounded-[15px] outline-0"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="رمز عبور قدرتمند خود را وارد کنید..."
                 classError="text-red-500 h-[30px] mb-1 mr-1 m-auto w-96"
               />
               <InputFeild
-                classForm="flex flex-col mt-2"
+                classForm="flex flex-col mt-2 h-24"
                 label="تکرار رمز عبور:"
                 name="confirmPassword"
                 type="password"
                 id="confirmPassword"
-                classInput="w-96 p-2 border-2 border-[#B7B7B7] focus:border-2 focus:border-blue-900 bg-white rounded-[15px] outline-0"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="رمز عبور خود را دوباره وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 mr-1"
               />
             </div>
-            <div className="bg-[#7A58C9] w-96 p-2 text-center rounded-[15px] mx-auto mt-5 hover:bg-white transition duration-500 ease-in-out group">
+            <div className="mt-2 h-14 flex justify-center">
               <Button
-                className="text-white text-xl w-full group-hover:text-deep-purple"
+                className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-3 text-center rounded-[15px] hover:button-shadow duration-300 ease-in-out"
                 ButtonType="submit"
               >
                 تکمیل ثبت نام
               </Button>
             </div>
-            <div className="mt-2 m-auto w-[32rem]">
+            <div className="mt-3 m-auto w-[32rem]">
               <Button
                 className="flex items-center mr-14"
                 onClick={() => props.prev(values)}

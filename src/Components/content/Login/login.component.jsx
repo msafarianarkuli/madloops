@@ -6,6 +6,7 @@ import { FieldName } from "../../common/field-name-component/field-name.componen
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
 import { FcGoogle } from "react-icons/fc";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   // const validate = (values) => {
@@ -67,8 +68,8 @@ const Login = () => {
                 password: Yup.string()
                   .required("لطفا رمز عبور خود را وارد کنید")
                   .matches(
-                    /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*])(?=.{8,})/,
-                    "باید شامل 8 نویسه، یک حروف بزرگ ، یک عدد و یک نویسه خاص باشد"
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+                    "باید شامل 8 نویسه، یک حروف بزرگ، یک عدد و یک نویسه خاص باشد"
                   ),
               })}
               onSubmit={(values) => {
@@ -115,9 +116,11 @@ const Login = () => {
                     />
                   </div>
                   <div className="col-span-1">
-                    <Button className="text-lg mt-1 sm:mr-24 mr-20 text-deep-purple">
-                      فراموشی رمز
-                    </Button>
+                    <Link to="/forget-pass">
+                      <Button className="text-lg mt-1 sm:mr-24 mr-20 text-deep-purple">
+                        فراموشی رمز
+                      </Button>
+                    </Link>
                   </div>
                 </div>
                 <div className="mt-2 h-14 flex justify-center">
@@ -152,13 +155,15 @@ const Login = () => {
                   </div>
                 </div>
                 <div className="mt-2 h-14 flex justify-center">
-                  <Button
-                    className="border-2 border-button-purple text-deep-purple sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-[15px] hover:button-shadow duration-300 
+                  <Link to="/sign-up">
+                    <Button
+                      className="border-2 border-button-purple text-deep-purple sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-[15px] hover:button-shadow duration-300 
                     ease-in-out hover:bg-button-purple hover:text-white"
-                    ButtonType="submit"
-                  >
-                    ثبت نام
-                  </Button>
+                      ButtonType="submit"
+                    >
+                      ثبت نام
+                    </Button>
+                  </Link>
                 </div>
               </Form>
             </Formik>

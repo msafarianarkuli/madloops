@@ -50,7 +50,7 @@ const ForgetPasswordPage = () => {
   ];
 
   return (
-    <div className="m-auto w-screen h-screen sm:flex sm:flex-row">
+    <div className="m-auto h-screen sm:flex sm:flex-row">
       <AuthRightSkill currentPage={currentPage} />
       {stepsPage[currentPage]}
     </div>
