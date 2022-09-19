@@ -48,18 +48,6 @@ module.exports = {
         "deep-gray": "#8D8D8D",
         "sick-gray": "#B7B7B7",
         "cool-gray": "#555555",
-      },
-      colors: {
-        "deep-purple": "#422F7E",
-        "lite-purple": "#7F56DA",
-        "button-purple": "#7A58C9",
-        "dark-purple": "#756496",
-        "lite-pink": "#F4EBFD",
-        "lite-white": "#F9F9FF",
-        "lite-gray": "#F3F4F8",
-        "deep-gray": "#8D8D8D",
-        "sick-gray": "#B7B7B7",
-        "cool-gray": "#555555",
         "lite-violet": "#D1C1F6",
       },
       keyframes: {

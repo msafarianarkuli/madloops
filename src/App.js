@@ -36,10 +36,6 @@ const App = () => {
             <Route path="location" element={<Location />} />
           </Route>
           <Route path="single-blog" element={<SingleBlog />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="sign-up" element={<SignUpPage />} />
-          <Route path="forget-pass" element={<ForgetPasswordPage />} />
-
           <Route path="user-panel" element={<UserPanel />}>
             <Route index element={<Dashboard />}></Route>
             <Route path="myCourses" element={<MyCourses />} />
@@ -48,6 +44,9 @@ const App = () => {
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="login" element={<LoginPage />} />
+        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path="forget-pass" element={<ForgetPasswordPage />} />
       </Routes>
       {/* <Footer /> */}
     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import { FieldName } from "./field-name-component/field-name.component";
 import { BsFillCircleFill, BsDashLg, BsCheckLg } from "react-icons/bs";
 import { matchRoutes, useLocation } from "react-router-dom";
+import AuthRightSkillLogo from "../common/Animate-AuthRightSkill-SVG/animate-auth-right-skill-svg.component";
 
 const AuthRightSkill = ({ currentPage }) => {
   const routes = [{ path: "/forget-pass" }, { path: "/sign-up" }];
@@ -17,11 +18,13 @@ const AuthRightSkill = ({ currentPage }) => {
   return (
     <div className="md:block hidden bg-[#F3F4F8] w-[60%] h-full ">
       <div className="flex justify-start mr-10 mt-28">
-        <div className="rounded-full border-[3px] border-[#7A58C9] p-3 w-fit h-fit">
+        <div className="rounded-full border-[3px] border-[#7A58C9] p-3 w-fit h-fit relative">
           {currentPage === 0 ? (
             <BsFillCircleFill className="text-xl text-[#7A58C9]" />
           ) : (
-            <BsCheckLg className="text-xl text-[#7A58C9]" />
+            <div className="p-[10px]">
+              <AuthRightSkillLogo />
+            </div>
           )}
         </div>
         <div className="flex flex-col mr-3">
@@ -50,7 +53,7 @@ const AuthRightSkill = ({ currentPage }) => {
       </div>
       <div className="flex justify-start mr-10">
         <div
-          className={`rounded-full border-[3px] ${
+          className={`rounded-full border-[3px] relative ${
             currentPage === 1
               ? "border-[#7A58C9]"
               : currentPage > 1
@@ -61,7 +64,9 @@ const AuthRightSkill = ({ currentPage }) => {
           {currentPage === 1 ? (
             <BsFillCircleFill className="text-xl text-[#7A58C9]" />
           ) : currentPage > 1 ? (
-            <BsCheckLg className="text-xl text-[#7A58C9]" />
+            <div className="p-[10px]">
+              <AuthRightSkillLogo />
+            </div>
           ) : (
             <BsFillCircleFill className="text-xl text-[#8D8D8D]" />
           )}
@@ -92,7 +97,7 @@ const AuthRightSkill = ({ currentPage }) => {
       </div>
       <div className="flex justify-start mr-10">
         <div
-          className={`rounded-full border-[3px] ${
+          className={`rounded-full border-[3px] relative ${
             currentPage === 2
               ? "border-[#7A58C9]"
               : currentPage > 2
@@ -103,7 +108,9 @@ const AuthRightSkill = ({ currentPage }) => {
           {currentPage === 2 ? (
             <BsFillCircleFill className="text-xl text-[#7A58C9]" />
           ) : currentPage > 2 ? (
-            <BsCheckLg className="text-xl text-[#7A58C9]" />
+            <div className="p-[10px]">
+              <AuthRightSkillLogo />
+            </div>
           ) : (
             <BsFillCircleFill className="text-xl text-[#8D8D8D]" />
           )}
@@ -137,7 +144,7 @@ const AuthRightSkill = ({ currentPage }) => {
 
       <div className="flex justify-start mr-10">
         <div
-          className={`rounded-full border-[3px] ${
+          className={`rounded-full border-[3px] relative ${
             currentPage === 3
               ? "border-[#00C9A3]"
               : currentPage > 3
@@ -146,7 +153,9 @@ const AuthRightSkill = ({ currentPage }) => {
           }  p-3 w-fit h-fit`}
         >
           {currentPage === 3 ? (
-            <BsCheckLg className="text-xl text-[#7A58C9]" />
+            <div className="p-[10px]">
+              <AuthRightSkillLogo />
+            </div>
           ) : (
             <BsFillCircleFill className="text-xl text-[#8D8D8D]" />
           )}

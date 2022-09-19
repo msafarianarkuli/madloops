@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AnimateSignUpSvg from "../../common/Animate-ForgotPass-SVG/animate-forgotpass-svg.component";
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
-
+import AnimateForgotPass from "../../common/Animate-ForgotPass-SVG/animate-forgotpass-svg.component";
 const ForgetPassFourthPage = () => {
   return (
     <div className="container m-auto">
@@ -19,7 +18,7 @@ const ForgetPassFourthPage = () => {
           />
         </div>
         <div className="col-span-1 flex justify-centerّ h-40">
-            <AnimateSignUpSvg />
+          <AnimateForgotPass />
         </div>
         <div className="col-span-1 mt-2 h-14 flex justify-center">
           <Link to="/login">

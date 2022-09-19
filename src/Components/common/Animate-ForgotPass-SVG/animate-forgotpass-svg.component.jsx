@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../Animate-ForgotPass-SVG/animate-forgotpass-svg.styles.scss"
 
-const AnimateForgotpassSvg = () => {
+const AnimateForgotPassSvg = () => {
   const fogotLogo = document.querySelectorAll("#fogotLogo path");
   for (let i = 0; i < fogotLogo.length; i++) {
     console.log(`Letter ${i} is ${fogotLogo[i].getTotalLength()}`);
@@ -97,4 +97,4 @@ const AnimateForgotpassSvg = () => {
   );
 };
 
-export default AnimateForgotpassSvg;
+export default AnimateForgotPassSvg;

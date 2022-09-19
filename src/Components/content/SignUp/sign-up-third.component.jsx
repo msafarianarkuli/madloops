@@ -6,18 +6,21 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 import InputFeild from "./../../common/Inputs/TextInputs/InputFeild";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const SignUpThirdPage = (props) => {
   const handleSubmit = (values) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_2s_ease-in-out]">
       <div className="flex justify-start">
-        <Button classButton="flex items-center text-[#555555]">
-          <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
-          ورود
-        </Button>
+        <Link to="/login">
+          <Button classButton="flex items-center text-[#555555]">
+            <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
+            ورود
+          </Button>
+        </Link>
       </div>
       <div className="mx-auto text-center mt-7">
         <FieldName
@@ -60,7 +63,7 @@ const SignUpThirdPage = (props) => {
                 classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="رمز عبور قدرتمند خود را وارد کنید..."
-                classError="text-red-500 h-[30px] mb-1 mr-1 m-auto w-96"
+                classError="text-red-500 h-[30px] mb-1 m-auto w-96"
               />
               <InputFeild
                 classForm="flex flex-col mt-2 h-24"
@@ -71,7 +74,7 @@ const SignUpThirdPage = (props) => {
                 classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="رمز عبور خود را دوباره وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1 mr-1"
+                classError="text-red-500 h-[20px] mb-1"
               />
             </div>
             <div className="mt-2 h-14 flex justify-center">
