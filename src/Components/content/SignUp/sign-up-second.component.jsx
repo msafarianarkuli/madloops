@@ -8,6 +8,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
 import PhoneNumberField from "../../common/Inputs/InputPhoneNumber.component";
+import CustomDatePicker from "../../common/Date-Picker/date-picker-component";
 
 const SignUpSecondPage = (props) => {
   const handleSubmit = (values) => {
@@ -37,13 +38,11 @@ const SignUpSecondPage = (props) => {
       <Formik
         initialValues={props.data}
         validationSchema={Yup.object({
-          nationalId: Yup.number()
-            .required("لطفا فیلد شماره ملی را وارد کنید")
-            .typeError("شماره ملی خود را صحیح وارد کنید")
-            .positive("شماره ملی نمی تواند با منها شروع شود")
-            .integer("شماره ملی نمی‌ تواند شامل اعشار باشد")
-            .min(99999, "شماره ملی نباید از 5 رقم کمتر باشد")
-            .max(9999999999, "شماره ملی نباید از 10 رقم بیشتر باشد"),
+          nationalId: Yup.string()
+            .required("لطفا فیلد کد ملی را پر کنید")
+            .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+            .min(10, "تعداد ارقام کد ملی صحیح نیست")
+            .max(10, "تعداد ارقام کد ملی صحیح نیست"),
 
           phoneNumber: Yup.string()
             .required("شماره تماس را وارد کنید")
@@ -54,10 +53,7 @@ const SignUpSecondPage = (props) => {
 
           birthDate: Yup.string()
             .required("لطفا فیلد تاریخ تولد را پر کنید")
-            .matches(
-              /^[1-4]\d{3}\/((0[1-6]\/((3[0-1])|([1-2][0-9])|(0[1-9])))|((1[0-2]|(0[7-9]))\/(30|([1-2][0-9])|(0[1-9]))))$/,
-              "تاریخ وارد شده صحیح نیست"
-            ),
+            .nullable(),
         })}
         onSubmit={handleSubmit}
       >
@@ -84,16 +80,13 @@ const SignUpSecondPage = (props) => {
                 dropdownClass="bottom-full absolute"
                 classError="text-red-500 h-[20px] mt-1 mr-1"
               />
-              <InputFeild
+              <CustomDatePicker
                 classForm="flex flex-col mt-2 h-24"
                 label="تاریخ تولد:"
                 name="birthDate"
-                type="text"
-                id="birthDate"
-                classInput="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
+                className="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                 classLabel="text-xl mb-2"
-                placeholder="تاریخ تولد خود را وارد کنید..."
-                classError="text-red-500 h-[20px] mb-1"
+                placeholder="1401/06/12"
               />
             </div>
             <div className="mt-2 h-14 flex justify-center">

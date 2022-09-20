@@ -60,9 +60,13 @@ const Navigation = () => {
           </div>
           <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
             <div className="grid grid-cols-2 h-16">
-              <div className="flex justify-end items-center col-span-1">
+              <Link
+                className="flex justify-end items-center col-span-1"
+                to="cart"
+              >
                 <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
-              </div>
+              </Link>
+
               <div className="flex justify-center items-center col-span-1">
                 <Link to="login">
                   <Button
