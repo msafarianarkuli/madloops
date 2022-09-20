@@ -67,7 +67,7 @@ const CoursesPage = () => {
   return (
     <section>
       <div className="container m-auto ">
-        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-300">
+        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-200">
           <div className="grid h-2/6">
             <div className="grid">
               <FieldName
@@ -97,7 +97,7 @@ const CoursesPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5 mt-10">
+        <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5">
           <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm">
             <div className="text-[#C53F3F] text-4xl mt-6">
               {filterCourses.reduce((a, b) => a + b.lesson, 0)}+
