@@ -13,7 +13,7 @@ const PanelHeader = ({ data, onSearch }) => {
       <div className="basis-1/4">
         <img
           src={zing}
-          className="ml-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto"
+          className="ml-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
         />
       </div>
       <div className="basis-1/2">
@@ -32,30 +32,29 @@ const PanelHeader = ({ data, onSearch }) => {
               );
             }}
           >
-            {({ handleChange }) => (
-              <Form>
-                <Input
-                  name="search"
-                  type="search"
-                  placeholder="دوره مورد نظر.."
-                  className="border rounded-3xl w-full text-sm  sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400 mb-2"
-                />
-                <Button
-                  ButtonType="submit"
-                  classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-blue-700 text-blue-700 hover:text-white hover:bg-blue-700
-                transition ease-in-out duration-100"
-                >
-                  جست و جو
-                </Button>
-              </Form>
-            )}
+            <Form>
+              <Input
+                name="search"
+                type="search"
+                placeholder="دوره مورد نظر.."
+                err={true}
+                className="border mb-3 rounded-full w-full text-sm sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400"
+              />
+              <Button
+                ButtonType="submit"
+                classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-lite-blue text-lite-blue hover:text-white hover:bg-lite-blue
+                transition ease-out duration-300"
+              >
+                جست و جو
+              </Button>
+            </Form>
           </Formik>
         )}
       </div>
       <div className="basis-1/4">
         <img
           src={cart}
-          className="mr-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto"
+          className="mr-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
         />
       </div>
     </div>

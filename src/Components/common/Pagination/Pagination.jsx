@@ -9,10 +9,10 @@ const Pagination = ({
   onPrev,
 }) => {
   const pagesCount = Math.ceil(itemsCount / pageSize);
-  if (pagesCount === 1) return null;
+  if (pagesCount === 1 || pagesCount === 0) return null;
   const pages = _.range(1, pagesCount + 1);
   return (
-    <nav className="flex justify-center py-4 mt-10 ">
+    <nav className="flex justify-center py-4 mt-10">
       <ul className="flex">
         <li>
           <a onClick={onPrev} className="pagination-prev">

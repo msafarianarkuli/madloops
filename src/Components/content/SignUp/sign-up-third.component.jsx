@@ -51,7 +51,7 @@ const SignUpThirdPage = (props) => {
         })}
         onSubmit={handleSubmit}
       >
-        {(values) => (
+        {({ values }) => (
           <Form>
             <div className="flex flex-col items-center mt-24">
               <InputFeild
