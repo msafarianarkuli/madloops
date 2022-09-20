@@ -58,7 +58,7 @@ const ForgetPassThirdPage = (props) => {
         })}
         onSubmit={handleSubmit}
       >
-        {(values) => (
+        {({ values }) => (
           <Form>
             <div className="flex flex-col items-center">
               <InputFeild

@@ -51,7 +51,7 @@ const ForgetPassSecondPage = (props) => {
         })}
         onSubmit={handleSubmit}
       >
-        {(values) => (
+        {({ values }) => (
           <Form>
             <div className="flex justify-center h-24">
               <InputFeild
