@@ -49,7 +49,7 @@ const LandingModal = ({ showModal, setShowModal }) => {
           className="w-full h-screen z-40 fixed flex justify-center top-0 right-0 bg-gray-800 bg-opacity-80"
         >
           <animated.div style={animation}>
-            <div className="bg-white md:w-[800px] sm:w-[600px] w-[500px] sm:h-fit h-[675px] relative sm:top-32 top-0 sm:rounded-xl">
+            <div className="bg-white lg:w-[800px] md:w-[700px] sm:w-[600px] w-[500px] sm:h-fit h-[675px] relative sm:top-32 top-0 sm:rounded-xl">
               <div className="grid grid-cols-2 w-full h-full">
                 <div className="col-span-2 sm:h-24 h-12 relative">
                   <div className="border-4 border-t-0 text-lg rounded-b-xl border-gray-800 border-opacity-80 px-10 py-2 top-0 
