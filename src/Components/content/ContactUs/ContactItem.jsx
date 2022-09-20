@@ -7,20 +7,24 @@ const ContactItem = ({ icon, title, to }) => {
     <Link to={to}>
       <div
         className={`${
-          location.pathname === to ? 'bg-[#7F56DA]' : ''
+          location.pathname === to ? 'bg-lite-purple' : ''
         } flex flex-col justify-center items-center rounded-2xl py-3 sm:py-6 lg:py-14
-    hover:bg-[#7F56DA] transition ease-in duration-200 cursor-pointer parent-hover:text-white group`}
+    hover:bg-lite-purple transition ease-in duration-200 cursor-pointer parent-hover:text-white group`}
       >
         <span
           className={`${
-            location.pathname === to ? 'text-white' : 'text-[#7F56DA]'
+            location.pathname === to
+              ? 'text-white'
+              : 'text-lite-purple'
           }`}
         >
           {icon}
         </span>
         <p
           className={`${
-            location.pathname === to ? 'text-white' : 'text-[#7F56DA]'
+            location.pathname === to
+              ? 'text-white'
+              : 'text-lite-purple'
           }  text-base sm:text-xl font-bold group-hover:text-white`}
         >
           {title}

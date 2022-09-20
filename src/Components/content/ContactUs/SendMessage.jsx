@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import InputGroup from '../../common/Inputs/TextInputs/InputGroup';
 import Textarea from '../../common/Inputs/TextareaInputs/Textarea';
 import { Button } from '../../common/button-component/button.component';
+import { BsPerson, BsEnvelope, BsPhoneVibrate } from 'react-icons/bs';
 const SendMessage = () => {
   return (
     <>
@@ -40,22 +41,33 @@ const SendMessage = () => {
                 label="نام و نام خانوادگی"
                 name="name"
                 type="text"
+                icon={<BsPerson />}
               />
-              <InputGroup label="ایمیل" name="email" type="text" />
+              <InputGroup
+                label="ایمیل"
+                name="email"
+                type="text"
+                icon={<BsEnvelope />}
+              />
               <InputGroup
                 label="شماره تماس"
                 type="text"
                 name="phone"
+                icon={<BsPhoneVibrate />}
               />
             </div>
             <div>
-              <Textarea label="پیام" name="message" />
+              <Textarea
+                label="پیام"
+                name="message"
+                className="rounded-lg py-2 bg-[#F1F2F7] outline-none w-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
+              />
             </div>
           </div>
           <Button
             ButtonType="submit"
-            classButton="border-2 rounded-xl text-base pt-2 pb-3 px-10 transition ease-out duration-300 border-[#8055D9]  bg-[#8055D9] text-white
-            hover:bg-[#673CC0] hover:border-[#673CC0] hover:shadow-md mx-auto block"
+            classButton="border-2 rounded-xl text-base pt-2 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
+            hover:bg-lite-purple hover:border-lite-purple hover:shadow-md mx-auto block"
           >
             ارسال پیام
           </Button>

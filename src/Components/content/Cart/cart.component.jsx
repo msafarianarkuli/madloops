@@ -1,7 +1,7 @@
-import React from "react";
-import CartTable from "./cart-table.component";
-import Data from "./../../../Core/services/Fake Service/DashCourses";
-import { Button } from "./../../common/button-component/button.component";
+import React from 'react';
+import CartTable from './cart-table.component';
+import Data from './../../../Core/services/Fake Service/DashCoursesList';
+import { Button } from './../../common/button-component/button.component';
 
 const CartPage = () => {
   return (

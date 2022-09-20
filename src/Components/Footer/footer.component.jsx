@@ -1,19 +1,19 @@
-import { Formik, Form } from "formik";
-import { Link } from "react-router-dom";
+import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom';
 import {
   FaInstagram,
   FaWhatsapp,
-  FaFacebook,
-  FaTelegram,
-} from "react-icons/fa";
-import { Button } from "../common/button-component/button.component";
-import Input from "../common/Inputs/TextInputs/Input";
-import logo from "../../Assets/img/site-logo.png";
+  FaFacebookF,
+  FaTelegramPlane,
+} from 'react-icons/fa';
+import { Button } from '../common/button-component/button.component';
+import Input from '../common/Inputs/TextInputs/Input';
+import logo from '../../Assets/img/site-logo.png';
 
 const Footer = () => {
   return (
     <footer>
-      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-ligth-gray container mx-auto">
+      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-lite-gray container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-500 md:divide-y-0 ">
           <div className="flex flex-col pb-5">
             <div className="flex items-center">
@@ -21,10 +21,14 @@ const Footer = () => {
               <p className="text-2xl">Mad Loops</p>
             </div>
             <div>
-              <p className="text-lg">تیم مد لوپس زیر نظر آکادمی بحر</p>
-              <p className="font-bold text-xl mt-7 mb-2">اشتراک در خبرنامه</p>
+              <p className="text-lg">
+                تیم مد لوپس زیر نظر آکادمی بحر
+              </p>
+              <p className="font-bold text-xl mt-7 mb-2">
+                اشتراک در خبرنامه
+              </p>
               <Formik
-                initialValues={{ newspaper: "" }}
+                initialValues={{ newspaper: '' }}
                 onSubmit={(values) => {
                   console.log(values);
                 }}
@@ -50,12 +54,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-2xl flex flex-col justify-between md:justify-evenly py-5 pr-5 lg:mx-auto">
-            <Link
-              to="/"
-              className="hover:text-gray-500 transition ease-in duration-150"
-            >
-              منو
-            </Link>
+            <p> &#9679; منو</p>
             <Link
               to="/"
               className="hover:text-gray-500 transition ease-in duration-150"
@@ -63,19 +62,19 @@ const Footer = () => {
               خانه
             </Link>
             <Link
-              to="/"
+              to="/course"
               className="hover:text-gray-500 transition ease-in duration-150"
             >
               دوره ها
             </Link>
             <Link
-              to="/"
+              to="/blogs"
               className="hover:text-gray-500 transition ease-in duration-150"
             >
               اخبار و مقالات
             </Link>
             <Link
-              to="/"
+              to="/contactUs"
               className="hover:text-gray-500 transition ease-in duration-150"
             >
               تماس با ما
@@ -83,24 +82,49 @@ const Footer = () => {
           </div>
 
           <div className="py-5">
-            <h6 className="text-3xl font-bold mb-2">درباره ما</h6>
+            <h6 className="text-3xl font-bold mb-2">
+              {' '}
+              &#9679; درباره ما
+            </h6>
             <p className="text-lg">
-              آکادمی بحر اولین بار در سال 88 توسط دکتر محمد حسین بحر العلومی به
-              وجود آمد. در مراطب اول دانشجویان خوبی را جذب کرد و حتی دانشجویانی
-              با گرفتن درخواست کاری از کشور خارج شدند. بعد ها آکادمی بحر با
-              توسعه به یکی از برترین آکادمی های برنامه نویسی زیر نظر دکتر بحر شد
-              و استادانی با سطح بالا همچون دکتر بحر وارد جامعه شدند و دانشجویانی
-              را تربیت میکنند شعار آکادمی بحر این است که دانشجویانی با سواد و
-              برتر را وارد جامعه کند تا نامش به نیک یاد شود
+              آکادمی بحر اولین بار در سال 88 توسط دکتر محمد حسین بحر
+              العلومی به وجود آمد. در مراطب اول دانشجویان خوبی را جذب
+              کرد و حتی دانشجویانی با گرفتن درخواست کاری از کشور خارج
+              شدند. بعد ها آکادمی بحر با توسعه به یکی از برترین آکادمی
+              های برنامه نویسی زیر نظر دکتر بحر شد و استادانی با سطح
+              بالا همچون دکتر بحر وارد جامعه شدند و دانشجویانی را
+              تربیت میکنند شعار آکادمی بحر این است که دانشجویانی با
+              سواد و برتر را وارد جامعه کند تا نامش به نیک یاد شود
             </p>
           </div>
         </div>
-        <div className="py-4 grid grid-cols-1 md:grid-cols-2">
+        <div className="py-4 grid grid-cols-1 md:grid-cols-2 items-center">
           <div className="flex justify-center md:justify-start gap-8 text-3xl mb-4 md:mb-0">
-            <FaInstagram />
-            <FaWhatsapp />
-            <FaTelegram />
-            <FaFacebook />
+            <a
+              href="https://www.instagram.com/mary_sfry/"
+              className="bg-white p-2 rounded-full shadow-md relative hover:top-1 hover:shadow-lg"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://web.whatsapp.com/send?phone=+989116935706&text=سلام من از طریق سایت مد لوپس پیام میفرستم و سوالی دارم."
+              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="https://t.me/+989116935706"
+              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+            >
+              <FaTelegramPlane />
+            </a>
+
+            <a
+              href="https://www.facebook.com/digivillacom"
+              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+            >
+              <FaFacebookF />
+            </a>
           </div>
           <div className="text-lg text-center md:text-left">
             <p>© 2022, تمامی حقوق این سایت محفوظ می باشد</p>
