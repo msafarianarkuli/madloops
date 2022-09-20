@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import "../Animate-AuthRightSkill-SVG/animate-auth-right-skill-svg.styles.scss";
 
 const AnimateAuthRightSkill = () => {
-  const AuthLogo = document.querySelectorAll("#AuthLogo path");
-  for (let i = 0; i < AuthLogo.length; i++) {
-    console.log(`Letter ${i} is ${AuthLogo[i].getTotalLength()}`);
-  }
+  // const AuthLogo = document.querySelectorAll("#AuthLogo path");
+  // for (let i = 0; i < AuthLogo.length; i++) {
+  //   console.log(`Letter ${i} is ${AuthLogo[i].getTotalLength()}`);
+  // }
 
   return (
     <div className="">

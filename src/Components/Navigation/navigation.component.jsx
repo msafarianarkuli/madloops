@@ -80,7 +80,7 @@ const Navigation = () => {
             <div
               className={`${
                 open
-                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-50 absolute"
+                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-30 absolute"
                   : "w-10 z-0"
               } duration-300 ease-in-out relative`}
             >
