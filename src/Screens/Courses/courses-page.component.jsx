@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -29,6 +29,14 @@ const CoursesPage = () => {
     { id: 3, title: "محبوب ترین ها", type: "like" },
     { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
+
+  const SideRightRef = useRef();
+
+  const closeSideRight = (e) => {
+    if (SideRightRef.current === e.target) {
+      setOpenFilter(false);
+    }
+  };
 
   const [filterCourses, setFilterCourses] = useState(courses);
 
@@ -58,7 +66,7 @@ const CoursesPage = () => {
 
   return (
     <section>
-      <div className="container m-auto">
+      <div className="container m-auto ">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-300">
           <div className="grid h-2/6">
             <div className="grid">
@@ -161,13 +169,17 @@ const CoursesPage = () => {
             </Button>
           </div>
         )}
-        <div className="fixed top-0 right-0">
+        <div
+          ref={SideRightRef}
+          onClick={closeSideRight}
+          className="fixed top-0 right-0 w-full bg-gray-600 bg-opacity-80"
+        >
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10"
+                ? "bg-deep-purple h-screen pt-8 w-80 z-30 relative"
                 : "w-0 z-0"
-            } duration-300 ease-in-out relative`}
+            } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
               <div className="h-full overflow-y-scroll fixed-container ml-2">

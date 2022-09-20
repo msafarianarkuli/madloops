@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
@@ -80,12 +80,11 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-
-          <div className="flex justify-end md:hidden relative">
-            <div
+          <div className="fixed top-0 left-0 md:hidden z-30">
+            <div 
               className={`${
                 open
-                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-30 absolute"
+                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 absolute"
                   : "w-10 z-0"
               } duration-300 ease-in-out relative`}
             >
