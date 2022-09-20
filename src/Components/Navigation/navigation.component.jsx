@@ -65,6 +65,7 @@ const Navigation = () => {
                 to="cart"
               >
                 <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
+                <div className="bg-red-600 text-white">2</div>
               </Link>
 
               <div className="flex justify-center items-center col-span-1">
