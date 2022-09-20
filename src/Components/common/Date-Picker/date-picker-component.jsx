@@ -8,6 +8,7 @@ import 'react-multi-date-picker/styles/colors/purple.css';
 const CustomDatePicker = ({ label, className, ...props }) => {
   const [field, meta] = useField(props);
   const { setFieldValue } = useFormikContext();
+  console.log(field);
   return (
     <>
       {label ? (
@@ -21,6 +22,7 @@ const CustomDatePicker = ({ label, className, ...props }) => {
         calendarPosition="top-bottom"
         {...props}
         {...field}
+        value={new Date()}
         selected={(field.value && new Date(field.value)) || null}
         onChange={(val) => {
           setFieldValue(field.name, val);
