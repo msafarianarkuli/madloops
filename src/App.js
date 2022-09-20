@@ -20,6 +20,7 @@ import EditProfile from "./Components/content/Panel/EditProfile";
 import SignUpPage from "./Screens/Sign-up/sign-up.component";
 import ForgetPasswordPage from "./Screens/Forget-Password/forget-password.component";
 import LoginPage from "./Screens/Login/login.component";
+import CartPage from "./Components/content/Cart/cart.component";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />
+          <Route path="cart" element={<CartPage />} />
           <Route path="blogs" element={<BlogsPage />} />
           <Route path="course" element={<CoursesPage />} />
           <Route path="single-course" element={<SingleCourse />} />

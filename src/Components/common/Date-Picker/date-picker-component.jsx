@@ -1,20 +1,22 @@
-import React from 'react';
-import { useField, useFormikContext } from 'formik';
-import DatePicker from 'react-multi-date-picker';
-import persian from 'react-date-object/calendars/persian';
-import persian_fa from 'react-date-object/locales/persian_fa';
-import 'react-multi-date-picker/styles/colors/purple.css';
+import React from "react";
+import { useField, useFormikContext } from "formik";
+import DatePicker from "react-multi-date-picker";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
+import "react-multi-date-picker/styles/colors/purple.css";
 
-const CustomDatePicker = ({ label, className, ...props }) => {
+const CustomDatePicker = ({
+  label,
+  className,
+  classForm,
+  classLabel,
+  ...props
+}) => {
   const [field, meta] = useField(props);
   const { setFieldValue } = useFormikContext();
   return (
-    <>
-      {label ? (
-        <label className="text-gray-600 block mb-2 text-lg">
-          {label}
-        </label>
-      ) : null}
+    <div className={classForm}>
+      {label ? <label className={classLabel}>{label}</label> : null}
       <DatePicker
         calendar={persian}
         locale={persian_fa}
@@ -27,7 +29,7 @@ const CustomDatePicker = ({ label, className, ...props }) => {
           setFieldValue(field.name, val);
         }}
         inputClass={className}
-        containerStyle={{ width: '100%' }}
+        containerStyle={{ width: "100%" }}
         className="purple"
       />
 
@@ -36,7 +38,7 @@ const CustomDatePicker = ({ label, className, ...props }) => {
           <div className="error">{meta.error}</div>
         ) : null}
       </div>
-    </>
+    </div>
   );
 };
 

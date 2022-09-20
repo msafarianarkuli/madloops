@@ -1000,6 +1000,10 @@
   transition: box-shadow ease 0.25s, border-color ease 0.25s;
   padding-top: 10.5px;
   padding-bottom: 10.5px;
+
+  @media (max-width: 639px) {
+    width: 320px;
+  }
 }
 
 .react-tel-input .form-control:focus {
@@ -1009,7 +1013,7 @@
 
 .react-tel-input .flag-dropdown {
   position: absolute;
-  top: 20px;
+  top: 22px;
   padding: 0;
   width: 0;
   height: 0;
