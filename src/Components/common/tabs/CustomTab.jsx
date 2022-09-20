@@ -108,13 +108,13 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               />
               <span
                 className={`${
-                  tab.active ? 'text-[#7F56DA]' : 'text-gray-400'
+                  tab.active ? 'text-[#7F56DA]' : 'text-gray-400 cursor-pointer'
                 }`}
               >
                 {tab.title}
               </span>
               {tab.title === 'نظرات' ? (
-                <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full">
+                <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full cursor-pointer">
                   {comments.length}
                 </span>
               ) : (

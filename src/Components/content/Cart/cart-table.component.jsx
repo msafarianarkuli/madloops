@@ -1,9 +1,8 @@
 import React from 'react';
-import Data from './../../../Core/services/Fake Service/DashCoursesList';
 import TableRow from './../Panel/TableRow';
 import { FaTrashAlt } from 'react-icons/fa';
 
-const CartTable = ({ Data }) => {
+const CartTable = ({ data, onDelete }) => {
   return (
     <table className="min-w-full">
       <thead className="text-base lg:text-xl font-bold bg-[#f8f8f8]">
@@ -38,11 +37,12 @@ const CartTable = ({ Data }) => {
         </tr>
       </thead>
       <tbody>
-        {Data.map((course) => (
+        {data.map((course) => (
           <TableRow
             key={course.id}
             course={course}
             icon={<FaTrashAlt className="mx-auto" />}
+            onDelete={onDelete}
           />
         ))}
       </tbody>
