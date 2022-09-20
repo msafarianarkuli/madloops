@@ -32,23 +32,22 @@ const PanelHeader = ({ data, onSearch }) => {
               );
             }}
           >
-            {({ handleChange }) => (
-              <Form>
-                <Input
-                  name="search"
-                  type="search"
-                  placeholder="دوره مورد نظر.."
-                  className="border rounded-3xl w-full text-sm  sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400 mb-2"
-                />
-                <Button
-                  ButtonType="submit"
-                  classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-blue-700 text-blue-700 hover:text-white hover:bg-blue-700
+            <Form>
+              <Input
+                name="search"
+                type="search"
+                placeholder="دوره مورد نظر.."
+                err={true}
+                className="border mb-3 rounded-full w-full text-sm sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400"
+              />
+              <Button
+                ButtonType="submit"
+                classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-lite-blue text-lite-blue hover:text-white hover:bg-lite-blue
                 transition ease-in-out duration-100"
-                >
-                  جست و جو
-                </Button>
-              </Form>
-            )}
+              >
+                جست و جو
+              </Button>
+            </Form>
           </Formik>
         )}
       </div>

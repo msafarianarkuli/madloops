@@ -18,16 +18,20 @@ const EditProfile = () => {
             className="rounded-t-2xl w-full h-80 object-cover"
           />
           <div
-            className="absolute right-0 left-0 mx-auto w-[60px] h-[60px] sm:w-[120px] sm:h-[100px] top-0 bottom-0 my-auto "
+            className="absolute right-0 left-0 mx-auto w-[60px] h-[60px] sm:w-[120px] sm:h-[100px] top-0 bottom-0 my-auto
+            group "
             onClick={() => fileInput.current.click()}
           >
             <button
               className="bg-white text-transparent backdrop-opacity-20 backdrop-blur-[4px] backdrop-brightness-25 opacity-20
           rounded-tl-2xl rounded-tr-lg rounded-bl-lg rounded-br-2xl w-full h-full
-          
+          transition ease-in-out duration-300 group-hover:-translate-y-1
        "
             />
-            <span className="text-white text-sm sm:text-lg absolute left-0 right-0 text-center top-0 bottom-0 h-8 my-auto">
+            <span
+              className="text-white text-sm sm:text-lg absolute left-0 right-0 text-center top-0 bottom-0 h-8 my-auto
+            transition ease-in-out duration-300 group-hover:-translate-y-1"
+            >
               ویرایش تصویر
             </span>
           </div>

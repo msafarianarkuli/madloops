@@ -11,7 +11,9 @@ const Dashboard = () => {
       <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-3xl">
         <div
           onClick={() => navigate('/user-panel/editProfile')}
-          className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-3xl rounded-br-3xl sm:rounded-tl-none sm:rounded-br-none sm:rounded-tr-3xl sm:rounded-bl-3xl border-4 text-xl font-bold text-blue-500"
+          className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-3xl rounded-br-3xl
+           sm:rounded-tl-none sm:rounded-br-none sm:rounded-tr-3xl sm:rounded-bl-3xl border-4 text-xl font-bold text-blue-500
+           hover:bg-lite-purple hover:text-white transition ease-in-out duration-300 cursor-pointer"
         >
           ویرایش
         </div>
