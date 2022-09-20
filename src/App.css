@@ -50,7 +50,7 @@
     @apply focus:outline-gray-600 focus:outline focus:outline-1 placeholder:text-base;
   }
   .switchItems-icon {
-    @apply text-[#7F56DA] text-2xl md:text-4xl font-bold group-hover:text-white mb-4;
+    @apply text-2xl md:text-4xl font-bold group-hover:text-white mb-4;
   }
   .custom-shadow {
     box-shadow: 0 0 10px #e2e2e2;
@@ -59,10 +59,10 @@
     box-shadow: 0 0 10px #887da2;
   }
   .input-shadow {
-    box-shadow: 0 0 0 4px #C7AFFC;
+    box-shadow: 0 0 0 4px #c7affc;
   }
   .button-shadow {
-    box-shadow: 0 0 6px 3px #C7AFFC;
+    box-shadow: 0 0 6px 3px #c7affc;
   }
   .course-Detail-container {
     @apply custom-shadow rounded-lg mb-8 overflow-hidden;

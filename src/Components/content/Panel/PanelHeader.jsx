@@ -13,7 +13,7 @@ const PanelHeader = ({ data, onSearch }) => {
       <div className="basis-1/4">
         <img
           src={zing}
-          className="ml-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto"
+          className="ml-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
         />
       </div>
       <div className="basis-1/2">
@@ -43,7 +43,7 @@ const PanelHeader = ({ data, onSearch }) => {
               <Button
                 ButtonType="submit"
                 classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-lite-blue text-lite-blue hover:text-white hover:bg-lite-blue
-                transition ease-in-out duration-100"
+                transition ease-out duration-300"
               >
                 جست و جو
               </Button>
@@ -54,7 +54,7 @@ const PanelHeader = ({ data, onSearch }) => {
       <div className="basis-1/4">
         <img
           src={cart}
-          className="mr-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto"
+          className="mr-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
         />
       </div>
     </div>
