@@ -18,6 +18,7 @@ const CoursesList = () => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
+
   const handleNext = () => {
     const pagesCount = Math.ceil(allCourses.length / pageSize);
     currentPage !== pagesCount &&
@@ -29,9 +30,7 @@ const CoursesList = () => {
       setCurrentPage((currentPage) => currentPage - 1);
   };
   const handleAdd = (course) => {
-    // const users = userCourses.concat([course]);
-    console.log((prev) => [...prev, { name: 'mary' }]);
-    setUserCourses((prev) => [...prev, { name: 'mary' }]);
+    console.log(course);
   };
   const courses = paginate(allCourses, currentPage, pageSize);
   return (

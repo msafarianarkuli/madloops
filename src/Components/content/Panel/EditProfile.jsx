@@ -30,7 +30,7 @@ const EditProfile = () => {
             />
             <span
               className="text-white text-sm sm:text-lg absolute left-0 right-0 text-center top-0 bottom-0 h-8 my-auto
-            transition ease-in-out duration-300 group-hover:-translate-y-1"
+            transition ease-in-out duration-300 group-hover:-translate-y-1 cursor-pointer"
             >
               ویرایش تصویر
             </span>

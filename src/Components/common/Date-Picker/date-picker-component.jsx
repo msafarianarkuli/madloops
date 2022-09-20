@@ -14,7 +14,6 @@ const CustomDatePicker = ({
 }) => {
   const [field, meta] = useField(props);
   const { setFieldValue } = useFormikContext();
-
   return (
     <div className={classForm}>
       {label ? <label className={classLabel}>{label}</label> : null}
