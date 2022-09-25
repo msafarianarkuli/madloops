@@ -4,6 +4,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      transitionProperty: {
+        'min-h': 'min-height',
+      },
       screens: {
         ' xs': '350px',
 
@@ -39,17 +42,17 @@ module.exports = {
         800: '800px',
       },
       colors: {
-        "deep-purple": "#422F7E",
-        "lite-purple": "#7F56DA",
-        "button-purple": "#7A58C9",
-        "dark-purple": "#756496",
-        "lite-pink": "#F4EBFD",
-        "lite-white": "#F9F9FF",
-        "lite-gray": "#F3F4F8",
-        "deep-gray": "#8D8D8D",
-        "sick-gray": "#B7B7B7",
-        "cool-gray": "#555555",
-        "lite-violet": "#D1C1F6",
+        'deep-purple': '#422F7E',
+        'lite-purple': '#7F56DA',
+        'button-purple': '#7A58C9',
+        'dark-purple': '#756496',
+        'lite-pink': '#F4EBFD',
+        'lite-white': '#F9F9FF',
+        'lite-gray': '#F3F4F8',
+        'deep-gray': '#8D8D8D',
+        'sick-gray': '#B7B7B7',
+        'cool-gray': '#555555',
+        'lite-violet': '#D1C1F6',
         'lite-blue': '#005DFD',
       },
       keyframes: {

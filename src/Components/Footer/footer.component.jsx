@@ -28,7 +28,7 @@ const Footer = () => {
                 اشتراک در خبرنامه
               </p>
               <Formik
-                initialValues={{ newspaper: '' }}
+                initialValues={{ newsletter: '' }}
                 onSubmit={(values) => {
                   console.log(values);
                 }}
@@ -36,14 +36,14 @@ const Footer = () => {
                 {({ values }) => (
                   <Form className="flex">
                     <Input
-                      name="newspaper"
+                      name="newsletter"
                       type="text"
                       placeholder="ایمیل خود را وارد نمایید"
                       className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-400 focus:outline-gray-500"
                     />
                     <Button
                       ButtonType="submit"
-                      disabled={!values.newspaper}
+                      disabled={!values.newsletter}
                       classButton="btn btn-primary py-2 px-5 md:px-2 md:py-2 lg:py-2 lg:px-5 text-lg md:text-base lg:text-lg"
                     >
                       اشتراک

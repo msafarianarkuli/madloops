@@ -1,14 +1,15 @@
 import React from 'react';
 import { FaInstagram, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
 import bahr from '../../../Assets/bahr.jpg';
+import salar from '../../../Assets/aghil.jpg';
 const CourseTeacher = () => {
   return (
     <div className="course-Detail-container">
       <div className="course-detail-title-box">
         <p className="course-detail-title">مدرس</p>
       </div>
-      <div className="flex text-gray-400 text-lg bg-[#E8E8E8]">
-        <img src={bahr} alt="" className="w-40" />
+      <div className="flex text-gray-400 text-lg bg-[#E8E8E8] h-full">
+        <img src={salar} className="w-40 h-full object-cover" />
         <div className="p-4">
           <h3 className="text-xl">استاد بحرالعلوم</h3>
           <p className="text-base">

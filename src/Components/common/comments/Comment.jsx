@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { Button } from '../button-component/button.component';
 import Reply from './Reply';
 import Input from '../Inputs/TextInputs/Input';
@@ -32,14 +32,9 @@ const Comment = ({
     disLikeCount,
   } = info;
 
-  const [reply, setReply] = useState('');
   const handleCommentReply = () => {
     setAnswerActive(true);
-    setTimeout(() => {
-      replyInput.current.focus();
-    }, 10);
   };
-  const replyInput = useRef();
 
   return (
     <>
@@ -110,6 +105,7 @@ const Comment = ({
                 <div className="text-left md:flex-none">
                   <Button
                     type="submit"
+                    disabled={false}
                     classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
                 hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
                   >

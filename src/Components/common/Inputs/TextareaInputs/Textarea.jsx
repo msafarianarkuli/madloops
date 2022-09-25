@@ -3,11 +3,12 @@ import { useField } from 'formik';
 
 const Textarea = ({ label, className, ...props }) => {
   const [field, meta] = useField(props);
+  const { name } = props;
   return (
     <div>
       {label ? (
         <label
-          htmlFor={props.name}
+          htmlFor={name}
           className="text-gray-600 inline-block mb-2 text-lg"
         >
           {label}
@@ -16,7 +17,7 @@ const Textarea = ({ label, className, ...props }) => {
       <textarea
         {...field}
         {...props}
-        id={props.name}
+        id={name}
         rows="10"
         cols="40"
         className={className}

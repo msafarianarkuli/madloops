@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const Accordion = ({
   item,
@@ -9,6 +9,8 @@ const Accordion = ({
   headerInactiveStyle,
   headerMainStyle,
   bodyMainStyle,
+  bodyActiveStyle,
+  bodyInactiveStyle,
   activeIcon,
   inactiveIcon,
   children,
@@ -36,7 +38,15 @@ const Accordion = ({
         </div>
         <span>{active ? activeIcon : inactiveIcon}</span>
       </div>
-      <div className={`${active ? "block" : "hidden"} ${bodyMainStyle}`}>
+      {/* <div className={`${active ? "block" : "hidden"} ${bodyMainStyle}`}>
+        <p className="text-xl text-gray-400">{description}</p>
+        {children}
+      </div> */}
+      <div
+        className={`${
+          active ? bodyActiveStyle : bodyInactiveStyle
+        } ${bodyMainStyle}`}
+      >
         <p className="text-xl text-gray-400">{description}</p>
         {children}
       </div>
