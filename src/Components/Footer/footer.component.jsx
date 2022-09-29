@@ -6,8 +6,7 @@ import {
   FaFacebookF,
   FaTelegramPlane,
 } from 'react-icons/fa';
-import { Button } from '../common/button-component/button.component';
-import Input from '../common/Inputs/TextInputs/Input';
+import { Button, Input } from '..';
 import logo from '../../Assets/img/site-logo.png';
 
 const Footer = () => {
@@ -28,7 +27,7 @@ const Footer = () => {
                 اشتراک در خبرنامه
               </p>
               <Formik
-                initialValues={{ newspaper: '' }}
+                initialValues={{ newsletter: '' }}
                 onSubmit={(values) => {
                   console.log(values);
                 }}
@@ -36,14 +35,14 @@ const Footer = () => {
                 {({ values }) => (
                   <Form className="flex">
                     <Input
-                      name="newspaper"
+                      name="newsletter"
                       type="text"
                       placeholder="ایمیل خود را وارد نمایید"
                       className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-400 focus:outline-gray-500"
                     />
                     <Button
                       ButtonType="submit"
-                      disabled={!values.newspaper}
+                      disabled={!values.newsletter}
                       classButton="btn btn-primary py-2 px-5 md:px-2 md:py-2 lg:py-2 lg:px-5 text-lg md:text-base lg:text-lg"
                     >
                       اشتراک
@@ -102,26 +101,26 @@ const Footer = () => {
           <div className="flex justify-center md:justify-start gap-8 text-3xl mb-4 md:mb-0">
             <a
               href="https://www.instagram.com/mary_sfry/"
-              className="bg-white p-2 rounded-full shadow-md relative hover:top-1 hover:shadow-lg"
+              className="footer-socialMedia"
             >
               <FaInstagram />
             </a>
             <a
               href="https://web.whatsapp.com/send?phone=+989116935706&text=سلام من از طریق سایت مد لوپس پیام میفرستم و سوالی دارم."
-              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+              className="footer-socialMedia"
             >
               <FaWhatsapp />
             </a>
             <a
               href="https://t.me/+989116935706"
-              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+              className="footer-socialMedia"
             >
               <FaTelegramPlane />
             </a>
 
             <a
               href="https://www.facebook.com/digivillacom"
-              className="bg-white p-2 rounded-full shadow-md  relative hover:top-1 hover:shadow-lg"
+              className="footer-socialMedia"
             >
               <FaFacebookF />
             </a>

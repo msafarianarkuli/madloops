@@ -21,7 +21,10 @@ const SingleCourse = () => {
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto">
       <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow">
         <div className="rounded-lg overflow-hidden ">
-          <img src={singleCourseImg} />
+          <img
+            src={singleCourseImg}
+            className="h-96 w-full object-cover object-top"
+          />
           <div className="px-4 lg:px-16">
             <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10">
               دوره انگولار

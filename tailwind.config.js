@@ -4,6 +4,9 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      transitionProperty: {
+        'min-h': 'min-height',
+      },
       screens: {
         " xs": "350px",
 
