@@ -1,5 +1,7 @@
+import React from "react";
 import { Card } from "./Card/card.component";
 import { Button } from "./button-component/button.component";
+import { useNavigate } from "react-router-dom";
 import {
   BsFillStarFill,
   BsStar,
@@ -11,6 +13,8 @@ import {
 } from "react-icons/bs";
 
 const CardGridListView = ({ item, view }) => {
+  const navigate = useNavigate();
+
   return (
     <Card
       showDetail
@@ -188,6 +192,7 @@ const CardGridListView = ({ item, view }) => {
           </div>
         </div>
         <Button
+          onClick={() => navigate(`${item.id}`)}
           ButtonType="button"
           classButton={
             !view

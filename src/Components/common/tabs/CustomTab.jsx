@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
-import Accordion from '../Accordion/Accordion';
-import Comment from '../comments/Comment';
-import profile from '../../../Assets/profile.png';
+import Accordion from "../Accordion/Accordion";
+import Comment from "../comments/Comment";
+import profile from "../../../Assets/profile.png";
 
 const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
   const [commentActive, setCommentActive] = useState(false);
@@ -69,16 +69,16 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
     const newReply = {
       id: comments.length + 1,
       refId: refId,
-      userName: 'مریم',
-      date: '16 خرداد 1401',
-      time: '14:53',
+      userName: "مریم",
+      date: "16 خرداد 1401",
+      time: "14:53",
       body: reply,
       liked: false,
       disLiked: false,
       likeCount: 0,
       disLikeCount: 0,
-      userImg: '',
-      email: '',
+      userImg: "",
+      email: "",
     };
     setComments(comments.concat([newReply]));
     setAnswerActive(false);
@@ -107,18 +107,16 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                 className="w-6 inline ml-3"
               />
               <span
-                className={`${
-                  tab.active ? 'text-[#7F56DA]' : 'text-gray-400'
-                }`}
+                className={`${tab.active ? "text-[#7F56DA]" : "text-gray-400"}`}
               >
                 {tab.title}
               </span>
-              {tab.title === 'نظرات' ? (
+              {tab.title === "نظرات" ? (
                 <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full">
                   {comments.length}
                 </span>
               ) : (
-                ''
+                ""
               )}
             </Tab>
           ))}
@@ -162,9 +160,9 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                   <div className="grow">
                     <Formik
                       initialValues={{
-                        name: '',
-                        email: '',
-                        body: '',
+                        name: "",
+                        email: "",
+                        body: "",
                       }}
                       validationSchema={Yup.object({
                         name: Yup.string().required(),
@@ -172,7 +170,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                         body: Yup.string().required(),
                       })}
                       onSubmit={(values) => {
-                        console.log('values');
+                        console.log("values");
                       }}
                     >
                       <Form>
@@ -211,10 +209,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                             />
                           </div>
                           <div className="border-r border-l border-b rounded-bl-xl rounded-br-xl bg-lite-purple text-center text-white overflow-hidden">
-                            <button
-                              className="w-full  py-2"
-                              type="submit"
-                            >
+                            <button className="w-full  py-2" type="submit">
                               ارسال نظر
                             </button>
                           </div>

@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 const Data = {
   courses: [
     {
-      id: uuidv4(),
+      id: 1,
       title: "دوره تخصصی جمشید کَل",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -10,7 +10,7 @@ const Data = {
       lesson: 180,
       likeCount: 3,
       date: "2001-02-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "پُگ شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -19,7 +19,7 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 2,
       title: "دوره تخصصی تقی کُمیسر",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -27,7 +27,7 @@ const Data = {
       lesson: 180,
       likeCount: 2.1,
       date: "1984-02-04",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "تکمیل شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -36,14 +36,14 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 3,
       title: "دوره تخصصی شال خی",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
       teacher: "مازیار قلی پور",
       lesson: 180,
       likeCount: 5,
-      price: 999.999,
+      price: "999999",
       date: "1994-02-12",
       numberOfStudents: 50,
       archive: "آرشیو شده",
@@ -53,7 +53,7 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 4,
       title: "دوره تخصصی علی بخت",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -61,7 +61,7 @@ const Data = {
       lesson: 180,
       likeCount: 2.8,
       date: "1980-01-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "ضپط شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -70,7 +70,7 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 5,
       title: "دوره عمومی حاج حسن کریمی کمیلی",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -78,7 +78,7 @@ const Data = {
       lesson: 180,
       likeCount: 2.7,
       date: "1990-02-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "وجی شده",
       image: require("../../../Assets/vipul.jpg"),
@@ -87,7 +87,7 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 6,
       title: "دوره تخصصی سید کبیر",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -95,7 +95,7 @@ const Data = {
       lesson: 180,
       likeCount: 4.8,
       date: "1985-02-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "کُمیسر شده",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -104,7 +104,7 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
+      id: 7,
       title: "دوره عمومی حاج کریم کریمی کمیلی",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
@@ -112,7 +112,7 @@ const Data = {
       lesson: 180,
       likeCount: 1.3,
       date: "1980-02-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "بخت چه",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -121,15 +121,15 @@ const Data = {
       hour: 42.5,
     },
     {
-      id: uuidv4(),
-      title: "دوره عمومی حاج کریم کریمی کمیلی",
+      id: 8,
+      title: "دوره عمومی حاج رحیم کریمی کمیلی",
       description:
         "با برگزاری دوباره دوره انگولار خود را در مسیری که انتخاب کردید به سمت موفقیت در فریمورک آنگولار سوق دهید. این دوره ...",
       teacher: "مازیار قلی پور",
       lesson: 180,
-      likeCount: 1.3,
+      likeCount: 0.6,
       date: "1980-02-12",
-      price: 999.999,
+      price: "999999",
       numberOfStudents: 50,
       archive: "بخت چه",
       image: require("../../../Assets/alexander-shatov.jpg"),
@@ -208,3 +208,7 @@ const Data = {
 };
 
 export default Data;
+
+export const getCourse = (id) => {
+  return Data.courses.find((item) => item.id === id);
+};

@@ -1,10 +1,12 @@
-import React from "react";
-import TableRow from "./../Panel/TableRow";
-import { FaTrashAlt } from "react-icons/fa";
+import React, { useContext } from "react";
 
-const CartTable = ({ data, onDelete }) => {
+import TableBody from "./table-body.component";
+import { CartContext } from "../../../Core/context/cart.context";
+
+const CartTable = () => {
+  const { cartItems } = useContext(CartContext);
   return (
-    <table className="min-w-full">
+    <table className="min-w-full h-fit">
       <thead className="text-base lg:text-xl font-bold bg-[#f8f8f8]">
         <tr>
           <th scope="col" className="text-gray-900 py-4 hidden lg:block">
@@ -27,16 +29,15 @@ const CartTable = ({ data, onDelete }) => {
           </th>
         </tr>
       </thead>
-      <tbody>
-        {data.map((course) => (
-          <TableRow
-            key={course.id}
-            course={course}
-            icon={<FaTrashAlt className="mx-auto" />}
-            onDelete={onDelete}
-          />
-        ))}
-      </tbody>
+      {cartItems.length === 0 ? (
+        <div className="text-5xl text-center">سبد خرید شما خالی است.</div>
+      ) : (
+        <tbody>
+          {cartItems.map((course) => (
+            <TableBody key={course.id} course={course} />
+          ))}
+        </tbody>
+      )}
     </table>
   );
 };

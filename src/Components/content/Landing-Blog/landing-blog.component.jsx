@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import useSwiperRef from "./swiper-wrapper-button";
 import Data from "../../../Core/services/Fake Service/Blogs";
+import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -23,7 +24,7 @@ const LandingBlog = () => {
 
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
-
+  const navigate = useNavigate();
   return (
     <div className="container m-auto relative">
       <div className="text-center mt-5">
@@ -102,7 +103,10 @@ const LandingBlog = () => {
                   <p className="w-10/12 hidden 2xl:mt-8 xl:mt-6 lg:mt-4 text-right 2xl:text-base xl:text-sm lg:text-xs lg:block lg:leading-relaxed sm:hidden">
                     {item.description}
                   </p>
-                  <Button classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2">
+                  <Button
+                    classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2"
+                    onClick={() => navigate(`blogs/${item.id}`)}
+                  >
                     بیشتر بخوانید...
                   </Button>
                 </div>

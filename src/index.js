@@ -5,13 +5,23 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import "swiper/css/bundle";
 import reportWebVitals from "./reportWebVitals";
+import { ProductsProvider } from "./Core/context/products.context";
+import { CartProvider } from "./Core/context/cart.context";
+import { Provider } from "react-redux";
+import { store } from "./Core/redux/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ProductsProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+        </ProductsProvider>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
