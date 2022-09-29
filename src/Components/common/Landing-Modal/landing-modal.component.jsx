@@ -1,48 +1,48 @@
-// import React, { useEffect, useCallback, useRef } from 'react';
-// import { useSpring, animated } from 'react-spring';
-// import { Button } from '../button-component/button.component';
-// import InputGroup from '../../common/Inputs/TextInputs/InputGroup';
-// import Textarea from '../../common/Inputs/TextareaInputs/Textarea';
-// import { Form, Formik } from 'formik';
-// import * as Yup from 'yup';
+import React, { useEffect, useCallback, useRef } from 'react';
+import { useSpring, animated } from 'react-spring';
+import { Button } from '../button-component/button.component';
+import InputGroup from '../../common/Inputs/TextInputs/InputGroup';
+import Textarea from '../../common/Inputs/TextareaInputs/Textarea';
+import { Form, Formik } from 'formik';
+import * as Yup from 'yup';
 
 const LandingModal = ({ showModal, setShowModal }) => {
-  // const modalRef = useRef();
+  const modalRef = useRef();
 
-  // const animation = useSpring({
-  //   from: {
-  //     duration: 300,
-  //   },
+  const animation = useSpring({
+    from: {
+      duration: 300,
+    },
 
-  //   to: {
-  //     opacity: showModal ? 1 : 0,
-  //     transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
-  //   },
-  // });
+    to: {
+      opacity: showModal ? 1 : 0,
+      transform: showModal ? `translateY(0%)` : `translateY(-100%)`,
+    },
+  });
 
-  // const closeModal = (e) => {
-  //   if (modalRef.current === e.target) {
-  //     setShowModal(false);
-  //   }
-  // };
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setShowModal(false);
+    }
+  };
 
-  // const keyPress = useCallback(
-  //   (e) => {
-  //     if (e.key === 'Escape' && showModal) {
-  //       setShowModal(false);
-  //     }
-  //   },
-  //   [setShowModal, showModal]
-  // );
+  const keyPress = useCallback(
+    (e) => {
+      if (e.key === 'Escape' && showModal) {
+        setShowModal(false);
+      }
+    },
+    [setShowModal, showModal]
+  );
 
-  // useEffect(() => {
-  //   document.addEventListener('keydown', keyPress);
-  //   return () => document.removeEventListener('keydown', keyPress);
-  // }, [keyPress]);
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () => document.removeEventListener('keydown', keyPress);
+  }, [keyPress]);
 
   return (
     <>
-      {/* {showModal ? (
+      {showModal ? (
         <div
           ref={modalRef}
           onClick={closeModal}
@@ -140,7 +140,7 @@ const LandingModal = ({ showModal, setShowModal }) => {
             </div>
           </animated.div>
         </div>
-      ) : null} */}
+      ) : null}
     </>
   );
 };
