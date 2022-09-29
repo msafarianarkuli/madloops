@@ -6,6 +6,7 @@ import {
 } from '../../Components/content/Panel/DashMenuItem';
 import Profile from '../../Components/content/Panel/Profile';
 import DashMenuData from '../../Core/services/Fake Service/DashMenuItems';
+import '../Panel/userpanel.styles.scss'
 
 const UserPanel = () => {
   const [menuItems] = useState(DashMenuData);
@@ -13,7 +14,7 @@ const UserPanel = () => {
     <>
       <div className="container mx-auto">
         <div className="grid grid-cols-1 bg-white w-full h-screen">
-          <div className="bg-lite-violet">
+          <div className="animate-top-panel">
             {/*start: this section will hide in medium size */}
             <div className="flex items-center mt-2 mx-2 lg:hidden">
               <Profile />
@@ -24,7 +25,7 @@ const UserPanel = () => {
               </div>
             </div>
             {/* end: */}
-            <div className="grid grid-cols-6 gap-3 bg-lite-violet rounded-2xl h-full">
+            <div className="grid grid-cols-6 gap-3 bg-animate-panel h-full">
               {/* start: this section will show in medium size */}
               <div className="hidden lg:col-span-1 lg:flex flex-col m-3 ml-0">
                 <Profile />

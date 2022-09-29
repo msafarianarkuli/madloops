@@ -160,7 +160,7 @@ const BlogsPage = () => {
             <Card
               showImage
               showStruc
-              classCard="m-auto text-gray-500 shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col"
+              classCard="m-auto md:mr-0 sm:mr-24 text-gray-500 duration-300 cursor-pointer hover:scale-105 hover:shadow-lg shadow-[#E5E5E5] custom-shadow rounded-md flex flex-col"
               key={card.id}
               imageUrl={require("../../Assets/code.jpg")}
               classImage="rounded-t-lg w-full"
@@ -211,7 +211,7 @@ const BlogsPage = () => {
           <div className="w-full my-20">
             <Button
               onClick={handleMoreCard}
-              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
             >
               بیشتر
             </Button>

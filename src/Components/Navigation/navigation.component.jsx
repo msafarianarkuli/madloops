@@ -80,7 +80,9 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-          <div className="fixed top-0 left-0 md:hidden z-30">
+          <div
+            className="fixed top-0 left-0 md:hidden z-30"
+          >
             <div
               className={`${
                 open ? "bg-deep-purple h-screen pt-8 w-80 relative" : "w-10 z-0"

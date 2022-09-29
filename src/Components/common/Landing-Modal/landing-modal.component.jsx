@@ -51,13 +51,15 @@ const LandingModal = ({ showModal, setShowModal }) => {
           <animated.div style={animation}>
             <div className="bg-white lg:w-[800px] md:w-[700px] sm:w-[600px] w-[500px] sm:h-fit h-[675px] relative sm:top-32 top-0 sm:rounded-xl">
               <div className="grid grid-cols-2 w-full h-full">
-                <div className="col-span-2 sm:h-24 h-12 relative">
-                  <div className="border-4 border-t-0 text-lg rounded-b-xl border-gray-800 border-opacity-80 px-10 py-2 top-0 
-                                  md:right-80 sm:right-52 sm:block hidden absolute">
+                <div className="col-span-2 sm:h-24 h-9 relative">
+                  <div
+                    className="border-4 border-t-0 text-lg rounded-b-xl border-gray-800 border-opacity-80 px-10 py-2 top-0 
+                    lg:right-80 md:right-64 sm:right-52 sm:block hidden absolute"
+                  >
                     مشاوره تخصصی
                   </div>
                   <Button
-                    classButton="sm:text-3xl text-xl text-red-900 hover:text-red-500 sm:m-8 m-4 duration-300 font-bold"
+                    classButton="sm:text-3xl sm:bg-transparent sm:p-0 py-1 pl-5 pr-6 rounded-bl-xl bg-red-500 text-xl text-red-900 sm:hover:text-red-500 hover:text-white sm:m-8 duration-300 font-bold"
                     aria-label="Close Modal"
                     onClick={() => setShowModal((prev) => !prev)}
                   >
@@ -120,7 +122,7 @@ const LandingModal = ({ showModal, setShowModal }) => {
                             label="پیام"
                             name="message"
                             placeholder="لطفا پیام خود را درج کنید..."
-                            className="h-32"
+                            className="rounded-lg py-2 bg-[#F1F2F7] outline-none w-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
                           />
                         </div>
                       </div>

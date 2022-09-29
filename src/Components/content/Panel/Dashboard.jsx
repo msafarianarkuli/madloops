@@ -19,7 +19,7 @@ const Dashboard = () => {
         </div>
         <div
           className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-10 border-4 rounded-3xl text-gray-400
-      px-3 lg:px-10  py-5  text-lg lg:text-2xl "
+          px-3 lg:px-10  py-5  text-lg lg:text-2xl"
         >
           <p>
             نام:{' '}
@@ -65,9 +65,9 @@ const Dashboard = () => {
           <Link to="/single-course">
             <div
               className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
-          hover:ring hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
+              hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
-              <img src={reactIcon} className="w-20" />
+              <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />
               <div className="w-full mr-5 sm:mr-10">
                 <p className="text-2xl font-bold mb-4">دوره css </p>
                 <div className="flex flex-col text-lg">
@@ -87,9 +87,9 @@ const Dashboard = () => {
           <Link to="/single-course">
             <div
               className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
-           hover:ring hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
+              hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
-              <img src={reactIcon} className="w-20" />
+              <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />
               <div className="w-full mr-5 md:mr-10">
                 <p className="text-xl md:text-2xl font-bold mb-4">
                   دوره React{' '}
@@ -104,9 +104,9 @@ const Dashboard = () => {
           <Link to="/single-course">
             <div
               className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
-          hover:ring hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
+              hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
-              <img src={reactIcon} className="w-20" />
+              <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />
               <div className="w-full mr-5 md:mr-10">
                 <p className="text-xl md:text-2xl font-bold mb-4">
                   دوره HTML{' '}

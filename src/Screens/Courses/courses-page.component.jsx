@@ -163,7 +163,7 @@ const CoursesPage = () => {
           <div className="w-full my-20">
             <Button
               onClick={handleMoreCard}
-              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
             >
               بیشتر
             </Button>
@@ -193,7 +193,7 @@ const CoursesPage = () => {
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
                     headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
-                rounded-tl-xl rounded-tr-xl"
+                    rounded-tl-xl rounded-tr-xl"
                     bodyMainStyle="w-10/12 m-auto bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}

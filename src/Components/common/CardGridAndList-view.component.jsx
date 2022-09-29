@@ -18,8 +18,8 @@ const CardGridListView = ({ item, view }) => {
       showStruc
       classCard={
         view
-          ? "sm:flex sm:flex-row sm:justify-between mx-8 overflow-hidden mt-4 w-100 mx-2 w-full mt-16 relative shadow-xl shadow-[#E5E5E5] rounded-md transition ease-in-out duration-500 hover:shadow-lg hover:shadow-[#E8E3FE]"
-          : "m-auto text-gray-500 shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col relative transition ease-in-out duration-500 hover:drop-shadow-lg hover:shadow-[#E8E3FE]"
+          ? "sm:flex sm:flex-row sm:justify-between mx-8 overflow-hidden hover:shadow-purple mt-4 w-100 mx-2 w-full mt-16 relative custom-shadow rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE]"
+          : "m-auto text-gray-500 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] group"
       }
       imageUrl={item.image}
       classImage={
@@ -191,8 +191,8 @@ const CardGridListView = ({ item, view }) => {
           ButtonType="button"
           classButton={
             !view
-              ? "btn btn-base w-full"
-              : "btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36"
+              ? "btn btn-base w-full group-hover:border-lite-purple"
+              : "btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36 group-hover:border-lite-purple"
           }
         >
           جزئیات دوره
