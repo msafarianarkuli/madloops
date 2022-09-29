@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button } from '../../common/button-component/button.component';
-import GroupButton from '../../common/GroupButton/GroupButton';
-import LandingTitle from '../../common/LandingTitle/LandingTitle';
+import { Button, GroupButton, CardAI, LandingTitle } from '../..';
 import Data from '../../../Core/services/Fake Service/Cources';
-import CardAI from './../../common/Card/Card';
 import {
   handleLikeSorting,
   handleDateSortingDes,
 } from '../../../Core/utils/sorting';
+
 const LandingCource = () => {
   const { courses } = Data;
   const [groupBtnList] = useState([
@@ -22,9 +20,6 @@ const LandingCource = () => {
     switch (type) {
       case 'all':
         setFilterCourses(courses);
-        break;
-      case 'view':
-        console.log('view');
         break;
       case 'new':
         setFilterCourses(handleDateSortingDes(courses, 5));
