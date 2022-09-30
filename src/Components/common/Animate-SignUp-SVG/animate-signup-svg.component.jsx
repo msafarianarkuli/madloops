@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import "../Animate-SignUp-SVG/animate-signup-svg.styles.scss";
 
 const AnimateSignUpSvg = () => {
-  const signLogo = document.querySelectorAll("#signLogo path");
-  for (let i = 0; i < signLogo.length; i++) {
-    console.log(`Letter ${i} is ${signLogo[i].getTotalLength()}`);
-  }
 
   return (
     <div className="">

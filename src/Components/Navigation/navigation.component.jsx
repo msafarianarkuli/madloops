@@ -86,14 +86,11 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-
-          <div className="flex justify-end md:hidden relative">
+          <div className="fixed top-0 left-0 md:hidden z-30">
             <div
               className={`${
-                open
-                  ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-50 absolute"
-                  : "w-10 z-0"
-              } duration-300 ease-in-out relative`}
+                open ? "bg-deep-purple h-screen pt-8 w-80 relative" : "w-10 z-0"
+              } duration-300 ease-in-out absolute top-0 left-0`}
             >
               {open && (
                 <div className="h-5/6">

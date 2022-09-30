@@ -1,9 +1,17 @@
+import React, { useState } from "react";
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Typewriter, useTypewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
+import LandingModal from "../../common/Landing-Modal/landing-modal.component";
 
 const LandingHeader = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal((prev) => !prev);
+  };
+
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-7 2xl:h-700 xl:h-600 lg:h-500 md:h-550 sm:h-450 h-400">
@@ -94,12 +102,14 @@ const LandingHeader = () => {
             </div>
             <div className="col-span-5 sm:col-span-2">
               <Button
-                classButton="btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-6 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
+                onClick={openModal}
+                classButton="outline-none btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-6 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
                 md:mx-0 md:mt-0 md:px-4 sm:py-3 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs 
                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
               >
                 مشاوره تخصصی
               </Button>
+              <LandingModal showModal={showModal} setShowModal={setShowModal}/>
             </div>
           </div>
         </div>

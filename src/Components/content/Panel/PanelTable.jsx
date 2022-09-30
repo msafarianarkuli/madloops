@@ -9,7 +9,7 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
         <tr>
           <th
             scope="col"
-            className="text-gray-900 py-4 hidden lg:block"
+            className="text-gray-900 py-4 hidden sm:block"
           >
             تصویر
           </th>

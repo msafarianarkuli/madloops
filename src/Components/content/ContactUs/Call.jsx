@@ -4,7 +4,7 @@ import { BsEnvelopeFill, BsTelephoneFill } from 'react-icons/bs';
 const Call = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-12 text-lg">
-      <div className="flex justify-evenly  bg-[#7F56DA] rounded-2xl py-14 lg:mx-10">
+      <div className="flex justify-evenly  bg-lite-purple rounded-2xl py-14 lg:mx-10">
         <div className="flex items-center text-white">
           <BsTelephoneFill className="text-3xl mb-3 ml-3" />
           <p className="hidden sm:block">تلفن تماس</p>
@@ -18,7 +18,7 @@ const Call = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-evenly items-center bg-[#7F56DA] rounded-2xl py-14 lg:mx-10">
+      <div className="flex justify-evenly items-center bg-lite-purple rounded-2xl py-14 lg:mx-10 sm:px-5 xl:px-0">
         <div className="flex items-center text-white">
           <BsEnvelopeFill className="text-3xl text-white mt-2 mb-3 ml-3" />
           <p className="hidden sm:block">ایمیل پژوهشگاه</p>

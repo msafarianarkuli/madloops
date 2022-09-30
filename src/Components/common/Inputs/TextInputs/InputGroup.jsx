@@ -1,7 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
-import { BsPerson } from 'react-icons/bs';
-const InputGroups = ({ label, ...props }) => {
+
+const InputGroups = ({ label, icon, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
@@ -13,13 +13,13 @@ const InputGroups = ({ label, ...props }) => {
         ) : null}
 
         <div
-          className="flex items-center bg-neutral-200 rounded-lg border-2 border-neutral-200
+          className="flex items-center bg-[#F1F2F7] rounded-lg border-2 border-[#F1F2F7]
            text-gray-600 focus-within:text-[#673CC0] focus-within:bg-white
             focus-within:border-[#673CC0] focus-within:border-2
             transition ease-in duration-200"
         >
           <div className="flex items-center rounded-tr-lg rounded-br-lg  text-2xl min-h-[40px] bg-transparent px-2">
-            <BsPerson />
+            {icon}
           </div>
           <input
             {...props}

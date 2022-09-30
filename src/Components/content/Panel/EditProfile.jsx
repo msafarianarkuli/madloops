@@ -134,14 +134,14 @@ const EditProfile = () => {
             <div className="text-center text-base sm:text-xl">
               <button
                 className="border-2 border-lite-purple px-6 py-2 rounded-full text-lite-purple mx-2
-              hover:bg-lite-purple hover:text-white transition ease-in-out duration-300"
+              hover:border-red-600 hover:text-red-600 transition ease-in-out duration-300"
               >
                 لغو تغییرات
               </button>
               <button
                 type="submit"
                 className="border-2 border-lite-purple bg-lite-purple px-6 py-2 rounded-full text-white mx-2
-                hover:bg-white hover:text-lite-purple transition ease-in-out duration-300"
+                hover:bg-green-600 hover:border-green-600 hover:text-white transition ease-in-out duration-300"
               >
                 ثبت تغییرات
               </button>

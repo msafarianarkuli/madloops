@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useContext } from "react";
+import { useState, useRef, useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -59,10 +59,17 @@ const CoursesPage = () => {
 
   const [filteredItem, setFilteredItem] = useState(filterList);
 
+  const SideRightRef = useRef();
+
+  const closeSideRight = (e) => {
+    if (SideRightRef.current === e.target) {
+      setOpenFilter(false);
+    }
+  };
   return (
     <section>
-      <div className="container m-auto">
-        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-300">
+      <div className="container m-auto ">
+        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-200">
           <div className="grid h-2/6">
             <div className="grid">
               <FieldName
@@ -92,7 +99,7 @@ const CoursesPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5 mt-10">
+        <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5">
           <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm">
             <div className="text-[#C53F3F] text-4xl mt-6">
               {filterCourses.reduce((a, b) => a + b.lesson, 0)}+
@@ -158,19 +165,23 @@ const CoursesPage = () => {
           <div className="w-full my-20">
             <Button
               onClick={handleMoreCard}
-              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
             >
               بیشتر
             </Button>
           </div>
         )}
-        <div className="fixed top-0 right-0">
+        <div
+          ref={SideRightRef}
+          onClick={closeSideRight}
+          className="fixed top-0 right-0 w-full bg-gray-600 bg-opacity-80"
+        >
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple h-screen m-auto pt-8 w-80 z-10"
+                ? "bg-deep-purple h-screen pt-8 w-80 z-30 relative"
                 : "w-0 z-0"
-            } duration-300 ease-in-out relative`}
+            } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
               <div className="h-full overflow-y-scroll fixed-container ml-2">
@@ -184,7 +195,7 @@ const CoursesPage = () => {
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
                     headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
-                rounded-tl-xl rounded-tr-xl"
+                    rounded-tl-xl rounded-tr-xl"
                     bodyMainStyle="w-10/12 m-auto bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}

@@ -38,11 +38,11 @@ const PanelHeader = ({ data, onSearch }) => {
                 type="search"
                 placeholder="دوره مورد نظر.."
                 err={true}
-                className="border mb-3 rounded-full w-full text-sm sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400"
+                className="border mb-3 focus:input-shadow rounded-full w-full text-sm sm:text-lg py-1 md:py-2 px-2 focus:outline focus:outline-gray-400 duration-300"
               />
               <Button
                 ButtonType="submit"
-                classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-lite-blue text-lite-blue hover:text-white hover:bg-lite-blue
+                classButton="border rounded-3xl w-full py-1 md:py-2 px-2 border-lite-purple text-lite-purple hover:text-white hover:bg-lite-purple
                 transition ease-out duration-300"
               >
                 جست و جو

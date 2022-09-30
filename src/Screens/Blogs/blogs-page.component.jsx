@@ -101,7 +101,7 @@ const BlogsPage = () => {
   return (
     <section>
       <div className="container m-auto">
-        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-300">
+        <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-100">
           <div className="grid h-2/6">
             <div className="grid">
               <FieldName
@@ -218,7 +218,7 @@ const BlogsPage = () => {
           <div className="w-full my-20">
             <Button
               onClick={handleMoreCard}
-              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white transition ease-in-out delay-150"
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
             >
               بیشتر
             </Button>

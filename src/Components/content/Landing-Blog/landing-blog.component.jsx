@@ -56,10 +56,10 @@ const LandingBlog = () => {
           return (
             <SwiperSlide key={item.id}>
               <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
-                <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-10 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl  bg-slate-400 z-100">
+                <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-15 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl  bg-slate-400 z-100">
                   <img
                     src={item.image}
-                    className="lg:p-2 w-full lg:rounded-t-xl scale-100 hover:scale-105 transition duration-500 hover:animate-pulse cursor-pointer"
+                    className="lg:p-2 w-full lg:rounded-t-2xl scale-100 hover:scale-105 transition duration-300 hover:animate-pulse cursor-pointer"
                     alt=""
                   />
                 </div>
