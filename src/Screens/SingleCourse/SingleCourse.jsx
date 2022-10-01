@@ -22,10 +22,10 @@ const SingleCourse = () => {
   const [item] = useState(getCourse(Number(id)));
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto">
+    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
       <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow">
-        <div className="rounded-lg overflow-hidden ">
-          <img src={item.image} />
+        <div className="rounded-lg overflow-hidden">
+          <img src={item.image} className="w-full h-500" />
           <div className="px-4 lg:px-16">
             <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10">
               {item.title}

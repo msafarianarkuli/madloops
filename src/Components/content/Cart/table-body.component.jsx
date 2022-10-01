@@ -8,7 +8,7 @@ const TableBody = ({ course }) => {
 
   const removeItem = () => removeItemFromCart(course);
   return (
-    <tr className="border-b text-lite-purple group hover:bg-zinc-50 hover:shadow-sm hover:border-b-0 hover:-translate-y-1 transition ease-in-out duration-200">
+    <tr className="border-b text-lite-purple group hover:bg-zinc-50 hover:shadow-sm hover:-translate-y-1 transition ease-in-out duration-200">
       <td className="px-xl py-4 font-medium text-center hidden lg:table-cell">
         <img src={image} className="w-12 mx-auto" />
       </td>

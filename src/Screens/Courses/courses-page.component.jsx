@@ -196,7 +196,9 @@ const CoursesPage = () => {
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
                     headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
                     rounded-tl-xl rounded-tr-xl"
-                    bodyMainStyle="w-10/12 m-auto bg-white p-4 rounded-bl-xl rounded-br-xl border-b-2 border-r-2 border-l-2"
+                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2 transition-[height] ease-in-out duration-500"
+                    bodyActiveStyle="h-fit max-h-content border-b-2"
+                    bodyInactiveStyle="h-0 overflow-hidden border-b-0"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
