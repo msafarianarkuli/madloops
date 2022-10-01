@@ -12,7 +12,7 @@ import logo from "../../Assets/img/site-logo.png";
 const Footer = () => {
   return (
     <footer>
-      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-lite-gray container mx-auto">
+      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-lite-gray container mx-auto mt-12">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-500 md:divide-y-0 ">
           <div className="flex flex-col pb-5">
             <div className="flex items-center">
