@@ -43,7 +43,7 @@ const Login = () => {
           </div>
         </div>
         <div className="lg:col-span-1 col-span-2 bg-white animate-[onLoadAnim_2s_ease-in-out]">
-          <div className="sm:h-48 h-44">
+          <div className="sm:h-44 lg:h-48 h-40">
             <FieldName
               showH2
               showP
@@ -90,7 +90,7 @@ const Login = () => {
                     classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                     classLabel="text-xl mb-2"
                     placeholder="نمونه : example@gmail.com"
-                    classError="text-red-500 h-[20px] mb-1 mr-1"
+                    classError="text-red-500 h-[20px] mb-1"
                   />
                 </div>
                 <div className="h-24 flex justify-center">
@@ -103,10 +103,10 @@ const Login = () => {
                     classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
                     classLabel="text-xl mb-2"
                     placeholder="باید دارای 8 نویسه باشد ..."
-                    classError="text-red-500 h-[20px] mb-1 mr-1"
+                    classError="text-red-500 h-[20px] mb-1"
                   />
                 </div>
-                <div className="h-10 md:mt-5 sm:mt-3 mt-3 grid grid-cols-2">
+                <div className="h-10 lg:mt-5 sm:mt-3 mt-3 grid grid-cols-2">
                   <div className="col-span-1">
                     <InputFeild
                       label="مرا به خاطر بسپار"

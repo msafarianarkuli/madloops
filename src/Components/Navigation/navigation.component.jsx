@@ -73,7 +73,6 @@ const Navigation = () => {
                   {cartCount}
                 </div>
               </div>
-
               <div className="flex justify-center items-center col-span-1">
                 <Link to="login">
                   <Button
@@ -94,14 +93,25 @@ const Navigation = () => {
             >
               {open && (
                 <div className="h-5/6">
-                  <Button
-                    classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
+                  <Link to="/login">
+                    <Button
+                      classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
                     text-white pt-1 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
-                  >
-                    ورود
-                  </Button>
+                    >
+                      ورود
+                    </Button>
+                  </Link>
                   <div className="float-left text-white m-3">
-                    <RiShoppingCartFill className="text-xl cursor-pointer duration-100 ease-in-out hover:scale-125" />
+                    <div className="flex justify-end items-center col-span-1 relative">
+                      <img
+                        onClick={() => setIsCartOpen(!isCartOpen)}
+                        src={require("../../Assets/shopping-bag.svg").default}
+                        className="xl:ml-4 h-8 lg:ml-8 md:ml-12 w-14 cursor-pointer z-40 relative"
+                      />
+                      <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
+                        {cartCount}
+                      </div>
+                    </div>
                   </div>
                   <div className="pt-14 text-lg text-white text-center">
                     {navlines.map((navline) => {
