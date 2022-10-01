@@ -100,7 +100,7 @@ const LandingTeacher = () => {
 
                     <div className="relative lg:block sm:hidden lg:mb-7 z-0">
                       <img
-                        src={require("../../../Assets/mohsen.jpg")}
+                        src={item.img}
                         className="rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
                       />
                       <div className="lg:block hidden">
