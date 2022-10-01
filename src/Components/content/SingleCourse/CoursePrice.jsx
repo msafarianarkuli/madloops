@@ -1,7 +1,12 @@
-import React from 'react';
-import { FaCoins } from 'react-icons/fa';
-import { TbDiscount2 } from 'react-icons/tb';
-const CoursePrice = () => {
+import React, { useContext } from "react";
+import { FaCoins } from "react-icons/fa";
+import { TbDiscount2 } from "react-icons/tb";
+import { CartContext } from "../../../Core/context/cart.context";
+import { Button } from "./../../common/button-component/button.component";
+
+const CoursePrice = ({ item }) => {
+  const { AddItemToCart } = useContext(CartContext);
+  const addProductToCart = () => AddItemToCart(item);
   return (
     <div className="course-Detail-container">
       <div className="course-detail-title-box">
@@ -14,9 +19,7 @@ const CoursePrice = () => {
         </div>
         <div>
           <p>
-            <del className="line-through decoration-red-600">
-              200،000 تومان
-            </del>
+            <del className="line-through decoration-red-600">200،000 تومان</del>
           </p>
         </div>
       </div>
@@ -36,7 +39,9 @@ const CoursePrice = () => {
       </div>
       <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#42CD36] cursor-pointer hover:bg-green-500 duration-300">
         <div>
-          <p className="text-white">ثبت نام</p>
+          <Button classButton="text-white" onClick={addProductToCart}>
+            ثبت نام
+          </Button>
         </div>
       </div>
     </div>

@@ -1,24 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, useContext } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { Fragment } from "react";
+import CartHover from "./../content/Cart/cart-hover.component";
+import { CartContext } from "../../Core/context/cart.context";
 
 const Navigation = () => {
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
     { id: 1, title: "خانه", path: "/" },
-    { id: 2, title: "دوره ها", path: "/course" },
+    { id: 2, title: "دوره ها", path: "/courses" },
     { id: 3, title: "اخبار و مقالات", path: "/blogs" },
     { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
   return (
     <Fragment>
-      <div className="container m-auto">
+      <div className="container m-auto relative">
         <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
           <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
@@ -60,13 +63,16 @@ const Navigation = () => {
           </div>
           <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
             <div className="grid grid-cols-2 h-16">
-              <Link
-                className="flex justify-end items-center col-span-1"
-                to="cart"
-              >
-                <RiShoppingCartFill className="xl:ml-4 h-6 lg:ml-8 md:ml-12 text-2xl cursor-pointer duration-100 ease-in-out hover:scale-125 hover:text-deep-purple" />
-                <div className="bg-red-600 text-white">2</div>
-              </Link>
+              <div className="flex justify-end items-center col-span-1 relative">
+                <img
+                  onClick={() => setIsCartOpen(!isCartOpen)}
+                  src={require("../../Assets/shopping-bag.svg").default}
+                  className="xl:ml-4 h-8 lg:ml-8 md:ml-12 w-14 cursor-pointer z-40 relative"
+                />
+                <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
+                  {cartCount}
+                </div>
+              </div>
 
               <div className="flex justify-center items-center col-span-1">
                 <Link to="login">
@@ -80,9 +86,7 @@ const Navigation = () => {
               </div>
             </div>
           </div>
-          <div
-            className="fixed top-0 left-0 md:hidden z-30"
-          >
+          <div className="fixed top-0 left-0 md:hidden z-30">
             <div
               className={`${
                 open ? "bg-deep-purple h-screen pt-8 w-80 relative" : "w-10 z-0"
@@ -140,6 +144,7 @@ const Navigation = () => {
           </div>
         </div>
       </div>
+      {isCartOpen && <CartHover />}
       <Outlet />
     </Fragment>
   );

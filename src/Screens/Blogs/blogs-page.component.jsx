@@ -1,11 +1,12 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Data from "../../Core/services/Fake Service/Blogs";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
 import SearchBar from "./../../Components/common/search-bar.component";
 import { Typewriter } from "react-simple-typewriter";
 import { Card } from "./../../Components/common/Card/card.component";
 import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
-import Data from "../../Core/services/Fake Service/Blogs";
 import { Button } from "../../Components/common/button-component/button.component";
-import { useState } from "react";
 import {
   handleDateSortingAs,
   handleDateSortingDes,
@@ -95,6 +96,8 @@ const BlogsPage = () => {
     return trimmedLead;
   };
 
+  const navigate = useNavigate();
+
   return (
     <section>
       <div className="container m-auto">
@@ -160,14 +163,18 @@ const BlogsPage = () => {
             <Card
               showImage
               showStruc
-              classCard="m-auto md:mr-0 sm:mr-24 text-gray-500 duration-300 cursor-pointer hover:scale-105 hover:shadow-lg shadow-[#E5E5E5] custom-shadow rounded-md flex flex-col"
+              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] hover:shadow-lg hover:shadow-[#815AE2] transition ease-in-out duration-500 rounded-md flex flex-col"
               key={card.id}
-              imageUrl={require("../../Assets/code.jpg")}
-              classImage="rounded-t-lg w-full"
-              classMainImg="m-auto w-full"
+              imageUrl={card.image}
+              classImage="rounded-t-lg w-full h-full"
+              classMainImg="m-auto w-full h-72"
               cardBody="w-80 mx-6 order-last"
               role={handleLead(card.title)}
               classRole="text-right h-20 font-bold text-xl text-gray-900"
+              onClick={() => {
+                navigate(`${card.id}`);
+                console.log(card.id);
+              }}
             >
               <div className="mx-6 my-5">
                 <div className="flex justify-between">

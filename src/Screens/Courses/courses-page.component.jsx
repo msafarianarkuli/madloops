@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef } from "react";
+import { useState, useRef, useContext } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -16,11 +16,14 @@ import {
   handleLikeSorting,
   handleViewSorting,
 } from "./../../Core/utils/sorting";
+import { ProductsContext } from "../../Core/context/products.context";
 
 const cardPerRow = 3;
 
 const CoursesPage = () => {
-  const { courses, filterList } = Data;
+  const { products } = useContext(ProductsContext);
+
+  const { filterList } = Data;
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
@@ -30,29 +33,21 @@ const CoursesPage = () => {
     { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
 
-  const SideRightRef = useRef();
-
-  const closeSideRight = (e) => {
-    if (SideRightRef.current === e.target) {
-      setOpenFilter(false);
-    }
-  };
-
-  const [filterCourses, setFilterCourses] = useState(courses);
+  const [filterCourses, setFilterCourses] = useState(products);
 
   const handleSorting = (type) => {
     switch (type) {
       case "all":
-        setFilterCourses(courses);
+        setFilterCourses(products);
         break;
       case "view":
-        setFilterCourses(handleViewSorting(courses, 3));
+        setFilterCourses(handleViewSorting(products));
         break;
       case "new":
-        setFilterCourses(handleDateSortingDes(courses, 2));
+        setFilterCourses(handleDateSortingDes(products));
         break;
       case "like":
-        setFilterCourses(handleLikeSorting(courses, 5));
+        setFilterCourses(handleLikeSorting(products));
         break;
     }
   };
@@ -64,6 +59,13 @@ const CoursesPage = () => {
 
   const [filteredItem, setFilteredItem] = useState(filterList);
 
+  const SideRightRef = useRef();
+
+  const closeSideRight = (e) => {
+    if (SideRightRef.current === e.target) {
+      setOpenFilter(false);
+    }
+  };
   return (
     <section>
       <div className="container m-auto ">

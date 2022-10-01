@@ -1,9 +1,7 @@
-import { v4 as uuidv4 } from "uuid";
-
 const Data = {
   blogs: [
     {
-      id: uuidv4(),
+      id: 1,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -17,7 +15,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 2,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -31,7 +29,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 3,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -45,7 +43,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 4,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -59,7 +57,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 5,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -73,7 +71,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 6,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -87,7 +85,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 7,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -101,7 +99,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 8,
       people: "جمشید هاشم پور",
       title:
         "دوره تخصصی داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی",
@@ -115,7 +113,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 9,
       people: "جمشید هاشم پور",
       title:
         "دوره میکائیل داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج واقعی               میکائیل داستان های موفقیت برنامه نویس: افراد واقعی. داستان های واقعی نتایج    ",
@@ -129,7 +127,7 @@ const Data = {
       image: require("../../../Assets/biden.jpg"),
     },
     {
-      id: uuidv4(),
+      id: 10,
       people: "جمشید هاشم پور",
       title: "دوره علی بخت یک راه طویل است",
       description:
@@ -145,3 +143,7 @@ const Data = {
 };
 
 export default Data;
+
+export const getBlog = (id) => {
+  return Data.blogs.find((item) => item.id === id);
+};

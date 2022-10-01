@@ -90,7 +90,7 @@ const LandingHeader = () => {
           </div>
           <div className="grid sm:grid-cols-5 h-2/6">
             <div className="col-span-5 sm:col-span-3">
-              <Link to="/course">
+              <Link to="/courses">
                 <Button
                   classButton="btn text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-6 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
                 md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs

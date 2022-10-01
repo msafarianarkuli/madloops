@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
+import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -14,7 +15,7 @@ const LandingTeacher = () => {
   const { teachers } = Data;
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
-
+  const navigate = useNavigate();
   return (
     <section>
       <div className="container m-auto">
@@ -89,7 +90,10 @@ const LandingTeacher = () => {
                       <p className="sm:text-sm text-xs mt-2 text-[#4A4453]">
                         {item.description}
                       </p>
-                      <Button classButton="text-white bg-[#5DC8B2] w-20 rounded-xl p-2 my-5 hover:scale-125 transition-transform ease-in duration-300 ">
+                      <Button
+                        onClick={() => navigate(`teacher/${item.id}`)}
+                        classButton="text-white bg-[#5DC8B2] w-20 rounded-xl p-2 my-5 hover:scale-125 transition-transform ease-in duration-300 "
+                      >
                         بیشتر
                       </Button>
                     </div>

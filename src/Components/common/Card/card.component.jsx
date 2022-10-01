@@ -13,9 +13,10 @@ export const Card = ({
   children,
   classMainImg,
   classDescription,
+  onClick,
 }) => {
   return (
-    <div className={classCard}>
+    <div className={classCard} onClick={onClick}>
       {showImage && (
         <div className={classMainImg}>
           <img src={imageUrl} className={classImage} alt="..." />
