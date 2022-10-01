@@ -140,13 +140,13 @@ const Navigation = () => {
               {!open ? (
                 <BsList
                   className={`bg-white text-deep-purple rounded-full border-2
-             border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
+                border-deep-purple text-4xl absolute p-1 -right-20 top-3 cursor-pointer`}
                   onClick={() => setOpen(!open)}
                 />
               ) : (
                 <BsArrowLeftShort
                   className={`bg-white text-deep-purple rounded-full border-2
-              border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
+                border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
                   onClick={() => setOpen(!open)}
                 />
               )}
