@@ -185,7 +185,7 @@ const BlogsPage = () => {
                     </h3>
                   </div>
                   <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
-                    محبوب ترین
+                    # بهترین
                   </div>
                 </div>
                 <div className="flex items-center">
