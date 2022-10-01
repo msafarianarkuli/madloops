@@ -7,7 +7,7 @@ const CartHover = () => {
 
   return (
     <>
-      <div className="md:flex md:flex-col md:justify-center hidden w-96 h-52 border-[1px] absolute top-16 left-36 z-40 overflow-y-auto  rounded-b-md">
+      <div className="md:grid hidden w-96 h-fit border-[1px] absolute top-16 left-36 z-40 overflow-y-scroll faq-container rounded-b-md">
         {cartItems.map((item) => {
           return (
             <div
@@ -20,9 +20,7 @@ const CartHover = () => {
               <div className="flex flex-col my-auto mr-4">
                 <h1>{item.title}</h1>
                 <h4>{item.teacher}</h4>
-                <p>
-                  {item.quantity} {item.price}تومان
-                </p>
+                <p>{item.price}تومان</p>
               </div>
             </div>
           );

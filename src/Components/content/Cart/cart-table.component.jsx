@@ -30,7 +30,11 @@ const CartTable = () => {
         </tr>
       </thead>
       {cartItems.length === 0 ? (
-        <div className="text-5xl text-center">سبد خرید شما خالی است.</div>
+        <tbody className="text-5xl text-center">
+          <tr>
+            <td>سبد خرید شما خالی است.</td>
+          </tr>
+        </tbody>
       ) : (
         <tbody>
           {cartItems.map((course) => (
