@@ -26,7 +26,7 @@ const Data = {
       view: 10,
       date: "2012-09-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog1.JPG"),
     },
     {
       id: 3,
@@ -40,7 +40,7 @@ const Data = {
       view: 140,
       date: "2010-09-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog2.JPG"),
     },
     {
       id: 4,
@@ -54,7 +54,7 @@ const Data = {
       view: 190,
       date: "2006-06-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog3.JPG"),
     },
     {
       id: 5,
@@ -68,7 +68,7 @@ const Data = {
       view: 85,
       date: "2000-01-20",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog4.JPG"),
     },
     {
       id: 6,
@@ -82,7 +82,7 @@ const Data = {
       view: 34,
       date: "1999-12-14",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog5.JPG"),
     },
     {
       id: 7,
@@ -96,7 +96,7 @@ const Data = {
       view: 11,
       date: "2003-09-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog6.JPG"),
     },
     {
       id: 8,
@@ -110,7 +110,7 @@ const Data = {
       view: 143,
       date: "2006-09-18",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog7.JPG"),
     },
     {
       id: 9,
@@ -124,7 +124,7 @@ const Data = {
       view: 854,
       date: "1980-09-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog8.JPG"),
     },
     {
       id: 10,
@@ -137,7 +137,7 @@ const Data = {
       view: 324,
       date: "2018-09-11",
       readTime: 8,
-      image: require("../../../Assets/biden.jpg"),
+      image: require("../../../Assets/img/blog9.JPG"),
     },
   ],
 };

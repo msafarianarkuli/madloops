@@ -56,10 +56,10 @@ const LandingBlog = () => {
           return (
             <SwiperSlide key={item.id}>
               <div className="grid grid-cols-2 mt-10 lg:mt-48 mb-10 bg-[#4784DA]">
-                <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-15 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl  bg-slate-400 z-100">
+                <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-15 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl bg-slate-400 z-100">
                   <img
                     src={item.image}
-                    className="lg:p-2 w-full lg:rounded-t-2xl scale-100 hover:scale-105 transition duration-300 hover:animate-pulse cursor-pointer"
+                    className="lg:p-2 xl:w-[600px] 2xl:h-[600px] xl:h-[500px] h-full lg:h-[440px] lg:rounded-t-2xl"
                     alt=""
                   />
                 </div>
@@ -104,10 +104,10 @@ const LandingBlog = () => {
                     {item.description}
                   </p>
                   <Button
-                    classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2"
+                    classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2 hover:scale-110 duration-100"
                     onClick={() => navigate(`blogs/${item.id}`)}
                   >
-                    بیشتر بخوانید...
+                   بیشتر بخوانید ...
                   </Button>
                 </div>
               </div>
@@ -115,13 +115,13 @@ const LandingBlog = () => {
           );
         })}
         <div
-          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] sm:top-[80%] md:left-1 sm:left-5 text-3xl rounded-full transition ease-in-out duration-500 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-125"
+          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] sm:top-[80%] md:left-1 sm:left-5 text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
           ref={nextElRef}
         >
           <BsArrowLeft className="w-full h-full text-[#929292]" />
         </div>
         <div
-          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] md:right-1 sm:top-[80%] sm:right-[80%] text-3xl rounded-full transition ease-in-out duration-500 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-125"
+          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] md:right-1 sm:top-[80%] sm:right-[80%] text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
           ref={prevElRef}
         >
           <BsArrowRight className="w-full h-full text-[#929292]" />
