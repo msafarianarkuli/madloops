@@ -37,11 +37,12 @@ const CoursePrice = ({ item }) => {
           <p className="text-[#42CD36]">09:34:50:28</p>
         </div>
       </div>
-      <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#42CD36] cursor-pointer hover:bg-green-500 duration-300">
+      <div
+        className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#42CD36] cursor-pointer hover:bg-green-500 duration-300"
+        onClick={addProductToCart}
+      >
         <div>
-          <Button classButton="text-white" onClick={addProductToCart}>
-            ثبت نام
-          </Button>
+          <Button classButton="text-white">ثبت نام</Button>
         </div>
       </div>
     </div>

@@ -163,7 +163,7 @@ const BlogsPage = () => {
             <Card
               showImage
               showStruc
-              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] hover:shadow-lg hover:shadow-[#815AE2] transition ease-in-out duration-500 rounded-md flex flex-col"
+              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] hover:shadow-lg hover:shadow-[#E8E3FE] transition ease-in-out duration-500 rounded-md flex flex-col"
               key={card.id}
               imageUrl={card.image}
               classImage="rounded-t-lg w-full h-full"
@@ -171,10 +171,7 @@ const BlogsPage = () => {
               cardBody="w-80 mx-6 order-last"
               role={handleLead(card.title)}
               classRole="text-right h-20 font-bold text-xl text-gray-900"
-              onClick={() => {
-                navigate(`${card.id}`);
-                console.log(card.id);
-              }}
+              onClick={() => navigate(`${card.id}`)}
             >
               <div className="mx-6 my-5">
                 <div className="flex justify-between">
