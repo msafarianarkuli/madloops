@@ -14,7 +14,7 @@ const SignUpFourthPage = () => {
             showP
             title="ثبت نام انجام شد"
             field="موفق باشید"
-            classH2Field="text-[#00C9A3] sm:text-6xl text-4xl"
+            classH2Field="text-[#00C9A3] sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"
           />
         </div>

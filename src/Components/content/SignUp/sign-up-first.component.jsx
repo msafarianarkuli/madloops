@@ -27,7 +27,7 @@ const SignUpFirstPage = (props) => {
           showP
           title="ثبت اطلاعات عمومی"
           field="اطلاعات عمومی خود را ثبت کنید !"
-          classH2Field="text-black text-6xl"
+          classH2Field="text-black sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>

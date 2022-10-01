@@ -13,7 +13,7 @@ const ForgetPassFourthPage = () => {
             showP
             title="رمز عبور تغییر کرد"
             field="رمز عبور شما با موفقیت تغییر کرد"
-            classH2Field="text-[#00C9A3] sm:text-6xl text-4xl"
+            classH2Field="text-[#00C9A3] sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"
           />
         </div>
