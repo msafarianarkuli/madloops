@@ -7,7 +7,7 @@ const ForgetPassFourthPage = () => {
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-1 h-screen relative">
-        <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_2s_ease-in-out]">
+        <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_1.5s_ease-in-out]">
           <FieldName
             showH2
             showP

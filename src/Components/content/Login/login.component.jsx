@@ -42,7 +42,7 @@ const Login = () => {
             </Link>
           </div>
         </div>
-        <div className="h-10 w-10 block lg:hidden absolute top-0 right-5 animate-[onLoadHomeRes_1.5s_ease-in-out]">
+        <div className="h-10 w-10 block lg:hidden absolute top-0 right-5 animate-[onLoadHomeRes_1s_ease-in-out]">
           <Link to="/">
             <img
               className="w-12 m-auto mt-4 hover:scale-110 duration-100 cursor-pointer"
@@ -51,7 +51,7 @@ const Login = () => {
             />
           </Link>
         </div>
-        <div className="lg:col-span-1 col-span-2 bg-white animate-[onLoadAnim_2s_ease-in-out]">
+        <div className="lg:col-span-1 col-span-2 bg-white animate-[onLoadAnim_1.5s_ease-in-out]">
           <div className="sm:h-44 lg:h-48 h-40">
             <FieldName
               showH2

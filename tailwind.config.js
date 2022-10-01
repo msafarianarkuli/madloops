@@ -78,9 +78,9 @@ module.exports = {
         },
       },
       animation: {
-        onLoadAnim: "onLoadAnim 2s ease-in-out",
+        onLoadAnim: "onLoadAnim 1.5s ease-in-out",
         onLoadHome: "onLoadHome 2s ease-in-out",
-        onLoadHomeRes: "onLoadHome 1.5s ease-in-out",
+        onLoadHomeRes: "onLoadHome 1s ease-in-out",
         onHoverGoogle: "onHoverGoogle 1s ease-in-out infinite",
       },
       borderRadius: {

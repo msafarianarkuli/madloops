@@ -12,7 +12,7 @@ const SignUpFirstPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_1.5s_ease-in-out]">
       <div className="flex justify-start">
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">

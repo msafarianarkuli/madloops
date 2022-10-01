@@ -13,7 +13,7 @@ const ForgetPassThirdPage = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_1.5s_ease-in-out]">
       <div className="sm:flex sm:justify-start flex justify-center">
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">
