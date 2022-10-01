@@ -67,6 +67,10 @@ module.exports = {
           "0%": { transform: "translateX(-300px)" },
           "100%": { transform: "translateX(0)" },
         },
+        onLoadHomeRes: {
+          "0%": { transform: "translateX(300px)" },
+          "100%": { transform: "translateX(0)" },
+        },
         onHoverGoogle: {
           "0%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-2px)" },
@@ -74,8 +78,9 @@ module.exports = {
         },
       },
       animation: {
-        onLoadAnim: "onLoadAnim 2s ease-in-out",
+        onLoadAnim: "onLoadAnim 1.5s ease-in-out",
         onLoadHome: "onLoadHome 2s ease-in-out",
+        onLoadHomeRes: "onLoadHome 1s ease-in-out",
         onHoverGoogle: "onHoverGoogle 1s ease-in-out infinite",
       },
       borderRadius: {

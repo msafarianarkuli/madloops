@@ -13,7 +13,7 @@ const ForgetPassThirdPage = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_1.5s_ease-in-out]">
       <div className="sm:flex sm:justify-start flex justify-center">
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">
@@ -28,7 +28,7 @@ const ForgetPassThirdPage = (props) => {
           showP
           title="رمز عبور جدیدتو وارد کن :)"
           field="توجه ! رمز عبور جدید نباید با رمز عبور پیشین یکسان باشد"
-          classH2Field="text-black text-6xl"
+          classH2Field="text-black sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>
@@ -92,14 +92,14 @@ const ForgetPassThirdPage = (props) => {
                 بازنشانی رمز عبور
               </Button>
             </div>
-            <div className="mt-4 m-auto w-[32rem]">
+            <div className="mt-4 m-auto sm:pl-80 pl-64 w-fit">
               <Button
                 className="flex items-center mr-14"
                 onClick={() => props.prev(values)}
               >
                 <FaChevronCircleRight
                   className="w-8 text-[#555555]
-             rounded-full text-base"
+                  rounded-full text-base"
                 />
                 برگشت به مرحله قبل
               </Button>

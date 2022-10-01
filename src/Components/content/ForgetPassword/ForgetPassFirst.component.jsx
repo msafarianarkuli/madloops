@@ -12,7 +12,7 @@ const ForgetPassFirstPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-[100%] mt-6 mr-4 animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 animate-[onLoadAnim_1.5s_ease-in-out]">
       <div>
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">
@@ -27,7 +27,7 @@ const ForgetPassFirstPage = (props) => {
           showP
           title="رمز عبورتو فراموش کردی؟"
           field="نگران نباش :) ما دستورالعمل های بازنشانی را برای شما ارسال میکنیم"
-          classH2Field="text-black text-6xl"
+          classH2Field="text-black sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>

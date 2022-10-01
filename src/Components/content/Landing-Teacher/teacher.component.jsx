@@ -19,7 +19,7 @@ const LandingTeacher = () => {
   return (
     <section>
       <div className="container m-auto">
-        <div className="text-center mt-5">
+        <div className="text-center mt-16">
           <FieldName
             showH2
             showP
@@ -30,7 +30,7 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
-          className="swiper-v mt-20 w-7/12"
+          className="swiper-v mt-10 w-7/12"
           autoplay={{
             delay: 3000,
           }}

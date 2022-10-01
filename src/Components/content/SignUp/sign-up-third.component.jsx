@@ -13,7 +13,7 @@ const SignUpThirdPage = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_2s_ease-in-out]">
+    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_1.5s_ease-in-out]">
       <div className="flex justify-start">
         <Link to="/login">
           <Button classButton="flex items-center text-[#555555]">
@@ -28,7 +28,7 @@ const SignUpThirdPage = (props) => {
           showP
           title="انتخاب رمز عبور"
           field="حداقل باید دارای 8 نویسه باشد !"
-          classH2Field="text-black text-6xl"
+          classH2Field="text-black sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>
@@ -85,14 +85,14 @@ const SignUpThirdPage = (props) => {
                 تکمیل ثبت نام
               </Button>
             </div>
-            <div className="mt-3 m-auto w-[32rem]">
+            <div className="mt-3 m-auto sm:pl-80 pl-64 w-fit">
               <Button
                 className="flex items-center mr-14"
                 onClick={() => props.prev(values)}
               >
                 <FaChevronCircleRight
                   className="w-8 text-[#555555]
-         rounded-full text-base"
+                  rounded-full text-base"
                 />
                 برگشت به مرحله قبل
               </Button>

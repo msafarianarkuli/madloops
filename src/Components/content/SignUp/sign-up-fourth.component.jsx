@@ -8,13 +8,13 @@ const SignUpFourthPage = () => {
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-1 h-screen relative">
-        <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_2s_ease-in-out]">
+        <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_1.5s_ease-in-out]">
           <FieldName
             showH2
             showP
             title="ثبت نام انجام شد"
             field="موفق باشید"
-            classH2Field="text-[#00C9A3] sm:text-6xl text-4xl"
+            classH2Field="text-[#00C9A3] sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"
           />
         </div>
