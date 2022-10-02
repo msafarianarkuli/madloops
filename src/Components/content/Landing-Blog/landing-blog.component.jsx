@@ -74,7 +74,7 @@ const LandingBlog = () => {
                       برترین مقاله
                     </h5>
                     <span className="mb-1 lg:block hidden">|</span>
-                    <BsFillCircleFill className="lg:hidden md:w-2 md:mt-[1px] w-[3px]" />
+                    <BsFillCircleFill className="lg:hidden md:w-2 md:mt-[1px] w-[3px] pb-1" />
                     <div className="lg:mr-5 md:mr-2 mr-1 flex">
                       <p className="text-[8px] sm:text-xs pl-1 md:pl-2 lg:text-base ">
                         {item.readTime}
@@ -107,7 +107,7 @@ const LandingBlog = () => {
                     classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2 hover:scale-110 duration-100"
                     onClick={() => navigate(`blogs/${item.id}`)}
                   >
-                   بیشتر بخوانید ...
+                    بیشتر بخوانید ...
                   </Button>
                 </div>
               </div>
