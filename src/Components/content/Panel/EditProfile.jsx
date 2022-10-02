@@ -115,9 +115,9 @@ const EditProfile = () => {
               <div>
                 <CustomDatePicker
                   name="birthDate"
-                  label="تاریخ تولد"
+                  label="تاریخ تولد:"
                   placeholder="1401/06/12"
-                  classLabel="text-gray-600 block mb-2 text-lg"
+                  classLabel="text-gray-600 block text-lg"
                   className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
                 />
               </div>
