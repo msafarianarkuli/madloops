@@ -7,7 +7,7 @@ const CartHover = () => {
 
   return (
     <>
-      <div className="md:grid hidden w-96 h-fit border-[1px] fixed top-16 left-36 z-40 overflow-y-scroll faq-container rounded-b-md">
+      <div className="md:grid hidden w-96 h-300 border-[1px] fixed top-16 left-36 z-40 overflow-y-scroll faq-container rounded-md">
         {cartItems.map((item) => {
           return (
             <div
@@ -27,9 +27,10 @@ const CartHover = () => {
         })}
 
         {cartItems.length === 0 ? (
-          <h2 className="w-full h-full text-center text-4xl font-bold bg-white flex justify-center items-center ">
-            سبد خرید شما خالی است
-          </h2>
+          <div className="w-full h-full text-center font-bold bg-white relative">
+            <img className="" src={require('../../../Assets/img/cart-emptybg.JPG')} alt="" />
+            <h2 className="absolute text-deep-purple bottom-12 right-16 text-3xl">سبد خرید شما خالی است</h2>
+          </div>
         ) : (
           <Link
             className="text-center w-full h-fit text-2xl p-3 text-white cursor-pointer rounded-b-md bg-[#00bfd6]"

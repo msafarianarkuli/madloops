@@ -10,7 +10,7 @@ const TableBody = ({ course }) => {
   return (
     <tr className="border-b text-lite-purple group hover:bg-zinc-50 hover:shadow-sm hover:-translate-y-1 transition ease-in-out duration-200">
       <td className="px-xl py-4 font-medium text-center hidden lg:table-cell">
-        <img src={image} className="w-12 mx-auto" />
+        <img src={image} className="w-12 mx-auto h-10" />
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center">
         {title}
