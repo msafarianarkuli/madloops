@@ -72,9 +72,9 @@ module.exports = {
           "100%": { transform: "translateX(0)" },
         },
         onHoverGoogle: {
-          "0%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-2px)" },
-          "100%": { transform: "translateY(0)" },
+          "0%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-5px)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
       animation: {

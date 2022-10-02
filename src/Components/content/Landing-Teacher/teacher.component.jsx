@@ -12,6 +12,14 @@ import { useNavigate } from "react-router-dom";
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingTeacher = () => {
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 100)
+        .substring(0, value.substring(0, 100).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   const { teachers } = Data;
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
@@ -88,7 +96,7 @@ const LandingTeacher = () => {
                         {item.title}
                       </h4>
                       <p className="sm:text-sm text-xs mt-2 text-[#4A4453]">
-                        {item.description}
+                        {handleLead(item.description)}
                       </p>
                       <Button
                         onClick={() => navigate(`teacher/${item.id}`)}

@@ -3,7 +3,8 @@ import { Button } from "../../Components/common/button-component/button.componen
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort } from "react-icons/bs";
-import { RiShoppingCartFill } from "react-icons/ri";
+import { RiShoppingCartFill, RiLoginCircleFill } from "react-icons/ri";
+import { SiCpanel } from "react-icons/si";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
 import { CartContext } from "../../Core/context/cart.context";
@@ -71,6 +72,11 @@ const Navigation = () => {
                 />
                 <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
                   {cartCount}
+                </div>
+                <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
+                  <Link to="/user-panel">
+                    <SiCpanel className="text-5xl text-deep-purple animate-[onHoverGoogle_1s_ease-in-out_infinite]" />
+                  </Link>
                 </div>
               </div>
               <div className="flex justify-center items-center col-span-1">
