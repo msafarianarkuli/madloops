@@ -22,7 +22,7 @@ const Navigation = () => {
 
   return (
     <Fragment>
-      <div className="container m-auto relative">
+      <div className="container m-auto z-40 bg-white sticky top-0">
         <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
           <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
