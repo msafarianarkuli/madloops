@@ -163,7 +163,7 @@ const BlogsPage = () => {
             <Card
               showImage
               showStruc
-              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] hover:shadow-lg hover:shadow-[#E8E3FE] transition ease-in-out duration-500 rounded-md flex flex-col"
+              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE]"
               key={card.id}
               imageUrl={card.image}
               classImage="rounded-t-lg w-full h-full"
