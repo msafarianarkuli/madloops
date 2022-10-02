@@ -7,7 +7,7 @@ const CartHover = () => {
 
   return (
     <>
-      <div className="md:grid hidden w-96 h-fit border-[1px] absolute top-16 left-36 z-40 overflow-y-scroll faq-container rounded-b-md">
+      <div className="md:grid hidden w-96 h-fit border-[1px] fixed top-16 left-36 z-40 overflow-y-scroll faq-container rounded-b-md">
         {cartItems.map((item) => {
           return (
             <div

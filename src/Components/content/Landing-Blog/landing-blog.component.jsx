@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import useSwiperRef from "./swiper-wrapper-button";
 import Data from "../../../Core/services/Fake Service/Blogs";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -37,10 +37,11 @@ const LandingBlog = () => {
           field="با خبر های ما بروز باشید"
         />
       </div>
-      <Button classButton="hidden 2xl:absolute 2xl:top-56 2xl:left-1 xl:absolute xl:top-56 xl:left-0 lg:absolute lg:top-60 lg:left-0 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
-        همه مطالب
-      </Button>
-
+      <Link to="blogs">
+        <Button classButton="hidden 2xl:absolute 2xl:top-56 2xl:left-1 xl:absolute xl:top-56 xl:left-0 lg:absolute lg:top-60 lg:left-0 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
+          مطالب بیشتر
+        </Button>
+      </Link>
       <Swiper
         className="external-slider sm:mt-6 rounded z-0 relative"
         navigation={{
@@ -127,10 +128,11 @@ const LandingBlog = () => {
           <BsArrowRight className="w-full h-full text-[#929292]" />
         </div>
       </Swiper>
-
-      <Button classButton="text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
-        همه مطالب
-      </Button>
+      <Link to="blogs">
+        <Button classButton="text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
+          مطالب بیشتر
+        </Button>
+      </Link>
     </div>
   );
 };
