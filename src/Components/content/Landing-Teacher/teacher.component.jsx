@@ -12,6 +12,14 @@ import { useNavigate } from "react-router-dom";
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingTeacher = () => {
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 100)
+        .substring(0, value.substring(0, 100).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   const { teachers } = Data;
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
@@ -88,7 +96,7 @@ const LandingTeacher = () => {
                         {item.title}
                       </h4>
                       <p className="sm:text-sm text-xs mt-2 text-[#4A4453]">
-                        {item.description}
+                        {handleLead(item.description)}
                       </p>
                       <Button
                         onClick={() => navigate(`teacher/${item.id}`)}
@@ -100,7 +108,7 @@ const LandingTeacher = () => {
 
                     <div className="relative lg:block sm:hidden lg:mb-7 z-0">
                       <img
-                        src={require("../../../Assets/mohsen.jpg")}
+                        src={item.img}
                         className="rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
                       />
                       <div className="lg:block hidden">

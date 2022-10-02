@@ -13,6 +13,13 @@ import {
 } from "react-icons/bs";
 
 const CardGridListView = ({ item, view }) => {
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 120)
+        .substring(0, value.substring(0, 120).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
   const navigate = useNavigate();
 
   return (
@@ -44,7 +51,7 @@ const CardGridListView = ({ item, view }) => {
       {...(!view
         ? {}
         : {
-            description: [item.description],
+            description: handleLead(item.description),
             classDescription:
               "sm:block hidden mt-2 text-[#6C757D] text-base sm:text-sm",
           })}

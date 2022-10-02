@@ -6,7 +6,7 @@ import Input from '../Inputs/TextInputs/Input';
 import Textarea from '../Inputs/TextareaInputs/Textarea';
 const OffersForm = () => {
   return (
-    <div className="form">
+    <div className="form py-2">
       <label htmlFor="email">ایمیل:</label>
       <Formik
         initialValues={{ email: '', message: '' }}
@@ -30,9 +30,9 @@ const OffersForm = () => {
           <Textarea
             name="message"
             placeholder="متن خود را وارد کنید..."
-            className="rounded-lg py-2 px-2 mt-2 max-h-64 border border-gray-400 hover:border-lite-purple bg-transparent input"
+            className="rounded-lg py-2 px-2 mt-2 min-h-full max-h-56 border border-gray-400 hover:border-lite-purple bg-transparent input"
           />
-          <Button type="submit" classButton="btn btn-primary w-full">
+          <Button type="submit" classButton="btn btn-primary w-full text-lg pb-1">
             ارسال
           </Button>
         </Form>

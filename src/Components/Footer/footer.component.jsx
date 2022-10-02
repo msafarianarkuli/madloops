@@ -12,7 +12,7 @@ import logo from "../../Assets/img/site-logo.png";
 const Footer = () => {
   return (
     <footer>
-      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-lite-gray container mx-auto">
+      <div className="pt-8 px-4 lg:px-28 divide-y divide-gray-500 bg-lite-gray container mx-auto mt-12">
         <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-500 md:divide-y-0 ">
           <div className="flex flex-col pb-5">
             <div className="flex items-center">
@@ -34,12 +34,12 @@ const Footer = () => {
                       name="newsletter"
                       type="text"
                       placeholder="ایمیل خود را وارد نمایید"
-                      className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-400 focus:outline-gray-500"
+                      className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-400 focus:outline-gray-500 focus:input-shadow outline-0 duration-200"
                     />
                     <Button
                       ButtonType="submit"
                       disabled={!values.newsletter}
-                      classButton="btn btn-primary py-2 px-5 md:px-2 md:py-2 lg:py-2 lg:px-5 text-lg md:text-base lg:text-lg"
+                      classButton="btn btn-primary py-2 px-5 md:px-2 md:py-2 lg:py-2 lg:px-5 text-lg md:text-base lg:text-lg cursor-pointer"
                     >
                       اشتراک
                     </Button>
@@ -93,25 +93,25 @@ const Footer = () => {
           <div className="flex justify-center md:justify-start gap-8 text-3xl mb-4 md:mb-0">
             <a
               href="https://www.instagram.com/mary_sfry/"
-              className="footer-socialMedia"
+              className="footer-socialMedia group"
             >
-              <FaInstagram />
+              <FaInstagram className="group-hover:text-lite-purple" />
             </a>
             <a
               href="https://web.whatsapp.com/send?phone=+989116935706&text=سلام من از طریق سایت مد لوپس پیام میفرستم و سوالی دارم."
-              className="footer-socialMedia"
+              className="footer-socialMedia group"
             >
-              <FaWhatsapp />
+              <FaWhatsapp className="group-hover:text-green-600" />
             </a>
-            <a href="https://t.me/+989116935706" className="footer-socialMedia">
-              <FaTelegramPlane />
+            <a href="https://t.me/+989116935706" className="footer-socialMedia group">
+              <FaTelegramPlane className="group-hover:text-blue-600" />
             </a>
 
             <a
               href="https://www.facebook.com/digivillacom"
-              className="footer-socialMedia"
+              className="footer-socialMedia group"
             >
-              <FaFacebookF />
+              <FaFacebookF className="group-hover:text-blue-800" />
             </a>
           </div>
           <div className="text-lg text-center md:text-left">

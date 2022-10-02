@@ -171,12 +171,12 @@ const CoursesPage = () => {
         <div
           ref={SideRightRef}
           onClick={closeSideRight}
-          className="fixed top-0 right-0 w-full bg-gray-600 bg-opacity-80"
+          className="fixed top-0 right-0 w-full z-50 bg-gray-600 bg-opacity-80"
         >
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple h-screen pt-8 w-80 z-30 relative"
+                ? "bg-deep-purple h-screen pt-8 w-80 z-50 relative"
                 : "w-0 z-0"
             } duration-300 ease-in-out relative top-0 right-0`}
           >
