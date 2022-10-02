@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Accordion = ({
   item,
@@ -38,10 +38,6 @@ const Accordion = ({
         </div>
         <span>{active ? activeIcon : inactiveIcon}</span>
       </div>
-      {/* <div className={`${active ? "block" : "hidden"} ${bodyMainStyle}`}>
-        <p className="text-xl text-gray-400">{description}</p>
-        {children}
-      </div> */}
       <div
         className={`${
           active ? bodyActiveStyle : bodyInactiveStyle
