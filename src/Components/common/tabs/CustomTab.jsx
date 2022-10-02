@@ -150,7 +150,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                     rounded-tl-xl rounded-tr-xl"
                     bodyMainStyle="w-full px-4 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
                     bodyActiveStyle="max-h-[100rem] overflow-hidden border-b-2 transition-[max-height] ease-in-out duration-300"
-                    bodyInactiveStyle="max-h-[0rem] overflow-hidden border-b-0 transition-[max-height] ease-in-out duration-300"
+                    bodyInactiveStyle="max-h-[0rem] overflow-hidden border-b-0 transition-[max-height,border] ease-in-out duration-[300ms,350ms]"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   />

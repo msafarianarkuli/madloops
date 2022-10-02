@@ -43,7 +43,7 @@ const Accordion = ({
           active ? bodyActiveStyle : bodyInactiveStyle
         } ${bodyMainStyle}`}
       >
-        <p className="text-xl text-gray-400 pb-2">{description}</p>
+        <p className="text-xl text-gray-400 mb-1">{description}</p>
         {children}
       </div>
     </div>
