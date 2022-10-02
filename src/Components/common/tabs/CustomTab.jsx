@@ -145,12 +145,12 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                     setItems={setFaqList}
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
-                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl "
+                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
                     headerMainStyle="p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-full
-                    rounded-tl-xl rounded-tr-xl transition ease-in-out duration-1000"
+                    rounded-tl-xl rounded-tr-xl"
                     bodyMainStyle="w-full px-4 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
-                    bodyActiveStyle="h-[200px] overflow-hidden border-b-2 pb-5 transition-[height] ease-in-out duration-1000"
-                    bodyInactiveStyle="h-0 min-h-[0px] overflow-hidden border-b-0 transition-[height] ease-in-out duration-1000"
+                    bodyActiveStyle="max-h-[100rem] overflow-hidden border-b-2 transition-[max-height] ease-in-out duration-300"
+                    bodyInactiveStyle="max-h-[0rem] overflow-hidden border-b-0 transition-[max-height] ease-in-out duration-300"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   />

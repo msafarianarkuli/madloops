@@ -1,22 +1,22 @@
-import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef, useContext } from "react";
-import { Typewriter } from "react-simple-typewriter";
-import GroupButton from "./../../Components/common/GroupButton/GroupButton";
-import { Button } from "./../../Components/common/button-component/button.component";
-import Data from "../../Core/services/Fake Service/CoursesPage";
-import CardGridListView from "../../Components/common/CardGridAndList-view.component";
-import GridAndList from "./../../Components/common/gridAndList-item.component";
-import Accordion from "./../../Components/common/Accordion/Accordion";
-import { Formik, Form } from "formik";
-import InputGroups from "./../../Components/common/Inputs/TextInputs/Input";
+import { BsDashLg, BsFilter, BsArrowLeftShort } from 'react-icons/bs';
+import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FieldName } from './../../Components/common/field-name-component/field-name.component';
+import { useState, useRef, useContext } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
+import GroupButton from './../../Components/common/GroupButton/GroupButton';
+import { Button } from './../../Components/common/button-component/button.component';
+import Data from '../../Core/services/Fake Service/CoursesPage';
+import CardGridListView from '../../Components/common/CardGridAndList-view.component';
+import GridAndList from './../../Components/common/gridAndList-item.component';
+import Accordion from './../../Components/common/Accordion/Accordion';
+import { Formik, Form } from 'formik';
+import InputGroups from './../../Components/common/Inputs/TextInputs/Input';
 import {
   handleDateSortingDes,
   handleLikeSorting,
   handleViewSorting,
-} from "./../../Core/utils/sorting";
-import { ProductsContext } from "../../Core/context/products.context";
+} from './../../Core/utils/sorting';
+import { ProductsContext } from '../../Core/context/products.context';
 
 const cardPerRow = 3;
 
@@ -27,26 +27,26 @@ const CoursesPage = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
-    { id: 1, title: "همه", type: "all" },
-    { id: 2, title: "جدیدترین ها", type: "new" },
-    { id: 3, title: "محبوب ترین ها", type: "like" },
-    { id: 4, title: "پربازدید ترین ها", type: "view" },
+    { id: 1, title: 'همه', type: 'all' },
+    { id: 2, title: 'جدیدترین ها', type: 'new' },
+    { id: 3, title: 'محبوب ترین ها', type: 'like' },
+    { id: 4, title: 'پربازدید ترین ها', type: 'view' },
   ]);
 
   const [filterCourses, setFilterCourses] = useState(products);
 
   const handleSorting = (type) => {
     switch (type) {
-      case "all":
+      case 'all':
         setFilterCourses(products);
         break;
-      case "view":
+      case 'view':
         setFilterCourses(handleViewSorting(products));
         break;
-      case "new":
+      case 'new':
         setFilterCourses(handleDateSortingDes(products));
         break;
-      case "like":
+      case 'like':
         setFilterCourses(handleLikeSorting(products));
         break;
     }
@@ -81,7 +81,7 @@ const CoursesPage = () => {
             <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
               <Typewriter
                 words={[
-                  "یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند",
+                  'یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند',
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -93,7 +93,10 @@ const CoursesPage = () => {
           <div className="sm:block hidden">
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-40 drop-shadow-xl shadow-black">
               <img
-                src={require("../../Assets/Online learning-amico.svg").default}
+                src={
+                  require('../../Assets/Online learning-amico.svg')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -144,18 +147,25 @@ const CoursesPage = () => {
               />
             </div>
 
-            <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
+            <GridAndList
+              showGrid={showGrid}
+              setShowGrid={setShowGrid}
+            />
           </div>
         </div>
         <div
           className={
             !showGrid
-              ? "grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]"
-              : "sm:my-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]"
+              ? 'grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]'
+              : 'sm:my-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]'
           }
         >
           {filterCourses.slice(0, nextCard).map((item) => (
-            <CardGridListView item={item} key={item.id} view={showGrid} />
+            <CardGridListView
+              item={item}
+              key={item.id}
+              view={showGrid}
+            />
           ))}
         </div>
         {nextCard < filterCourses.length && (
@@ -176,8 +186,8 @@ const CoursesPage = () => {
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple h-screen pt-8 w-80 z-50 relative"
-                : "w-0 z-0"
+                ? 'bg-deep-purple h-screen pt-8 w-80 z-50 relative'
+                : 'w-0 z-0'
             } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
@@ -190,18 +200,20 @@ const CoursesPage = () => {
                     setItems={setFilteredItem}
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
-                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl"
+                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
                     headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
                     rounded-tl-xl rounded-tr-xl"
-                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2 transition-[height] ease-in-out duration-500"
-                    bodyActiveStyle="h-fit max-h-content border-b-2"
-                    bodyInactiveStyle="h-0 overflow-hidden border-b-0"
+                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
+                    // bodyActiveStyle="h-fit max-h-content border-b-2"
+                    // bodyInactiveStyle="h-0 overflow-hidden border-b-0"
+                    bodyActiveStyle="max-h-[100rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
+                    bodyInactiveStyle="max-h-[0rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
                     <Formik
                       initialValues={{
-                        checkbox: "",
+                        checkbox: '',
                       }}
                     >
                       <Form>
