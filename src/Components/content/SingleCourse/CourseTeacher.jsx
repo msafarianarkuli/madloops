@@ -1,7 +1,10 @@
 import React from 'react';
-import { FaInstagram, FaWhatsapp, FaLinkedin } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaWhatsapp,
+  FaLinkedinIn,
+} from 'react-icons/fa';
 import bahr from '../../../Assets/bahr.jpg';
-import salar from '../../../Assets/aghil.jpg';
 const CourseTeacher = () => {
   return (
     <div className="course-Detail-container">
@@ -18,7 +21,7 @@ const CourseTeacher = () => {
           </p>
           <div className="flex justify-end">
             <FaWhatsapp className="mr-2 hover:text-green-500 cursor-pointer hover:scale-125 duration-200" />
-            <FaLinkedin className="mr-2 hover:text-blue-800 cursor-pointer hover:scale-125 duration-200" />
+            <FaLinkedinIn className="mr-2 hover:text-blue-800 cursor-pointer hover:scale-125 duration-200" />
             <FaInstagram className="mr-2 hover:text-purple-900 cursor-pointer hover:scale-125 duration-200" />
           </div>
         </div>

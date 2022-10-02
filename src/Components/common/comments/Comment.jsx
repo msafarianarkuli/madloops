@@ -87,40 +87,38 @@ const Comment = ({
             initialValues={{
               reply: '',
             }}
-            validationSchema={Yup.object({
-              reply: Yup.string().required(),
-            })}
             onSubmit={(values) => {
               onSend(id, values.reply);
-              console.log(values.reply);
             }}
           >
-            <Form>
-              <div className="md:flex">
-                <Input
-                  type="text"
-                  name="reply"
-                  className="border border-gray-400 rounded-lg px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-none focus:shadow-md focus:shadow-purple-300"
-                />
-                <div className="text-left md:flex-none">
-                  <Button
-                    type="submit"
-                    disabled={false}
-                    classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
+            {({ values }) => (
+              <Form>
+                <div className="md:flex">
+                  <Input
+                    type="text"
+                    name="reply"
+                    className="border border-gray-400 rounded-lg px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-none focus:shadow-md focus:shadow-purple-300"
+                  />
+                  <div className="text-left md:flex-none">
+                    <Button
+                      type="submit"
+                      disabled={!values.reply}
+                      classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
                 hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
-                  >
-                    ارسال
-                  </Button>
-                  <Button
-                    classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
+                    >
+                      ارسال
+                    </Button>
+                    <Button
+                      classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
                 hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
-                    onClick={() => setAnswerActive(false)}
-                  >
-                    انصراف
-                  </Button>
+                      onClick={() => setAnswerActive(false)}
+                    >
+                      انصراف
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Form>
+              </Form>
+            )}
           </Formik>
         ) : (
           <div className="text-left">
