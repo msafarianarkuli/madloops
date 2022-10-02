@@ -5,6 +5,14 @@ import { HiOutlineUser, HiOutlineUsers } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
 
 const CardAI = ({ item }) => {
+  const handleLead = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 120)
+        .substring(0, value.substring(0, 120).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   const navigate = useNavigate();
 
   return (
@@ -18,7 +26,7 @@ const CardAI = ({ item }) => {
       <div>
         <p className="text-right text-xl mb-3 text-gray-900">{item.title}</p>
         <p className="text-gray-500 text-sm mb-3 text-right">
-          {item.description}
+          {handleLead(item.description)}
         </p>
         <div className="flex justify-between mb-3">
           <div className="flex items-center">
