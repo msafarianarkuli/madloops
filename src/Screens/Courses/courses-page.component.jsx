@@ -191,7 +191,7 @@ const CoursesPage = () => {
             } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
-              <div className="h-full overflow-y-scroll fixed-container ml-2">
+              <div className="h-5/6 overflow-y-scroll fixed-container ml-2">
                 {filteredItem.map((filter) => (
                   <Accordion
                     key={filter.id}
