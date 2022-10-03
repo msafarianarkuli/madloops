@@ -33,8 +33,8 @@ const DashMenuItemSm = ({ items }) => {
       to={path}
       className={
         pathname.slice(12) === path || pathname.slice(12) === null
-          ? 'bg-white rounded-md lg:rounded-2xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 shadow-purple text-lite-purple transition ease-in duration-300'
-          : 'bg-white rounded-md lg:rounded-2xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 hover:shadow-purple text-gray-500 transition ease-in duration-300'
+          ? 'bg-white rounded-md lg:rounded-xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 shadow-purple text-lite-purple transition ease-in duration-300'
+          : 'bg-white rounded-md lg:rounded-xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 hover:shadow-purple text-gray-500 transition ease-in duration-300'
       }
     >
       {icon}

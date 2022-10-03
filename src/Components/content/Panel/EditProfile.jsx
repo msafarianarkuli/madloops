@@ -15,7 +15,7 @@ const EditProfile = () => {
         <div className="relative">
           <img
             src={editImg}
-            className="rounded-t-2xl w-full h-80 object-cover"
+            className="rounded-t-xl w-full h-80 object-cover"
           />
           <div
             className="absolute right-0 left-0 mx-auto w-[60px] h-[60px] sm:w-[120px] sm:h-[100px] top-0 bottom-0 my-auto
@@ -24,7 +24,7 @@ const EditProfile = () => {
           >
             <button
               className="bg-white text-transparent backdrop-opacity-20 backdrop-blur-[4px] backdrop-brightness-25 opacity-20
-          rounded-tl-2xl rounded-tr-lg rounded-bl-lg rounded-br-2xl w-full h-full
+          rounded-tl-xl rounded-tr-lg rounded-bl-lg rounded-br-xl w-full h-full
           transition ease-in-out duration-300 group-hover:-translate-y-1
        "
             />
@@ -78,7 +78,7 @@ const EditProfile = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6 p-6">
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400"
                   name="name"
                   type="text"
                   label="نام و نام خانوادگی:"
@@ -87,7 +87,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400"
                   name="userName"
                   type="text"
                   label="نام کاربری:"
@@ -96,7 +96,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400"
                   name="nationalNumber"
                   type="text"
                   label="کد ملی:"
@@ -105,7 +105,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400"
                   name="email"
                   type="text"
                   label="ایمیل:"
@@ -118,12 +118,12 @@ const EditProfile = () => {
                   label="تاریخ تولد:"
                   placeholder="1401/06/12"
                   classLabel="text-gray-600 block text-lg"
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400"
                 />
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-tl-2xl rounded-md bg-lite-gray focus:outline-gray-400"
+                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400"
                   name="phone"
                   type="text"
                   label="شماره موبایل:"
@@ -133,14 +133,14 @@ const EditProfile = () => {
             </div>
             <div className="text-center text-base sm:text-xl">
               <button
-                className="border-2 border-lite-purple px-6 py-2 rounded-full text-lite-purple mx-2
+                className="border-2 border-lite-purple px-6 py-2 rounded-lg text-lite-purple mx-2
               hover:border-red-600 hover:text-red-600 transition ease-in-out duration-300"
               >
                 لغو تغییرات
               </button>
               <button
                 type="submit"
-                className="border-2 border-lite-purple bg-lite-purple px-6 py-2 rounded-full text-white mx-2
+                className="border-2 border-lite-purple bg-lite-purple px-6 py-2 rounded-lg text-white mx-2
                 hover:bg-green-600 hover:border-green-600 hover:text-white transition ease-in-out duration-300"
               >
                 ثبت تغییرات

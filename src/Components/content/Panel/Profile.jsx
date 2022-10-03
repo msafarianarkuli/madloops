@@ -3,7 +3,7 @@ import userImg from '../../../Assets/img/mic.jpg';
 const Profile = () => {
   return (
     <>
-      <div className="rounded-2xl bg-white overflow-hidden hidden xl:block">
+      <div className="rounded-xl bg-white overflow-hidden hidden xl:block">
         <img
           src={userImg}
           className="w-full h-36 object-cover object-top"
