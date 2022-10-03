@@ -16,7 +16,7 @@ const CardAI = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white text-gray-500 hover:-translate-y-2 hover:z-50 duration-150 custom-shadow rounded-lg p-3 my-5 flex flex-col group">
+    <div className="bg-white text-gray-500 hover:-translate-y-2 hover:z-50 duration-150 custom-shadow rounded-lg p-3 my-4 flex flex-col group">
       <div className="w-full h-56">
         <img src={item.image} className="rounded-md w-full h-full" alt="" />
       </div>

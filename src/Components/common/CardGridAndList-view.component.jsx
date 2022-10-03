@@ -59,8 +59,8 @@ const CardGridListView = ({ item, view }) => {
       <div
         className={
           view
-            ? "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-end absolute top-2 right-2"
-            : "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-end absolute top-2 left-2"
+            ? "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 right-2"
+            : "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 left-2"
         }
       >
         {item.archive}

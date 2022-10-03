@@ -19,7 +19,7 @@
     hover:bg-[#ad1a13] hover:border-[#ad1a13] hover:shadow-md;
   }
   .form {
-    @apply border rounded-xl p-3 flex flex-col border-gray-400;
+    @apply border rounded-lg p-3 flex flex-col border-gray-400;
   }
   .groupBtn {
     @apply py-2 px-5 text-gray-400 bg-white border-t-2 border-b-2 border-[#5DC8B0] 
