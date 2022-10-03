@@ -10,7 +10,7 @@ const SearchBar = ({ value, onChange }) => {
         <input
           type="text"
           placeholder="جستجو از بین هزاران مقاله"
-          className="w-full py-4 pl-12 pr-4 text-gray-500 border rounded-full outline-none bg-gray-50 transition ease-in-out delay-150 focus:bg-white focus:border-indigo-600"
+          className="w-full py-4 pl-12 pr-4 text-gray-500 border rounded-lg outline-none bg-gray-50 transition ease-in-out delay-150 focus:bg-white focus:border-indigo-600"
           onChange={onChange}
           value={value}
         />
