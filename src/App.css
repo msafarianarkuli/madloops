@@ -4,10 +4,10 @@
 
 @layer components {
   .btn {
-    @apply border-2 rounded-xl text-base pt-2 pb-3 px-10 transition ease-out duration-300;
+    @apply border-2 rounded-lg text-base pt-2 pb-3 px-10 transition ease-out duration-300;
   }
   .btn-base {
-    @apply border-gray-500 text-gray-600 
+    @apply border-gray-400 text-gray-600 
     hover:bg-[#8055D9] hover:text-white hover:border-[#8055D9] hover:shadow-md;
   }
   .btn-primary {

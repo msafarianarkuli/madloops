@@ -1,7 +1,7 @@
 import React from 'react';
 import LandingTitle from '../../common/LandingTitle/LandingTitle';
 import OffersForm from '../../common/OffersForm/OffersForm';
-import offers from '../../../Assets/friendly.png';
+import offers from '../../../Assets/img/offerss.svg';
 
 const LandingOffers = () => {
   return (
@@ -19,7 +19,7 @@ const LandingOffers = () => {
               <OffersForm />
             </div>
             <div className="hidden md:block">
-              <img className="w-96 pt-11" src={offers} />
+              <img className="w-96 py-14" src={offers} />
             </div>
           </div>
         </div>
