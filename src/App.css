@@ -26,10 +26,10 @@
     hover:bg-[#5DC8B0] hover:text-white transition ease-in-out duration-300;
   }
   .groupBtn-left {
-    @apply rounded-l-xl border-l-2;
+    @apply rounded-l-lg border-l-2;
   }
   .groupBtn-right {
-    @apply rounded-r-xl border-r-2;
+    @apply rounded-r-lg border-r-2;
   }
   .groupBtn-active {
     @apply bg-[#55C8B0] text-white;
