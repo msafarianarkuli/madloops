@@ -38,12 +38,12 @@ const LandingBlog = () => {
         />
       </div>
       <Link to="blogs">
-        <Button classButton="hidden 2xl:absolute 2xl:top-56 2xl:left-1 xl:absolute xl:top-56 xl:left-0 lg:absolute lg:top-60 lg:left-0 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
+        <Button classButton="hidden xl:absolute xl:top-[105px] xl:left-10  lg:absolute lg:top-[118px] lg:left-10 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
           مطالب بیشتر
         </Button>
       </Link>
       <Swiper
-        className="external-slider sm:mt-6 rounded z-0 relative"
+        className="external-slider rounded z-0 relative"
         navigation={{
           prevEl,
           nextEl,
@@ -55,16 +55,16 @@ const LandingBlog = () => {
       >
         {blogs.map((item) => {
           return (
-            <SwiperSlide key={item.id}>
-              <div className="grid grid-cols-2 mt-10 lg:mt-48 bg-[#4784DA]">
-                <div className="xs:w-40 2xl:w-fit 2xl:absolute 2xl:top-15 2xl:right-18 xl:w-[26rem] 2xl:m-0 xl:m-0 xl:absolute xl:top-16 xl:right-24 lg:m-0 lg:w-[22rem] lg:absolute lg:top-28 lg:right-16 md:w-[14rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl bg-slate-400 z-100">
+            <SwiperSlide key={item.id} className="px-10">
+              <div className="grid grid-cols-5 mt-1 sm:mt-10 lg:mt-24 bg-[#4784DA]">
+                <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl bg-slate-200 z-100">
                   <img
                     src={item.image}
-                    className="lg:p-2 xl:w-[600px] 2xl:h-[600px] xl:h-[500px] h-full lg:h-[440px] lg:rounded-t-2xl"
+                    className="lg:p-2 xl:w-[600px] h-full xl:h-[340px] lg:h-[320px] lg:rounded-t-2xl"
                     alt=""
                   />
                 </div>
-                <div className="2xl:mt-20 xl:mt-12 md:mt-10 md:mr-6 sm:mt-4 sm:mr-0 mt-5 mr-5  text-white col-start-2 col-span-4">
+                <div className="md:mt-6 md:mr-6 sm:mt-4 sm:mr-0 mt-2 mr-5 text-white col-start-3 col-span-4">
                   <div className="flex lg:leading-6">
                     <img
                       src={require("../../../Assets/star-fill.svg").default}
@@ -85,27 +85,27 @@ const LandingBlog = () => {
                       </h5>
                     </div>
                   </div>
-                  <Button classButton="w-10/12 h-[80px] text-right font-bold 2xl:mt-8 xl:text-2xl xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2 sm:text-base text-xs">
+                  <p className="w-10/12 sm:h-[50px] h-[40px] text-right font-bold text-[9px] xl:text-2xl sm:mt-4 mt-1 sm:text-base">
                     {handleLead(item.title)}
-                  </Button>
-                  <div className="lg:flex 2xl:mt-8 xl:mt-6 lg:mt-4 md:mt-6 sm:mt-4 mt-2">
-                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[10px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">
+                  </p>
+                  <div className="lg:flex xl:mt-8 lg:mt-4 sm:mt-4 mt-4">
+                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[8px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">
                       {item.view} بازدید
                     </h5>
                     <span className="lg:block hidden">|</span>
-                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[10px] bg-heart-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
+                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-heart-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
                       {item.likeCount} لایک
                     </h5>
                     <span className="lg:block hidden">|</span>
-                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[10px] bg-comment-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
+                    <h5 className="2xl:text-base xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-comment-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
                       {item.comment} نظر
                     </h5>
                   </div>
-                  <p className="w-10/12 hidden 2xl:mt-8 xl:mt-6 lg:mt-4 text-right 2xl:text-base xl:text-sm lg:text-xs lg:block lg:leading-relaxed sm:hidden">
-                    {item.description}
+                  <p className="w-10/12 hidden lg:mt-4 text-right 2xl:text-base xl:text-sm lg:text-xs lg:block lg:leading-relaxed sm:hidden">
+                    {handleLead(item.description)}
                   </p>
                   <Button
-                    classButton="text-[10px] xl:text-base 2xl:my-10 xl:my-8 lg:my-6 md:my-6 sm:text-sm sm:mt-4 mt-2 hover:scale-110 duration-100"
+                    classButton="text-[10px] xl:text-base xl:my-8 md:my-6 sm:text-sm sm:my-4 mt-2 hover:scale-110 duration-100"
                     onClick={() => navigate(`blogs/${item.id}`)}
                   >
                     بیشتر بخوانید ...
@@ -116,20 +116,20 @@ const LandingBlog = () => {
           );
         })}
         <div
-          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] sm:top-[80%] md:left-1 sm:left-5 text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
+          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl:left-1 lg:top-[55%] md:top-[48%] md:left-3 sm:top-[73%] sm:left-12 text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
           ref={nextElRef}
         >
           <BsArrowLeft className="w-full h-full text-[#929292]" />
         </div>
         <div
-          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[57%] lg:top-[61%] md:top-[48%] md:right-1 sm:top-[80%] sm:right-[80%] text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
+          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl::right-1 lg:top-[55%] md:top-[48%] md:right-3 sm:top-[73%] sm:right-[75%] text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
           ref={prevElRef}
         >
           <BsArrowRight className="w-full h-full text-[#929292]" />
         </div>
       </Swiper>
       <Link to="blogs">
-        <Button classButton="text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
+        <Button classButton="mx-9 text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
           مطالب بیشتر
         </Button>
       </Link>
