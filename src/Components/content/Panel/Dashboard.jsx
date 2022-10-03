@@ -8,7 +8,7 @@ const Dashboard = () => {
     <>
       <PanelHeader />
       {/* 1 */}
-      <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-xl">
+      <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-xl animate-[onLoadPanel_1s_ease-in]">
         <div
           onClick={() => navigate('/user-panel/editProfile')}
           className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-xl rounded-br-xl
@@ -57,7 +57,7 @@ const Dashboard = () => {
       </div>
 
       {/* end 1 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2 lg:mx-10 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2 lg:mx-10 mt-6 animate-[onLoadPanel_1.5s_ease-in]">
         <div>
           <p className="text-gray-500 text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6">
             آخرین دوره ثبت شده:

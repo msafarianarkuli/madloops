@@ -75,7 +75,7 @@ const EditProfile = () => {
           }}
         >
           <Form>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6 p-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6 p-6 animate-[onLoadPanel_.5s_ease-in]">
               <div>
                 <Input
                   className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400"
@@ -131,7 +131,7 @@ const EditProfile = () => {
                 />
               </div>
             </div>
-            <div className="text-center text-base sm:text-xl">
+            <div className="text-center text-base sm:text-xl animate-[onLoadPanel_1s_ease-in]">
               <button
                 className="border-2 border-lite-purple px-6 py-2 rounded-lg text-lite-purple mx-2
               hover:border-red-600 hover:text-red-600 transition ease-in-out duration-300"

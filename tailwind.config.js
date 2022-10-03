@@ -76,6 +76,10 @@ module.exports = {
           '50%': { transform: 'translateX(-5px)' },
           '100%': { transform: 'translateX(0)' },
         },
+        onLoadPanel: {
+          '0%': {transform: 'translateY(-10px)', opacity: '0'},
+          '100%': { transform: 'translateY(0)' },
+        },        
       },
       animation: {
         onLoadAnim: 'onLoadAnim 1.5s ease-in-out',

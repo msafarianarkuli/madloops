@@ -9,7 +9,7 @@ import cart from '../../../Assets/img-user-panel/cart.svg';
 const PanelHeader = ({ data, onSearch }) => {
   let location = useLocation();
   return (
-    <div className="flex justify-end items-center py-5 lg:py-8 px-4 lg:px-2">
+    <div className="flex justify-end items-center py-5 lg:py-8 px-4 lg:px-2 animate-[onLoadPanel_.5s_ease-in]">
       <div className="basis-1/4">
         <img
           src={zing}
