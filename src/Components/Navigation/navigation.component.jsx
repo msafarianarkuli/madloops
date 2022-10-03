@@ -23,8 +23,8 @@ const Navigation = () => {
   return (
     <Fragment>
       <div className="container m-auto z-40 bg-white sticky top-0">
-        <div className="grid xl:grid-cols-4 h-16 lg:grid-cols-12 md:grid-cols-12 grid-cols-2">
-          <div className="xl:col-span-1 lg:col-span-2 md:col-span-1 col-span-1">
+        <div className="grid h-16 md:grid-cols-12 grid-cols-2">
+          <div className="lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
               <Link to="/">
                 <img
@@ -40,7 +40,7 @@ const Navigation = () => {
               </Link>
             </div>
           </div>
-          <div className="menu col-span-2 xl:col-span-2 lg:col-span-8 md:col-span-9 md:block hidden">
+          <div className="menu col-span-2 2xl:col-span-6 xl:col-span-6 lg:col-span-7 md:col-span-6 md:block hidden">
             <div className="anim text-center h-16 lg:text-lg md:text-md relative">
               {navlines.map((navline) => {
                 return (
@@ -62,15 +62,15 @@ const Navigation = () => {
               <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
             </div>
           </div>
-          <div className="menu xl:col-span-1 lg:col-span-2 md:col-span-2 md:block hidden">
-            <div className="grid grid-cols-2 h-16">
+          <div className="menu 2xl:col-span-4 xl:col-span-4 lg:col-span-3 md:col-span-5 md:block hidden">
+            <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
                 <img
                   onClick={() => setIsCartOpen(!isCartOpen)}
                   src={require("../../Assets/shopping-bag.svg").default}
-                  className="xl:ml-4 h-8 lg:ml-8 md:ml-12 w-14 cursor-pointer z-40 relative"
+                  className="xl:ml-2 h-8 lg:ml-8 md:ml-2 w-14 cursor-pointer z-40 relative"
                 />
-                <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
+                <div className="absolute top-6 xl:left-[32px] lg:left-[54px] md:left-[31px] text-xl font-bold md:block hidden z-10">
                   {cartCount}
                 </div>
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
@@ -79,13 +79,13 @@ const Navigation = () => {
                   </Link>
                 </div>
               </div>
-              <div className="flex justify-center items-center col-span-1">
+              <div className="flex justify-center items-center col-span-2">
                 <Link to="login">
                   <Button
                     classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12
-                text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-6 rounded-xl text-lg hover:bg-deep-purple hover:text-white"
+                    text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg hover:bg-deep-purple hover:text-white"
                   >
-                    ورود
+                    ورود / ثبت نام
                   </Button>
                 </Link>
               </div>
@@ -102,9 +102,9 @@ const Navigation = () => {
                   <Link to="/login">
                     <Button
                       classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
-                    text-white pt-1 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
+                    text-white pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
                     >
-                      ورود
+                     ورود / ثبت نام
                     </Button>
                   </Link>
                   <div className="float-left text-white m-3">

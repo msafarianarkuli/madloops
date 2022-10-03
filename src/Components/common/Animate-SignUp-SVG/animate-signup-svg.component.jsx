@@ -6,7 +6,7 @@ const AnimateSignUpSvg = () => {
   return (
     <div className="">
       <svg
-        className="xl:w-80 lg:w-72 md:w-60"
+        className="lg:w-72 md:w-60"
         id="signLogo"
         width="377"
         height="263"

@@ -30,9 +30,9 @@ const CartTable = () => {
         </tr>
       </thead>
       {cartItems.length === 0 ? (
-        <tbody className="text-5xl text-center">
+        <tbody className="text-4xl text-center">
           <tr>
-            <td>سبد خرید شما خالی است.</td>
+            <td className="text-deep-purple py-14">سبد خرید شما خالی است.</td>
           </tr>
         </tbody>
       ) : (

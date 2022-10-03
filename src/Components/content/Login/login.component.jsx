@@ -57,7 +57,7 @@ const Login = () => {
               showH2
               showP
               classH2Field="lg:text-7xl sm:text-5xl text-4xl pt-10 text-center"
-              title="خوش اومدی :)"
+              title="ورود"
               classPfield="lg:text-2xl sm:text-xl text-lg text-deep-gray pt-3 text-center"
               field="خوش اومدی ! لطفا اطلاعاتت رو وارد کن."
             />
