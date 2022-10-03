@@ -15,7 +15,7 @@ const LandingServices = () => {
 
         <div className="xl:bg-lines-dash lg:bg-white bg-no-repeat grid grid-cols-4 h-96 mt-12 lg:mt-36 md:mt-28 sm:mt-28">
           <div className="sm:col-span-1 col-span-2">
-            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto 
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink m-auto 
             hover:scale-110 duration-300 ease-in-out group">
               <img
                 className="m-auto sm:pt-8 pt-7 sm:w-16 w-14 group-hover:rotate-[360deg] duration-300 ease-in-out"
@@ -33,7 +33,7 @@ const LandingServices = () => {
             />
           </div>
           <div className="sm:col-span-1 col-span-2">
-            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto 
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink m-auto 
             hover:scale-110 duration-300 ease-in-out group">
               <img
                 className="m-auto sm:sm:pt-8 pt-7 sm:w-16 w-14 group-hover:rotate-[360deg] duration-300 ease-in-out"
@@ -51,7 +51,7 @@ const LandingServices = () => {
             />
           </div>
           <div className="sm:col-span-1 col-span-2">
-            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto 
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink m-auto 
             hover:scale-110 duration-300 ease-in-out group">
               <img
                 className="m-auto sm:pt-8 pt-7 sm:w-16 w-14 group-hover:rotate-[360deg] duration-300 ease-in-out"
@@ -69,7 +69,7 @@ const LandingServices = () => {
             />
           </div>
           <div className="sm:col-span-1 col-span-2">
-            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-2xl bg-lite-pink m-auto 
+            <div className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink m-auto 
             hover:scale-110 duration-300 ease-in-out group">
               <img
                 className="m-auto sm:pt-8 pt-7 sm:w-16 w-14 group-hover:rotate-[360deg] duration-300 ease-in-out"

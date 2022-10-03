@@ -60,13 +60,13 @@ const SendMessage = () => {
               <Textarea
                 label="پیام"
                 name="message"
-                className="rounded-lg py-2 bg-[#F1F2F7] outline-none w-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
+                className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
               />
             </div>
           </div>
           <Button
             ButtonType="submit"
-            classButton="border-2 rounded-xl text-base pt-2 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
+            classButton="border-2 rounded-lg text-base pt-3 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
             hover:bg-lite-purple hover:border-lite-purple hover:shadow-md mx-auto block"
           >
             ارسال پیام

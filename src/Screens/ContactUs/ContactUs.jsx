@@ -6,7 +6,7 @@ import ContactUsItems from '../../Core/services/Fake Service/ContactUsItems';
 const ContactUs = () => {
   return (
     <div className="container mx-auto">
-      <div className="border-2 border-[#7F56DA] rounded-3xl m-3 sm:m-4 md:m-5 lg:m-8 p-3 lg:p-8">
+      <div className="xl:mx-44">
         <div className="mt-16 mb-10">
           <h1 className="text-center text-3xl font-black mb-6 text-deep-purple">
             در تماس باشید!

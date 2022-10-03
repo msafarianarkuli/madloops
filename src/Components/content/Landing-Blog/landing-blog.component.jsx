@@ -38,7 +38,7 @@ const LandingBlog = () => {
         />
       </div>
       <Link to="blogs">
-        <Button classButton="hidden xl:absolute xl:top-[105px] xl:left-10  lg:absolute lg:top-[118px] lg:left-10 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-blue-600 outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:block sm:hidden">
+        <Button classButton="hidden xl:absolute xl:top-[105px] xl:left-10 lg:absolute lg:top-[118px] lg:left-10 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-[#5DC8B2] outline rounded-lg hover:bg-[#5DC8B2] hover:text-white duration-150 lg:block sm:hidden">
           مطالب بیشتر
         </Button>
       </Link>
@@ -56,11 +56,11 @@ const LandingBlog = () => {
         {blogs.map((item) => {
           return (
             <SwiperSlide key={item.id} className="px-10">
-              <div className="grid grid-cols-5 mt-1 sm:mt-10 lg:mt-24 bg-[#4784DA]">
-                <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-t-xl bg-slate-200 z-100">
+              <div className="grid grid-cols-5 mt-1 rounded-lg sm:mt-10 lg:mt-24 bg-[#5DC8B2]">
+                <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-lg bg-white z-100">
                   <img
                     src={item.image}
-                    className="lg:p-2 xl:w-[600px] h-full xl:h-[340px] lg:h-[320px] lg:rounded-t-2xl"
+                    className="lg:p-2 xl:w-[600px] h-full xl:h-[340px] lg:h-[320px] lg:rounded-2xl"
                     alt=""
                   />
                 </div>
@@ -105,7 +105,7 @@ const LandingBlog = () => {
                     {handleLead(item.description)}
                   </p>
                   <Button
-                    classButton="text-[10px] xl:text-base xl:my-8 md:my-6 sm:text-sm sm:my-4 mt-2 hover:scale-110 duration-100"
+                    classButton="text-[10px] xl:text-base xl:my-8 md:my-6 sm:text-sm sm:my-4 mt-2 animate-[onHoverGoogle_1s_ease-in-out_infinite]"
                     onClick={() => navigate(`blogs/${item.id}`)}
                   >
                     بیشتر بخوانید ...
@@ -129,7 +129,7 @@ const LandingBlog = () => {
         </div>
       </Swiper>
       <Link to="blogs">
-        <Button classButton="mx-9 text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-blue-600 sm:outline rounded-xl hover:bg-blue-600 hover:text-white transition ease-in-out delay-150 lg:hidden sm:block">
+        <Button classButton="mx-9 text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-[#5DC8B2] sm:outline hover:bg-[#5DC8B2] rounded-lg hover:text-white duration-150 lg:hidden sm:block">
           مطالب بیشتر
         </Button>
       </Link>

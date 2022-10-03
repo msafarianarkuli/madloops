@@ -74,7 +74,7 @@ const LandingTeacher = () => {
               {
                 ({ isActive, isPrev, isNext }) => (
                   // isActive ? (
-                  <div className="grid lg:grid-cols-2 w-full rounded-3xl bg-[#F4F5F9]">
+                  <div className="grid lg:grid-cols-2 w-full rounded-xl bg-[#F4F5F9]">
                     <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden">
@@ -100,7 +100,7 @@ const LandingTeacher = () => {
                       </p>
                       <Button
                         onClick={() => navigate(`teacher/${item.id}`)}
-                        classButton="text-white bg-[#5DC8B2] w-20 rounded-xl p-2 my-5 hover:scale-125 transition-transform ease-in duration-300 "
+                        classButton="text-white bg-[#5DC8B2] w-20 rounded-lg p-2 my-5 hover:scale-110 transition-transform ease-in duration-150 "
                       >
                         بیشتر
                       </Button>
