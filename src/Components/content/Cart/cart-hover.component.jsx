@@ -7,7 +7,7 @@ const CartHover = () => {
 
   return (
     <div
-      className="md:grid hidden w-96 h-300 dark:border-white-secondary border-[1px] fixed top-[50px] left-48 z-40 overflow-y-scroll
+      className="md:grid hidden w-96 min-h-fit h-[155px] dark:border-white-secondary border-[1px] fixed top-[50px] left-48 z-40 overflow-y-scroll
         faq-container rounded-md"
       style={{
         opacity: !isCartOpen ? "0" : "1",
