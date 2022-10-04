@@ -7,7 +7,7 @@ import LandingCourse from '../../Components/content/Landing-Course/landing-cours
 
 const LandingPage = () => {
   return (
-    <div className="dark">
+    <div>
       <LandingHeader />
       <LandingServices />
       <LandingCourse />

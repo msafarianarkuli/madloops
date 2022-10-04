@@ -168,7 +168,7 @@ const LandingTeacher = () => {
               className="w-14 h-14 p-1 bg-[#E3E3E3] cursor-pointer rounded-full transition ease-in-out duration-500 hover:bg-[#C6ECE4] group"
               ref={prevElRef}
             >
-              <div className="bg-[#F4F5F9] w-12 h-12 rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
+              <div className="bg-[#F4F5F9] w-12 h-12 dark:bg-dark-primary rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
                 <BsPlayFill className="w-full h-full -mx-[3px] rounded-sm text-9xl transition ease-in-out duration-500 text-[#707070] group-hover:text-white" />
               </div>
             </div>
@@ -176,7 +176,7 @@ const LandingTeacher = () => {
               className="rotate-180 mr-5 w-14 h-14 p-1 bg-[#E3E3E3] cursor-pointer rounded-full transition ease-in-out duration-500 hover:bg-[#C6ECE4] group"
               ref={nextElRef}
             >
-              <div className="bg-[#F4F5F9] w-12 h-12 rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
+              <div className="bg-[#F4F5F9] w-12 h-12 dark:bg-dark-primary rounded-full shadow-md transition ease-in-out duration-500 group-hover:bg-[#5DC8B2] group">
                 <BsPlayFill className="w-full h-full -mx-[3px] rounded-sm text-9xl transition ease-in-out duration-500 text-[#707070] group-hover:text-white" />
               </div>
             </div>

@@ -1,44 +1,40 @@
-import React, { useState, Fragment, useContext } from 'react';
-import { Button } from '../../Components/common/button-component/button.component';
-import '../Navigation/navigation.styles.scss';
-import { BsList } from 'react-icons/bs';
-import { BsArrowLeftShort } from 'react-icons/bs';
-import {
-  RiShoppingCartFill,
-  RiLoginCircleFill,
-} from 'react-icons/ri';
-import { SiCpanel } from 'react-icons/si';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import CartHover from './../content/Cart/cart-hover.component';
-import { CartContext } from '../../Core/context/cart.context';
+import React, { useState, Fragment, useContext } from "react";
+import { Button } from "../../Components/common/button-component/button.component";
+import "../Navigation/navigation.styles.scss";
+import { BsList } from "react-icons/bs";
+import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
+import { RiShoppingCartFill, RiLoginCircleFill } from "react-icons/ri";
+import { SiCpanel } from "react-icons/si";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import CartHover from "./../content/Cart/cart-hover.component";
+import { CartContext } from "../../Core/context/cart.context";
 
 const Navigation = () => {
-  const { isCartOpen, setIsCartOpen, cartCount } =
-    useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
-    { id: 1, title: 'خانه', path: '/' },
-    { id: 2, title: 'دوره ها', path: '/courses' },
-    { id: 3, title: 'اخبار و مقالات', path: '/blogs' },
-    { id: 4, title: 'تماس با ما', path: '/contactUs' },
+    { id: 1, title: "خانه", path: "/" },
+    { id: 2, title: "دوره ها", path: "/courses" },
+    { id: 3, title: "اخبار و مقالات", path: "/blogs" },
+    { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
   return (
-    <Fragment>
-      <div className="container m-auto z-40 bg-white sticky top-0">
+    <div className="dark:bg-dark-primary bg-white">
+      <div className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0">
         <div className="grid h-16 md:grid-cols-12 grid-cols-2">
           <div className="lg:col-span-2 md:col-span-1 col-span-1">
-            <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 mt-1">
+            <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 sm:mt-1 mt-2">
               <Link to="/">
                 <img
                   className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-                  src={require('../../Assets/img/site-logo.png')}
+                  src={require("../../Assets/img/site-logo.png")}
                   alt="shopping"
                 />
               </Link>
               <Link to="/">
-                <span className="md:text-lg xs:text-sm  mr-2 text-deep-purple lg:block md:hidden">
+                <span className="md:text-lg xs:text-sm mr-2 dark:text-lite-purple text-deep-purple lg:block md:hidden">
                   Mad Loops
                 </span>
               </Link>
@@ -51,8 +47,8 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? 'inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple'
-                        : 'inline-block relative z-10 pt-4 border-t-4 border-transparent h-16'
+                        ? "inline-block relative z-10 pt-4 border-t-4 h-16 dark:border-lite-purple dark:text-lite-purple border-deep-purple text-deep-purple"
+                        : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16 dark:text-gray-400"
                     }
                     key={navline.id}
                     to={navline.path}
@@ -63,21 +59,18 @@ const Navigation = () => {
                 );
               })}
 
-              <div className="animation border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
+              <div className="animation dark:border-lite-purple border-deep-purple absolute h-16 top-0 z-0 border-t-4 start-home duration-300 ease-in-out"></div>
             </div>
           </div>
           <div className="menu 2xl:col-span-4 xl:col-span-4 lg:col-span-3 md:col-span-5 md:block hidden">
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
-                <img
+                <BsCartFill
                   onMouseOver={() => setIsCartOpen(!isCartOpen)}
                   onMouseOut={() => setIsCartOpen(!isCartOpen)}
-                  src={
-                    require('../../Assets/shopping-bag.svg').default
-                  }
-                  className="h-8 w-fit cursor-pointer z-40 relative"
+                  className="h-9 w-fit dark:text-lite-purple text-deep-purple cursor-pointer relative"
                 />
-                <div className="absolute top-6 md:left-2.5 text-xl font-bold md:block hidden z-10">
+                <div className="absolute text-white dark:text-dark-primary top-5 md:left-4 text-md font-bold md:block hidden z-10 cursor-pointer">
                   {cartCount}
                 </div>
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
@@ -89,8 +82,8 @@ const Navigation = () => {
               <div className="flex justify-center items-center col-span-2">
                 <Link to="login">
                   <Button
-                    classButton="btn border-2 border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12
-                    text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg hover:bg-deep-purple hover:text-white"
+                    classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
+                    text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
                   >
                     ورود / ثبت نام
                   </Button>
@@ -102,31 +95,28 @@ const Navigation = () => {
             <div
               className={`${
                 open
-                  ? 'bg-deep-purple h-screen pt-8 w-80 relative'
-                  : 'w-10 z-0'
+                  ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 relative"
+                  : "w-10 z-0"
               } duration-300 ease-in-out absolute top-0 left-0`}
             >
               {open && (
                 <div className="h-5/6">
                   <Link to="/login">
                     <Button
-                      classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
-                    text-white pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
+                      classButton="btn dark:bg-dark-secondary bg-deep-purple border-r-2 border-l-0 dark:border-lite-purple border-white float-left duration-300 ease-in-out 
+                      text-white dark:text-gray-300 pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
                     >
                       ورود / ثبت نام
                     </Button>
                   </Link>
                   <div className="float-left text-white m-3">
                     <div className="flex justify-end items-center col-span-1 relative">
-                      <img
-                        onClick={() => setIsCartOpen(!isCartOpen)}
-                        src={
-                          require('../../Assets/shopping-bag.svg')
-                            .default
-                        }
-                        className="xl:ml-4 h-8 lg:ml-8 md:ml-12 w-14 cursor-pointer z-40 relative"
+                      <BsCartFill
+                        onMouseOver={() => setIsCartOpen(!isCartOpen)}
+                        onMouseOut={() => setIsCartOpen(!isCartOpen)}
+                        className="h-9 w-fit dark:text-lite-purple sm:text-deep-purple text-lite-pink cursor-pointer sm:z-0 z-30 relative"
                       />
-                      <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
+                      <div className="absolute sm:text-white text-dark-secondary dark:text-dark-primary top-5 md:left-4 text-md font-bold md:block hidden sm:z-10 z-50 cursor-pointer">
                         {cartCount}
                       </div>
                     </div>
@@ -137,8 +127,8 @@ const Navigation = () => {
                         <NavLink
                           className={({ isActive }) =>
                             isActive
-                              ? 'block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple'
-                              : 'block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out'
+                              ? "block p-2 m-5 border-2 dark:border-dark-secondary rounded-xl ring-offset-4 dark:ring-offset-lite-purple ring-offset-deep-purple dark:ring-dark-secondary ring-white ring-2 dark:bg-dark-secondary bg-white dark:text-gray-300 text-deep-purple"
+                              : "block p-2 m-5 border-2 rounded-xl dark:hover:bg-gray-300 hover:bg-white dark:hover:text-dark-secondary hover:text-deep-purple duration-200 ease-in-out"
                           }
                           key={navline.id}
                           to={navline.path}
@@ -157,14 +147,14 @@ const Navigation = () => {
 
               {!open ? (
                 <BsList
-                  className={`bg-white text-deep-purple rounded-full border-2
-                border-deep-purple text-4xl absolute p-1 -right-20 top-3 cursor-pointer`}
+                  className={`bg-white dark:bg-dark-primary dark:text-lite-purple text-deep-purple rounded-full border-2
+                border-deep-purple dark:border-lite-purple text-4xl absolute p-1 -right-20 top-3 cursor-pointer`}
                   onClick={() => setOpen(!open)}
                 />
               ) : (
                 <BsArrowLeftShort
-                  className={`bg-white text-deep-purple rounded-full border-2
-                border-deep-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
+                  className={`bg-white dark:bg-dark-secondary dark:text-lite-purple text-deep-purple rounded-full border-2
+                border-deep-purple dark:border-lite-purple text-4xl absolute p-1 -right-4 top-4 cursor-pointer`}
                   onClick={() => setOpen(!open)}
                 />
               )}
@@ -175,7 +165,7 @@ const Navigation = () => {
       {/* {isCartOpen && <CartHover />} */}
       <CartHover />
       <Outlet />
-    </Fragment>
+    </div>
   );
 };
 

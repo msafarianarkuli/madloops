@@ -11,7 +11,7 @@ import logo from '../../Assets/img/site-logo.png';
 
 const Footer = () => {
   return (
-    <footer className="dark">
+    <footer>
       <div className="bg-lite-gray dark:bg-dark-secondary">
         <div className="px-4 lg:px-28 divide-y divide-gray-400 w-11/12 container mx-auto pt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-400 md:divide-y-0 ">

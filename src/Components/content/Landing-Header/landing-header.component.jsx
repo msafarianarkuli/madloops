@@ -49,7 +49,7 @@ const LandingHeader = () => {
                 <FieldName
                   showP
                   field="984 کاربر"
-                  classPfield="mt-3 text-center text-dark-secondary-title"
+                  classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
@@ -61,7 +61,7 @@ const LandingHeader = () => {
                 <FieldName
                   showP
                   field="210 دوره"
-                  classPfield="mt-3 text-center text-dark-secondary-title"
+                  classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
@@ -73,7 +73,7 @@ const LandingHeader = () => {
                 <FieldName
                   showP
                   field="430 مقاله"
-                  classPfield="mt-3 text-center text-dark-secondary-title"
+                  classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
@@ -85,7 +85,7 @@ const LandingHeader = () => {
                 <FieldName
                   showP
                   field="12 استاد"
-                  classPfield="mt-3 text-center text-dark-secondary-title"
+                  classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
             </div>
@@ -94,8 +94,8 @@ const LandingHeader = () => {
                 <Link to="/courses">
                   <Button
                     classButton="btn border-transparent text-sm py-5 mt-5 px-24 mx-8 2 2xl:mt-5 2xl:px-24 xl:mt-6 xl:mx-12 xl:px-16 lg:py-5 lg:mt-5 lg:mx-4 lg:px-16 md:py-3 md:mt-0 md:mx-2
-                md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple text-white lg:text-lg md:text-sm sm:text-xs
-                rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
+                    md:px-12 sm:py-3 sm:mt-0 sm:mx-0 sm:px-10 bg-lite-purple dark:text-dark-primary text-white lg:text-lg md:text-sm sm:text-xs
+                    rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
                   >
                     شروع یادگیری
                   </Button>
@@ -105,7 +105,7 @@ const LandingHeader = () => {
                 <Button
                   onClick={openModal}
                   classButton="outline-none border-transparent btn text-sm py-5 mt-3 px-14 mx-16 2xl:mt-5 2xl:px-10 xl:mx-3 xl:mt-6 xl:px-6 lg:py-5 lg:mx-1 lg:mt-5 lg:px-4 md:py-3
-                md:mx-0 md:mt-0 md:px-4 sm:py-3 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple text-white lg:text-lg md:text-sm sm:text-xs 
+                md:mx-0 md:mt-0 md:px-4 sm:py-3 sm:mx-0 sm:mt-0 sm:px-2 bg-dark-purple dark:text-dark-primary text-white lg:text-lg md:text-sm sm:text-xs 
                 rounded-xl hover:drop-shadow-lg hover:scale-105 duration-200 ease-in-out"
                 >
                   مشاوره تخصصی
