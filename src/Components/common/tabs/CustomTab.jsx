@@ -237,7 +237,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               ) : (
                 <div>
                   <div
-                    className="bg-lite-purple text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-lg rounded-br-lg"
+                    className="bg-lite-purple text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-lg"
                     onClick={() => setCommentActive(true)}
                   >
                     ارسال دیدگاه
