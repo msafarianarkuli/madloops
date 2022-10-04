@@ -66,7 +66,7 @@ const SignUpSecondPage = (props) => {
                 name="nationalId"
                 type="text"
                 id="nationalId"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
+                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="شماره ملی خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1"
@@ -84,14 +84,14 @@ const SignUpSecondPage = (props) => {
                 classForm="flex flex-col mt-2 h-24"
                 label="تاریخ تولد:"
                 name="birthDate"
-                className="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-[15px] outline-none duration-300"
+                className="ltr sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                 classLabel="text-xl mb-2"
                 placeholder="1401/06/12"
               />
             </div>
             <div className="mt-2 h-14 flex justify-center">
               <Button
-                className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-3 text-center rounded-[15px] hover:button-shadow duration-300 ease-in-out"
+                className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-3 text-center rounded-xl hover:button-shadow duration-300 ease-in-out"
                 ButtonType="submit"
               >
                 ادامه
