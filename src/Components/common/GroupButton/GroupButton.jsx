@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
+import React, { useState } from 'react';
+import { FaAngleDown } from 'react-icons/fa';
 
 const GroupButton = ({ items, width, onSorting }) => {
   const [openGroupBtn, setOpenGroupBtn] = useState(false);
-  const [selectedGroupBtn, setSelectedGroupBtn] = useState(items[0].title);
+  const [selectedGroupBtn, setSelectedGroupBtn] = useState(
+    items[0].title
+  );
 
   const handleGroupBtn = (title) => {
     setSelectedGroupBtn(title);
@@ -12,16 +14,18 @@ const GroupButton = ({ items, width, onSorting }) => {
 
   const GroupBtnClassLg = (item, index) => {
     const classList = [];
-    classList.push(selectedGroupBtn === item ? "groupBtn-active" : "");
-    classList.push(index === 0 ? "groupBtn-right" : "");
-    classList.push(index === items.length - 1 ? "groupBtn-left" : "");
-    return classList.join(" , ");
+    classList.push(
+      selectedGroupBtn === item ? 'groupBtn-active' : ''
+    );
+    classList.push(index === 0 ? 'groupBtn-right' : '');
+    classList.push(index === items.length - 1 ? 'groupBtn-left' : '');
+    return classList.join(' , ');
   };
 
   const GroupBtnClassSm = (item, index) => {
     const classList = [];
-    classList.push(index === items.length - 1 ? "border-0" : "");
-    return classList.join(" , ");
+    classList.push(index === items.length - 1 ? 'border-0' : '');
+    return classList.join(' , ');
   };
 
   const sortAndSet = (item) => {
@@ -46,6 +50,7 @@ const GroupButton = ({ items, width, onSorting }) => {
           </button>
         ))}
       </div>
+
       <div className="groupBtn-sm text-gray-500 mx-3">
         <button
           className="groupBtn-sm-btn"
@@ -58,7 +63,7 @@ const GroupButton = ({ items, width, onSorting }) => {
         </button>
         <div
           className={`groupBtn-sm-div absolute w-[95%] left-0 right-0 mx-auto bg-white z-10 ${
-            openGroupBtn ? "block" : "hidden"
+            openGroupBtn ? 'block' : 'hidden'
           }`}
         >
           {items.map((item, index) => (

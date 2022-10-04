@@ -6,15 +6,15 @@ import offers from '../../../Assets/img/offerss.svg';
 const LandingOffers = () => {
   return (
     <>
-      <section>
+      <section className="dark:bg-dark-secondary md:bg-gray-300 pb-10">
         <div className="container mx-auto">
           <LandingTitle
             title="پیشنهادات و انتقادات"
-            className="mt-20 mb-10"
+            className="pt-20 mb-10"
           >
             می توانید در باکس زیر پیشنهاد خود را وارد کنید
           </LandingTitle>
-          <div className="md:bg-gray-300 grid grid-cols-1 md:grid-cols-2">
+          <div className="grid grid-cols-1 md:grid-cols-2">
             <div className="flex justify-center items-center">
               <OffersForm />
             </div>
