@@ -38,7 +38,10 @@ const Comment = ({
 
   return (
     <>
-      <div className="border-2 bg-slate-100 rounded-lg p-3 mb-3" dir="rtl">
+      <div
+        className="border-2 bg-slate-100 rounded-lg p-3 mb-3"
+        dir="rtl"
+      >
         <div className="flex justify-between">
           <div className="flex">
             <img
@@ -79,7 +82,7 @@ const Comment = ({
             />
           </div>
         </div>
-        <p className="text-lg w-fit lg:text-xl text-gray-400 mt-2 mb-3 mr-8">
+        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all">
           {body}
         </p>
         {answerActive ? (

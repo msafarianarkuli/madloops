@@ -64,7 +64,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
             />
           </div>
         </div>
-        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8">
+        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all">
           {body}
         </p>
       </div>
