@@ -12,7 +12,7 @@ const CartHover = () => {
       style={{
         opacity: !isCartOpen ? "0" : "1",
         visibility: !isCartOpen ? "hidden" : "visible",
-        transition: "all ease-in-out 200ms",
+        transition: "all ease-in 200ms",
       }}
       onMouseOver={() => setIsCartOpen(isCartOpen)}
       onMouseOut={() => setIsCartOpen(!isCartOpen)}

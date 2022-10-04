@@ -28,7 +28,7 @@ const App = () => {
   const { pathname } = useLocation();
 
   return (
-    <div className="App dark">
+    <div className="App">
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<LandingPage />} />

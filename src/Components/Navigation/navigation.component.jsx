@@ -3,7 +3,7 @@ import { Button } from "../../Components/common/button-component/button.componen
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
-import { RiShoppingCartFill, RiLoginCircleFill } from "react-icons/ri";
+import { RiShoppingCartLine, RiLoginCircleFill } from "react-icons/ri";
 import { SiCpanel } from "react-icons/si";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
@@ -11,7 +11,6 @@ import { CartContext } from "../../Core/context/cart.context";
 
 const Navigation = () => {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
     { id: 1, title: "خانه", path: "/" },
@@ -65,16 +64,16 @@ const Navigation = () => {
           <div className="menu 2xl:col-span-4 xl:col-span-4 lg:col-span-3 md:col-span-5 md:block hidden">
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
-                <img
-                  src={require("../../Assets/bag.svg").default}
-                  alt=""
+                <Link
+                  className="h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 dark:hover:bg-gray-400 hover:bg-red-100 z-30"
                   onMouseOver={() => setIsCartOpen(!isCartOpen)}
                   onMouseOut={() => setIsCartOpen(!isCartOpen)}
-                  className="h-9 w-fit  fill-black dark:fill-dark-primary-title cursor-pointer relative z-30"
-                />
-                {console.log(isCartOpen)}
+                  to="/cart"
+                >
+                  <RiShoppingCartLine className="p-2 h-full w-full text-black dark:text-white" />
+                </Link>
                 {cartCount >= 1 && (
-                  <div className="absolute bg-red-500 rounded-md w-5 h-5 text-center text-base text-white dark:text-dark-primary top-1 md:-left-2 font-bold md:block hidden z-40">
+                  <div className="absolute bg-red-500 rounded-md w-5 h-5 text-center text-base text-white top-1 md:-left-2 font-bold md:block hidden z-40">
                     {cartCount}
                   </div>
                 )}
