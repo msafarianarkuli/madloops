@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import React, { useState } from "react";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { FaMinus, FaPlus } from "react-icons/fa";
 
-import Accordion from '../Accordion/Accordion';
-import Comment from '../comments/Comment';
-import Textarea from '../Inputs/TextareaInputs/Textarea';
-import Input from '../Inputs/TextInputs/Input';
-import profile from '../../../Assets/profile.png';
+import Accordion from "../Accordion/Accordion";
+import Comment from "../comments/Comment";
+import Textarea from "../Inputs/TextareaInputs/Textarea";
+import Input from "../Inputs/TextInputs/Input";
+import profile from "../../../Assets/profile.png";
 
 const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
   const [commentActive, setCommentActive] = useState(false);
@@ -70,21 +70,21 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
   const handleSendReply = (
     refId,
     reply,
-    name = 'میهمان',
-    email = 'example@gmail.com'
+    name = "میهمان",
+    email = "example@gmail.com"
   ) => {
     const newReply = {
       id: comments.length + 1,
       refId: refId,
       userName: name,
-      date: '16 خرداد 1401',
-      time: '14:53',
+      date: "16 خرداد 1401",
+      time: "14:53",
       body: reply,
       liked: false,
       disLiked: false,
       likeCount: 0,
       disLikeCount: 0,
-      userImg: '',
+      userImg: "",
       email: email,
     };
     comments.unshift(newReply);
@@ -100,13 +100,13 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
 
   return (
     <>
-      <Tabs className="rounded-xl mt-4 mx-3 lg:mx-10">
-        <TabList className="inline-flex pt-2 pr-4 lg:pr-12 w-full  border-[#7F56DA]">
+      <Tabs className="rounded-lg mt-4 mx-3 lg:mx-10">
+        <TabList className="inline-flex pt-2 pr-4 lg:pr-12 w-full">
           {tabList.map((tab) => (
             <Tab
               key={tab.id}
               className="tab"
-              selectedClassName="tab-active"
+              selectedClassName="tab-active bg-lite-gray"
               disabledClassName="tab-disabled"
               onClick={() => handleTabClick(tab.id)}
             >
@@ -117,24 +117,17 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               <span
                 className={`${
                   tab.active
-                    ? 'text-[#7F56DA]'
-                    : 'text-gray-400 cursor-pointer'
+                    ? "text-lite-purple"
+                    : "text-gray-400 cursor-pointer"
                 }`}
               >
                 {tab.title}
               </span>
-              {tab.title === 'نظرات' ? (
-                <span className="bg-[#7F56DA] px-2 py-0 mr-1 text-white rounded-full cursor-pointer">
-                  {comments.length}
-                </span>
-              ) : (
-                ''
-              )}
             </Tab>
           ))}
         </TabList>
-        <div className="border-2 border-[#7F56DA] px-2 pt-10 lg:px-4 lg:py-11 rounded-2xl relative">
-          <div className="overflow-y-scroll overflow-x-hidden faq-container h-80 pl-2 lg:pl-4">
+        <div className="bg-lite-gray border-2 px-2 pt-10 lg:px-4 lg:py-11 rounded-xl relative mb-10">
+          <div className="faq-container pl-2 lg:pl-4">
             {faqList ? (
               <TabPanel>
                 {faqList.map((faq) => (
@@ -160,9 +153,9 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
 
             <TabPanel>
               {commentActive ? (
-                <div className="block md:flex border-2 border-gray-300 rounded-xl p-2 md:p-5">
+                <div className="block md:flex border-2 border-gray-200 rounded-lg p-2 md:p-5 mb-5 mr-2">
                   <div
-                    className="bg-[#7F56DA] text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    className="bg-lite-purple text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-lg rounded-br-lg"
                     onClick={() => setCommentActive(false)}
                   >
                     انصراف
@@ -174,14 +167,24 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                   <div className="grow">
                     <Formik
                       initialValues={{
-                        name: '',
-                        email: '',
-                        body: '',
+                        name: "",
+                        email: "",
+                        body: "",
                       }}
                       validationSchema={Yup.object({
-                        name: Yup.string().required(),
-                        email: Yup.string().email().required(),
-                        body: Yup.string().required(),
+                        name: Yup.string().required(
+                          "لطفا نام خود را وارد کنید"
+                        ),
+                        email: Yup.string()
+                          .email("الگوی وارد شده صحیح نمی باشد")
+                          .required("لطفا فیلد ایمیل را پر کنید")
+                          .matches(
+                            /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
+                            "دامنه ایمیل را به درستی وارد کنید"
+                          ),
+                        body: Yup.string().required(
+                          "لطفا نظر خود را بیان کنید"
+                        ),
                       })}
                       onSubmit={(values) => {
                         handleSendReply(
@@ -195,11 +198,11 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                       }}
                     >
                       <Form>
-                        <div className=" text-base md:text-xl text-gray-400">
+                        <div className="bg-slate-100 text-base md:text-xl text-gray-400">
                           <div className="flex w-full border rounded-tl-xl rounded-tr-xl">
                             <div className="w-1/2 p-2 md:p-4 border-l">
                               <Input
-                                className="bg-transparent outline-none"
+                                className="bg-transparent w-full outline-none border-b-2 mb-2 focus:border-b-lite-purple duration-300"
                                 type="text"
                                 name="name"
                                 label="نام:"
@@ -207,7 +210,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                             </div>
                             <div className="w-1/2 p-2 md:p-4">
                               <Input
-                                className="bg-transparent outline-none"
+                                className="bg-transparent w-full outline-none border-b-2 mb-2 focus:border-b-lite-purple duration-300"
                                 type="text"
                                 name="email"
                                 label="ایمیل:"
@@ -216,16 +219,13 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
                           </div>
                           <div className="flex border-r border-l border-b p-4">
                             <Textarea
-                              className="grow bg-transparent outline-none block"
+                              className="grow 2xl:w-[800px] xl:w-[630px] lg:w-[680px] md:w-[540px] sm:w-[510px] w-[220px] min-h-fit max-h-72 bg-transparent outline-none block"
                               name="body"
                               label="متن نظر:"
                             />
                           </div>
-                          <div className="border-r border-l border-b rounded-bl-xl rounded-br-xl bg-lite-purple text-center text-white overflow-hidden">
-                            <button
-                              className="w-full py-2"
-                              type="submit"
-                            >
+                          <div className="border-r border-l border-b rounded-bl-lg rounded-br-lg bg-lite-purple text-center text-white overflow-hidden">
+                            <button className="w-full py-2" type="submit">
                               ارسال نظر
                             </button>
                           </div>
@@ -237,7 +237,7 @@ const CustomTab = ({ faqList, setFaqList, commentData, tabData }) => {
               ) : (
                 <div>
                   <div
-                    className="bg-[#7F56DA] text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-xl rounded-br-xl"
+                    className="bg-lite-purple text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-lg rounded-br-lg"
                     onClick={() => setCommentActive(true)}
                   >
                     ارسال دیدگاه

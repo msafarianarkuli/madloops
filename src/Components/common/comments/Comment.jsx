@@ -38,7 +38,7 @@ const Comment = ({
 
   return (
     <>
-      <div className="border-2 rounded-xl p-3 mb-3" dir="rtl">
+      <div className="border-2 bg-slate-100 rounded-lg p-3 mb-3" dir="rtl">
         <div className="flex justify-between">
           <div className="flex">
             <img
@@ -66,20 +66,20 @@ const Comment = ({
             </span>
             <img
               src={liked ? likeFillIcon : likeIcon}
-              className="w-5 h-5 sm:w-6 sm:h-6 mb-3"
+              className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
               onClick={() => onLike(id)}
             />
-            <span className="px-3 w-8 mb-1">
+            <span className="px-4 w-8 mb-1">
               {disLikeCount === 0 ? ' ' : disLikeCount}
             </span>
             <img
               src={disLiked ? disLikeFillIcon : disLikeIcon}
-              className="w-5 h-5 sm:w-6 sm:h-6"
+              className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
               onClick={() => onDisLike(id)}
             />
           </div>
         </div>
-        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8">
+        <p className="text-lg w-fit lg:text-xl text-gray-400 mt-2 mb-3 mr-8">
           {body}
         </p>
         {answerActive ? (
@@ -97,20 +97,20 @@ const Comment = ({
                   <Input
                     type="text"
                     name="reply"
-                    className="border border-gray-400 rounded-lg px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-none focus:shadow-md focus:shadow-purple-300"
+                    className="border border-gray-200 duration-150 rounded-md px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-0 focus:input-shadow focus:shadow-purple-300"
                   />
                   <div className="text-left md:flex-none">
                     <Button
                       type="submit"
                       disabled={!values.reply}
-                      classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
-                hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
+                      classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2 cursor-pointer
+                      hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
                     >
                       ارسال
                     </Button>
                     <Button
                       classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md mr-2
-                hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
+                      hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
                       onClick={() => setAnswerActive(false)}
                     >
                       انصراف
@@ -123,7 +123,7 @@ const Comment = ({
         ) : (
           <div className="text-left">
             <Button
-              classButton="border border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-sm rounded-md 
+              classButton="border-2 border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-md rounded-md 
               hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
               onClick={handleCommentReply}
             >
