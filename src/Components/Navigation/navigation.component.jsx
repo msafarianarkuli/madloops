@@ -1,23 +1,27 @@
-import React, { useState, Fragment, useContext } from "react";
-import { Button } from "../../Components/common/button-component/button.component";
-import "../Navigation/navigation.styles.scss";
-import { BsList } from "react-icons/bs";
-import { BsArrowLeftShort } from "react-icons/bs";
-import { RiShoppingCartFill, RiLoginCircleFill } from "react-icons/ri";
-import { SiCpanel } from "react-icons/si";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import CartHover from "./../content/Cart/cart-hover.component";
-import { CartContext } from "../../Core/context/cart.context";
+import React, { useState, Fragment, useContext } from 'react';
+import { Button } from '../../Components/common/button-component/button.component';
+import '../Navigation/navigation.styles.scss';
+import { BsList } from 'react-icons/bs';
+import { BsArrowLeftShort } from 'react-icons/bs';
+import {
+  RiShoppingCartFill,
+  RiLoginCircleFill,
+} from 'react-icons/ri';
+import { SiCpanel } from 'react-icons/si';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import CartHover from './../content/Cart/cart-hover.component';
+import { CartContext } from '../../Core/context/cart.context';
 
 const Navigation = () => {
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } =
+    useContext(CartContext);
 
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
-    { id: 1, title: "خانه", path: "/" },
-    { id: 2, title: "دوره ها", path: "/courses" },
-    { id: 3, title: "اخبار و مقالات", path: "/blogs" },
-    { id: 4, title: "تماس با ما", path: "/contactUs" },
+    { id: 1, title: 'خانه', path: '/' },
+    { id: 2, title: 'دوره ها', path: '/courses' },
+    { id: 3, title: 'اخبار و مقالات', path: '/blogs' },
+    { id: 4, title: 'تماس با ما', path: '/contactUs' },
   ]);
 
   return (
@@ -29,7 +33,7 @@ const Navigation = () => {
               <Link to="/">
                 <img
                   className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-                  src={require("../../Assets/img/site-logo.png")}
+                  src={require('../../Assets/img/site-logo.png')}
                   alt="shopping"
                 />
               </Link>
@@ -47,8 +51,8 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple"
-                        : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16"
+                        ? 'inline-block relative z-10 pt-4 border-t-4 h-16 border-deep-purple text-deep-purple'
+                        : 'inline-block relative z-10 pt-4 border-t-4 border-transparent h-16'
                     }
                     key={navline.id}
                     to={navline.path}
@@ -66,11 +70,14 @@ const Navigation = () => {
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
                 <img
-                  onClick={() => setIsCartOpen(!isCartOpen)}
-                  src={require("../../Assets/shopping-bag.svg").default}
-                  className="xl:ml-2 h-8 lg:ml-8 md:ml-2 w-14 cursor-pointer z-40 relative"
+                  onMouseOver={() => setIsCartOpen(!isCartOpen)}
+                  onMouseOut={() => setIsCartOpen(!isCartOpen)}
+                  src={
+                    require('../../Assets/shopping-bag.svg').default
+                  }
+                  className="h-8 w-fit cursor-pointer z-40 relative"
                 />
-                <div className="absolute top-6 xl:left-[32px] lg:left-[54px] md:left-[31px] text-xl font-bold md:block hidden z-10">
+                <div className="absolute top-6 md:left-2.5 text-xl font-bold md:block hidden z-10">
                   {cartCount}
                 </div>
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
@@ -94,7 +101,9 @@ const Navigation = () => {
           <div className="fixed top-0 left-0 md:hidden z-30">
             <div
               className={`${
-                open ? "bg-deep-purple h-screen pt-8 w-80 relative" : "w-10 z-0"
+                open
+                  ? 'bg-deep-purple h-screen pt-8 w-80 relative'
+                  : 'w-10 z-0'
               } duration-300 ease-in-out absolute top-0 left-0`}
             >
               {open && (
@@ -104,14 +113,17 @@ const Navigation = () => {
                       classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
                     text-white pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
                     >
-                     ورود / ثبت نام
+                      ورود / ثبت نام
                     </Button>
                   </Link>
                   <div className="float-left text-white m-3">
                     <div className="flex justify-end items-center col-span-1 relative">
                       <img
                         onClick={() => setIsCartOpen(!isCartOpen)}
-                        src={require("../../Assets/shopping-bag.svg").default}
+                        src={
+                          require('../../Assets/shopping-bag.svg')
+                            .default
+                        }
                         className="xl:ml-4 h-8 lg:ml-8 md:ml-12 w-14 cursor-pointer z-40 relative"
                       />
                       <div className="absolute top-6 2xl:left-[38px] xl:left-[38px] lg:left-[53px] md:left-[59px] text-xl font-bold md:block hidden z-10">
@@ -125,8 +137,8 @@ const Navigation = () => {
                         <NavLink
                           className={({ isActive }) =>
                             isActive
-                              ? "block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple"
-                              : "block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out"
+                              ? 'block p-2 m-5 border-2 rounded-xl ring-offset-4 ring-offset-deep-purple ring-white ring-2 bg-white text-deep-purple'
+                              : 'block p-2 m-5 border-2 rounded-xl hover:bg-white hover:text-deep-purple duration-200 ease-in-out'
                           }
                           key={navline.id}
                           to={navline.path}
@@ -160,7 +172,8 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      {isCartOpen && <CartHover />}
+      {/* {isCartOpen && <CartHover />} */}
+      <CartHover />
       <Outlet />
     </Fragment>
   );

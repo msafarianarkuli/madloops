@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
-import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-router-dom";
 import LandingModal from "../../common/Landing-Modal/landing-modal.component";
 
@@ -109,7 +109,7 @@ const LandingHeader = () => {
               >
                 مشاوره تخصصی
               </Button>
-              <LandingModal showModal={showModal} setShowModal={setShowModal}/>
+              <LandingModal showModal={showModal} setShowModal={setShowModal} />
             </div>
           </div>
         </div>
