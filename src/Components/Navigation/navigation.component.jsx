@@ -66,11 +66,12 @@ const Navigation = () => {
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
                 <img
-                  onClick={() => setIsCartOpen(!isCartOpen)}
+                  onMouseOver={() => setIsCartOpen(!isCartOpen)}
+                  onMouseOut={() => setIsCartOpen(!isCartOpen)}
                   src={require("../../Assets/shopping-bag.svg").default}
-                  className="xl:ml-2 h-8 lg:ml-8 md:ml-2 w-14 cursor-pointer z-40 relative"
+                  className="h-8 w-fit cursor-pointer z-40 relative"
                 />
-                <div className="absolute top-6 xl:left-[32px] lg:left-[54px] md:left-[31px] text-xl font-bold md:block hidden z-10">
+                <div className="absolute top-6 md:left-2.5 text-xl font-bold md:block hidden z-10">
                   {cartCount}
                 </div>
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
@@ -104,7 +105,7 @@ const Navigation = () => {
                       classButton="btn bg-deep-purple border-r-2 border-l-0 border-white float-left duration-300 ease-in-out 
                     text-white pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
                     >
-                     ورود / ثبت نام
+                      ورود / ثبت نام
                     </Button>
                   </Link>
                   <div className="float-left text-white m-3">
