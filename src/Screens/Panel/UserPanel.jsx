@@ -34,7 +34,7 @@ const UserPanel = () => {
                 ))}
               </div>
               {/* end: */}
-              <div className="col-span-6 lg:col-span-5 m-3 lg:mr-0 lg:mt-3 rounded-2xl bg-white overflow-hidden sm:overflow-visible">
+              <div className="col-span-6 lg:col-span-5 m-3 lg:mr-0 lg:mt-3 rounded-xl bg-white overflow-hidden sm:overflow-visible">
                 <Outlet />
               </div>
             </div>

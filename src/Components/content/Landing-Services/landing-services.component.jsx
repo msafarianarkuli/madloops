@@ -3,7 +3,7 @@ import { FieldName } from "../../common/field-name-component/field-name.componen
 const LandingServices = () => {
   return (
     <div className="container m-auto">
-      <div className="text-center m-auto mt-40 lg:mt-20 md:mt-2 sm:mt-2">
+      <div className="text-center m-auto mt-40 lg:mt-20 md:mt-2 sm:mt-2 sm:mb-0 mb-32">
         <FieldName
           showH2
           showP

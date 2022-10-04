@@ -14,7 +14,7 @@ const LandingOffers = () => {
           >
             می توانید در باکس زیر پیشنهاد خود را وارد کنید
           </LandingTitle>
-          <div className="bg-gray-300 grid grid-cols-1 md:grid-cols-2">
+          <div className="md:bg-gray-300 grid grid-cols-1 md:grid-cols-2">
             <div className="flex justify-center items-center">
               <OffersForm />
             </div>

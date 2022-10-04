@@ -8,18 +8,18 @@ const Dashboard = () => {
     <>
       <PanelHeader />
       {/* 1 */}
-      <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-3xl">
+      <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-xl animate-[onLoadPanel_1s_ease-in]">
         <div
           onClick={() => navigate('/user-panel/editProfile')}
-          className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-3xl rounded-br-3xl
-           sm:rounded-tl-none sm:rounded-br-none sm:rounded-tr-3xl sm:rounded-bl-3xl border-4 text-xl font-bold text-blue-500
+          className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-xl rounded-br-xl
+           sm:rounded-tl-none sm:rounded-br-none sm:rounded-tr-xl sm:rounded-bl-xl border-4 text-xl font-bold text-blue-500
            hover:bg-lite-purple hover:text-white transition ease-in-out duration-300 cursor-pointer"
         >
           ویرایش
         </div>
         <div
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-10 border-4 rounded-3xl text-gray-400
-          px-3 lg:px-10  py-5  text-lg lg:text-2xl"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-10 border-4 rounded-xl text-gray-400
+          px-3 lg:px-10 py-5 text-lg lg:text-2xl"
         >
           <p>
             نام:{' '}
@@ -57,14 +57,14 @@ const Dashboard = () => {
       </div>
 
       {/* end 1 */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2 lg:mx-10 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2 lg:mx-10 mt-6 animate-[onLoadPanel_1.5s_ease-in]">
         <div>
           <p className="text-gray-500 text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6">
             آخرین دوره ثبت شده:
           </p>
           <Link to="/single-course">
             <div
-              className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
+              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
               <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />
@@ -86,7 +86,7 @@ const Dashboard = () => {
           </p>
           <Link to="/single-course">
             <div
-              className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
               <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />
@@ -103,7 +103,7 @@ const Dashboard = () => {
           </Link>
           <Link to="/single-course">
             <div
-              className="border-4 rounded-3xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer"
             >
               <img src={reactIcon} className="w-20 group-hover:rotate-[360deg] duration-700" />

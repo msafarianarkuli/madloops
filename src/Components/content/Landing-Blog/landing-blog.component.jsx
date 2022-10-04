@@ -60,7 +60,7 @@ const LandingBlog = () => {
                 <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-lg bg-white z-100">
                   <img
                     src={item.image}
-                    className="lg:p-2 xl:w-[600px] h-full xl:h-[340px] lg:h-[320px] lg:rounded-2xl"
+                    className="lg:p-2 xl:w-[600px] w-full md:h-[204px] h-[146px] sm:h-[222px] xl:h-[340px] lg:h-[320px] lg:rounded-2xl rounded-r-lg md:rounded-lg"
                     alt=""
                   />
                 </div>
@@ -116,20 +116,20 @@ const LandingBlog = () => {
           );
         })}
         <div
-          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl:left-1 lg:top-[55%] md:top-[48%] md:left-3 sm:top-[73%] sm:left-12 text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
+          className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl:left-1 lg:top-[55%] md:top-[48%] md:left-3 sm:top-[79%] sm:left-12 text-3xl rounded-lg md:rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
           ref={nextElRef}
         >
           <BsArrowLeft className="w-full h-full text-[#929292]" />
         </div>
         <div
-          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl::right-1 lg:top-[55%] md:top-[48%] md:right-3 sm:top-[73%] sm:right-[75%] text-3xl rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
+          className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl::right-1 lg:top-[55%] md:top-[48%] md:right-3 sm:top-[79%] sm:right-[75%] text-3xl rounded-lg md:rounded-full duration-300 bg-white cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
           ref={prevElRef}
         >
           <BsArrowRight className="w-full h-full text-[#929292]" />
         </div>
       </Swiper>
       <Link to="blogs">
-        <Button classButton="mx-9 text-[10px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-[#5DC8B2] sm:outline hover:bg-[#5DC8B2] rounded-lg hover:text-white duration-150 lg:hidden sm:block">
+        <Button classButton="mx-10 mt-3 text-[16px] sm:text-[20px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-[#5DC8B2] sm:outline hover:bg-[#5DC8B2] rounded-md md:rounded-lg hover:text-white duration-150 lg:hidden sm:block">
           مطالب بیشتر
         </Button>
       </Link>

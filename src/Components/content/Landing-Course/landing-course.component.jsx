@@ -44,7 +44,7 @@ const LandingCourse = () => {
           </LandingTitle>
           <GroupButton items={groupBtnList} onSorting={handleSorting} />
           <Swiper
-            className="my-10"
+            className="my-10 h-[540px]"
             spaceBetween={20}
             slidesPerView={4}
             breakpoints={{
