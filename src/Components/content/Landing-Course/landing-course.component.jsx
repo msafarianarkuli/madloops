@@ -39,7 +39,10 @@ const LandingCourse = () => {
     <>
       <section className="text-center relative dark:bg-dark-primary">
         <div className="container mx-auto">
-          <LandingTitle title="دوره ها" className="pt-20 pb-5">
+          <LandingTitle
+            title="دوره ها"
+            className="pt-20 sm:pt-10 pb-5"
+          >
             دوره مورد نظر خود را کاوش کنید
           </LandingTitle>
           <GroupButton

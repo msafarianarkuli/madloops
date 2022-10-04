@@ -4,7 +4,7 @@ const LandingServices = () => {
   return (
     <section className="dark:bg-dark-primary">
       <div className="container m-auto">
-        <div className="text-center m-auto pt-40 lg:pt-20 md:pt-2 sm:pt-2 pb-10 sm:pb-28">
+        <div className="text-center m-auto pt-40 lg:pt-20 md:pt-2 sm:pt-2 pb-10">
           <FieldName
             showH2
             showP
@@ -14,7 +14,7 @@ const LandingServices = () => {
             field="خدماتی در اختیار شما میگذاریم که"
           />
 
-          <div className="xl:bg-lines-dash lg:bg-white bg-no-repeat grid grid-cols-4 mt-12 lg:mt-36 md:mt-28 sm:mt-28 dark:bg-dark-primary">
+          <div className="xl:bg-lines-dash lg:bg-white bg-no-repeat md:h-96 grid grid-cols-4 mt-12 lg:mt-36 md:mt-28 sm:mt-28 dark:bg-dark-primary">
             <div className="sm:col-span-1 col-span-2">
               <div
                 className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink dark:bg-dark-secondary m-auto 
