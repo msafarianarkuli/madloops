@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
@@ -65,14 +65,19 @@ const Navigation = () => {
           <div className="menu 2xl:col-span-4 xl:col-span-4 lg:col-span-3 md:col-span-5 md:block hidden">
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
-                <BsCartFill
+                <img
+                  src={require("../../Assets/bag.svg").default}
+                  alt=""
                   onMouseOver={() => setIsCartOpen(!isCartOpen)}
                   onMouseOut={() => setIsCartOpen(!isCartOpen)}
-                  className="h-9 w-fit dark:text-lite-purple text-deep-purple cursor-pointer relative"
+                  className="h-9 w-fit  fill-black dark:fill-dark-primary-title cursor-pointer relative z-30"
                 />
-                <div className="absolute text-white dark:text-dark-primary top-5 md:left-4 text-md font-bold md:block hidden z-10 cursor-pointer">
-                  {cartCount}
-                </div>
+                {console.log(isCartOpen)}
+                {cartCount >= 1 && (
+                  <div className="absolute bg-red-500 rounded-md w-5 h-5 text-center text-base text-white dark:text-dark-primary top-1 md:-left-2 font-bold md:block hidden z-40">
+                    {cartCount}
+                  </div>
+                )}
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
                   <Link to="/user-panel">
                     <SiCpanel className="text-5xl text-deep-purple animate-[onHoverGoogle_1s_ease-in-out_infinite]" />

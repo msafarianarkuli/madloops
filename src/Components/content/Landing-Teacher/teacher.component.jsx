@@ -1,13 +1,13 @@
-import Data from '../../../Core/services/Fake Service/Teacher';
-import { BsPlayFill } from 'react-icons/bs';
-import { FieldName } from './../../common/field-name-component/field-name.component';
-import { Button } from './../../common/button-component/button.component';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Autoplay } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import useSwiperRef from './../Landing-Blog/swiper-wrapper-button';
-import { useNavigate } from 'react-router-dom';
+import Data from "../../../Core/services/Fake Service/Teacher";
+import { BsPlayFill } from "react-icons/bs";
+import { FieldName } from "./../../common/field-name-component/field-name.component";
+import { Button } from "./../../common/button-component/button.component";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
+import { useNavigate } from "react-router-dom";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -16,8 +16,7 @@ const LandingTeacher = () => {
     const trimmedLead =
       value
         .substring(0, 100)
-        .substring(0, value.substring(0, 100).lastIndexOf(' ')) +
-      '...';
+        .substring(0, value.substring(0, 100).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
 
@@ -78,12 +77,12 @@ const LandingTeacher = () => {
                   <div className="grid lg:grid-cols-2 w-full rounded-xl bg-[#F4F5F9] dark:bg-dark-secondary">
                     <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
-                        <h2 className="text-xl my-5 sm:block lg:hidden hidden">
+                        <h2 className="text-xl my-5 sm:block lg:hidden hidden dark:text-dark-primary-title">
                           {item.teacher}
                         </h2>
                         <div className="md:mr-14 lg:hidden sm:block cursor-pointer">
                           <img
-                            src={require('../../../Assets/mohsen.jpg')}
+                            src={require("../../../Assets/mohsen.jpg")}
                             className="rounded-full sm:block lg:hidden sm:w-16 w-24 mt-5"
                           />
                         </div>
@@ -114,26 +113,17 @@ const LandingTeacher = () => {
                       />
                       <div className="lg:block hidden">
                         <img
-                          src={
-                            require('../../../Assets/Ellipse 3.svg')
-                              .default
-                          }
+                          src={require("../../../Assets/Ellipse 3.svg").default}
                           className="xl:w-28 lg:w-24 2xl:absolute 2xl:top-36 2xl:right-32 xl:absolute xl:top-36 xl:right-24 lg:absolute lg:top-32 lg:right-12 -z-10"
                           alt=""
                         />
                         <img
-                          src={
-                            require('../../../Assets/Ellipse 4.svg')
-                              .default
-                          }
+                          src={require("../../../Assets/Ellipse 4.svg").default}
                           className="xl:w-16 lg:w-14 2xl:absolute 2xl:top-4 2xl:right-44 xl:absolute xl:top-4 xl:right-36 lg:absolute lg:top-4 lg:right-24 -z-10"
                           alt=""
                         />
                         <img
-                          src={
-                            require('../../../Assets/Ellipse 5.svg')
-                              .default
-                          }
+                          src={require("../../../Assets/Ellipse 5.svg").default}
                           className="xl:w-24 lg:w-20 2xl:absolute 2xl:top-32 2xl:right-72 xl:absolute xl:top-32 xl:right-64 lg:absolute lg:top-32 lg:right-44 -z-10"
                           alt=""
                         />
