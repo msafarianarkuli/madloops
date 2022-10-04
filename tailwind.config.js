@@ -2,6 +2,7 @@
 
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       transitionProperty: {
@@ -55,6 +56,11 @@ module.exports = {
         'cool-gray': '#555555',
         'lite-violet': '#D1C1F6',
         'lite-blue': '#005DFD',
+        'dark-primary': '#1c1c1c',
+        'dark-secondary': '#282828',
+        'dark-primary-title': '#EFEFEF',
+        'dark-secondary-title': '#CCCDCC',
+        'dark-text': '#C8C0AD',
       },
       keyframes: {
         onLoadAnim: {
@@ -77,9 +83,9 @@ module.exports = {
           '100%': { transform: 'translateX(0)' },
         },
         onLoadPanel: {
-          '0%': {transform: 'translateY(-10px)', opacity: '0'},
+          '0%': { transform: 'translateY(-10px)', opacity: '0' },
           '100%': { transform: 'translateY(0)' },
-        },        
+        },
       },
       animation: {
         onLoadAnim: 'onLoadAnim 1.5s ease-in-out',

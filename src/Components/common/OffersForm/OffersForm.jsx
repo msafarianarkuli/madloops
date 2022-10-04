@@ -6,8 +6,10 @@ import Input from '../Inputs/TextInputs/Input';
 import Textarea from '../Inputs/TextareaInputs/Textarea';
 const OffersForm = () => {
   return (
-    <div className="form py-2 md:bg-transparent bg-gray-200 shadow-md">
-      <label htmlFor="email">ایمیل:</label>
+    <div className="form py-2 md:bg-transparent bg-gray-200 dark:bg-transparent shadow-md">
+      <label htmlFor="email" className="dark:text-dark-primary-title">
+        ایمیل:
+      </label>
       <Formik
         initialValues={{ email: '', message: '' }}
         validationSchema={Yup.object({
@@ -32,7 +34,10 @@ const OffersForm = () => {
             placeholder="متن خود را وارد کنید..."
             className="rounded-lg py-2 px-2 mt-2 min-h-full max-h-56 border border-gray-400 hover:border-lite-purple bg-transparent input"
           />
-          <Button type="submit" classButton="btn btn-primary w-full text-lg mb-1 pb-1">
+          <Button
+            type="submit"
+            classButton="btn btn-primary w-full text-lg mb-1 pb-1"
+          >
             ارسال
           </Button>
         </Form>
