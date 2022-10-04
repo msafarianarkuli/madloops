@@ -88,11 +88,11 @@
   }
 
   .tab {
-    @apply px-2 lg:px-4 font-semibold py-2 rounded-t-xl border-t-2 border-r-2 border-l-2 -mb-[1px] ml-3;
+    @apply px-2 lg:px-4 font-semibold py-2 rounded-t-xl border-t-2 border-r-2 border-l-2 -mb-[1.5px] ml-3;
   }
 
   .tab-active {
-    @apply text-[#7F56DA] border-[#7F56DA] outline-none;
+    @apply text-[#7F56DA] z-10 border-t-2 border-gray-200 outline-none;
   }
 
   .tab-disabled {

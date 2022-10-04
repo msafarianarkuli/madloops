@@ -21,7 +21,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
   return (
     <>
       <div
-        className="border-2 border-[#7F56DA] rounded-xl p-3 my-3"
+        className="2xl:w-[830px] lg:w-[700px] md:w-[580px] sm:w-[450px] w-[200px] mx-auto rounded-lg p-3 my-3"
         dir="rtl"
       >
         <div className="flex justify-between">
@@ -51,7 +51,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
             </span>
             <img
               src={liked ? likeFillIcon : likeIcon}
-              className="w-5 h-5 sm:w-6 sm:h-6 mb-3"
+              className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
               onClick={() => onLike(id)}
             />
             <span className="px-3 w-8 mb-1">
@@ -59,7 +59,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
             </span>
             <img
               src={disLiked ? disLikeFillIcon : disLikeIcon}
-              className="w-5 h-5 sm:w-6 sm:h-6"
+              className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
               onClick={() => onDisLike(id)}
             />
           </div>
