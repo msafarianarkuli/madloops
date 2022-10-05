@@ -66,11 +66,11 @@ const Navigation = () => {
               <div className="flex justify-end items-center col-span-1 relative">
                 <Link
                   className="h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 dark:hover:bg-gray-400 hover:bg-red-100 z-30"
-                  onMouseOver={() => setIsCartOpen(!isCartOpen)}
-                  onMouseOut={() => setIsCartOpen(!isCartOpen)}
+                  onMouseEnter={() => setIsCartOpen(!isCartOpen)}
+                  onMouseLeave={() => setIsCartOpen(!isCartOpen)}
                   to="/cart"
                 >
-                  <RiShoppingCartLine className="p-2 h-full w-full text-black dark:text-white" />
+                  <RiShoppingCartLine className=" p-2 h-full w-full text-black dark:text-white" />
                 </Link>
                 {cartCount >= 1 && (
                   <div className="absolute bg-red-500 rounded-md w-5 h-5 text-center text-base text-white top-1 md:-left-2 font-bold md:block hidden z-40">

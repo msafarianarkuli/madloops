@@ -7,15 +7,14 @@ const CartHover = () => {
 
   return (
     <div
-      className="md:grid hidden w-96 h-300 dark:border-white-secondary border-[1px] fixed top-[50px] left-48 z-40 overflow-y-scroll
-        faq-container rounded-md"
+      className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-md"
       style={{
         opacity: !isCartOpen ? "0" : "1",
         visibility: !isCartOpen ? "hidden" : "visible",
         transition: "all ease-in 200ms",
       }}
-      onMouseOver={() => setIsCartOpen(isCartOpen)}
-      onMouseOut={() => setIsCartOpen(!isCartOpen)}
+      onMouseEnter={() => setIsCartOpen(isCartOpen)}
+      onMouseLeave={() => setIsCartOpen(!isCartOpen)}
     >
       {cartItems.map((item) => {
         return (
