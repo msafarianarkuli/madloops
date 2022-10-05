@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
 import { useNavigate } from "react-router-dom";
+import "./swi.styles.scss";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -38,15 +39,14 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
-          className="swiper-v mt-10 w-7/12"
+          className="swiper-v mt-10"
           autoplay={{
             delay: 3000,
           }}
-          // initialSlide={2}
-          // slidesPerView={1}
+          slidesPerView={2}
+          initialSlide={2}
           grabCursor={true}
           freeMode={true}
-          loop={false}
           roundLengths={true}
           navigation={{
             nextEl,
@@ -54,35 +54,20 @@ const LandingTeacher = () => {
           }}
           centerInsufficientSlides={true}
           centeredSlides={true}
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            640: {
-              slidesPerView: 1,
-            },
-            768: {
-              slidesPerView: 1,
-            },
-            1024: {
-              slidesPerView: 1,
-            },
-          }}
         >
-          {teachers.map((item, index) => (
-            <SwiperSlide className="my-auto flex" key={item.id}>
-              {
-                ({ isActive, isPrev, isNext }) => (
-                  // isActive ? (
-                  <div className="grid lg:grid-cols-2 w-full rounded-xl bg-[#F4F5F9] dark:bg-dark-secondary">
-                    <div className="sm:mr-8 p-3 sm:ml-8 lg:ml-0">
+          {teachers.map((item) => (
+            <SwiperSlide className="flex my-auto" key={item.id}>
+              {({ isActive, isPrev, isNext }) =>
+                isActive ? (
+                  <div className="grid lg:grid-cols-2 rounded-xl bg-[#F4F5F9] dark:bg-dark-secondary">
+                    <div className="sm:mr-6 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden dark:text-dark-primary-title">
                           {item.teacher}
                         </h2>
                         <div className="md:mr-14 lg:hidden sm:block cursor-pointer">
                           <img
-                            src={require("../../../Assets/mohsen.jpg")}
+                            src={item.img}
                             className="rounded-full sm:block lg:hidden sm:w-16 w-24 mt-5"
                           />
                         </div>
@@ -100,13 +85,13 @@ const LandingTeacher = () => {
                       </p>
                       <Button
                         onClick={() => navigate(`teacher/${item.id}`)}
-                        classButton="text-white bg-[#5DC8B2] w-20 rounded-lg p-2 my-5 hover:scale-110 transition-transform ease-in duration-150 "
+                        classButton="text-white bg-[#5DC8B2] w-20 rounded-lg p-2 mt-16 hover:scale-110 transition-transform ease-in duration-150 "
                       >
                         بیشتر
                       </Button>
                     </div>
 
-                    <div className="relative lg:block sm:hidden lg:mb-7 z-0">
+                    <div className="relative 2xl:left-6 xl:left-12 left-6 lg:block sm:hidden lg:mb-5 z-0">
                       <img
                         src={item.img}
                         className="rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
@@ -130,26 +115,15 @@ const LandingTeacher = () => {
                       </div>
                     </div>
                   </div>
+                ) : isPrev || isNext ? (
+                  <div className="m-auto flex justify-center rounded-full w-28 p-3 opacity-75 bg-gray-200">
+                    <img src={item.img} className="rounded-full w-28" alt="" />
+                  </div>
+                ) : (
+                  <div className="m-auto flex rounded-full w-14 p-2 opacity-50 bg-gray-200">
+                    <img src={item.img} className="rounded-full w-14" alt="" />
+                  </div>
                 )
-                // ) : (
-                //   <div
-                //     className={
-                //       isPrev || isNext
-                //         ? "m-auto flex justify-center rounded-full w-36 p-3 opacity-75 bg-gray-200"
-                //         : "m-auto flex rounded-full w-20 p-2 opacity-50 bg-gray-200"
-                //     }
-                //   >
-                //     <img
-                //       src={require("../../../Assets/mohsen.jpg")}
-                //       className={
-                //         isPrev || isNext
-                //           ? "rounded-full w-36"
-                //           : "rounded-full w-28"
-                //       }
-                //       alt=""
-                //     />
-                //   </div>
-                // )
               }
             </SwiperSlide>
           ))}
