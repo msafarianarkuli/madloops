@@ -41,7 +41,7 @@ const SingleBlog = () => {
     return trimmedLead;
   };
 
-  const handlesingleblog = (id) => {
+  const handleReloadBlog = (id) => {
     navigate(`/blogs/${id}`);
     window.location.reload();
   };
@@ -122,7 +122,7 @@ const SingleBlog = () => {
                 return (
                   <div
                     // onClick={() => navigate(`/blogs/${item.id}`)}
-                    onClick={() => handlesingleblog(item.id)}
+                    onClick={() => handleReloadBlog(item.id)}
                     key={item.id}
                     className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >
