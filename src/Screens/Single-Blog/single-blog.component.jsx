@@ -1,51 +1,40 @@
-import { useState } from 'react';
-import {
-  Link,
-  NavLink,
-  useLocation,
-  useNavigate,
-  useParams,
-} from 'react-router-dom';
-import { FieldName } from '../../Components/common/field-name-component/field-name.component';
-import { FiClock } from 'react-icons/fi';
-import { Button } from '../../Components/common/button-component/button.component';
-import CustomTab from '../../Components/common/tabs/CustomTab';
-import commentData from '../../Core/services/Fake Service/CourseComments';
-import tabData from '../../Core/services/Fake Service/BlogTabList';
-import { getBlog } from '../../Core/services/Fake Service/Blogs';
-import Data from './../../Core/services/Fake Service/Blogs';
-import { handleDateSortingDes } from '../../Core/utils/sorting';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { FieldName } from "../../Components/common/field-name-component/field-name.component";
+import { FiClock } from "react-icons/fi";
+import { Button } from "../../Components/common/button-component/button.component";
+import CustomTab from "../../Components/common/tabs/CustomTab";
+import commentData from "../../Core/services/Fake Service/CourseComments";
+import tabData from "../../Core/services/Fake Service/BlogTabList";
+import { getBlog } from "../../Core/services/Fake Service/Blogs";
+import Data from "./../../Core/services/Fake Service/Blogs";
+import { handleDateSortingDes } from "../../Core/utils/sorting";
 
 const SingleBlog = () => {
   const { blogs } = Data;
   const [suggestions] = useState(handleDateSortingDes(blogs));
   const { id } = useParams();
-  const [blogItem, setBlogItem] = useState(getBlog(Number(id)));
-  const location = useLocation();
+  const [blogItem, setBlogItem] = useState({});
   const navigate = useNavigate();
   const handleLeadP = (value) => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
-      '...';
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
   const handleLeadH = (value) => {
     const trimmedLead =
       value
         .substring(0, 42)
-        .substring(0, value.substring(0, 40).lastIndexOf(' ')) +
-      '...';
+        .substring(0, value.substring(0, 40).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
 
-  const handleReloadBlog = (id) => {
-    navigate(`/blogs/${id}`);
-    window.location.reload();
-  };
-
+  useEffect(() => {
+    setBlogItem(getBlog(Number(id)));
+  }, [id]);
+  console.log(blogItem, id);
   return (
     <div className="container m-auto">
       <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">
@@ -82,7 +71,7 @@ const SingleBlog = () => {
                   <span className="">
                     <img
                       className="w-10 m-2 sm:mr-5 mr-20"
-                      src={require('../../Assets/img/profile.png')}
+                      src={require("../../Assets/img/profile.png")}
                       alt="profile"
                     />
                   </span>
@@ -105,10 +94,7 @@ const SingleBlog = () => {
               </div>
             </div>
             <div className="my-10 pb-5">
-              <CustomTab
-                commentData={commentData}
-                tabData={tabData}
-              />
+              <CustomTab commentData={commentData} tabData={tabData} />
             </div>
           </div>
         </div>
@@ -121,8 +107,7 @@ const SingleBlog = () => {
               {suggestions.map((item) => {
                 return (
                   <div
-                    // onClick={() => navigate(`/blogs/${item.id}`)}
-                    onClick={() => handleReloadBlog(item.id)}
+                    onClick={() => navigate(`/blogs/${item.id}`)}
                     key={item.id}
                     className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >
