@@ -1,11 +1,11 @@
 import React from 'react';
 import { useField } from 'formik';
 
-const Textarea = ({ label, className, ...props }) => {
+const Textarea = ({ label, className, conClassName, ...props }) => {
   const [field, meta] = useField(props);
   const { name } = props;
   return (
-    <div>
+    <div className={conClassName}>
       {label ? (
         <label
           htmlFor={name}

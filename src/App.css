@@ -59,9 +59,6 @@
   .custom-shadow {
     box-shadow: 0 0 10px #e2e2e2;
   }
-  /* .dark-custom-shadow {
-    box-shadow: 0 0 10px #e2e2e2;
-  } */
   .shadow-purple {
     box-shadow: 0 0 10px #887da2;
   }
@@ -84,7 +81,7 @@
     @apply flex justify-between text-gray-400 bg-[#E8E8E8] text-lg py-2 px-5;
   }
   .course-detail-item-even {
-    @apply flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5;
+    @apply flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5 dark:bg-dark-secondary;
   }
 
   .tab {

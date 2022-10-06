@@ -10,7 +10,7 @@ import {
 const CourseDetails = () => {
   return (
     <div className="course-Detail-container">
-      <div className="course-detail-title-box">
+      <div className="course-detail-title-box dark:bg-dark-secondary">
         <p className="course-detail-title">مشخصات دوره</p>
       </div>
       <div className="course-detail-item-odd">
