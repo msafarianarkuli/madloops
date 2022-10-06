@@ -1,28 +1,28 @@
-import React from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
-import "./App.css";
-import Navigation from "../src/Components/Navigation/navigation.component";
-import LandingPage from "./Screens/Landing/landing-page.component";
-import BlogsPage from "./Screens/Blogs/blogs-page.component";
-import SingleBlog from "./Screens/Single-Blog/single-blog.component";
-import CoursesPage from "./Screens/Courses/courses-page.component";
-import ContactUs from "./Screens/ContactUs/ContactUs";
-import SingleCourse from "./Screens/SingleCourse/SingleCourse";
-import Footer from "./Components/Footer/footer.component";
-import NotFoundPage from "./Screens/Not-Found/not-found.component";
-import Call from "./Components/content/ContactUs/Call";
-import SendMessage from "./Components/content/ContactUs/SendMessage";
-import Location from "./Components/content/ContactUs/Location";
-import UserPanel from "./Screens/Panel/UserPanel";
-import Dashboard from "./Components/content/Panel/Dashboard";
-import MyCourses from "./Components/content/Panel/MyCourses";
-import CoursesList from "./Components/content/Panel/CoursesList";
-import EditProfile from "./Components/content/Panel/EditProfile";
-import SignUpPage from "./Screens/Sign-up/sign-up.component";
-import ForgetPasswordPage from "./Screens/Forget-Password/forget-password.component";
-import LoginPage from "./Screens/Login/login.component";
-import CartPage from "./Components/content/Cart/cart.component";
-import TeacherPage from "./Components/content/Teacher/teacher.component";
+import React from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import './App.css';
+import Navigation from '../src/Components/Navigation/navigation.component';
+import LandingPage from './Screens/Landing/landing-page.component';
+import BlogsPage from './Screens/Blogs/blogs-page.component';
+import SingleBlog from './Screens/Single-Blog/single-blog.component';
+import CoursesPage from './Screens/Courses/courses-page.component';
+import ContactUs from './Screens/ContactUs/ContactUs';
+import SingleCourse from './Screens/SingleCourse/SingleCourse';
+import Footer from './Components/Footer/footer.component';
+import NotFoundPage from './Screens/Not-Found/not-found.component';
+import Call from './Components/content/ContactUs/Call';
+import SendMessage from './Components/content/ContactUs/SendMessage';
+import Location from './Components/content/ContactUs/Location';
+import UserPanel from './Screens/Panel/UserPanel';
+import Dashboard from './Components/content/Panel/Dashboard';
+import MyCourses from './Components/content/Panel/MyCourses';
+import CoursesList from './Components/content/Panel/CoursesList';
+import EditProfile from './Components/content/Panel/EditProfile';
+import SignUpPage from './Screens/Sign-up/sign-up.component';
+import ForgetPasswordPage from './Screens/Forget-Password/forget-password.component';
+import LoginPage from './Screens/Login/login.component';
+import CartPage from './Components/content/Cart/cart.component';
+import TeacherPage from './Components/content/Teacher/teacher.component';
 
 const App = () => {
   const { pathname } = useLocation();
@@ -57,13 +57,13 @@ const App = () => {
         <Route path="sign-up" element={<SignUpPage />} />
         <Route path="forget-pass" element={<ForgetPasswordPage />} />
       </Routes>
-      {pathname === "/login" ||
-      pathname === "/sign-up" ||
-      pathname === "/forget-pass" ||
-      pathname === "/user-panel" ||
-      pathname === "/user-panel/myCourses" ||
-      pathname === "/user-panel/courseList" ||
-      pathname === "/user-panel/editProfile" ? null : (
+      {pathname === '/login' ||
+      pathname === '/sign-up' ||
+      pathname === '/forget-pass' ||
+      pathname === '/user-panel' ||
+      pathname === '/user-panel/myCourses' ||
+      pathname === '/user-panel/courseList' ||
+      pathname === '/user-panel/editProfile' ? null : (
         <Footer />
       )}
     </div>

@@ -1,15 +1,21 @@
-import { useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { FieldName } from "../../Components/common/field-name-component/field-name.component";
-import { FiClock } from "react-icons/fi";
-import { Button } from "../../Components/common/button-component/button.component";
-import CustomTab from "../../Components/common/tabs/CustomTab";
-import commentData from "../../Core/services/Fake Service/CourseComments";
-import tabData from "../../Core/services/Fake Service/BlogTabList";
-import { getBlog } from "../../Core/services/Fake Service/Blogs";
-import Data from "./../../Core/services/Fake Service/Blogs";
-import { handleDateSortingDes } from "../../Core/utils/sorting";
-import { useEffect } from "react";
+import { useState } from 'react';
+import {
+  Link,
+  NavLink,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
+import { FieldName } from '../../Components/common/field-name-component/field-name.component';
+import { FiClock } from 'react-icons/fi';
+import { Button } from '../../Components/common/button-component/button.component';
+import CustomTab from '../../Components/common/tabs/CustomTab';
+import commentData from '../../Core/services/Fake Service/CourseComments';
+import tabData from '../../Core/services/Fake Service/BlogTabList';
+import { getBlog } from '../../Core/services/Fake Service/Blogs';
+import Data from './../../Core/services/Fake Service/Blogs';
+import { handleDateSortingDes } from '../../Core/utils/sorting';
+import { useEffect } from 'react';
 
 const SingleBlog = () => {
   const { blogs } = Data;
@@ -22,15 +28,22 @@ const SingleBlog = () => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
   const handleLeadH = (value) => {
     const trimmedLead =
       value
         .substring(0, 42)
-        .substring(0, value.substring(0, 40).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 40).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
+  };
+
+  const handlesingleblog = (id) => {
+    navigate(`/blogs/${id}`);
+    window.location.reload();
   };
 
   return (
@@ -69,7 +82,7 @@ const SingleBlog = () => {
                   <span className="">
                     <img
                       className="w-10 m-2 sm:mr-5 mr-20"
-                      src={require("../../Assets/img/profile.png")}
+                      src={require('../../Assets/img/profile.png')}
                       alt="profile"
                     />
                   </span>
@@ -92,7 +105,10 @@ const SingleBlog = () => {
               </div>
             </div>
             <div className="my-10 pb-5">
-              <CustomTab commentData={commentData} tabData={tabData} />
+              <CustomTab
+                commentData={commentData}
+                tabData={tabData}
+              />
             </div>
           </div>
         </div>
@@ -105,7 +121,8 @@ const SingleBlog = () => {
               {suggestions.map((item) => {
                 return (
                   <div
-                    onClick={() => navigate(`/blogs/${item.id}`)}
+                    // onClick={() => navigate(`/blogs/${item.id}`)}
+                    onClick={() => handlesingleblog(item.id)}
                     key={item.id}
                     className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >
@@ -123,6 +140,7 @@ const SingleBlog = () => {
                         title={handleLeadH(item.title)}
                         classH2Field="sm:text-2xl text-xl pt-3 mr-5 text-gray-700"
                       />
+
                       <p className="mr-3 sm:text-lg text-md sm:w-48 md:w-72 lg:w-80 xl:w-48 w-44 text-gray-400">
                         {handleLeadP(item.description)}
                       </p>

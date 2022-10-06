@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
 import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
@@ -8,9 +8,6 @@ import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrer
 import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
 import CustomTab from '../../Components/common/tabs/CustomTab';
-
-import singleCourseImg from '../../Assets/singleCourse.jpg';
-
 import faqData from '../../Core/services/Fake Service/faqs';
 import commentData from '../../Core/services/Fake Service/CourseComments';
 import tabData from '../../Core/services/Fake Service/CourseTabList';
