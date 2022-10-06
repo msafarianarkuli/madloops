@@ -39,7 +39,7 @@ const Comment = ({
   return (
     <>
       <div
-        className="border-2 bg-slate-100 rounded-lg p-3 mb-3"
+        className="border-2 bg-slate-100 rounded-lg p-3 mb-3 dark:bg-dark-secondary"
         dir="rtl"
       >
         <div className="flex justify-between">
@@ -50,7 +50,7 @@ const Comment = ({
               className="w-8 h-8 sm:w-14 sm:h-14 rounded-full ml-3"
             />
             <div className="flex flex-col">
-              <p className="text-lg sm:text-xl lg:text-2xl mb-1">
+              <p className="text-lg sm:text-xl lg:text-2xl mb-1 dark:text-dark-secondary-title">
                 {userName}
               </p>
               <div className="flex">
@@ -82,7 +82,7 @@ const Comment = ({
             />
           </div>
         </div>
-        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all">
+        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all dark:text-dark-text">
           {body}
         </p>
         {answerActive ? (

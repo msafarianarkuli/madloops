@@ -21,7 +21,7 @@ const SingleBlog = () => {
   const { blogs } = Data;
   const [suggestions] = useState(handleDateSortingDes(blogs));
   const { id } = useParams();
-  const [blogItem, setBlogItem] = useState(getBlog(Number(id)));
+  const [blogItem, setBlogItem] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
   const handleLeadP = (value) => {
@@ -41,11 +41,9 @@ const SingleBlog = () => {
     return trimmedLead;
   };
 
-  const handleReloadBlog = (id) => {
-    navigate(`/blogs/${id}`);
-    window.location.reload();
-  };
-
+  useEffect(() => {
+    setBlogItem(getBlog(Number(id)));
+  }, [id]);
   return (
     <div className="container m-auto">
       <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">
@@ -121,8 +119,7 @@ const SingleBlog = () => {
               {suggestions.map((item) => {
                 return (
                   <div
-                    // onClick={() => navigate(`/blogs/${item.id}`)}
-                    onClick={() => handleReloadBlog(item.id)}
+                    onClick={() => navigate(`/blogs/${item.id}`)}
                     key={item.id}
                     className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >

@@ -32,7 +32,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
               className="w-8 h-8 sm:w-14 sm:h-14 rounded-full ml-3"
             />
             <div className="flex flex-col">
-              <p className="text-lg sm:text-xl lg:text-2xl mb-1">
+              <p className="text-lg sm:text-xl lg:text-2xl mb-1 dark:text-dark-secondary-title">
                 {userName}
               </p>
               <div className="flex">
@@ -64,7 +64,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
             />
           </div>
         </div>
-        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all">
+        <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all dark:text-dark-text">
           {body}
         </p>
       </div>
