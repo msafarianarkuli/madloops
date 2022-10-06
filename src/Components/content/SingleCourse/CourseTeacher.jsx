@@ -13,7 +13,7 @@ const CourseTeacher = () => {
       </div>
       <div className="flex text-gray-400 text-lg bg-[#E8E8E8] h-full">
         <img src={bahr} className="w-40 h-full object-cover" />
-        <div className="p-4">
+        <div className="p-4 dark:bg-dark-tertiary dark:text-dark-text">
           <h3 className="text-xl">استاد بحرالعلوم</h3>
           <p className="text-base">
             آموزش پروژه محور انگولار اولین دوره از سری دوره های هیولا

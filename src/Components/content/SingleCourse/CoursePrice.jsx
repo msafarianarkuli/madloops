@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { FaCoins } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
-import { CartContext } from "../../../Core/context/cart.context";
-import { Button } from "./../../common/button-component/button.component";
+import React, { useContext } from 'react';
+import { FaCoins } from 'react-icons/fa';
+import { TbDiscount2 } from 'react-icons/tb';
+import { CartContext } from '../../../Core/context/cart.context';
+import { Button } from './../../common/button-component/button.component';
 
 const CoursePrice = ({ item }) => {
   const { AddItemToCart } = useContext(CartContext);
@@ -19,11 +19,13 @@ const CoursePrice = ({ item }) => {
         </div>
         <div>
           <p>
-            <del className="line-through decoration-red-600">200،000 تومان</del>
+            <del className="line-through decoration-red-600">
+              200،000 تومان
+            </del>
           </p>
         </div>
       </div>
-      <div className="flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5">
+      <div className="flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5 dark:bg-dark-secondary dark:text-dark-text">
         <div className="flex items-center">
           <TbDiscount2 />
           <p className="mr-3">قیمت دوره با تخفیف:</p>
@@ -32,7 +34,7 @@ const CoursePrice = ({ item }) => {
           <p className="text-[#42CD36]">200،000 تومان</p>
         </div>
       </div>
-      <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8]">
+      <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8] dark:bg-dark-tertiary dark:text-dark-text">
         <div>
           <p className="text-[#42CD36]">09:34:50:28</p>
         </div>

@@ -8,11 +8,11 @@ const CourseProperTo = () => {
           این دوره برای چه کسی مناسبه
         </p>
       </div>
-      <div className="flex items-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8]">
+      <div className="flex items-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8] dark:bg-dark-tertiary dark:text-dark-text">
         <img src={check} alt="" className="w-5 h-5 ml-3" />
         <p>میتونی سایت های عالی پیاده سازی کنی</p>
       </div>
-      <div className="flex items-center text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5">
+      <div className="flex items-center text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5 dark:bg-dark-secondary dark:text-dark-text">
         <img src={check} alt="" className="w-5 h-5 ml-3" />
         <p>از پشتیبانی قدرتمند گوگل برخوردار میشی</p>
       </div>

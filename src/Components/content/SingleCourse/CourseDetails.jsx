@@ -10,7 +10,7 @@ import {
 const CourseDetails = () => {
   return (
     <div className="course-Detail-container">
-      <div className="course-detail-title-box dark:bg-dark-secondary">
+      <div className="course-detail-title-box">
         <p className="course-detail-title">مشخصات دوره</p>
       </div>
       <div className="course-detail-item-odd">
@@ -18,7 +18,7 @@ const CourseDetails = () => {
           <FaGraduationCap />
           <p className="mr-3">نام دوره:</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>انگولار</p>
         </div>
       </div>
@@ -27,7 +27,7 @@ const CourseDetails = () => {
           <FaCalendarCheck />
           <p className="mr-3">ترم ارائه شده:</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>انگولار</p>
         </div>
       </div>
@@ -36,7 +36,7 @@ const CourseDetails = () => {
           <FaHourglassStart />
           <p className="mr-3">شروع ترم:</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>1401/10/13</p>
         </div>
       </div>
@@ -45,7 +45,7 @@ const CourseDetails = () => {
           <FaHourglassEnd />
           <p className="mr-3">پایان ترم:</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>1401/10/13</p>
         </div>
       </div>

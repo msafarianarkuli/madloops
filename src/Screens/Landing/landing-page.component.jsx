@@ -7,14 +7,14 @@ import LandingCourse from '../../Components/content/Landing-Course/landing-cours
 
 const LandingPage = () => {
   return (
-    <div>
+    <>
       <LandingHeader />
       <LandingServices />
       <LandingCourse />
       <LandingTeacher />
       <LandingOffers />
       <LandingBlog />
-    </div>
+    </>
   );
 };
 

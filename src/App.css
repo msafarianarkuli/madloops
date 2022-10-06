@@ -69,19 +69,19 @@
     box-shadow: 0 0 6px 3px #c7affc;
   }
   .course-Detail-container {
-    @apply custom-shadow rounded-lg mb-8 overflow-hidden;
+    @apply custom-shadow rounded-lg mb-8 overflow-hidden dark:shadow-none;
   }
   .course-detail-title-box {
-    @apply bg-[#F9F9FF] py-3;
+    @apply bg-[#F9F9FF] py-3 dark:bg-dark-secondary dark:text-dark-secondary-title;
   }
   .course-detail-title {
     @apply text-center font-bold text-xl;
   }
   .course-detail-item-odd {
-    @apply flex justify-between text-gray-400 bg-[#E8E8E8] text-lg py-2 px-5;
+    @apply flex justify-between text-gray-400 bg-[#E8E8E8] text-lg py-2 px-5 dark:bg-dark-tertiary dark:text-dark-text;
   }
   .course-detail-item-even {
-    @apply flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5 dark:bg-dark-secondary;
+    @apply flex justify-between text-gray-400 bg-[#F9F9FF] text-lg py-2 px-5 dark:bg-dark-secondary dark:text-dark-text;
   }
 
   .tab {

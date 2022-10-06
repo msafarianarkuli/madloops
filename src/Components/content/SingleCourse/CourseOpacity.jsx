@@ -11,7 +11,7 @@ const CourseOpacity = () => {
           <FaUsers />
           <p className="mr-3">ظرفیت کل دوره</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>100</p>
         </div>
       </div>
@@ -20,7 +20,7 @@ const CourseOpacity = () => {
           <FaUserGraduate />
           <p className="mr-3">تعداد دانشجویان دوره:</p>
         </div>
-        <div className="text-zinc-500">
+        <div className="text-zinc-500 dark:text-dark-text">
           <p>65</p>
         </div>
       </div>

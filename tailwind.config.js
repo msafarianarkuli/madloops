@@ -58,6 +58,7 @@ module.exports = {
         'lite-blue': '#005DFD',
         'dark-primary': '#1c1c1c',
         'dark-secondary': '#282828',
+        'dark-tertiary': '#3c3a3a',
         'dark-primary-title': '#EFEFEF',
         'dark-secondary-title': '#CCCDCC',
         'dark-text': '#C8C0AD',
