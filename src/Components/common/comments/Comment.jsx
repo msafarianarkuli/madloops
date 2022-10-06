@@ -8,7 +8,6 @@ import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
 import disLikeIcon from '../../../Assets/dislikesolid.png';
 import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
 const Comment = ({
   info,
   onDisLike,

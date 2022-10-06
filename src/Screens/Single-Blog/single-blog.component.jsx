@@ -24,6 +24,12 @@ const SingleBlog = () => {
   const [blogItem, setBlogItem] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setBlogItem(getBlog(Number(id)));
+    console.log(blogItem);
+  }, [id]);
+
   const handleLeadP = (value) => {
     const trimmedLead =
       value
@@ -41,9 +47,6 @@ const SingleBlog = () => {
     return trimmedLead;
   };
 
-  useEffect(() => {
-    setBlogItem(getBlog(Number(id)));
-  }, [id]);
   return (
     <div className="container m-auto">
       <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">

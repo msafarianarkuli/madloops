@@ -7,7 +7,7 @@ const InputGroups = ({ label, icon, ...props }) => {
     <>
       <div>
         {label ? (
-          <label className="text-gray-600 inline-block mb-2 text-lg">
+          <label className="text-gray-600 inline-block mb-2 text-lg dark:text-dark-secondary-title">
             {label}
           </label>
         ) : null}
@@ -16,7 +16,7 @@ const InputGroups = ({ label, icon, ...props }) => {
           className="flex items-center bg-[#F1F2F7] rounded-lg border-2 border-[#F1F2F7]
            text-gray-600 focus-within:text-[#673CC0] focus-within:bg-white
             focus-within:border-[#673CC0] focus-within:border-2
-            transition ease-in duration-200"
+            transition ease-in duration-200 dark:bg-dark-secondary dark:text-dark-primary-title"
         >
           <div className="flex items-center rounded-tr-lg rounded-br-lg  text-2xl min-h-[40px] bg-transparent px-2">
             {icon}

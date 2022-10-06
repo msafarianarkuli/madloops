@@ -8,10 +8,10 @@ const ContactUs = () => {
     <div className="container mx-auto">
       <div className="xl:mx-44">
         <div className="mt-16 mb-10">
-          <h1 className="text-center text-3xl font-black mb-6 text-deep-purple">
+          <h1 className="text-center text-3xl font-black mb-6 text-deep-purple dark:text-dark-primary-title">
             در تماس باشید!
           </h1>
-          <p className="text-center text-deep-purple text-lg">
+          <p className="text-center text-deep-purple text-lg dark:text-dark-secondary-title">
             از طریق موارد زیر می توانید با ما در تماس باشید و اطلاع
             رسانی کنید.
           </p>

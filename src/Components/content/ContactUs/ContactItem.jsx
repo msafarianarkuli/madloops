@@ -9,13 +9,13 @@ const ContactItem = ({ icon, title, to }) => {
         className={`${
           location.pathname === to ? 'bg-lite-purple' : ''
         } flex flex-col justify-center items-center m-auto rounded-lg py-3 sm:py-6 lg:py-8 lg:w-52 sm:w-36 w-24
-    hover:bg-lite-purple transition ease-in duration-200 cursor-pointer parent-hover:text-white group`}
+    hover:bg-lite-purple transition ease-in duration-200 cursor-pointer parent-hover:text-white group `}
       >
         <span
           className={`${
             location.pathname === to
               ? 'text-white'
-              : 'text-lite-purple'
+              : 'text-lite-purple dark:text-dark-secondary-title'
           }`}
         >
           {icon}
@@ -24,7 +24,7 @@ const ContactItem = ({ icon, title, to }) => {
           className={`${
             location.pathname === to
               ? 'text-white'
-              : 'text-lite-purple'
+              : 'text-lite-purple dark:text-dark-secondary-title'
           }  text-base sm:text-xl font-bold group-hover:text-white`}
         >
           {title}
