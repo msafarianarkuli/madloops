@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { FieldName } from "../../Components/common/field-name-component/field-name.component";
 import { FiClock } from "react-icons/fi";
 import { Button } from "../../Components/common/button-component/button.component";
@@ -9,13 +9,15 @@ import tabData from "../../Core/services/Fake Service/BlogTabList";
 import { getBlog } from "../../Core/services/Fake Service/Blogs";
 import Data from "./../../Core/services/Fake Service/Blogs";
 import { handleDateSortingDes } from "../../Core/utils/sorting";
+import { useEffect } from "react";
 
 const SingleBlog = () => {
   const { blogs } = Data;
   const [suggestions] = useState(handleDateSortingDes(blogs));
   const { id } = useParams();
-  const [blogItem] = useState(getBlog(Number(id)));
-
+  const [blogItem, setBlogItem] = useState(getBlog(Number(id)));
+  const location = useLocation();
+  const navigate = useNavigate();
   const handleLeadP = (value) => {
     const trimmedLead =
       value
@@ -23,7 +25,6 @@ const SingleBlog = () => {
         .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
-  
   const handleLeadH = (value) => {
     const trimmedLead =
       value
@@ -104,6 +105,7 @@ const SingleBlog = () => {
               {suggestions.map((item) => {
                 return (
                   <div
+                    onClick={() => navigate(`/blogs/${item.id}`)}
                     key={item.id}
                     className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
                   >
