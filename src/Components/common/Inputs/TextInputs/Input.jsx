@@ -5,7 +5,9 @@ const InputGroups = ({ label, className, err, ...props }) => {
   return (
     <>
       {label ? (
-        <label className="text-gray-600 mb-2 text-lg">{label}</label>
+        <label className="text-gray-600 mb-2 text-lg dark:text-dark-secondary-title">
+          {label}
+        </label>
       ) : null}
       <input {...props} {...field} className={className} />
       {err ? null : (

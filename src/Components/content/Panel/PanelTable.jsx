@@ -9,29 +9,38 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
         <tr>
           <th
             scope="col"
-            className="text-gray-900 py-4 hidden sm:block"
+            className="text-gray-900 py-4 hidden sm:block dark:text-dark-secondary-title"
           >
             تصویر
           </th>
-          <th scope="col" className="text-gray-900 py-4">
+          <th
+            scope="col"
+            className="text-gray-900 py-4 dark:text-dark-secondary-title"
+          >
             نام دوره
           </th>
           <th
             scope="col"
-            className="text-gray-900 py-4 hidden sm:block"
+            className="text-gray-900 py-4 hidden sm:block dark:text-dark-secondary-title"
           >
             مدرس
           </th>
-          <th scope="col" className="text-gray-900 py-4">
+          <th
+            scope="col"
+            className="text-gray-900 py-4 dark:text-dark-secondary-title"
+          >
             قیمت
           </th>
           <th
             scope="col"
-            className="text-gray-900 py-4 hidden lg:block"
+            className="text-gray-900 py-4 hidden lg:block dark:text-dark-secondary-title"
           >
             تاریخ آغاز
           </th>
-          <th scope="col" className="text-gray-900 py-4">
+          <th
+            scope="col"
+            className="text-gray-900 py-4 dark:text-dark-secondary-title"
+          >
             {pathname === '/user-panel/courseList' ? 'افزودن' : 'حذف'}
           </th>
         </tr>
