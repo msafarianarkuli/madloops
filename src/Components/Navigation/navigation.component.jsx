@@ -1,22 +1,28 @@
-import React, { useState, useContext } from "react";
-import { Button } from "../../Components/common/button-component/button.component";
-import "../Navigation/navigation.styles.scss";
-import { BsList } from "react-icons/bs";
-import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
-import { RiShoppingCartLine, RiLoginCircleFill } from "react-icons/ri";
-import { SiCpanel } from "react-icons/si";
-import { Link, NavLink, Outlet } from "react-router-dom";
-import CartHover from "./../content/Cart/cart-hover.component";
-import { CartContext } from "../../Core/context/cart.context";
+import React, { useState, useContext } from 'react';
+import { Button } from '../../Components/common/button-component/button.component';
+import '../Navigation/navigation.styles.scss';
+import { BsList } from 'react-icons/bs';
+import { BsArrowLeftShort, BsCartFill } from 'react-icons/bs';
 
-const Navigation = () => {
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+import { MdLightMode, MdModeNight } from 'react-icons/md';
+import {
+  RiShoppingCartLine,
+  RiLoginCircleFill,
+} from 'react-icons/ri';
+import { SiCpanel } from 'react-icons/si';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import CartHover from './../content/Cart/cart-hover.component';
+import { CartContext } from '../../Core/context/cart.context';
+
+const Navigation = ({ setTheme }) => {
+  const { isCartOpen, setIsCartOpen, cartCount } =
+    useContext(CartContext);
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
-    { id: 1, title: "خانه", path: "/" },
-    { id: 2, title: "دوره ها", path: "/courses" },
-    { id: 3, title: "اخبار و مقالات", path: "/blogs" },
-    { id: 4, title: "تماس با ما", path: "/contactUs" },
+    { id: 1, title: 'خانه', path: '/' },
+    { id: 2, title: 'دوره ها', path: '/courses' },
+    { id: 3, title: 'اخبار و مقالات', path: '/blogs' },
+    { id: 4, title: 'تماس با ما', path: '/contactUs' },
   ]);
 
   return (
@@ -28,7 +34,7 @@ const Navigation = () => {
               <Link to="/">
                 <img
                   className="xl:mr-6 lg:mr-1 lg:w-16 md:w-14 w-12 h-auto"
-                  src={require("../../Assets/img/site-logo.png")}
+                  src={require('../../Assets/img/site-logo.png')}
                   alt="shopping"
                 />
               </Link>
@@ -46,8 +52,8 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       isActive
-                        ? "inline-block relative z-10 pt-4 border-t-4 h-16 dark:border-lite-purple dark:text-lite-purple border-deep-purple text-deep-purple"
-                        : "inline-block relative z-10 pt-4 border-t-4 border-transparent h-16 dark:text-gray-400"
+                        ? 'inline-block relative z-10 pt-4 border-t-4 h-16 dark:border-lite-purple dark:text-lite-purple border-deep-purple text-deep-purple'
+                        : 'inline-block relative z-10 pt-4 border-t-4 border-transparent h-16 dark:text-gray-400'
                     }
                     key={navline.id}
                     to={navline.path}
@@ -92,6 +98,16 @@ const Navigation = () => {
                     ورود / ثبت نام
                   </Button>
                 </Link>
+                <button
+                  className="text-red-500 mr-4 text-3xl"
+                  onClick={setTheme}
+                >
+                  {localStorage.theme === 'dark' ? (
+                    <MdLightMode className="text-white" />
+                  ) : (
+                    <MdModeNight className="text-yellow-400" />
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -99,8 +115,8 @@ const Navigation = () => {
             <div
               className={`${
                 open
-                  ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 relative"
-                  : "w-10 z-0"
+                  ? 'bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 relative'
+                  : 'w-10 z-0'
               } duration-300 ease-in-out absolute top-0 left-0`}
             >
               {open && (
@@ -131,8 +147,8 @@ const Navigation = () => {
                         <NavLink
                           className={({ isActive }) =>
                             isActive
-                              ? "block p-2 m-5 border-2 dark:border-dark-secondary rounded-xl ring-offset-4 dark:ring-offset-lite-purple ring-offset-deep-purple dark:ring-dark-secondary ring-white ring-2 dark:bg-dark-secondary bg-white dark:text-gray-300 text-deep-purple"
-                              : "block p-2 m-5 border-2 rounded-xl dark:hover:bg-gray-300 hover:bg-white dark:hover:text-dark-secondary hover:text-deep-purple duration-200 ease-in-out"
+                              ? 'block p-2 m-5 border-2 dark:border-dark-secondary rounded-xl ring-offset-4 dark:ring-offset-lite-purple ring-offset-deep-purple dark:ring-dark-secondary ring-white ring-2 dark:bg-dark-secondary bg-white dark:text-gray-300 text-deep-purple'
+                              : 'block p-2 m-5 border-2 rounded-xl dark:hover:bg-gray-300 hover:bg-white dark:hover:text-dark-secondary hover:text-deep-purple duration-200 ease-in-out'
                           }
                           key={navline.id}
                           to={navline.path}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import './App.css';
 import Navigation from '../src/Components/Navigation/navigation.component';
@@ -26,11 +26,34 @@ import TeacherPage from './Components/content/Teacher/teacher.component';
 
 const App = () => {
   const { pathname } = useLocation();
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
+  useEffect(() => {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      localStorage.theme = 'dark';
+      setIsDarkMode(true);
+    } else {
+      localStorage.theme = 'light';
+      setIsDarkMode(false);
+    }
+  }, []);
+
+  const setTheme = () => {
+    localStorage.theme === 'dark'
+      ? (localStorage.theme = 'light')
+      : (localStorage.theme = 'dark');
+    setIsDarkMode(!isDarkMode);
+  };
   return (
-    <div className="App dark">
+    <div
+      className={`App transition-colors duration-1000 ${localStorage.theme}`}
+    >
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/" element={<Navigation setTheme={setTheme} />}>
           <Route index element={<LandingPage />} />
           <Route path="teacher/:id" element={<TeacherPage />} />
           <Route path="cart" element={<CartPage />} />

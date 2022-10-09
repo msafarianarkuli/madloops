@@ -13,7 +13,6 @@ const Comment = ({
   onDisLike,
   onLike,
   onSend,
-  onCommentReply,
   replies,
   answerActive,
   setAnswerActive,

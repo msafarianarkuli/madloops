@@ -1,29 +1,29 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Data from "../../Core/services/Fake Service/Blogs";
-import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import SearchBar from "./../../Components/common/search-bar.component";
-import { Typewriter } from "react-simple-typewriter";
-import { Card } from "./../../Components/common/Card/card.component";
-import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
-import { Button } from "../../Components/common/button-component/button.component";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Data from '../../Core/services/Fake Service/Blogs';
+import { FieldName } from './../../Components/common/field-name-component/field-name.component';
+import SearchBar from './../../Components/common/search-bar.component';
+import { Typewriter } from 'react-simple-typewriter';
+import { Card } from './../../Components/common/Card/card.component';
+import { BsFillCircleFill, BsEye, BsHeart } from 'react-icons/bs';
+import { Button } from '../../Components/common/button-component/button.component';
 import {
   handleDateSortingAs,
   handleDateSortingDes,
   handleLikeSorting,
   handleViewSorting,
-} from "./../../Core/utils/sorting";
+} from './../../Core/utils/sorting';
 
 const cardPerRow = 3;
 
 const BlogsPage = () => {
   const { blogs } = Data;
   const [groupBtnList] = useState([
-    { id: 1, title: "همه", type: "all" },
-    { id: 2, title: "محبوب ترین ها", type: "like" },
-    { id: 3, title: "پربازدید ترین ها", type: "view" },
-    { id: 4, title: "جدیدترین ها", type: "new" },
-    { id: 5, title: "قدیمی ترین ها", type: "old" },
+    { id: 1, title: 'همه', type: 'all' },
+    { id: 2, title: 'محبوب ترین ها', type: 'like' },
+    { id: 3, title: 'پربازدید ترین ها', type: 'view' },
+    { id: 4, title: 'جدیدترین ها', type: 'new' },
+    { id: 5, title: 'قدیمی ترین ها', type: 'old' },
   ]);
   const [nextCard, setNextCard] = useState(cardPerRow);
   const handleMoreCard = () => {
@@ -32,7 +32,7 @@ const BlogsPage = () => {
 
   const data = Object.values(blogs);
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filterBlogs, setFilterBlogs] = useState(data);
 
   const handleSearch = (value) => {
@@ -40,26 +40,29 @@ const BlogsPage = () => {
     setFilterBlogs(
       data.filter(
         (item) =>
-          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+          item.title
+            .toString()
+            .toLowerCase()
+            .indexOf(search.toLowerCase()) > -1
       )
     );
   };
 
   const handleSorting = (type) => {
     switch (type) {
-      case "all":
+      case 'all':
         setFilterBlogs(blogs);
         break;
-      case "view":
+      case 'view':
         setFilterBlogs(handleViewSorting(blogs));
         break;
-      case "new":
+      case 'new':
         setFilterBlogs(handleDateSortingDes(blogs));
         break;
-      case "old":
+      case 'old':
         setFilterBlogs(handleDateSortingAs(blogs));
         break;
-      case "like":
+      case 'like':
         setFilterBlogs(handleLikeSorting(blogs));
         break;
     }
@@ -77,10 +80,10 @@ const BlogsPage = () => {
     const classActive = [];
     classActive.push(
       selectedBlogButton === item
-        ? "border-deep-purple text-deep-purple"
-        : "border-transparent"
+        ? 'border-deep-purple text-deep-purple'
+        : 'border-transparent'
     );
-    return classActive.join(" , ");
+    return classActive.join(' , ');
   };
 
   const blogSortAndSet = (item) => {
@@ -92,7 +95,8 @@ const BlogsPage = () => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
 
@@ -107,13 +111,14 @@ const BlogsPage = () => {
               <FieldName
                 showH2
                 title="بخش بلاگ آکادمی بحر"
-                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4  m-auto md:pt-12 sm:mr-0 sm:pt-12"
+                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4  m-auto md:pt-12 sm:mr-0 sm:pt-12
+                dark:text-dark-primary-title"
               />
             </div>
-            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700">
+            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text">
               <Typewriter
                 words={[
-                  "پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.",
+                  'پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.',
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -125,14 +130,16 @@ const BlogsPage = () => {
           <div className="sm:block hidden">
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-28 drop-shadow-xl shadow-black">
               <img
-                src={require("../../Assets/Blog post-amico.svg").default}
+                src={
+                  require('../../Assets/Blog post-amico.svg').default
+                }
                 alt=""
               />
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 m-auto w-11/12 border-b-2 sm:mt-0 mt-20 border-b-[#707070]">
-          <h1 className="2xl:text-5xl lg:text-3xl sm:text-xl text-base sm:mt-0 mt-4">
+        <div className="grid grid-cols-2 m-auto w-11/12 border-b-2 sm:mt-0 mt-20 border-b-[#707070] ">
+          <h1 className="2xl:text-5xl lg:text-3xl sm:text-xl text-base sm:mt-0 mt-4 dark:text-dark-primary-title">
             برترین های اخیر
           </h1>
           <SearchBar
@@ -147,7 +154,7 @@ const BlogsPage = () => {
               return (
                 <div
                   onClick={() => blogSortAndSet(item)}
-                  className={`anim-div inline-block w-full z-10 sm:pt-4 border-t-4 h-16 ${activeBtn(
+                  className={`anim-div inline-block w-full z-10 sm:pt-4 border-t-4 h-16 dark:text-dark-secondary-title ${activeBtn(
                     item.title
                   )} cursor-pointer`}
                   key={item.id}
@@ -163,21 +170,21 @@ const BlogsPage = () => {
             <Card
               showImage
               showStruc
-              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE]"
+              classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
               key={card.id}
               imageUrl={card.image}
               classImage="rounded-t-lg w-full h-full"
               classMainImg="m-auto w-full h-72"
               cardBody="w-80 mx-6 order-last"
               role={handleLead(card.title)}
-              classRole="text-right h-20 font-bold text-xl text-gray-900"
+              classRole="text-right h-20 font-bold text-xl text-gray-900 dark:text-dark-text"
               onClick={() => navigate(`${card.id}`)}
             >
               <div className="mx-6 my-5">
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     <BsFillCircleFill className="w-2 text-[#1F18DB]" />
-                    <h3 className="text-[#636363] mr-3">
+                    <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
                       زمان مطالعه: {card.readTime} دقیقه
                     </h3>
                   </div>
@@ -187,20 +194,24 @@ const BlogsPage = () => {
                 </div>
                 <div className="flex items-center">
                   <BsFillCircleFill className="w-2 text-[#DB1818]" />
-                  <h3 className="text-[#636363] mr-3">{card.date}</h3>
+                  <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
+                    {card.date}
+                  </h3>
                 </div>
               </div>
               <div className="mx-6 order-last mt-10 mb-5">
                 <div className="flex justify-between">
                   <div className="flex items-center">
                     <img
-                      src={require("../../Assets/profile.png")}
+                      src={require('../../Assets/profile.png')}
                       className="w-10 rounded-full"
                       alt=""
                     />
-                    <h3 className="text-[#636363] pr-2">{card.people}</h3>
+                    <h3 className="text-[#636363] pr-2 dark:text-dark-secondary-title">
+                      {card.people}
+                    </h3>
                   </div>
-                  <div className="text-[#636363] flex items-center">
+                  <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
                     <BsHeart className="pb-1" />
                     <h3 className="text-sm">{card.likeCount}</h3>
                     <BsEye className="pb-1" />
@@ -212,7 +223,7 @@ const BlogsPage = () => {
           ))}
         </div>
         {nextCard < blogs.length && (
-          <div className="w-full my-20">
+          <div className="w-full py-20">
             <Button
               onClick={handleMoreCard}
               classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"

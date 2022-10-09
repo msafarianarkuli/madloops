@@ -1,7 +1,7 @@
-import React from "react";
-import { Card } from "./Card/card.component";
-import { Button } from "./button-component/button.component";
-import { useNavigate } from "react-router-dom";
+import React from 'react';
+import { Card } from './Card/card.component';
+import { Button } from './button-component/button.component';
+import { useNavigate } from 'react-router-dom';
 import {
   BsFillStarFill,
   BsStar,
@@ -10,14 +10,15 @@ import {
   BsFillCircleFill,
   BsClock,
   BsEye,
-} from "react-icons/bs";
+} from 'react-icons/bs';
 
 const CardGridListView = ({ item, view }) => {
   const handleLead = (value) => {
     const trimmedLead =
       value
         .substring(0, 120)
-        .substring(0, value.substring(0, 120).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 120).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
   const navigate = useNavigate();
@@ -29,38 +30,40 @@ const CardGridListView = ({ item, view }) => {
       showStruc
       classCard={
         view
-          ? "sm:flex sm:flex-row sm:justify-between mx-8 overflow-hidden hover:shadow-purple mt-4 w-100 mx-2 w-full mt-16 relative custom-shadow rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE]"
-          : "m-auto text-gray-500 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] group"
+          ? 'sm:flex sm:flex-row sm:justify-between mx-8 overflow-hidden hover:shadow-purple mt-4 w-100 mx-2 w-full mt-16 relative custom-shadow rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE]'
+          : 'm-auto text-gray-500 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] group'
       }
       imageUrl={item.image}
       classImage={
         view
-          ? "inset-0 h-full w-full object-cover object-center"
-          : "rounded-t-lg w-full h-full"
+          ? 'inset-0 h-full w-full object-cover object-center'
+          : 'rounded-t-lg w-full h-full'
       }
       classMainImg={
-        view ? "h-64 w-auto md:w-1/2 sm:w-2/4" : "m-auto w-full h-52"
+        view ? 'h-64 w-auto md:w-1/2 sm:w-2/4' : 'm-auto w-full h-52'
       }
-      cardBody={!view ? "w-80 mx-6 mt-5" : "w-100 h-[50%] sm:mr-3 mr-6 mt-4"}
+      cardBody={
+        !view ? 'w-80 mx-6 mt-5' : 'w-100 h-[50%] sm:mr-3 mr-6 mt-4'
+      }
       role={item.title}
       classRole={
         view
-          ? "text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900"
-          : "text-right font-bold text-2xl text-gray-900"
+          ? 'text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900'
+          : 'text-right font-bold text-2xl text-gray-900'
       }
       {...(!view
         ? {}
         : {
             description: handleLead(item.description),
             classDescription:
-              "sm:block hidden mt-2 text-[#6C757D] text-base sm:text-sm",
+              'sm:block hidden mt-2 text-[#6C757D] text-base sm:text-sm',
           })}
     >
       <div
         className={
           view
-            ? "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 right-2"
-            : "bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 left-2"
+            ? 'bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 right-2'
+            : 'bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-md self-end absolute top-2 left-2'
         }
       >
         {item.archive}
@@ -70,11 +73,15 @@ const CardGridListView = ({ item, view }) => {
           <div className="flex justify-start">
             <div className="flex items-center">
               <BsFillCircleFill className="w-2 text-[#1F18DB]" />
-              <h3 className="text-[#636363] mr-3 pt-1">{item.lesson} درس</h3>
+              <h3 className="text-[#636363] mr-3 pt-1">
+                {item.lesson} درس
+              </h3>
             </div>
             <div className="flex items-center mr-4">
               <BsClock className="w-3 text-[#4C0FFB]" />
-              <h3 className="text-[#636363] mr-3 pt-1">{item.hour} ساعت</h3>
+              <h3 className="text-[#636363] mr-3 pt-1">
+                {item.hour} ساعت
+              </h3>
             </div>
           </div>
         </div>
@@ -99,8 +106,12 @@ const CardGridListView = ({ item, view }) => {
             <BsFillStarFill className="text-[#F9A134] mt-2" />
             <BsFillStarFill className="text-[#F9A134] mt-2" />
             <BsFillStarFill className="text-[#F9A134] mt-2" />
-            <h3 className="text-[#3A3737] pt-2 pr-2">{item.likeCount}</h3>
-            <h5 className="text-[#605d5d] pt-3 pr-2 text-xs">(145,236)</h5>
+            <h3 className="text-[#3A3737] pt-2 pr-2">
+              {item.likeCount}
+            </h3>
+            <h5 className="text-[#605d5d] pt-3 pr-2 text-xs">
+              (145,236)
+            </h5>
           </div>
 
           <div className="flex sm:justify-between justify-start">
@@ -126,7 +137,9 @@ const CardGridListView = ({ item, view }) => {
           <div className="hidden justify-start sm:flex">
             <div className="flex items-center">
               <BsFillCircleFill className="w-1 text-[#1F18DB]" />
-              <h3 className="text-[#636363] mr-1 text-sm pt-1">{item.date}</h3>
+              <h3 className="text-[#636363] mr-1 text-sm pt-1">
+                {item.date}
+              </h3>
             </div>
             <div className="flex items-center mr-3 text-[#636363]">
               <BsEye className="w-3" />
@@ -138,8 +151,8 @@ const CardGridListView = ({ item, view }) => {
       <div
         className={
           !view
-            ? "mx-6 order-last mt-2 mb-5"
-            : "md:mx-6 sm:ml-2 order-last sm:inline-block float-left mx-6 mt-2 mb-5"
+            ? 'mx-6 order-last mt-2 mb-5'
+            : 'md:mx-6 sm:ml-2 order-last sm:inline-block float-left mx-6 mt-2 mb-5'
         }
       >
         {!view ? (
@@ -161,8 +174,8 @@ const CardGridListView = ({ item, view }) => {
         <div
           className={
             !view
-              ? "flex justify-between"
-              : "flex sm:justify-center justify-between"
+              ? 'flex justify-between'
+              : 'flex sm:justify-center justify-between'
           }
         >
           {!view ? (
@@ -180,7 +193,9 @@ const CardGridListView = ({ item, view }) => {
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
-              <h3 className="text-[#3A3737] pt-2 pr-2">{item.likeCount}</h3>
+              <h3 className="text-[#3A3737] pt-2 pr-2">
+                {item.likeCount}
+              </h3>
               <h5 className="text-[#605d5d] pt-3 pr-2 text-xs sm:block hidden">
                 (145,236)
               </h5>
@@ -190,8 +205,8 @@ const CardGridListView = ({ item, view }) => {
             <h3
               className={
                 !view
-                  ? "text-[#636363] py-3"
-                  : "text-[#636363] sm:py-3 py-5 md:text-2xl sm:text-base"
+                  ? 'text-[#636363] py-3'
+                  : 'text-[#636363] sm:py-3 py-5 md:text-2xl sm:text-base'
               }
             >
               {item.price} ريال
@@ -203,8 +218,8 @@ const CardGridListView = ({ item, view }) => {
           ButtonType="button"
           classButton={
             !view
-              ? "btn btn-base w-full group-hover:border-lite-purple"
-              : "btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36 group-hover:border-lite-purple"
+              ? 'btn btn-base w-full group-hover:border-lite-purple'
+              : 'btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36 group-hover:border-lite-purple'
           }
         >
           جزئیات دوره

@@ -4,6 +4,7 @@ import likeFillIcon from '../../../Assets/likee.png';
 import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
 import disLikeIcon from '../../../Assets/dislikesolid.png';
+import Like from '../Like/Like';
 const Reply = ({ info, onDisLike, onLike }) => {
   const {
     id,
@@ -20,10 +21,7 @@ const Reply = ({ info, onDisLike, onLike }) => {
 
   return (
     <>
-      <div
-        className="2xl:w-[830px] lg:w-[700px] md:w-[580px] sm:w-[450px] w-[200px] mx-auto rounded-lg p-3 my-3"
-        dir="rtl"
-      >
+      <div className="mx-4 sm:mx-10 rounded-lg p-3 my-3" dir="rtl">
         <div className="flex justify-between">
           <div className="flex">
             <img
@@ -45,24 +43,15 @@ const Reply = ({ info, onDisLike, onLike }) => {
               </div>
             </div>
           </div>
-          <div className="flex items-center text-gray-400 text-lg">
-            <span className="px-3 w-8 mb-1">
-              {likeCount === 0 ? ' ' : likeCount}
-            </span>
-            <img
-              src={liked ? likeFillIcon : likeIcon}
-              className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
-              onClick={() => onLike(id)}
-            />
-            <span className="px-3 w-8 mb-1">
-              {disLikeCount === 0 ? ' ' : disLikeCount}
-            </span>
-            <img
-              src={disLiked ? disLikeFillIcon : disLikeIcon}
-              className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
-              onClick={() => onDisLike(id)}
-            />
-          </div>
+          <Like
+            id={id}
+            liked={liked}
+            disLiked={disLiked}
+            likeCount={likeCount}
+            disLikeCount={disLikeCount}
+            onDisLike={onDisLike}
+            onLike={onLike}
+          />
         </div>
         <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all dark:text-dark-text">
           {body}
