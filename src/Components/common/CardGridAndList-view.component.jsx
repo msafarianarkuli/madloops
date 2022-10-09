@@ -10,6 +10,8 @@ import {
   BsFillCircleFill,
   BsClock,
   BsEye,
+  BsFillBookmarkPlusFill,
+  BsFillShareFill,
 } from "react-icons/bs";
 
 const CardGridListView = ({ item, view }) => {
@@ -198,17 +200,25 @@ const CardGridListView = ({ item, view }) => {
             </h3>
           </div>
         </div>
-        <Button
-          onClick={() => navigate(`${item.id}`)}
-          ButtonType="button"
-          classButton={
-            !view
-              ? "btn btn-base w-full group-hover:border-lite-purple"
-              : "btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36 group-hover:border-lite-purple"
-          }
-        >
-          جزئیات دوره
-        </Button>
+        <div className="flex justify-between btn p-0 group-hover:border-lite-purple">
+          <Button className="items-center hover:btn-base w-[20%] h-fit p-4">
+            <BsFillShareFill className="mx-auto" />
+          </Button>
+          <Button className="mx-auto hover:btn-base w-[20%] h-fit p-4">
+            <BsFillBookmarkPlusFill className="mx-auto" />
+          </Button>
+          <Button
+            onClick={() => navigate(`${item.id}`)}
+            ButtonType="button"
+            classButton={
+              !view
+                ? "hover:btn-base w-[60%] h-fit p-3"
+                : "btn btn-base md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36 group-hover:border-lite-purple"
+            }
+          >
+            جزئیات دوره
+          </Button>
+        </div>
       </div>
     </Card>
   );
