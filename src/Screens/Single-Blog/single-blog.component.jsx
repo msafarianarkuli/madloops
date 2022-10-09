@@ -34,7 +34,7 @@ const SingleBlog = () => {
   useEffect(() => {
     setBlogItem(getBlog(Number(id)));
   }, [id]);
-  console.log(blogItem, id);
+
   return (
     <div className="container m-auto">
       <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">

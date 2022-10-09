@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 import Navigation from "../src/Components/Navigation/navigation.component";
@@ -26,46 +26,56 @@ import TeacherPage from "./Components/content/Teacher/teacher.component";
 
 const App = () => {
   const { pathname } = useLocation();
+  const ref = useRef(document.documentElement);
+  const Wrapper = ({ children }) => {
+    useLayoutEffect(() => {
+      ref.current.scrollTo(0, 0);
+    }, [pathname]);
+    return children;
+  };
 
   return (
     <div className="App">
-      <Routes>
-        <Route path="/" element={<Navigation />}>
-          <Route index element={<LandingPage />} />
-          <Route path="teacher/:id" element={<TeacherPage />} />
-          <Route path="cart" element={<CartPage />} />
-          <Route path="blogs" element={<BlogsPage />} />
-          <Route path="blogs/:id" element={<SingleBlog />} />
-          <Route path="courses" element={<CoursesPage />} />
-          <Route path="courses/:id" element={<SingleCourse />} />
+      <Wrapper>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<LandingPage />} />
+            <Route path="teacher/:id" element={<TeacherPage />} />
+            <Route path="cart" element={<CartPage />} />
+            <Route path="blogs" element={<BlogsPage />} />
+            <Route path="blogs/:id" element={<SingleBlog />} />
+            <Route path="courses" element={<CoursesPage />} />
+            <Route path="courses/:id" element={<SingleCourse />} />
 
-          <Route path="contactUs" element={<ContactUs />}>
-            <Route index element={<Call />} />
-            <Route path="message" element={<SendMessage />} />
-            <Route path="location" element={<Location />} />
+            <Route path="contactUs" element={<ContactUs />}>
+              <Route index element={<Call />} />
+              <Route path="message" element={<SendMessage />} />
+              <Route path="location" element={<Location />} />
+            </Route>
+
+            <Route path="*" element={<NotFoundPage />} />
           </Route>
+          <Route path="user-panel" element={<UserPanel />}>
+            <Route index element={<Dashboard />} />
+            <Route path="myCourses" element={<MyCourses />} />
+            <Route path="courseList" element={<CoursesList />} />
+            <Route path="editProfile" element={<EditProfile />} />
+          </Route>
+          <Route path="login" element={<LoginPage />} />
+          <Route path="sign-up" element={<SignUpPage />} />
+          <Route path="forget-pass" element={<ForgetPasswordPage />} />
+        </Routes>
 
-          <Route path="*" element={<NotFoundPage />} />
-        </Route>
-        <Route path="user-panel" element={<UserPanel />}>
-          <Route index element={<Dashboard />} />
-          <Route path="myCourses" element={<MyCourses />} />
-          <Route path="courseList" element={<CoursesList />} />
-          <Route path="editProfile" element={<EditProfile />} />
-        </Route>
-        <Route path="login" element={<LoginPage />} />
-        <Route path="sign-up" element={<SignUpPage />} />
-        <Route path="forget-pass" element={<ForgetPasswordPage />} />
-      </Routes>
-      {pathname === "/login" ||
-      pathname === "/sign-up" ||
-      pathname === "/forget-pass" ||
-      pathname === "/user-panel" ||
-      pathname === "/user-panel/myCourses" ||
-      pathname === "/user-panel/courseList" ||
-      pathname === "/user-panel/editProfile" ? null : (
-        <Footer />
-      )}
+        {pathname === "/login" ||
+        pathname === "/sign-up" ||
+        pathname === "/forget-pass" ||
+        pathname === "/user-panel" ||
+        pathname === "/user-panel/myCourses" ||
+        pathname === "/user-panel/courseList" ||
+        pathname === "/user-panel/editProfile" ? null : (
+          <Footer />
+        )}
+      </Wrapper>
     </div>
   );
 };
