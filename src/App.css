@@ -59,6 +59,9 @@
   .custom-shadow {
     box-shadow: 0 0 10px #e2e2e2;
   }
+  .custom-dark-shadow {
+    box-shadow: 0 0 10px #1d1a1a;
+  }
   .shadow-purple {
     box-shadow: 0 0 10px #887da2;
   }
