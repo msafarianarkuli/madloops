@@ -7,6 +7,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/bahr.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 110,
+      hour: 12,
     },
     {
       id: 2,
@@ -15,6 +18,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/img/mehdiii.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 10,
+      hour: 150,
     },
     {
       id: 3,
@@ -23,6 +29,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/aghil.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 120,
+      hour: 90,
     },
     {
       id: 4,
@@ -31,6 +40,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/mohsen.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 116,
+      hour: 192,
     },
     {
       id: 5,
@@ -39,6 +51,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/nazari.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 190,
+      hour: 12,
     },
     {
       id: 6,
@@ -47,6 +62,9 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/img/mic.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 150,
+      hour: 392,
     },
     {
       id: 7,
@@ -55,8 +73,15 @@ const Data = {
       description:
         "یکی از بهترین و معروف ترین استاد های نمونه خاور میانه که توانسته نقش بسایر مفیدی در توسعه تکنولوژی در حوزه وبسایت و اپلیکیشن و وب اپلیکیشن و تمام پلتفرم های موجود در دنیا داشته باشد",
       img: require("../../../Assets/img/mic.jpg"),
+      gmail: "bahr.academy@gmail.com",
+      lesson: 510,
+      hour: 290,
     },
   ],
 };
 
 export default Data;
+
+export const getTeacher = (id) => {
+  return Data.teachers.find((item) => item.id === id);
+};
