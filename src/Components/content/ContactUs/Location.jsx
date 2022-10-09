@@ -10,7 +10,7 @@ const Location = ({ locationApi }) => {
         allowFullScreen=""
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
-        className="rounded-3xl"
+        className="rounded-3xl dark:invert"
       ></iframe>
     </div>
   );

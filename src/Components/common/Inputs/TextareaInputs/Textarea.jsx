@@ -9,7 +9,7 @@ const Textarea = ({ label, className, conClassName, ...props }) => {
       {label ? (
         <label
           htmlFor={name}
-          className="text-gray-600 inline-block mb-2 text-lg"
+          className="text-gray-600 inline-block mb-2 text-lg dark:text-dark-secondary-title"
         >
           {label}
         </label>

@@ -16,6 +16,12 @@ const SingleBlog = () => {
   const { id } = useParams();
   const [blogItem, setBlogItem] = useState({});
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setBlogItem(getBlog(Number(id)));
+    console.log(blogItem);
+  }, [id]);
+
   const handleLeadP = (value) => {
     const trimmedLead =
       value

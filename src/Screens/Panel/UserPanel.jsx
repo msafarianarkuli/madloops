@@ -6,7 +6,7 @@ import {
 } from '../../Components/content/Panel/DashMenuItem';
 import Profile from '../../Components/content/Panel/Profile';
 import DashMenuData from '../../Core/services/Fake Service/DashMenuItems';
-import '../Panel/userpanel.styles.scss'
+import '../Panel/userpanel.styles.scss';
 
 const UserPanel = () => {
   const [menuItems] = useState(DashMenuData);
@@ -34,7 +34,10 @@ const UserPanel = () => {
                 ))}
               </div>
               {/* end: */}
-              <div className="col-span-6 lg:col-span-5 m-3 lg:mr-0 lg:mt-3 rounded-xl bg-white overflow-hidden sm:overflow-visible">
+              <div
+                className="col-span-6 lg:col-span-5 m-3 lg:mr-0 lg:mt-3 rounded-xl bg-white overflow-hidden
+               sm:overflow-visible dark:bg-dark-secondary"
+              >
                 <Outlet />
               </div>
             </div>

@@ -3,13 +3,13 @@ import userImg from '../../../Assets/img/mic.jpg';
 const Profile = () => {
   return (
     <>
-      <div className="rounded-xl bg-white overflow-hidden hidden xl:block">
+      <div className="rounded-xl overflow-hidden hidden xl:block bg-white dark:bg-dark-secondary">
         <img
           src={userImg}
           className="w-full h-36 object-cover object-top"
         />
         <div className="flex my-1">
-          <div className="w-1/2 text-center text-dark-purple font-bold py-4 border-l">
+          <div className="w-1/2 text-center text-dark-purple font-bold py-4 border-l dark:text-dark-secondary-title">
             <p>میکائیل</p>
           </div>
           <div className="w-1/2 text-center text-gray-400 py-4">

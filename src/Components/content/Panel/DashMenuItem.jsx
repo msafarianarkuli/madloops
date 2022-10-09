@@ -9,8 +9,8 @@ const DashMenuItemLg = ({ items }) => {
       to={path}
       className={`${
         pathname.slice(12) === path || pathname.slice(12) === null
-          ? 'bg-white rounded-md lg:rounded-xl mt-4 p-2 flex shadow-purple text-lite-purple transition ease-in duration-200'
-          : 'bg-white rounded-md lg:rounded-xl mt-4 hover:shadow-purple text-gray-500 p-2 flex transition ease-in duration-200'
+          ? 'bg-white rounded-md lg:rounded-xl mt-4 p-2 flex shadow-purple text-lite-purple transition ease-in duration-200 dark:bg-dark-secondary dark:text-text-lite-purple dark:shadow-purple'
+          : 'bg-white rounded-md lg:rounded-xl mt-4 hover:shadow-purple text-gray-500 p-2 flex transition ease-in duration-200 dark:bg-dark-secondary dark:text-dark-secondary-title dark:hover:shadow-purple'
       } ${
         title === 'خروج'
           ? 'hover:bg-[#FF1C1C] hover:text-white transition ease-out duration-200'

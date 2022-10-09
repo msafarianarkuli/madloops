@@ -60,7 +60,8 @@ const SendMessage = () => {
               <Textarea
                 label="پیام"
                 name="message"
-                className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
+                className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 
+                px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white dark:bg-dark-secondary"
               />
             </div>
           </div>
