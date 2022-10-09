@@ -8,14 +8,19 @@ import commentData from '../../Core/services/Fake Service/CourseComments';
 import { getBlog } from '../../Core/services/Fake Service/Blogs';
 import Data from './../../Core/services/Fake Service/Blogs';
 import { handleDateSortingDes } from '../../Core/utils/sorting';
+import Like from '../../Components/common/Like/Like';
 
 const SingleBlog = () => {
-  const { blogs } = Data;
+  const [blogs, setBlogs] = useState(Data);
   const [suggestions] = useState(handleDateSortingDes(blogs));
   const { id } = useParams();
   const [blogItem, setBlogItem] = useState({});
   const navigate = useNavigate();
   const [comments, setComments] = useState(commentData);
+
+  const handleBlogLike = (id) => {
+    console.log('liked', id);
+  };
 
   const handlelike = (id) => {
     setComments(
@@ -154,20 +159,20 @@ const SingleBlog = () => {
                     {blogItem.people}
                   </h2>
                 </div>
-                <div className="sm:col-span-5 col-span-10 flex justify-between sm:border-r-2 sm:border-b-0 border-b-2 border-lite-purple">
+                <div className="sm:col-span-5 col-span-10 flex justify-between items-center sm:border-r-2 sm:border-b-0 border-b-2 border-lite-purple">
                   <div className="mt-4 sm:mb-0 mb-4 mr-3 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
                     آیا این مطلب براتون مفید بود ؟
                   </div>
-                  <div className="">
-                    {/* <Like
-                      id={id}
-                      liked={liked}
-                      disLiked={disLiked}
-                      likeCount={likeCount}
-                      disLikeCount={disLikeCount}
-                      onDisLike={onDisLike}
-                      onLike={onLike}
-                    /> */}
+                  <div className="ml-2 mt-4">
+                    <Like
+                      id={blogItem.id}
+                      liked={blogItem.liked}
+                      disLiked={blogItem.disLiked}
+                      likeCount={blogItem.likeCount}
+                      disLikeCount={blogItem.disLikeCount}
+                      // onDisLike={onDisLike}
+                      onLike={handleBlogLike}
+                    />
                   </div>
                 </div>
                 <div className="sm:col-span-2 col-span-10 flex justify-between sm:border-r-2 border-b-none border-lite-purple">

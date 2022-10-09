@@ -15,7 +15,7 @@ const Like = ({
 }) => {
   return (
     <div className="flex items-center text-gray-400 text-lg">
-      <span className="px-3 w-8 mb-1">
+      <span className="px-3 w-10 mb-1">
         {likeCount === 0 ? ' ' : likeCount}
       </span>
       <img
@@ -23,7 +23,7 @@ const Like = ({
         className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
         onClick={() => onLike(id)}
       />
-      <span className="px-3 w-8 mb-1">
+      <span className="px-3 w-10 mb-1">
         {disLikeCount === 0 ? ' ' : disLikeCount}
       </span>
       <img

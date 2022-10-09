@@ -69,7 +69,10 @@ const App = () => {
     >
       <Wrapper>
         <Routes>
-          <Route path="/" element={<Navigation />}>
+          <Route
+            path="/"
+            element={<Navigation setTheme={setTheme} />}
+          >
             <Route index element={<LandingPage />} />
             <Route path="teacher/:id" element={<TeacherPage />} />
             <Route path="cart" element={<CartPage />} />
