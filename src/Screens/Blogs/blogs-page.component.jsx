@@ -17,7 +17,7 @@ import {
 const cardPerRow = 3;
 
 const BlogsPage = () => {
-  const { blogs } = Data;
+  const [blogs, setBlogs] = useState(Data);
   const [groupBtnList] = useState([
     { id: 1, title: 'همه', type: 'all' },
     { id: 2, title: 'محبوب ترین ها', type: 'like' },

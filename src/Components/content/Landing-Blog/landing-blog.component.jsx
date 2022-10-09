@@ -12,11 +12,12 @@ import 'swiper/css/navigation';
 import useSwiperRef from './swiper-wrapper-button';
 import Data from '../../../Core/services/Fake Service/Blogs';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingBlog = () => {
-  const { blogs } = Data;
+  const [blogs, setBlogs] = useState(Data);
 
   const handleLead = (value) => {
     const trimmedLead =
