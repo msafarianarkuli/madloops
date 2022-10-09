@@ -58,6 +58,16 @@ const CoursesPage = () => {
   };
 
   const [filteredItem, setFilteredItem] = useState(filterList);
+  const handleToggle = (id) => {
+    //this func is for every faq to be open or close
+    setFilteredItem(
+      filteredItem.map((item) => {
+        return item.id === id
+          ? { ...item, active: !item.active }
+          : { ...item, active: item.active };
+      })
+    );
+  };
 
   const SideRightRef = useRef();
 
@@ -210,8 +220,9 @@ const CoursesPage = () => {
                   <Accordion
                     key={filter.id}
                     item={filter}
-                    items={filteredItem}
-                    setItems={setFilteredItem}
+                    onToggle={handleToggle}
+                    // items={filteredItem}
+                    // setItems={setFilteredItem}
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
