@@ -11,6 +11,7 @@ const Pagination = ({
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1 || pagesCount === 0) return null;
   const pages = _.range(1, pagesCount + 1);
+
   return (
     <nav className="flex justify-center">
       <ul className="flex absolute lg:bottom-16 sm:bottom-6 bottom-20">

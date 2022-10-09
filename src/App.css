@@ -120,11 +120,11 @@
   }
 
   .pagination-hover {
-    @apply hover:bg-[#ccdfff] transition ease-in-out duration-300;
+    @apply transition ease-in-out duration-300 hover:bg-[#ccdfff] dark:hover:bg-dark-primary;
   }
 
   .pagination-active {
-    @apply bg-lite-purple text-white dark:bg-lite-purple;
+    @apply text-white bg-lite-purple dark:bg-lite-purple;
   }
 
   .pagination-next {

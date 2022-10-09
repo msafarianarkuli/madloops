@@ -2,8 +2,7 @@ import React from 'react';
 
 const Accordion = ({
   item,
-  items,
-  setItems,
+  onToggle,
   dir,
   headerActiveStyle,
   headerInactiveStyle,
@@ -16,19 +15,11 @@ const Accordion = ({
   children,
 }) => {
   const { id, title, description, active } = item;
-  const handleToggle = (id) => {
-    setItems(
-      items.map((item) => {
-        return item.id === id
-          ? { ...item, active: !item.active }
-          : { ...item, active: item.active };
-      })
-    );
-  };
+
   return (
     <div className="mb-2" dir={dir}>
       <div
-        onClick={() => handleToggle(id)}
+        onClick={() => onToggle(id)}
         className={`${
           active ? headerActiveStyle : headerInactiveStyle
         } ${headerMainStyle} flex justify-between items-center text-gray-700 cursor-pointer`}
