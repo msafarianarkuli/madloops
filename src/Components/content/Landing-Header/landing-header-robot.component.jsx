@@ -107,17 +107,17 @@ class App extends React.Component {
             }}
           >
             <div className="antenna short bg-lite-purple"></div>
-            <div className="antenna long bg-lite-pink"></div>
+            <div className="antenna long bg-lite-pink dark:bg-[#5DC8B2]"></div>
           </div>
           <div
-            className="head md:w-[116px] md:h-[73px] md:ml-[-50px] md:top-[-56px] md:left-[14%] sm:w-[90px] sm:h-[65px] sm:ml-[-30px] sm:top-[-53px] sm:left-[14%] bg-slate-100"
+            className="head md:w-[116px] md:h-[73px] md:ml-[-50px] md:top-[-56px] md:left-[14%] sm:w-[90px] sm:h-[65px] sm:ml-[-30px] sm:top-[-53px] sm:left-[14%] bg-slate-100 dark:bg-dark-secondary"
             style={{
               WebkitTransform: `translateX(${
                 (mouseX - droidX) / 15
               }px) rotateZ(${(mouseX - droidX) / 25}deg)`,
             }}
           >
-            <div className="stripe one absolute w-[100%] h-[7px] top-[3px] opacity-[0.8] z-[1] bg-lite-violet"></div>
+            <div className="stripe one absolute w-[100%] h-[7px] top-[3px] opacity-[0.8] z-[1] bg-lite-violet dark:bg-[#5DC8B2]"></div>
             <div className="stripe two absolute w-[100%] h-[4px] top-[14px] bg-deep-purple"></div>
             <div
               className={
@@ -146,16 +146,16 @@ class App extends React.Component {
             <div className="stripe absolute w-[100%] three h-[4px] bottom-[3px] opacity-[0.5] bg-deep-purple"></div>
           </div>
           <div
-            className="ball md:w-56 md:h-56 sm:w-52 sm:h-52 bg-slate-100 rounded-[50%] overflow-hidden relative"
+            className="ball md:w-56 md:h-56 sm:w-52 sm:h-52 bg-slate-100 dark:bg-dark-secondary rounded-[50%] overflow-hidden relative"
             style={{ WebkitTransform: `rotateZ(${droidX / 2}deg)` }}
           >
             <div className="lines one border border-[#897ae8] rounded-[50%] w-[400px] h-[400px] opacity-[0.6] absolute"></div>
             <div className="lines two border border-[#897ae8] rounded-[50%] w-[400px] h-[400px] opacity-[0.6] absolute top-[-10px] left-[-230px]"></div>
             <div className="lines three border border-[#897ae8] rounded-[50%] w-[400px] h-[400px] opacity-[0.6] absolute top-[-10px] left-[-350px]"></div>
             <div className="lines four border border-[#897ae8] rounded-[50%] w-[400px] h-[400px] opacity-[0.6] absolute top-[-10px] left-[-380px]"></div>
-            <div className="ring one bg-lite-violet"></div>
-            <div className="ring two bg-lite-violet"></div>
-            <div className="ring three bg-lite-violet"></div>
+            <div className="ring one bg-lite-violet dark:bg-[#5DC8B2]"></div>
+            <div className="ring two bg-lite-violet dark:bg-[#5DC8B2]"></div>
+            <div className="ring three bg-lite-violet dark:bg-[#5DC8B2]"></div>
           </div>
           <div className="shadow"></div>
         </div>
