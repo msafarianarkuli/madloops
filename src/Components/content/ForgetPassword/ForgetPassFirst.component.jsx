@@ -12,12 +12,12 @@ const ForgetPassFirstPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-full mt-6 animate-[onLoadAnim_1.5s_ease-in-out]">
-      <div>
+    <div className="flex flex-col w-full dark:bg-[#121212] animate-[onLoadAnim_1.5s_ease-in-out]">
+      <div className="mt-6">
         <Link to="/login">
-          <Button classButton="flex items-center text-[#555555]">
-            <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
-            ورود
+          <Button classButton="flex items-center text-[#555555] dark:text-[#B7B7B7]">
+            <BsChevronRight className="w-8 text-black dark:text-white text-xl" />
+            برگشت به صفحه ورود
           </Button>
         </Link>
       </div>
@@ -27,7 +27,7 @@ const ForgetPassFirstPage = (props) => {
           showP
           title="رمز عبورتو فراموش کردی؟"
           field="نگران نباش :) ما دستورالعمل های بازنشانی را برای شما ارسال میکنیم"
-          classH2Field="text-black sm:text-6xl text-5xl"
+          classH2Field="text-black dark:text-white sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>
@@ -56,8 +56,8 @@ const ForgetPassFirstPage = (props) => {
                 name="email"
                 type="text"
                 id="email"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
-                classLabel="text-xl mb-2"
+                classInput="dark:bg-[#121212] dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                classLabel="text-xl mb-2 dark:text-white"
                 placeholder="ایمیل خود را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1"
               />

@@ -13,12 +13,12 @@ const ForgetPassThirdPage = (props) => {
     props.next(values, true);
   };
   return (
-    <div className="flex flex-col w-full mt-6 h-fit animate-[onLoadAnim_1.5s_ease-in-out]">
-      <div className="sm:flex sm:justify-start flex justify-center">
+    <div className="flex flex-col w-full h-full dark:bg-[#121212] animate-[onLoadAnim_1.5s_ease-in-out]">
+      <div className="sm:flex sm:justify-start flex justify-center mt-6">
         <Link to="/login">
-          <Button classButton="flex items-center text-[#555555]">
-            <BsChevronRight className="w-8 text-black text-xl" /> برگشت به صفحه
-            ورود
+          <Button classButton="flex items-center text-[#555555] dark:text-[#B7B7B7]">
+            <BsChevronRight className="w-8 text-black dark:text-white text-xl" />
+            برگشت به صفحه ورود
           </Button>
         </Link>
       </div>
@@ -28,7 +28,7 @@ const ForgetPassThirdPage = (props) => {
           showP
           title="رمز عبور جدیدتو وارد کن :)"
           field="توجه ! رمز عبور جدید نباید با رمز عبور پیشین یکسان باشد"
-          classH2Field="text-black sm:text-6xl text-5xl"
+          classH2Field="text-black dark:text-white sm:text-6xl text-5xl"
           classPfield="text-[#8D8D8D] text-xl mt-2"
         />
       </div>
@@ -67,8 +67,8 @@ const ForgetPassThirdPage = (props) => {
                 name="password"
                 type="password"
                 id="password"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
-                classLabel="text-xl mb-2"
+                classInput="dark:bg-[#121212] dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                classLabel="text-xl mb-2 dark:text-white"
                 placeholder="رمز عبور جدید را وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1 m-auto w-96"
               />
@@ -78,8 +78,8 @@ const ForgetPassThirdPage = (props) => {
                 name="confirmPassword"
                 type="password"
                 id="confirmPassword"
-                classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
-                classLabel="text-xl mb-2"
+                classInput="dark:bg-[#121212] dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                classLabel="text-xl mb-2 dark:text-white"
                 placeholder="رمز عبور جدید را دوباره وارد کنید..."
                 classError="text-red-500 h-[20px] mb-1"
               />
@@ -94,11 +94,11 @@ const ForgetPassThirdPage = (props) => {
             </div>
             <div className="mt-4 m-auto sm:pl-80 pl-64 w-fit">
               <Button
-                className="flex items-center mr-14"
+                className="flex items-center mr-14 dark:text-[#B7B7B7]"
                 onClick={() => props.prev(values)}
               >
                 <FaChevronCircleRight
-                  className="w-8 text-[#555555]
+                  className="w-8 text-[#555555] dark:text-[#B7B7B7]
                   rounded-full text-base"
                 />
                 برگشت به مرحله قبل

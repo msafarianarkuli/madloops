@@ -35,7 +35,7 @@ const Login = () => {
             />
           </Link>
         </div>
-        <div className="lg:col-span-1 col-span-2 bg-white dark:bg-dark-primary">
+        <div className="lg:col-span-1 col-span-2 bg-white dark:bg-[#121212]">
           <div className=" animate-[onLoadAnim_1.5s_ease-in-out]">
             <div className="sm:h-44 lg:h-48 h-40">
               <FieldName
@@ -81,7 +81,7 @@ const Login = () => {
                       name="email"
                       type="text"
                       id="email"
-                      classInput="dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
+                      classInput="dark:text-white dark:bg-[#121212] sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="نمونه : example@gmail.com"
                       classError="text-red-500 h-[20px] mb-1"
@@ -94,7 +94,7 @@ const Login = () => {
                       name="password"
                       type="password"
                       id="password"
-                      classInput="dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
+                      classInput="dark:text-white dark:bg-[#121212] sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="باید دارای 8 نویسه باشد ..."
                       classError="text-red-500 h-[20px] mb-1"
