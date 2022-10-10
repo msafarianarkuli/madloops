@@ -81,7 +81,7 @@ const Login = () => {
                       name="email"
                       type="text"
                       id="email"
-                      classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
+                      classInput="dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="نمونه : example@gmail.com"
                       classError="text-red-500 h-[20px] mb-1"
@@ -94,7 +94,7 @@ const Login = () => {
                       name="password"
                       type="password"
                       id="password"
-                      classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
+                      classInput="dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-dark-primary rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="باید دارای 8 نویسه باشد ..."
                       classError="text-red-500 h-[20px] mb-1"
@@ -153,7 +153,7 @@ const Login = () => {
                   <div className="mt-2 h-14 flex justify-center">
                     <Link to="/sign-up">
                       <Button
-                        className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
+                        className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:text-white sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
                     ease-in-out hover:bg-button-purple hover:text-white"
                         ButtonType="submit"
                       >

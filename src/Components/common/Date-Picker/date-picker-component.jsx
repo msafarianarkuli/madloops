@@ -5,6 +5,7 @@ import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
 import persian_en from "react-date-object/locales/persian_en";
 import "react-multi-date-picker/styles/colors/purple.css";
+import "react-multi-date-picker/styles/backgrounds/bg-dark.css";
 
 const CustomDatePicker = ({
   label,
@@ -42,7 +43,7 @@ const CustomDatePicker = ({
         }}
         inputClass={className}
         containerStyle={{ width: "100%" }}
-        className="purple"
+        className="purple bg-dark"
       />
 
       <div className="text-red-500 h-[20px] mb-1">

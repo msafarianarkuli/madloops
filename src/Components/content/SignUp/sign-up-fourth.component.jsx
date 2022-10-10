@@ -6,7 +6,7 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 
 const SignUpFourthPage = () => {
   return (
-    <div className="container m-auto">
+    <div className="container m-auto dark:bg-[#121212]">
       <div className="grid grid-cols-1 h-screen relative">
         <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_1.5s_ease-in-out]">
           <FieldName
@@ -19,7 +19,7 @@ const SignUpFourthPage = () => {
           />
         </div>
         <div className="col-span-1 flex justify-centerّ h-40">
-          <AnimateSignUpSvg/>
+          <AnimateSignUpSvg />
         </div>
         <div className="col-span-1 mt-2 h-14 flex justify-center">
           <Link to="/">

@@ -16,7 +16,7 @@ const AuthRightSkill = ({ currentPage }) => {
   const currentPath = useCurrentPath();
 
   return (
-    <div className="md:block hidden bg-[#F3F4F8] w-[60%] h-full ">
+    <div className="md:block hidden bg-[#F3F4F8] dark:bg-[#222326] w-[60%] h-full ">
       <div className="flex justify-start mr-10 mt-28">
         <div className="rounded-full border-[3px] border-[#7A58C9] p-3 w-fit h-fit relative">
           {currentPage === 0 ? (
@@ -40,7 +40,9 @@ const AuthRightSkill = ({ currentPage }) => {
                 : "اطلاعات عمومی خود را وارد کنید"
             }
             classH2Field={`text-2xl ${
-              currentPage === 0 ? "text-[#7A58C9]" : "text-black"
+              currentPage === 0
+                ? "text-[#7A58C9]"
+                : "text-black dark:text-white"
             }`}
             classPfield={`text-base  ${
               currentPage === 0 ? "text-[#7A58C9]" : "text-[#8D8D8D]"
@@ -84,7 +86,9 @@ const AuthRightSkill = ({ currentPage }) => {
                 : "اطلاعات شخصی خود را وارد کنید"
             }
             classH2Field={`text-2xl ${
-              currentPage === 1 ? "text-[#7A58C9]" : "text-black"
+              currentPage === 1
+                ? "text-[#7A58C9]"
+                : "text-black dark:text-white"
             }`}
             classPfield={`text-base  ${
               currentPage === 1 ? "text-[#7A58C9]" : "text-[#8D8D8D]"
@@ -130,7 +134,9 @@ const AuthRightSkill = ({ currentPage }) => {
                 : "رمز عبور را وارد کنید"
             }
             classH2Field={`text-2xl ${
-              currentPage === 2 ? "text-[#7A58C9]" : "text-black"
+              currentPage === 2
+                ? "text-[#7A58C9]"
+                : "text-black dark:text-white"
             }`}
             classPfield={`text-base  ${
               currentPage === 2 ? "text-[#7A58C9]" : "text-[#8D8D8D]"
@@ -171,7 +177,9 @@ const AuthRightSkill = ({ currentPage }) => {
                 : "اطلاعات وارد شده ثبت شد"
             }
             classH2Field={`text-2xl ${
-              currentPage === 3 ? "text-[#00C9A3]" : "text-black"
+              currentPage === 3
+                ? "text-[#00C9A3]"
+                : "text-black dark:text-white"
             }`}
             classPfield={`text-base  ${
               currentPage === 3 ? "text-[#00C9A3]" : "text-[#8D8D8D]"
