@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-2 h-screen">
-        <div className="col-span-1 lg:block hidden dark:bg-black bg-lite-gray relative">
+        <div className="col-span-1 lg:block hidden dark:bg-[#121212] bg-lite-gray relative">
           <div className="h-650">
             <AnimateLoginSvg />
           </div>
@@ -35,12 +35,12 @@ const Login = () => {
             />
           </Link>
         </div>
-        <div className="lg:col-span-1 col-span-2 bg-white animate-[onLoadAnim_1.5s_ease-in-out]">
+        <div className="lg:col-span-1 col-span-2 bg-white dark:bg-[#121212] animate-[onLoadAnim_1.5s_ease-in-out]">
           <div className="sm:h-44 lg:h-48 h-40">
             <FieldName
               showH2
               showP
-              classH2Field="lg:text-7xl sm:text-5xl text-4xl pt-10 text-center"
+              classH2Field="lg:text-7xl sm:text-5xl text-4xl pt-10 text-center dark:text-[#FFFFFF]"
               title="ورود"
               classPfield="lg:text-2xl sm:text-xl text-lg text-deep-gray pt-3 text-center"
               field="خوش اومدی ! لطفا اطلاعاتت رو وارد کن."
@@ -80,8 +80,8 @@ const Login = () => {
                     name="email"
                     type="text"
                     id="email"
-                    classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
-                    classLabel="text-xl mb-2"
+                    classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-[#121212] rounded-xl outline-none duration-300"
+                    classLabel="text-xl mb-2 dark:text-[#FFFFFF]"
                     placeholder="نمونه : example@gmail.com"
                     classError="text-red-500 h-[20px] mb-1"
                   />
@@ -93,8 +93,8 @@ const Login = () => {
                     name="password"
                     type="password"
                     id="password"
-                    classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
-                    classLabel="text-xl mb-2"
+                    classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:bg-[#121212] rounded-xl outline-none duration-300"
+                    classLabel="text-xl mb-2 dark:text-[#FFFFFF]"
                     placeholder="باید دارای 8 نویسه باشد ..."
                     classError="text-red-500 h-[20px] mb-1"
                   />
@@ -106,13 +106,13 @@ const Login = () => {
                       name="rememberMe"
                       type="checkbox"
                       id="rememberMe"
-                      classInput="float-left w-5 h-5 m-2"
-                      classLabel="float-left text-lg sm:ml-14 ml-6 mt-1"
+                      classInput="float-left w-5 h-5 m-2 dark:fill-[#3b3b3b]"
+                      classLabel="float-left text-lg sm:ml-14 ml-6 mt-1 dark:text-[#FFFFFF]"
                     />
                   </div>
                   <div className="col-span-1">
                     <Link to="/forget-pass">
-                      <Button className="text-lg mt-1 sm:mr-24 mr-20 text-deep-purple">
+                      <Button className="text-lg mt-1 sm:mr-24 mr-20 text-deep-purple dark:text-[#b073cc]">
                         فراموشی رمز
                       </Button>
                     </Link>
@@ -128,7 +128,7 @@ const Login = () => {
                 </div>
                 <div className="mt-2 h-14 flex justify-center">
                   <Button
-                    className="relative border-2 border-button-purple text-deep-purple sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
+                    className="relative border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
                     ease-in-out group"
                     ButtonType="submit"
                   >
@@ -140,7 +140,7 @@ const Login = () => {
                   <FieldName
                     showP
                     field="حساب کاربری نداری؟"
-                    classPfield="mt-1 ml-2 text-cool-gray"
+                    classPfield="mt-1 ml-2 text-cool-gray dark:text-sick-gray"
                   />
                   <div className="sm:block hidden">
                     ______________________________________
@@ -152,7 +152,7 @@ const Login = () => {
                 <div className="mt-2 h-14 flex justify-center">
                   <Link to="/sign-up">
                     <Button
-                      className="border-2 border-button-purple text-deep-purple sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
+                      className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
                     ease-in-out hover:bg-button-purple hover:text-white"
                       ButtonType="submit"
                     >
