@@ -9,22 +9,6 @@ import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  // const validate = (values) => {
-  //   let errors = {};
-  //   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-  //   if (!values.email) {
-  //     errors.email = "Email is required";
-  //   } else if (!regex.test(values.email)) {
-  //     errors.email = "Invalid Email";
-  //   }
-  //   if (!values.password) {
-  //     errors.password = "Password is required";
-  //   } else if (values.password.length < 4) {
-  //     errors.password = "Password too short";
-  //   }
-  //   return errors;
-  // };
-
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-2 h-screen">
