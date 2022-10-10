@@ -7,16 +7,82 @@ import CoursePrice from '../../Components/content/SingleCourse/CoursePrice';
 import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrerequisite';
 import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
-import CustomTab from '../../Components/common/tabs/CustomTab';
-import faqData from '../../Core/services/Fake Service/faqs';
+import CoursesTab from '../../Components/common/tabs/CoursesTab';
 import commentData from '../../Core/services/Fake Service/CourseComments';
-import tabData from '../../Core/services/Fake Service/CourseTabList';
 import { getCourse } from '../../Core/services/Fake Service/CoursesPage';
 
 const SingleCourse = () => {
-  const [faqList, setFaqList] = useState(faqData);
   const { id } = useParams();
   const [item] = useState(getCourse(Number(id)));
+  const [comments, setComments] = useState(commentData);
+
+  const handlelike = (id) => {
+    setComments(
+      comments.map((comment) => {
+        return comment.id === id
+          ? {
+              ...comment,
+              liked: !comment.liked,
+              disLiked: false,
+              disLikeCount: comment.disLiked
+                ? comment.disLikeCount - 1
+                : comment.disLikeCount,
+              likeCount: comment.liked
+                ? comment.likeCount - 1
+                : comment.likeCount + 1,
+            }
+          : comment;
+      })
+    );
+    console.log('liked', id);
+  };
+
+  const handleDislike = (id) => {
+    setComments(
+      comments.map((comment) => {
+        return comment.id === id
+          ? {
+              ...comment,
+              disLiked: !comment.disLiked,
+              liked: false,
+              likeCount: comment.liked
+                ? comment.likeCount - 1
+                : comment.likeCount,
+              disLikeCount: comment.disLiked
+                ? comment.disLikeCount - 1
+                : comment.disLikeCount + 1,
+            }
+          : comment;
+      })
+    );
+    console.log('disLiked', id);
+  };
+
+  const handleSendReply = (
+    refId,
+    reply,
+    name = 'میهمان',
+    email = 'example@gmail.com'
+  ) => {
+    const newReply = {
+      id: comments.length + 1,
+      refId: refId,
+      userName: name,
+      date: '16 خرداد 1401',
+      time: '14:53',
+      body: reply,
+      liked: false,
+      disLiked: false,
+      likeCount: 0,
+      disLikeCount: 0,
+      userImg: '',
+      email: email,
+    };
+    comments.unshift(newReply);
+    setComments(comments);
+    // setAnswerActive(false);
+    console.log('sent', comments);
+  };
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
@@ -31,11 +97,11 @@ const SingleCourse = () => {
               {item.description}
             </p>
           </div>
-          <CustomTab
-            faqList={faqList}
-            setFaqList={setFaqList}
-            commentData={commentData}
-            tabData={tabData}
+          <CoursesTab
+            comments={comments}
+            onLike={handlelike}
+            onDisLike={handleDislike}
+            onSendReply={handleSendReply}
           />
         </div>
       </div>

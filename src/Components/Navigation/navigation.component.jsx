@@ -3,13 +3,15 @@ import { Button } from "../../Components/common/button-component/button.componen
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
+
+import { MdLightMode, MdModeNight } from "react-icons/md";
 import { RiShoppingCartLine, RiLoginCircleFill } from "react-icons/ri";
 import { SiCpanel } from "react-icons/si";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
 import { CartContext } from "../../Core/context/cart.context";
 
-const Navigation = () => {
+const Navigation = ({ setTheme }) => {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
@@ -65,9 +67,12 @@ const Navigation = () => {
             <div className="grid grid-cols-3 h-16">
               <div className="flex justify-end items-center col-span-1 relative">
                 <Link
-                  className="h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 dark:hover:bg-gray-400 hover:bg-red-100 z-30"
-                  onMouseEnter={() => setIsCartOpen(!isCartOpen)}
-                  onMouseLeave={() => setIsCartOpen(!isCartOpen)}
+                  className={`h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 ${
+                    isCartOpen ? "dark:bg-gray-400 bg-red-100 z-30" : null
+                  }  
+                `}
+                  onMouseEnter={() => setIsCartOpen(true)}
+                  onMouseLeave={() => setIsCartOpen(false)}
                   to="/cart"
                 >
                   <RiShoppingCartLine className=" p-2 h-full w-full text-black dark:text-white" />
@@ -92,6 +97,16 @@ const Navigation = () => {
                     ورود / ثبت نام
                   </Button>
                 </Link>
+                <button
+                  className="text-red-500 mr-4 text-3xl"
+                  onClick={setTheme}
+                >
+                  {localStorage.theme === "dark" ? (
+                    <MdLightMode className="text-white" />
+                  ) : (
+                    <MdModeNight className="text-yellow-400" />
+                  )}
+                </button>
               </div>
             </div>
           </div>
@@ -166,7 +181,6 @@ const Navigation = () => {
           </div>
         </div>
       </div>
-      {/* {isCartOpen && <CartHover />} */}
       <CartHover />
       <Outlet />
     </div>
