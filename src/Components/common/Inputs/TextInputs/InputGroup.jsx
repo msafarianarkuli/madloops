@@ -24,7 +24,7 @@ const InputGroups = ({ label, icon, ...props }) => {
           <input
             {...props}
             {...field}
-            className="rounded-tl-lg rounded-bl-lg py-2 bg-transparent outline-none w-full text-gray-600"
+            className="rounded-tl-lg rounded-bl-lg py-2 bg-transparent outline-none w-full text-gray-600 dark:text-gray-300"
           />
         </div>
         <div className="text-red-500 h-[20px] mb-1">
