@@ -1,12 +1,12 @@
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
-import React from "react";
-import AnimateLoginSvg from "../../common/Animate-Login-SVG/animate-login-svg.component";
-import { FieldName } from "../../common/field-name-component/field-name.component";
-import { Button } from "../../common/button-component/button.component";
-import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import React from 'react';
+import AnimateLoginSvg from '../../common/Animate-Login-SVG/animate-login-svg.component';
+import { FieldName } from '../../common/field-name-component/field-name.component';
+import { Button } from '../../common/button-component/button.component';
+import InputFeild from '../../common/Inputs/TextInputs/InputFeild';
+import { FcGoogle } from 'react-icons/fc';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   return (
@@ -20,7 +20,7 @@ const Login = () => {
             <Link to="/">
               <img
                 className="w-12 m-auto mt-4 hover:scale-110 duration-300 cursor-pointer animate-[onLoadHome_2s_ease-in-out]"
-                src={require("../../../Assets/img-auth/home.png")}
+                src={require('../../../Assets/img-auth/home.png')}
                 alt="home"
               />
             </Link>
@@ -30,7 +30,7 @@ const Login = () => {
           <Link to="/">
             <img
               className="w-12 m-auto mt-4 hover:scale-110 duration-100 cursor-pointer"
-              src={require("../../../Assets/img-auth/home.png")}
+              src={require('../../../Assets/img-auth/home.png')}
               alt="home"
             />
           </Link>
@@ -49,22 +49,22 @@ const Login = () => {
           <div className="h-[487px]">
             <Formik
               initialValues={{
-                email: "",
-                password: "",
+                email: '',
+                password: '',
               }}
               validationSchema={Yup.object({
                 email: Yup.string()
-                  .email("الگوی وارد شده صحیح نمی باشد")
-                  .required("لطفا فیلد ایمیل را پر کنید")
+                  .email('الگوی وارد شده صحیح نمی باشد')
+                  .required('لطفا فیلد ایمیل را پر کنید')
                   .matches(
                     /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i,
-                    "دامنه ایمیل را به درستی وارد کنید"
+                    'دامنه ایمیل را به درستی وارد کنید'
                   ),
                 password: Yup.string()
-                  .required("لطفا رمز عبور خود را وارد کنید")
+                  .required('لطفا رمز عبور خود را وارد کنید')
                   .matches(
                     /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-                    "باید شامل 8 نویسه، یک حروف بزرگ، یک عدد و یک نویسه خاص باشد"
+                    'باید شامل 8 نویسه، یک حروف بزرگ، یک عدد و یک نویسه خاص باشد'
                   ),
               })}
               onSubmit={(values) => {

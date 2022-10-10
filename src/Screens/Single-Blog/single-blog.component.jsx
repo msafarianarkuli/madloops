@@ -209,7 +209,7 @@ const SingleBlog = () => {
                   <div
                     onClick={() => navigate(`/blogs/${item.id}`)}
                     key={item.id}
-                    className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow duration-300 group"
+                    className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow dark:hover:custom-dark-shadow duration-300 group"
                   >
                     <div className="col-span-2 overflow-hidden">
                       <img
@@ -223,15 +223,15 @@ const SingleBlog = () => {
                         showH2
                         showP
                         title={handleLeadH(item.title)}
-                        classH2Field="sm:text-2xl text-xl pt-3 mr-5 text-gray-700"
+                        classH2Field="sm:text-2xl text-xl pt-3 mr-5 text-gray-700 dark:text-dark-secondary-title"
                       />
 
-                      <p className="mr-3 sm:text-lg text-md sm:w-48 md:w-72 lg:w-80 xl:w-48 w-44 text-gray-400">
+                      <p className="mr-3 sm:text-lg text-md sm:w-48 md:w-72 lg:w-80 xl:w-48 w-44 text-gray-400 dark:text-dark-text">
                         {handleLeadP(item.description)}
                       </p>
                       <div className="col-span-2 w-36 flex justify-between">
-                        <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600" />
-                        <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md">
+                        <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600 dark:text-dark-secondary-title" />
+                        <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md dark:text-dark-secondary-title">
                           {item.date}
                         </span>
                       </div>
