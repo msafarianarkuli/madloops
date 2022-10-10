@@ -31,7 +31,7 @@ const CardGridListView = ({ item, view }) => {
       showStruc
       classCard={
         view
-          ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mx-8 overflow-hidden hover:shadow-purple mt-4 w-100 mx-2 w-full mt-16 relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:shadow-[#b073cc]"
+          ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mx-8 mt-8 overflow-hidden hover:shadow-purple w-full  relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
           : "m-auto shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
       }
       imageUrl={item.image}
@@ -85,7 +85,7 @@ const CardGridListView = ({ item, view }) => {
           </div>
         </div>
       ) : (
-        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[45%] xl:right-[39%] lg:right-[33%] sm:right-[25%]">
+        <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[40%] xl:right-[35%] lg:right-[28%] sm:right-[20%]">
           <div className="flex sm:justify-start sm:m-0 my-3">
             <div className="flex items-center ml-4">
               <BsPerson className="w-5 dark:text-[#E5E7EB]" />
@@ -153,7 +153,7 @@ const CardGridListView = ({ item, view }) => {
         className={
           !view
             ? "mx-6 order-last mt-2 mb-5"
-            : "md:mx-6 sm:ml-2 order-last sm:inline-block float-left mx-6 mt-2 mb-5"
+            : "md:mx-6 sm:ml-2 order-last sm:inline-block float-left mx-2 mt-2 mb-5"
         }
       >
         {!view ? (
@@ -196,7 +196,9 @@ const CardGridListView = ({ item, view }) => {
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
               <BsFillStarFill className="text-[#F9A134] mt-2" />
-              <h3 className="text-[#3A3737] pt-2 pr-2">{item.likeCount}</h3>
+              <h3 className="text-[#3A3737] dark:text-[#E5E7EB] pt-2 pr-2">
+                {item.likeCount}
+              </h3>
               <h5 className="text-[#605d5d] pt-3 pr-2 text-xs sm:block hidden">
                 (145,236)
               </h5>
@@ -214,11 +216,17 @@ const CardGridListView = ({ item, view }) => {
             </h3>
           </div>
         </div>
-        <div className="flex justify-between  btn p-0 group-hover:border-lite-purple dark:group-hover:border-[#b073cc]">
-          <Button className="my-0 hover:btn-base w-[20%] h-fit p-4">
+        <div
+          className={
+            !view
+              ? "flex justify-between btn p-0 group-hover:border-lite-purple dark:group-hover:border-[#b073cc]"
+              : "flex items-stretch btn p-0 sm:w-fit sm:h-fit w-64 h-10 group-hover:border-lite-purple dark:group-hover:border-[#b073cc] md:mt-28 sm:mt-36"
+          }
+        >
+          <Button className="hover:btn-base md:w-[20%] sm:w-fit w-fit h-fit md:p-4 sm:p-2 p-[11px] rounded-r-md outline-none self-end">
             <BsFillShareFill className="mx-auto dark:text-[#E5E7EB]" />
           </Button>
-          <Button className="mx-auto hover:btn-base w-[20%] h-fit p-4">
+          <Button className="hover:btn-base md:w-[20%] sm:w-fit w-fit h-fit md:p-4 sm:p-2 p-[11px] outline-none self-end">
             <BsFillBookmarkPlusFill className="mx-auto dark:text-[#E5E7EB]" />
           </Button>
           <Button
@@ -226,8 +234,8 @@ const CardGridListView = ({ item, view }) => {
             ButtonType="button"
             classButton={
               !view
-                ? "hover:btn-base w-[60%] h-fit p-3 dark:text-[#E5E7EB]"
-                : "dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 md:btn sm:p-2 md:text-base sm:text-xs md:mt-28 sm:mt-36"
+                ? "hover:btn-base w-[60%] h-fit p-3 dark:text-[#E5E7EB] outline-0"
+                : "hover:bg-[#8055D9] hover:text-white dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 sm:p-2 md:text-base sm:text-xs"
             }
           >
             جزئیات دوره
