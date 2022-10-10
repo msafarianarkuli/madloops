@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Button } from './../../common/button-component/button.component';
-import { FieldName } from '../../common/field-name-component/field-name.component';
-import { Typewriter } from 'react-simple-typewriter';
-import { Link } from 'react-router-dom';
-import LandingModal from '../../common/Landing-Modal/landing-modal.component';
+import React, { useState } from "react";
+import { Button } from "./../../common/button-component/button.component";
+import { FieldName } from "../../common/field-name-component/field-name.component";
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
+import LandingModal from "../../common/Landing-Modal/landing-modal.component";
+import Robot from "../Landing-Header/landing-header-robot.component";
 
 const LandingHeader = () => {
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +30,7 @@ const LandingHeader = () => {
                 <div className="h-[130px]">
                   <Typewriter
                     words={[
-                      'برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.',
+                      "برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.",
                     ]}
                     cursor
                     cursorStyle=" |"
@@ -43,7 +44,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/students.png')}
+                  src={require("../../../Assets/img/students.png")}
                   alt="student"
                 />
                 <FieldName
@@ -55,7 +56,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/online-learning.png')}
+                  src={require("../../../Assets/img/online-learning.png")}
                   alt="online-learning"
                 />
                 <FieldName
@@ -67,7 +68,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/newsletter.png')}
+                  src={require("../../../Assets/img/newsletter.png")}
                   alt="newsletter"
                 />
                 <FieldName
@@ -79,7 +80,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/presentation.png')}
+                  src={require("../../../Assets/img/presentation.png")}
                   alt="presentation"
                 />
                 <FieldName
@@ -118,20 +119,8 @@ const LandingHeader = () => {
             </div>
           </div>
           <div className="sm:col-span-4 col-span-0 sm:block hidden relative">
-            <img
-              className="-z-10 2xl:h-650 xl:h-600 lg:h-550 md:h-450"
-              src={
-                require('../../../Assets/img/shadow-falling-custom.svg')
-                  .default
-              }
-              alt="shadow-falling-custom"
-            />
             <div className="absolute xl:right-40 lg:right-20 md:right-14 sm:right-10 md:top-96 sm:top-80 w-[60%] h-48 rounded-full drop-shadow-xl shadow-black">
-              <img
-                className="absolute -top-72"
-                src={require('../../../Assets/img/manlapcustom.png')}
-                alt="man-with-lap"
-              />
+              <Robot />
             </div>
           </div>
         </div>
