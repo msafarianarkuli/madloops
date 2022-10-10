@@ -23,7 +23,7 @@ const SignUpFourthPage = () => {
         </div>
         <div className="col-span-1 mt-2 h-14 flex justify-center">
           <Link to="/">
-            <Button className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-4 text-center rounded-xl hover:button-shadow duration-300 ease-in-out">
+            <Button className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-4 text-center rounded-xl hover:button-shadow dark:hover:shadow-purple duration-300 ease-in-out">
               ادامه
             </Button>
           </Link>

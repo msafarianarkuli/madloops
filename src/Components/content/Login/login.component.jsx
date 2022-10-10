@@ -2,6 +2,7 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import React from "react";
 import AnimateLoginSvg from "../../common/Animate-Login-SVG/animate-login-svg.component";
+import AnimateLoginSvgDark from "../../common/Animate-Login-SVG/animate-login-svg-dark.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
@@ -12,9 +13,9 @@ const Login = () => {
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-2 h-screen">
-        <div className="col-span-1 lg:block hidden dark:bg-dark-secondary bg-lite-gray relative">
+        <div className="col-span-1 lg:block hidden dark:bg-[#222326] bg-lite-gray relative">
           <div className="h-650">
-            <AnimateLoginSvg />
+            <AnimateLoginSvgDark />
           </div>
           <div className="h-20 w-full absolute bottom-0">
             <Link to="/">
@@ -35,7 +36,7 @@ const Login = () => {
             />
           </Link>
         </div>
-        <div className="lg:col-span-1 col-span-2 bg-white dark:bg-[#121212]">
+        <div className="lg:col-span-1 col-span-2 bg-white dark:bg-dark-primary">
           <div className=" animate-[onLoadAnim_1.5s_ease-in-out]">
             <div className="sm:h-44 lg:h-48 h-40">
               <FieldName
@@ -81,7 +82,7 @@ const Login = () => {
                       name="email"
                       type="text"
                       id="email"
-                      classInput="dark:text-white dark:bg-[#121212] sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                      classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:text-gray-400 dark:bg-dark-primary rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="نمونه : example@gmail.com"
                       classError="text-red-500 h-[20px] mb-1"
@@ -94,7 +95,7 @@ const Login = () => {
                       name="password"
                       type="password"
                       id="password"
-                      classInput="dark:text-white dark:bg-[#121212] sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                      classInput="sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white dark:text-gray-400 dark:bg-dark-primary rounded-xl outline-none duration-300"
                       classLabel="text-xl mb-2 dark:text-gray-300"
                       placeholder="باید دارای 8 نویسه باشد ..."
                       classError="text-red-500 h-[20px] mb-1"
@@ -121,7 +122,7 @@ const Login = () => {
                   </div>
                   <div className="mt-2 h-14 flex justify-center">
                     <Button
-                      className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 ease-in-out"
+                      className="bg-button-purple text-white sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow dark:hover:shadow-purple duration-300 ease-in-out"
                       ButtonType="submit"
                     >
                       ورود
@@ -129,12 +130,12 @@ const Login = () => {
                   </div>
                   <div className="mt-2 h-14 flex justify-center">
                     <Button
-                      className="relative border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
+                      className="relative border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:shadow-purple sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
                     ease-in-out group"
                       ButtonType="submit"
                     >
                       ادامه با گوگل
-                      <FcGoogle className="text-2xl group-hover:animate-[onHoverGoogle_1s_ease-in-out_infinite] absolute sm:left-32 left-24 top-3 group-hover:text-3xl group-hover:top-2 duration-200" />
+                      <FcGoogle className="text-2xl group-hover:animate-[onHoverGoogle_1s_ease-in-out_infinite] absolute sm:left-32 left-24 top-3  group-hover:text-3xl group-hover:top-2 duration-200" />
                     </Button>
                   </div>
                   <div className="mt-2 h-8 flex justify-center text-sick-gray">
@@ -153,7 +154,7 @@ const Login = () => {
                   <div className="mt-2 h-14 flex justify-center">
                     <Link to="/sign-up">
                       <Button
-                        className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:text-white sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
+                        className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-gray-200 sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow dark:hover:shadow-purple duration-300 
                     ease-in-out hover:bg-button-purple hover:text-white"
                         ButtonType="submit"
                       >
