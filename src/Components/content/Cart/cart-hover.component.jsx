@@ -7,7 +7,7 @@ const CartHover = () => {
 
   return (
     <div
-      className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-md"
+      className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-lg"
       style={{
         opacity: !isCartOpen ? "0" : "1",
         visibility: !isCartOpen ? "hidden" : "visible",
@@ -20,7 +20,7 @@ const CartHover = () => {
       {cartItems.map((item) => {
         return (
           <div
-            className="w-full h-full flex border-b-2 dark:bg-dark-secondary bg-white p-2"
+            className="w-full h-full flex border-b-2 dark:bg-dark-secondary bg-white p-2 rounded-lg"
             key={item.id}
           >
             <div className="w-20 p-2 h-20 my-auto">
@@ -48,7 +48,7 @@ const CartHover = () => {
         </div>
       ) : (
         <Link
-          className="text-center w-full h-fit text-2xl p-3 dark:text-dark-primary dark:bg-gray-500 text-white cursor-pointer rounded-b-md bg-[#00bfd6]"
+          className="text-center w-full h-fit text-2xl p-3 dark:text-dark-primary dark:bg-gray-500 text-white cursor-pointer rounded-b-lg bg-[#00bfd6]"
           to="/cart"
         >
           مشاهده سبد خرید

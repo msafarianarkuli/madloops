@@ -9,7 +9,7 @@ const CartPage = () => {
   const clearCartItem = () => clearCart(cartItems.length);
 
   return (
-    <div className="w-[95%] m-auto border-2 mt-20 rounded-md">
+    <div className="w-[95%] m-auto border-2 mt-20 rounded-lg mb-20">
       <CartTable />
       <div className="flex justify-between">
         <div className="font-bold text-black text-xl p-5">

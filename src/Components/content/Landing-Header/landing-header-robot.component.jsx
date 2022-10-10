@@ -130,7 +130,7 @@ class App extends React.Component {
             </div>
             <div
               className={
-                "stripe flex absolute w-[200px] h-[7px] bottom-[7px] left-[-38%] duration-500 detail " +
+                "stripe flex absolute w-[200px] h-[7px] bottom-[7px] left-[-38%] duration-300 detail " +
                 (toTheRight ? "right left-[0]" : "")
               }
             >
