@@ -12,7 +12,7 @@ const RobotTextMessage = () => {
       <div className="lg:w-60 w-52 absolute top-[-400px] bg-lite-violet dark:bg-[#5DC8B2] dark:text-dark-primary p-2 pr-5 z-30 rounded-t-full rounded-r-full animate-[onLoadTextThree_9.4s_ease-in-out] duration-300">
         <h2 className="lg:text-xl text-lg">با خبر های روز تکنولوژی دنیا</h2>
       </div>
-      <div className="lg:w-72 w-64 absolute top-[-400px] bg-lite-violet dark:bg-[#5DC8B2] dark:text-dark-primary p-2 pr-4 z-40 rounded-t-3xl -right-12 rounded-r-3xl animate-[onLoadTextFour_13.4s_ease-in-out] duration-300">
+      <div className="lg:w-72 w-64 absolute top-[-400px] bg-lite-violet dark:bg-[#5DC8B2] dark:text-dark-primary p-2 pr-4 z-40 rounded-t-3xl -right-12 rounded-r-3xl animate-[onLoadTextFour_13.4s_ease-in-out] duration-300 delay-500">
         <h2 className="lg:text-xl text-lg">اگه سوالی داشتی میتونی تو چت آنلاین با ما به اشتراک بزاری</h2>
       </div>
     </div>
