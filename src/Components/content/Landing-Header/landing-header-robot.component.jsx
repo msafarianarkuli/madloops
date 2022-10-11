@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import RobotTextMessage from "../../common/Text-Message-Robot/robot-textmessage.component";
 import "../Landing-Header/landing-robot.component.styles.scss";
 
 class App extends React.Component {
@@ -92,12 +93,12 @@ class App extends React.Component {
     return (
       <div>
         <div
-          className="bb8 xl:bottom-[65%] lg:bottom-[70%] md:bottom-[85%] sm:bottom-[85%]"
+          className="bb8 xl:bottom-[65%] lg:bottom-[95%] md:bottom-[110%] sm:bottom-[105%]"
           style={{ WebkitTransform: `translateX(${droidX}px)` }}
         >
           <div
             className={
-              "antennas absolute duration-150 left-[7%] " +
+              "antennas absolute duration-150 left-[-42%] " +
               (toTheRight ? "right left-[6%]" : "")
             }
             style={{
@@ -144,6 +145,18 @@ class App extends React.Component {
               <div className="detail five w-[2%] ml-[3px] bg-lite-purple"></div>
             </div>
             <div className="stripe absolute w-[100%] three h-[4px] bottom-[3px] opacity-[0.5] bg-deep-purple"></div>
+          </div>
+          <div
+            className={"antennas absolute duration-150 right-[-115%]"}
+            style={{
+              WebkitTransform: `translateX(${
+                (mouseX - droidX) / 25
+              }px) rotateZ(${(mouseX - droidX) / 80}deg)`,
+            }}
+          >
+            <div className="antenna short">
+              <RobotTextMessage />
+            </div>
           </div>
           <div
             className="ball md:w-56 md:h-56 sm:w-52 sm:h-52 bg-slate-100 dark:bg-dark-secondary rounded-[50%] overflow-hidden relative"
