@@ -2,7 +2,6 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import React from "react";
 import AnimateLoginSvg from "../../common/Animate-Login-SVG/animate-login-svg.component";
-import AnimateLoginSvgDark from "../../common/Animate-Login-SVG/animate-login-svg-dark.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
@@ -15,7 +14,7 @@ const Login = () => {
       <div className="grid grid-cols-2 h-screen">
         <div className="col-span-1 lg:block hidden dark:bg-[#222326] bg-lite-gray relative">
           <div className="h-650">
-            <AnimateLoginSvgDark />
+            <AnimateLoginSvg />
           </div>
           <div className="h-20 w-full absolute bottom-0">
             <Link to="/">

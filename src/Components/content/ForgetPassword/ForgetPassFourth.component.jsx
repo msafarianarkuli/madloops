@@ -5,7 +5,7 @@ import { FieldName } from "./../../common/field-name-component/field-name.compon
 import AnimateForgotPass from "../../common/Animate-ForgotPass-SVG/animate-forgotpass-svg.component";
 const ForgetPassFourthPage = () => {
   return (
-    <div className="container m-auto bg-dark-primary">
+    <div className="container m-auto dark:bg-dark-primary">
       <div className="grid grid-cols-1 h-screen relative">
         <div className="col-span-1 mx-auto text-center h-24 mt-10 animate-[onLoadAnim_1.5s_ease-in-out]">
           <FieldName

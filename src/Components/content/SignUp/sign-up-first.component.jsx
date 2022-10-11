@@ -12,7 +12,7 @@ const SignUpFirstPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-full h-full bg-dark-primary">
+    <div className="flex flex-col w-full h-full dark:bg-dark-primary">
       <div className="animate-[onLoadAnim_1.5s_ease-in-out]">
         <div className="flex mt-6 justify-start">
           <Link to="/login">
@@ -56,7 +56,7 @@ const SignUpFirstPage = (props) => {
                   name="firstName"
                   type="text"
                   id="firstName"
-                  classInput="bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                  classInput="dark:bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                   classLabel="text-xl mb-2 dark:text-white"
                   placeholder="نام خود را وارد کنید..."
                   classError="text-red-500 h-[20px] mb-1"
@@ -67,7 +67,7 @@ const SignUpFirstPage = (props) => {
                   name="lastName"
                   type="text"
                   id="lastName"
-                  classInput="bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                  classInput="dark:bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                   classLabel="text-xl mb-2 dark:text-white"
                   placeholder="نام خانوادگی خود را وارد کنید..."
                   classError="text-red-500 h-[20px] mb-1"
@@ -78,7 +78,7 @@ const SignUpFirstPage = (props) => {
                   name="email"
                   type="text"
                   id="email"
-                  classInput="bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                  classInput="dark:bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                   classLabel="text-xl mb-2 dark:text-white"
                   placeholder="نمونه : example@gmail.com"
                   classError="text-red-500 h-[20px] mb-1"
