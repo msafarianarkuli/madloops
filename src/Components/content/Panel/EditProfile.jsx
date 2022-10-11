@@ -1,12 +1,12 @@
-import React, { useRef } from 'react';
-import { Form, Formik } from 'formik';
-import * as Yup from 'yup';
-import persian from 'react-date-object/calendars/persian';
-import persian_fa from 'react-date-object/locales/persian_fa';
+import React, { useRef } from "react";
+import { Form, Formik } from "formik";
+import * as Yup from "yup";
+import persian from "react-date-object/calendars/persian";
+import persian_fa from "react-date-object/locales/persian_fa";
 
-import editImg from '../../../Assets/img-user-panel/edit.png';
-import Input from '../../common/Inputs/TextInputs/Input';
-import CustomDatePicker from '../../common/Date-Picker/date-picker-component';
+import editImg from "../../../Assets/img-user-panel/edit.png";
+import Input from "../../common/Inputs/TextInputs/Input";
+import CustomDatePicker from "../../common/Date-Picker/date-picker-component";
 const EditProfile = () => {
   const fileInput = useRef();
   return (
@@ -38,39 +38,37 @@ const EditProfile = () => {
         </div>
         <Formik
           initialValues={{
-            name: '',
-            userName: '',
-            nationalNumber: '',
-            email: '',
-            birthDate: '',
-            phone: '',
+            name: "",
+            userName: "",
+            nationalNumber: "",
+            email: "",
+            birthDate: "",
+            phone: "",
           }}
           validationSchema={Yup.object({
             name: Yup.string().required(
-              'لطفا فیلد نام و  نام خانوادگی را پر کنید'
+              "لطفا فیلد نام و  نام خانوادگی را پر کنید"
             ),
             userName: Yup.string()
-              .required('لطفا فیلد نام کابری را پر کنید')
+              .required("لطفا فیلد نام کابری را پر کنید")
               .matches(
                 /^[a-zA-Z0-9_-]{3,16}$/,
-                ' نام کاربری باید بین 3 تا 16 کارکتر بوده و می تواند شامل حروف انگلیسی، اعداد و خط تیره باشد'
+                " نام کاربری باید بین 3 تا 16 کارکتر بوده و می تواند شامل حروف انگلیسی، اعداد و خط تیره باشد"
               ),
             nationalNumber: Yup.string()
-              .required('لطفا فیلد کد ملی را پر کنید')
-              .matches(/^[0-9]+$/, 'الگوی وارد شده صحیح نمی باشد')
-              .min(10, 'تعداد ارقام کد ملی صحیح نیست')
-              .max(10, 'تعداد ارقام کد ملی صحیح نیست'),
+              .required("لطفا فیلد کد ملی را پر کنید")
+              .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+              .min(10, "تعداد ارقام کد ملی صحیح نیست")
+              .max(10, "تعداد ارقام کد ملی صحیح نیست"),
             email: Yup.string()
-              .email('الگوی وارد شده صحیح نمی باشد')
-              .required('لطفا فیلد ایمیل را پر کنید'),
-            birthDate: Yup.string().required(
-              'لطفا فیلد تاریخ تولد را پر کنید'
-            ),
+              .email("الگوی وارد شده صحیح نمی باشد")
+              .required("لطفا فیلد ایمیل را پر کنید"),
+            birthDate: Yup.string().required("لطفا فیلد تاریخ تولد را پر کنید"),
             phone: Yup.string()
-              .required('لطفا فیلد شماره تماس را پر کنید')
-              .matches(/^[0-9]+$/, 'الگوی وارد شده صحیح نمی باشد')
-              .min(11, 'تعداد ارقام شماره تلفن صحیح نیست')
-              .max(11, 'تعداد ارقام شماره تلفن صحیح نیست'),
+              .required("لطفا فیلد شماره تماس را پر کنید")
+              .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+              .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
+              .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
           })}
           onSubmit={(values) => {
             console.log(values);
@@ -80,7 +78,7 @@ const EditProfile = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6 p-6 animate-[onLoadPanel_.5s_ease-in]">
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   name="name"
                   type="text"
                   label="نام و نام خانوادگی:"
@@ -89,7 +87,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   name="userName"
                   type="text"
                   label="نام کاربری:"
@@ -98,7 +96,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   name="nationalNumber"
                   type="text"
                   label="کد ملی:"
@@ -107,7 +105,7 @@ const EditProfile = () => {
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   name="email"
                   type="text"
                   label="ایمیل:"
@@ -120,12 +118,12 @@ const EditProfile = () => {
                   label="تاریخ تولد:"
                   placeholder="1401/06/12"
                   classLabel="text-gray-600 block text-lg dark:text-dark-secondary-title"
-                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                 />
               </div>
               <div>
                 <Input
-                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:bg-transparent dark:border"
+                  className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   name="phone"
                   type="text"
                   label="شماره موبایل:"
