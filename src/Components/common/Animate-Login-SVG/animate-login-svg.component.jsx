@@ -5,7 +5,7 @@ const AnimateLoginSvg = () => {
   return (
     <div className="">
       <svg
-       className="xl:w-96 lg:w-72 md:w-60"
+        className="xl:w-96 lg:w-72 md:w-60"
         id="logo"
         width="678"
         height="463"
@@ -24,20 +24,44 @@ const AnimateLoginSvg = () => {
           strokeWidth="5"
         />
         <path
+          className="dark:hidden block"
           d="M471.224 169.271C495.304 246.864 522.689 316.719 546.77 394.312C677.409 312.517 588.725 155.304 471.224 169.271Z"
           fill="#F3F4F8"
           stroke="url(#paint2_linear_0_1)"
           strokeWidth="5"
         />
         <path
+          className="dark:block hidden"
+          d="M471.224 169.271C495.304 246.864 522.689 316.719 546.77 394.312C677.409 312.517 588.725 155.304 471.224 169.271Z"
+          fill="#222326"
+          stroke="url(#paint2_linear_0_1)"
+          strokeWidth="5"
+        />
+        <path
+          className="dark:hidden block"
           d="M507.79 103.229L491.442 97.0111C522.024 -15.4369 565.271 29.4723 524.138 109.448L507.79 103.229Z"
           fill="#F3F4F8"
           stroke="url(#paint3_linear_0_1)"
           strokeWidth="5"
         />
         <path
+          className="dark:block hidden"
+          d="M507.79 103.229L491.442 97.0111C522.024 -15.4369 565.271 29.4723 524.138 109.448L507.79 103.229Z"
+          fill="#222326"
+          stroke="url(#paint3_linear_0_1)"
+          strokeWidth="5"
+        />
+        <path
+          className="dark:hidden block"
           d="M606.169 151.635L593.693 141.101C641.079 26.0142 688.575 82.9498 619.377 162.919L606.169 151.635Z"
           fill="#F3F4F8"
+          stroke="url(#paint4_linear_0_1)"
+          strokeWidth="5"
+        />
+        <path
+          className="dark:block hidden"
+          d="M606.169 151.635L593.693 141.101C641.079 26.0142 688.575 82.9498 619.377 162.919L606.169 151.635Z"
+          fill="#222326"
           stroke="url(#paint4_linear_0_1)"
           strokeWidth="5"
         />

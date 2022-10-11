@@ -15,7 +15,7 @@ const SignUpSecondPage = (props) => {
     props.next(values);
   };
   return (
-    <div className="flex flex-col w-full h-full dark:bg-[#121212]">
+    <div className="flex flex-col w-full h-full dark:bg-dark-primary">
       <div className="animate-[onLoadAnim_1.5s_ease-in-out]">
         <div className="flex justify-start mt-6">
           <Link to="/login">
@@ -67,7 +67,7 @@ const SignUpSecondPage = (props) => {
                   name="nationalId"
                   type="text"
                   id="nationalId"
-                  classInput="dark:bg-[#121212] dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                  classInput="dark:bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                   classLabel="text-xl mb-2 dark:text-white"
                   placeholder="شماره ملی خود را وارد کنید..."
                   classError="text-red-500 h-[20px] mb-1"
@@ -78,14 +78,14 @@ const SignUpSecondPage = (props) => {
                   name="phoneNumber"
                   type="tel"
                   classLabel="text-xl mb-2 dark:text-white"
-                  dropdownClass="bottom-full absolute dark:bg-[#121212]"
+                  dropdownClass="bottom-full absolute"
                   classError="text-red-500 h-[20px] mt-1 mr-1"
                 />
                 <CustomDatePicker
                   classForm="flex flex-col mt-2 h-24"
                   label="تاریخ تولد:"
                   name="birthDate"
-                  className="ltr dark:bg-[#121212] dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
+                  className="ltr dark:bg-dark-primary dark:text-white sm:w-96 w-80 p-2 mb-1 border-2 border-[#B7B7B7] focus:border-transparent focus:input-shadow bg-white rounded-xl outline-none duration-300"
                   classLabel="text-xl mb-2 dark:text-white"
                   placeholder="1401/06/12"
                 />
