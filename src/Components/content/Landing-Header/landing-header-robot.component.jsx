@@ -98,8 +98,8 @@ class App extends React.Component {
         >
           <div
             className={
-              "antennas absolute duration-150 left-[-42%] " +
-              (toTheRight ? "right left-[6%]" : "")
+              "antennas absolute duration-200 left-[-44%] " +
+              (toTheRight ? "right left-[-44%]" : " left-[4%]")
             }
             style={{
               WebkitTransform: `translateX(${
