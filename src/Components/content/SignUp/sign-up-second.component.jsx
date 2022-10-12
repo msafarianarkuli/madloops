@@ -73,12 +73,13 @@ const SignUpSecondPage = (props) => {
                   classError="text-red-500 h-[20px] mb-1"
                 />
                 <PhoneNumberField
+                  classInput="dark:input-dark"
                   classForm="flex flex-col mt-2 h-24"
                   label="شماره همراه:"
                   name="phoneNumber"
                   type="tel"
                   classLabel="text-xl mb-2 dark:text-white"
-                  dropdownClass="bottom-full absolute"
+                  dropdownClass="bottom-full absolute dark:input-secondary dark:text-gray-600"
                   classError="text-red-500 h-[20px] mt-1 mr-1"
                 />
                 <CustomDatePicker

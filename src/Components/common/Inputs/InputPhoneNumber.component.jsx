@@ -27,7 +27,7 @@ const PhoneNumberField = ({ ...props }) => {
           inputClass={classInput}
           value={field.value}
           onChange={onChange}
-          placeholder="+98 911 123 4567"
+          placeholder='+98 903 147 1874'
           {...props}
         />
       </div>

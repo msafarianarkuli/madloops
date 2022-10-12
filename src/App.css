@@ -68,6 +68,14 @@
   .input-shadow {
     box-shadow: 0 0 0 4px #c7affc;
   }
+  .input-dark{
+    background: #1C1C1C !important;
+    color: #e2e2e2;
+  }
+  .input-secondary{
+    background: #222326 !important;
+    color: #e2e2e2;
+  }
   .button-shadow {
     box-shadow: 0 0 6px 3px #c7affc;
   }
