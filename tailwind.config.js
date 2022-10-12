@@ -33,6 +33,7 @@ module.exports = {
         200: "200px",
         250: "250px",
         300: "300px",
+        350: "350px",
         400: "400px",
         450: "450px",
         500: "500px",
@@ -72,6 +73,10 @@ module.exports = {
         },
         onLoadHome: {
           "0%": { transform: "translateX(-300px)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        onLoadTeacher: {
+          "0%": { transform: "translateX(50px)", opacity: "0" },
           "100%": { transform: "translateX(0)" },
         },
         onLoadHomeRes: {
@@ -155,6 +160,7 @@ module.exports = {
       animation: {
         onLoadAnim: "onLoadAnim 1.5s ease-in-out",
         onLoadHome: "onLoadHome 2s ease-in-out",
+        onLoadTeacher: "onLoadHome 2s ease-in-out",
         onLoadHomeRes: "onLoadHome 1s ease-in-out",
         onHoverGoogle: "onHoverGoogle 1s ease-in-out infinite",
         onLoadTextOne: "onLoadTextOne",
