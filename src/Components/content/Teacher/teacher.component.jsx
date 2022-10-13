@@ -48,21 +48,21 @@ const TeacherPage = () => {
             />
           </div>
           <div className="flex flex-col justify-center md:flex-row md:justify-around md:gap-0 gap-10 text-center mt-16 mb-11">
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.reduce((a, b) => a + b.lesson, 0)}+
               </div>
               <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
               <div className="text-[#675F74] text-3xl">درس </div>
             </div>
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.reduce((a, b) => a + b.hour, 0)}+
               </div>
               <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
               <div className="text-[#675F74] text-3xl">ساعت </div>
             </div>
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.length}+
               </div>
@@ -91,7 +91,7 @@ const TeacherPage = () => {
               <div className="absolute 2xl:bottom-[102px] 2xl:left-[420px] lg:bottom-20 lg:left-[320px] md:bottom-[60px] md:left-[255px] sm:bottom-[37px] sm:left-[163px] bottom-[45px] left-[206px]">
                 <BsTelegram className="2xl:text-6xl lg:text-4xl md:text-xl sm:text-base text-[20px] text-blue-600 hover:scale-110 duration-300 cursor-pointer" />
               </div>
-              <div className="absolute 2xl:bottom-7 2xl:left-64 lg:bottom-6 lg:left-[198px] md:bottom-3 md:left-[170px] sm:bottom-2 sm:left-[100px] bottom-1.5 left-[125px]">
+              <div className="absolute 2xl:bottom-7 2xl:left-64 lg:bottom-6 lg:left-[198px] md:bottom-3 md:left-[160px] sm:bottom-2 sm:left-[100px] bottom-1.5 left-[125px]">
                 <BsWhatsapp className="2xl:text-6xl lg:text-4xl md:text-xl sm:text-base text-[20px] text-green-600 hover:scale-110 duration-300 cursor-pointer" />
               </div>
             </div>

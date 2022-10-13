@@ -52,6 +52,7 @@ const AnimateLoginSvg = () => {
           strokeWidth="5"
         />
         <path
+          id="ear"
           className="dark:hidden block"
           d="M606.169 151.635L593.693 141.101C641.079 26.0142 688.575 82.9498 619.377 162.919L606.169 151.635Z"
           fill="#F3F4F8"
@@ -59,6 +60,7 @@ const AnimateLoginSvg = () => {
           strokeWidth="5"
         />
         <path
+          id="ear2"
           className="dark:block hidden"
           d="M606.169 151.635L593.693 141.101C641.079 26.0142 688.575 82.9498 619.377 162.919L606.169 151.635Z"
           fill="#222326"
