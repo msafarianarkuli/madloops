@@ -186,8 +186,6 @@ const CoursesPage = () => {
           </div>
         </div>
         <div
-          data-aos="slide-up"
-          data-aos-duration="500"
           className={
             !showGrid
               ? "grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]"
