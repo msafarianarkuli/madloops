@@ -31,7 +31,7 @@ const CardGridListView = ({ item, view }) => {
       showStruc
       classCard={
         view
-          ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mx-8 mt-8 overflow-hidden hover:shadow-purple w-full  relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
+          ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mx-8 mt-8 overflow-hidden hover:shadow-purple w-full relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
           : "m-auto shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
       }
       imageUrl={item.image}

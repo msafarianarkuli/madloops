@@ -8,7 +8,7 @@
   }
   .btn-base {
     @apply border-gray-400 text-gray-600 
-    hover:bg-[#8055D9] hover:text-white hover:border-[#8055D9] hover:shadow-md;
+    hover:bg-[#8055D9] hover:text-white hover:border-[#8055D9] hover:shadow-md outline-0;
   }
   .btn-primary {
     @apply border-[#8055D9]  bg-[#8055D9] text-white

@@ -80,7 +80,7 @@ const CoursesPage = () => {
     <section>
       <div className="container m-auto ">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-200">
-          <div className="grid h-2/6">
+          <div className="grid h-2/6" data-aos="fade-up">
             <div className="grid">
               <FieldName
                 showH2
@@ -107,6 +107,7 @@ const CoursesPage = () => {
           <div className="sm:block hidden">
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-40 drop-shadow-xl shadow-black">
               <img
+                data-aos="fade-left"
                 src={require("../../Assets/Online learning-amico.svg").default}
                 alt=""
               />
@@ -114,7 +115,10 @@ const CoursesPage = () => {
           </div>
         </div>
         <div className="flex lg:justify-around sm:justify-evenly text-center lg:mt-0 sm:mt-5">
-          <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary">
+          <div
+            className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary"
+            data-aos="flip-right"
+          >
             <div className="text-[#C53F3F] text-4xl mt-6">
               {filterCourses.reduce((a, b) => a + b.lesson, 0)}+
             </div>
@@ -123,7 +127,10 @@ const CoursesPage = () => {
               درس
             </div>
           </div>
-          <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary">
+          <div
+            className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary"
+            data-aos="flip-down"
+          >
             <div className="text-[#C53F3F] text-4xl mt-6">
               {filterCourses.reduce((a, b) => a + b.hour, 0)}+
             </div>
@@ -132,7 +139,10 @@ const CoursesPage = () => {
               ساعت
             </div>
           </div>
-          <div className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary">
+          <div
+            className="bg-[#F6F6FB] w-80 h-40 rounded-sm dark:bg-dark-secondary"
+            data-aos="flip-left"
+          >
             <div className="text-[#C53F3F] text-4xl mt-6">
               {filterCourses.length}+
             </div>
@@ -142,7 +152,11 @@ const CoursesPage = () => {
             </div>
           </div>
         </div>
-        <div className="mt-32 relative">
+        <div
+          className="mt-32 relative"
+          data-aos="fade-up"
+          data-aos-duration="400"
+        >
           <h2
             className="text-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-base
            bg-white text-[#675F74] sm:w-2/6 w-3/6 absolute -top-4 right-[25%]
@@ -172,6 +186,8 @@ const CoursesPage = () => {
           </div>
         </div>
         <div
+          data-aos="slide-up"
+          data-aos-duration="500"
           className={
             !showGrid
               ? "grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]"
@@ -183,7 +199,7 @@ const CoursesPage = () => {
           ))}
         </div>
         {nextCard < filterCourses.length && (
-          <div className="w-full py-20">
+          <div className="w-full py-20" data-aos="fade-up">
             <Button
               onClick={handleMoreCard}
               classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
