@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./../../common/button-component/button.component";
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Typewriter } from "react-simple-typewriter";
@@ -8,7 +8,6 @@ import Robot from "../Landing-Header/landing-header-robot.component";
 
 const LandingHeader = () => {
   const [showModal, setShowModal] = useState(false);
-
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -17,7 +16,7 @@ const LandingHeader = () => {
     <section className="dark:bg-dark-primary">
       <div className="container m-auto">
         <div className="grid grid-cols-7 2xl:h-700 xl:h-600 lg:h-500 md:h-550 sm:h-450 h-400">
-          <div className="sm:col-span-3 col-span-7">
+          <div className="sm:col-span-3 col-span-7" data-aos="fade-up">
             <div className="grid h-3/6">
               <div className="grid">
                 <FieldName

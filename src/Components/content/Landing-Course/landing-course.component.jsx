@@ -1,35 +1,35 @@
-import React, { useState, useContext } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Button } from '../../common/button-component/button.component';
-import GroupButton from '../../common/GroupButton/GroupButton';
-import LandingTitle from '../../common/LandingTitle/LandingTitle';
-import CardAI from '../../common/Card/Card';
-import { ProductsContext } from './../../../Core/context/products.context';
+import React, { useState, useContext, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from "../../common/button-component/button.component";
+import GroupButton from "../../common/GroupButton/GroupButton";
+import LandingTitle from "../../common/LandingTitle/LandingTitle";
+import CardAI from "../../common/Card/Card";
+import { ProductsContext } from "./../../../Core/context/products.context";
 import {
   handleLikeSorting,
   handleDateSortingDes,
-} from '../../../Core/utils/sorting';
-import { useNavigate } from 'react-router-dom';
+} from "../../../Core/utils/sorting";
+import { useNavigate } from "react-router-dom";
 
 const LandingCourse = () => {
   const { products } = useContext(ProductsContext);
   const navigate = useNavigate();
   const [groupBtnList] = useState([
-    { id: 1, title: 'همه', type: 'all' },
-    { id: 2, title: 'جدیدترین دوره ها', type: 'new' },
-    { id: 3, title: 'محبوب ترین دوره ها', type: 'like' },
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "جدیدترین دوره ها", type: "new" },
+    { id: 3, title: "محبوب ترین دوره ها", type: "like" },
   ]);
   const [filterCourses, setFilterCourses] = useState(products);
 
   const handleSorting = (type) => {
     switch (type) {
-      case 'all':
+      case "all":
         setFilterCourses(products);
         break;
-      case 'new':
+      case "new":
         setFilterCourses(handleDateSortingDes(products, 5));
         break;
-      case 'like':
+      case "like":
         setFilterCourses(handleLikeSorting(products, 5));
         break;
     }
@@ -39,17 +39,16 @@ const LandingCourse = () => {
     <>
       <section className="text-center relative dark:bg-dark-primary">
         <div className="container mx-auto">
-          <LandingTitle
-            title="دوره ها"
-            className="pt-20 sm:pt-10 pb-5"
-          >
-            دوره مورد نظر خود را کاوش کنید
-          </LandingTitle>
-          <GroupButton
-            items={groupBtnList}
-            onSorting={handleSorting}
-          />
+          <div data-aos="fade-down">
+            <LandingTitle title="دوره ها" className="pt-20 sm:pt-10 pb-5">
+              دوره مورد نظر خود را کاوش کنید
+            </LandingTitle>
+          </div>
+          <div data-aos="fade-up">
+            <GroupButton items={groupBtnList} onSorting={handleSorting} />
+          </div>
           <Swiper
+            data-aos="slide-up"
             className="my-10 h-[540px]"
             spaceBetween={20}
             slidesPerView={4}
@@ -81,8 +80,9 @@ const LandingCourse = () => {
             ))}
           </Swiper>
           <Button
+            data-aos="zoom-in-down"
             classButton="btn btn-base dark:text-dark-secondary-title"
-            onClick={() => navigate('/courses')}
+            onClick={() => navigate("/courses")}
           >
             بیشتر
           </Button>

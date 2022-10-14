@@ -1,4 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
@@ -21,9 +23,17 @@ const Navigation = ({ setTheme }) => {
     { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
+  useEffect(() => {
+    Aos.init({ duration: 1000, easing: "ease-in-quart" });
+  }, []);
+
   return (
     <div className="dark:bg-dark-primary bg-white">
-      <div className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0">
+      <div
+        className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0"
+        data-aos="fade-down"
+        data-aos-once="true"
+      >
         <div className="grid h-16 md:grid-cols-12 grid-cols-2">
           <div className="lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 sm:mt-1 mt-2">

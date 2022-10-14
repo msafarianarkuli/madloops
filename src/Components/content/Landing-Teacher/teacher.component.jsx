@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import Data from "../../../Core/services/Fake Service/Teacher";
 import { BsPlayFill } from "react-icons/bs";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
@@ -28,7 +29,7 @@ const LandingTeacher = () => {
   return (
     <section className="dark:bg-dark-primary pb-10">
       <div className="container m-auto">
-        <div className="text-center pt-16">
+        <div className="text-center pt-16" data-aos="fade-down">
           <FieldName
             showH2
             showP
@@ -39,6 +40,7 @@ const LandingTeacher = () => {
           />
         </div>
         <Swiper
+        data-aos="zoom-in-up"
           className="swiper-v mt-10"
           autoplay={{
             delay: 3000,
