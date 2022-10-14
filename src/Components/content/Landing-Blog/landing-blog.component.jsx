@@ -1,18 +1,14 @@
-import { FieldName } from './../../common/field-name-component/field-name.component';
-import { Button } from './../../common/button-component/button.component';
-import {
-  BsFillCircleFill,
-  BsArrowRight,
-  BsArrowLeft,
-} from 'react-icons/bs';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Autoplay } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import useSwiperRef from './swiper-wrapper-button';
-import Data from '../../../Core/services/Fake Service/Blogs';
-import { Link, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { FieldName } from "./../../common/field-name-component/field-name.component";
+import { Button } from "./../../common/button-component/button.component";
+import { BsFillCircleFill, BsArrowRight, BsArrowLeft } from "react-icons/bs";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import useSwiperRef from "./swiper-wrapper-button";
+import Data from "../../../Core/services/Fake Service/Blogs";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 SwiperCore.use([Autoplay, Navigation]);
 
@@ -23,8 +19,7 @@ const LandingBlog = () => {
     const trimmedLead =
       value
         .substring(0, 200)
-        .substring(0, value.substring(0, 200).lastIndexOf(' ')) +
-      '...';
+        .substring(0, value.substring(0, 200).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
 
@@ -34,7 +29,7 @@ const LandingBlog = () => {
   return (
     <section className="dark:bg-dark-primary pb-28">
       <div className="container m-auto relative ">
-        <div className="text-center pt-16">
+        <div className="text-center pt-16" data-aos="fade-down">
           <FieldName
             showH2
             showP
@@ -45,11 +40,15 @@ const LandingBlog = () => {
           />
         </div>
         <Link to="blogs">
-          <Button classButton="hidden xl:absolute xl:top-[105px] xl:left-10 lg:absolute lg:top-[118px] lg:left-10 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-[#5DC8B2] outline rounded-lg dark:bg-dark-primary dark:text-gray-500 dark:hover:hover:text-[#5DC8B2] hover:bg-[#5DC8B2] hover:text-white duration-150 lg:block sm:hidden">
+          <Button
+            data-aos="fade-left"
+            classButton="hidden xl:absolute xl:top-[105px] xl:left-10 lg:absolute lg:top-[118px] lg:left-10 z-10 xl:text-xl xl:p-3 md:text-base md:p-2 text-[#5DC8B2] outline rounded-lg dark:bg-dark-primary dark:text-gray-500 dark:hover:hover:text-[#5DC8B2] hover:bg-[#5DC8B2] hover:text-white duration-150 lg:block sm:hidden"
+          >
             مطالب بیشتر
           </Button>
         </Link>
         <Swiper
+          data-aos="fade-left"
           className="external-slider rounded z-0 relative"
           navigation={{
             prevEl,
@@ -74,10 +73,7 @@ const LandingBlog = () => {
                   <div className="md:mt-6 md:mr-6 sm:mt-4 sm:mr-0 mt-2 mr-5 text-white col-start-3 col-span-4">
                     <div className="flex lg:leading-6">
                       <img
-                        src={
-                          require('../../../Assets/star-fill.svg')
-                            .default
-                        }
+                        src={require("../../../Assets/star-fill.svg").default}
                         className="lg:w-fit lg:p-1 sm:w-4 w-2 mb-[2px] mr-[2px]"
                         alt="star"
                       />
@@ -126,12 +122,14 @@ const LandingBlog = () => {
             );
           })}
           <div
+            data-aos="zoom-in-up"
             className="my-button-next z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl:left-1 lg:top-[55%] md:top-[48%] md:left-3 sm:top-[79%] sm:left-12 text-3xl rounded-lg md:rounded-full duration-300 bg-white dark:bg-dark-primary cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:translate-x-2"
             ref={nextElRef}
           >
             <BsArrowLeft className="w-full h-full text-[#929292]" />
           </div>
           <div
+            data-aos="zoom-in-up"
             className="my-button-prev z-10 xl:w-fit md:w-14 sm:w-12 md:p-5 sm:p-3 absolute xl:top-[52%] xl::right-1 lg:top-[55%] md:top-[48%] md:right-3 sm:top-[79%] sm:right-[75%] text-3xl rounded-lg md:rounded-full duration-300 bg-white dark:bg-dark-primary cursor-pointer drop-shadow-lg scale-100 hover:scale-110 hover:-translate-x-2"
             ref={prevElRef}
           >
@@ -139,7 +137,10 @@ const LandingBlog = () => {
           </div>
         </Swiper>
         <Link to="blogs">
-          <Button classButton="mx-10 mt-3 text-[16px] sm:text-[20px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-[#5DC8B2] sm:outline hover:bg-[#5DC8B2] rounded-md md:rounded-lg hover:text-white duration-150 lg:hidden sm:block">
+          <Button
+            data-aos="fade-left"
+            classButton="mx-10 mt-3 text-[16px] sm:text-[20px] p-1 sm:mx-auto sm:mt-10 sm:p-1 md:text-base md:p-2 text-[#5DC8B2] sm:outline hover:bg-[#5DC8B2] rounded-md md:rounded-lg hover:text-white duration-150 lg:hidden sm:block"
+          >
             مطالب بیشتر
           </Button>
         </Link>

@@ -153,8 +153,8 @@ const Login = () => {
                   <div className="mt-2 h-14 flex justify-center">
                     <Link to="/sign-up">
                       <Button
-                        className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-gray-200 sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow dark:hover:shadow-purple duration-300 
-                    ease-in-out hover:bg-button-purple hover:text-white"
+                        className="border-2 border-button-purple text-deep-purple dark:hover:border-button-purple dark:border-[#b073cc] dark:text-gray-200 sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow dark:hover:shadow-purple duration-300 
+                        ease-in-out hover:bg-button-purple hover:text-white"
                         ButtonType="submit"
                       >
                         ثبت نام
