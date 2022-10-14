@@ -227,8 +227,6 @@ const CoursesPage = () => {
                     key={filter.id}
                     item={filter}
                     onToggle={handleToggle}
-                    // items={filteredItem}
-                    // setItems={setFilteredItem}
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
