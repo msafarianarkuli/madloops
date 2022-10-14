@@ -29,11 +29,7 @@ const Navigation = ({ setTheme }) => {
 
   return (
     <div className="dark:bg-dark-primary bg-white">
-      <div
-        className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0"
-        data-aos="fade-down"
-        data-aos-once="true"
-      >
+      <div className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0">
         <div className="grid h-16 md:grid-cols-12 grid-cols-2">
           <div className="lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 sm:mt-1 mt-2">

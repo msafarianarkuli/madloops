@@ -112,7 +112,7 @@ const BlogsPage = () => {
     <section>
       <div className="container m-auto">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-100">
-          <div className="grid h-2/6">
+          <div className="grid h-2/6" data-aos="fade-up">
             <div className="grid">
               <FieldName
                 showH2
@@ -136,13 +136,17 @@ const BlogsPage = () => {
           <div className="sm:block hidden">
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-28 drop-shadow-xl shadow-black">
               <img
+                data-aos="fade-left"
                 src={require("../../Assets/Blog post-amico.svg").default}
                 alt=""
               />
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 m-auto w-11/12 border-b-2 sm:mt-0 mt-20 border-b-[#707070] ">
+        <div
+          className="grid grid-cols-2 m-auto w-11/12 border-b-2 sm:mt-0 mt-20 border-b-[#707070]"
+          data-aos="zoom-in-up"
+        >
           <h1 className="2xl:text-5xl lg:text-3xl sm:text-xl text-base sm:mt-0 mt-4 dark:text-dark-primary-title">
             برترین های اخیر
           </h1>
@@ -170,7 +174,7 @@ const BlogsPage = () => {
           </div>
         </div>
         <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10 ml-60 mt-10 w-[80%]">
-          {filterBlogs.length > 0
+          {filterBlogs.length < 0
             ? filterBlogs.slice(0, nextCard).map((card) => (
                 <Card
                   showImage
@@ -229,7 +233,7 @@ const BlogsPage = () => {
             : filterBlogs.slice(0, nextCard).map((card) => (
                 <div className="w-full" key={card.id}>
                   <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg">
-                    <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded dark:bg-gray-700">
+                    <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded-t-lg dark:bg-gray-700">
                       <svg
                         className="w-12 h-12 text-gray-200"
                         xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +261,7 @@ const BlogsPage = () => {
               ))}
         </div>
         {nextCard < blogs.length && (
-          <div className="w-full py-20">
+          <div className="w-full py-20" data-aos="fade-up">
             <Button
               onClick={handleMoreCard}
               classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
