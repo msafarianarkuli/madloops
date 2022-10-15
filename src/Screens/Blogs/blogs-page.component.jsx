@@ -173,20 +173,20 @@ const BlogsPage = () => {
             })}
           </div>
         </div>
-        <div className="grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:gap-20 grid-cols-1 gap-10 ml-60 mt-10 w-[80%]">
+        <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto mt-10 w-[80%]">
           {filterBlogs.length < 0
             ? filterBlogs.slice(0, nextCard).map((card) => (
                 <Card
                   showImage
                   showStruc
-                  classCard="m-auto text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
+                  classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
                   key={card.id}
                   imageUrl={card.image}
                   classImage="rounded-t-lg w-full h-full"
-                  classMainImg="m-auto w-full h-72"
+                  classMainImg="w-full h-72"
                   cardBody="w-80 mx-6 order-last"
                   role={handleLead(card.title)}
-                  classRole="text-right h-20 font-bold text-xl text-gray-900 dark:text-dark-text"
+                  classRole="text-right h-20 font-bold w-fit text-xl text-gray-900 dark:text-dark-text"
                   onClick={() => navigate(`${card.id}`)}
                 >
                   <div className="mx-6 my-5">
@@ -231,7 +231,7 @@ const BlogsPage = () => {
                 </Card>
               ))
             : filterBlogs.slice(0, nextCard).map((card) => (
-                <div className="w-full" key={card.id}>
+                <div className="w-full mb-10 sm:mb-0" key={card.id}>
                   <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg">
                     <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded-t-lg dark:bg-gray-700">
                       <svg
