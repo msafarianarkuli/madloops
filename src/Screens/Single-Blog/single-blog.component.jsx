@@ -118,7 +118,7 @@ const SingleBlog = () => {
   return (
     <div className="container m-auto">
       <div className="grid 2xl:grid-cols-8 xl:grid-cols-12 lg:grid-cols-8 md:grid-cols-12 sm:grid-cols-12 grid-cols-12 mt-5">
-        <div className="2xl:col-span-5 xl:col-span-8 lg:col-span-7 md:col-span-12 sm:col-span-12 col-span-12 ">
+        <div className="2xl:col-span-5 xl:col-span-8 lg:col-span-7 md:col-span-12 sm:col-span-12 col-span-12" data-aos="fade-up">
           <div className="2xl:w-10/12 xl:w-11/12 lg:w-10/12 md:w-full sm:w-full w-full lg:float-left ml-5 rounded-lg bg-lite-white custom-shadow mb-10 dark:shadow-none dark:bg-dark-secondary">
             <div className="sm:h-96 h-64">
               <img
@@ -193,7 +193,7 @@ const SingleBlog = () => {
             </div>
           </div>
         </div>
-        <div className="2xl:col-span-3 xl:col-span-4 lg:col-span-8 md:col-span-12 sm:col-span-12 col-span-12 mb-10">
+        <div className="2xl:col-span-3 xl:col-span-4 lg:col-span-8 md:col-span-12 sm:col-span-12 col-span-12 mb-10" data-aos="fade-left">
           <div
             className="2xl:w-9/12 xl:w-11/12 lg:w-8/12 md:w-10/12 sm:w-11/12 w-full h-800 xl:mr-0 lg:mr-40 md:mr-16 sm:mr-6 mr-0
            bg-lite-white custom-shadow rounded-lg dark:bg-dark-secondary dark:shadow-none"

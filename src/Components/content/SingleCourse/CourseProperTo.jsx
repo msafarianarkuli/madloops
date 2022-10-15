@@ -2,7 +2,7 @@ import React from 'react';
 import check from '../../../Assets/check.png';
 const CourseProperTo = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">
           این دوره برای چه کسی مناسبه

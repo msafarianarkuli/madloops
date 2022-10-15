@@ -86,7 +86,7 @@ const SingleCourse = () => {
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
-      <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary">
+      <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary" data-aos="fade-up">
         <div className="rounded-lg overflow-hidden">
           <img src={item.image} className="w-full h-500" />
           <div className="px-4 lg:px-16">

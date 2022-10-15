@@ -9,7 +9,7 @@ import {
 
 const CourseDetails = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-down">
       <div className="course-detail-title-box">
         <p className="course-detail-title">مشخصات دوره</p>
       </div>

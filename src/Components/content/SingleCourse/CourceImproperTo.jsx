@@ -2,7 +2,7 @@ import React from 'react';
 import close from '../../../Assets/close.png';
 const CourceImproperTo = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">
           این دوره برای چه کسی مناسب نیست

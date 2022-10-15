@@ -2,7 +2,7 @@ import React from 'react';
 import { FaUsers, FaUserGraduate } from 'react-icons/fa';
 const CourseOpacity = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-left">
       <div className="course-detail-title-box">
         <p className="course-detail-title">ظرفیت</p>
       </div>
