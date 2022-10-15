@@ -48,7 +48,7 @@ const LandingBlog = () => {
           </Button>
         </Link>
         <Swiper
-          data-aos="fade-left"
+          data-aos="zoom-in"
           className="external-slider rounded z-0 relative"
           navigation={{
             prevEl,
