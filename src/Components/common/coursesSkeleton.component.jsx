@@ -6,9 +6,9 @@ const Skeleton = ({ view, items }) =>
     .fill()
     .map((index) =>
       !view ? (
-        <div className="w-full" key={index}>
+        <div className="w-96" key={index}>
           <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg">
-            <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded-t-lg dark:bg-gray-700">
+            <div className="flex justify-center items-center animate-pulse w-full h-64 bg-gray-400 rounded-t-lg dark:bg-gray-700">
               <svg
                 className="w-12 h-12 text-gray-200"
                 xmlns="http://www.w3.org/2000/svg"
