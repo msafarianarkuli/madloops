@@ -188,8 +188,8 @@ const CoursesPage = () => {
         <div
           className={
             !showGrid
-              ? "grid 2xl:grid-cols-3 2xl:gap-20 2xl:mx-auto xl:grid-cols-3 xl:gap-x-40 xl:ml-48 lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-44 md:gap-y-10 md:ml-52 sm:grid-cols-1 sm:mx-auto sm:gap-20 grid-cols-1 gap-10 mt-10 w-[80%]"
-              : "sm:my-20 sm:mx-auto sm:w-10/12 grid-cols-1 gap-10 mt-10 w-[80%]"
+              ? "sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto my-10 w-[80%]"
+              : "sm:my-20 mx-auto sm:w-10/12 mt-10 w-[80%]"
           }
         >
           {filterCourses.slice(0, nextCard).map((item) => (
