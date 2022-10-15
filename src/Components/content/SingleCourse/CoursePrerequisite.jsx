@@ -2,7 +2,7 @@ import React from 'react';
 
 const CoursePrerequisite = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">پیش نیاز دوره</p>
       </div>

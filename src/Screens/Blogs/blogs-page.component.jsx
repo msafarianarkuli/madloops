@@ -174,7 +174,7 @@ const BlogsPage = () => {
           </div>
         </div>
         <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto mt-10 w-[80%]">
-          {filterBlogs.length < 0
+          {filterBlogs.length > 0
             ? filterBlogs.slice(0, nextCard).map((card) => (
                 <Card
                   showImage

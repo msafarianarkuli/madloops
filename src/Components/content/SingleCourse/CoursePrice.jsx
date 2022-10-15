@@ -8,7 +8,7 @@ const CoursePrice = ({ item }) => {
   const { AddItemToCart } = useContext(CartContext);
   const addProductToCart = () => AddItemToCart(item);
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">قیمت</p>
       </div>

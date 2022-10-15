@@ -7,7 +7,7 @@ import {
 import bahr from '../../../Assets/bahr.jpg';
 const CourseTeacher = () => {
   return (
-    <div className="course-Detail-container">
+    <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">مدرس</p>
       </div>
