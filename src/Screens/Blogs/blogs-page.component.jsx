@@ -77,16 +77,6 @@ const BlogsPage = () => {
     }
   };
 
-  const fetch = () => {
-    setFilterBlogs(data);
-  };
-
-  useEffect(() => {
-    setTimeout(() => {
-      fetch();
-    }, 5000);
-  }, []);
-
   const [selectedBlogButton, setSelectedBlogBtn] = useState(
     groupBtnList[0].title
   );

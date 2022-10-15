@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useContext, useEffect, Fragment } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -17,6 +17,7 @@ import {
   handleViewSorting,
 } from "./../../Core/utils/sorting";
 import { ProductsContext } from "../../Core/context/products.context";
+import Skeleton from "../../Components/common/coursesSkeleton.component";
 
 const cardPerRow = 3;
 
@@ -33,7 +34,17 @@ const CoursesPage = () => {
     { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
 
-  const [filterCourses, setFilterCourses] = useState(products);
+  const [filterCourses, setFilterCourses] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setFilterCourses(products);
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSorting = (type) => {
     switch (type) {
@@ -192,9 +203,15 @@ const CoursesPage = () => {
               : "sm:my-20 mx-auto sm:w-10/12 mt-10 w-[80%]"
           }
         >
-          {filterCourses.slice(0, nextCard).map((item) => (
-            <CardGridListView item={item} key={item.id} view={showGrid} />
-          ))}
+          {loading && <Skeleton items={nextCard} view={showGrid} />}
+          {filterCourses
+            .slice(0, nextCard)
+            .map(
+              (item) =>
+                !loading && (
+                  <CardGridListView item={item} key={item.id} view={showGrid} />
+                )
+            )}
         </div>
         {nextCard < filterCourses.length && (
           <div className="w-full py-20" data-aos="fade-up">
