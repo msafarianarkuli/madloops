@@ -14,6 +14,7 @@ import {
   handleViewSorting,
 } from "./../../Core/utils/sorting";
 import { useEffect } from "react";
+import BlogSkeleton from "./../../Components/common/blogSkeleton";
 
 const cardPerRow = 3;
 
@@ -33,7 +34,18 @@ const BlogsPage = () => {
   const data = Object.values(blogs);
 
   const [search, setSearch] = useState("");
-  const [filterBlogs, setFilterBlogs] = useState(data);
+  const [filterBlogs, setFilterBlogs] = useState([]);
+
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      setFilterBlogs(data);
+      setLoading(false);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSearch = (value) => {
     setSearch(value);
@@ -173,92 +185,64 @@ const BlogsPage = () => {
             })}
           </div>
         </div>
-        <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto mt-10 w-[80%]">
-          {filterBlogs.length < 0
-            ? filterBlogs.slice(0, nextCard).map((card) => (
-                <Card
-                  showImage
-                  showStruc
-                  classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
-                  key={card.id}
-                  imageUrl={card.image}
-                  classImage="rounded-t-lg w-full h-full"
-                  classMainImg="w-full h-72"
-                  cardBody="w-80 mx-6 order-last"
-                  role={handleLead(card.title)}
-                  classRole="text-right h-20 font-bold w-fit text-xl text-gray-900 dark:text-dark-text"
-                  onClick={() => navigate(`${card.id}`)}
-                >
-                  <div className="mx-6 my-5">
-                    <div className="flex justify-between">
-                      <div className="flex items-center">
-                        <BsFillCircleFill className="w-2 text-[#1F18DB]" />
-                        <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
-                          زمان مطالعه: {card.readTime} دقیقه
-                        </h3>
-                      </div>
-                      <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
-                        # بهترین
-                      </div>
-                    </div>
+        <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto my-10 w-[80%]">
+          {loading && <BlogSkeleton items={nextCard} />}
+          {!loading &&
+            filterBlogs.slice(0, nextCard).map((card) => (
+              <Card
+                showImage
+                showStruc
+                classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
+                key={card.id}
+                imageUrl={card.image}
+                classImage="rounded-t-lg w-full h-full"
+                classMainImg="w-full h-72"
+                cardBody="w-80 mx-6 order-last"
+                role={handleLead(card.title)}
+                classRole="text-right h-20 font-bold w-fit text-xl text-gray-900 dark:text-dark-text"
+                onClick={() => navigate(`${card.id}`)}
+              >
+                <div className="mx-6 my-5">
+                  <div className="flex justify-between">
                     <div className="flex items-center">
-                      <BsFillCircleFill className="w-2 text-[#DB1818]" />
+                      <BsFillCircleFill className="w-2 text-[#1F18DB]" />
                       <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
-                        {card.date}
+                        زمان مطالعه: {card.readTime} دقیقه
                       </h3>
                     </div>
-                  </div>
-                  <div className="mx-6 order-last mt-10 mb-5">
-                    <div className="flex justify-between">
-                      <div className="flex items-center">
-                        <img
-                          src={require("../../Assets/profile.png")}
-                          className="w-10 rounded-full"
-                          alt=""
-                        />
-                        <h3 className="text-[#636363] pr-2 dark:text-dark-secondary-title">
-                          {card.people}
-                        </h3>
-                      </div>
-                      <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
-                        <BsHeart className="pb-1" />
-                        <h3 className="text-sm">{card.likeCount}</h3>
-                        <BsEye className="pb-1" />
-                        <h3 className="text-sm">{card.view}</h3>
-                      </div>
+                    <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
+                      # بهترین
                     </div>
                   </div>
-                </Card>
-              ))
-            : filterBlogs.slice(0, nextCard).map((card) => (
-                <div className="w-full mb-10 sm:mb-0" key={card.id}>
-                  <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg">
-                    <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded-t-lg dark:bg-gray-700">
-                      <svg
-                        className="w-12 h-12 text-gray-200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true"
-                        fill="currentColor"
-                        viewBox="0 0 640 512"
-                      >
-                        <path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z" />
-                      </svg>
+                  <div className="flex items-center">
+                    <BsFillCircleFill className="w-2 text-[#DB1818]" />
+                    <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
+                      {card.date}
+                    </h3>
+                  </div>
+                </div>
+                <div className="mx-6 order-last mt-10 mb-5">
+                  <div className="flex justify-between">
+                    <div className="flex items-center">
+                      <img
+                        src={require("../../Assets/profile.png")}
+                        className="w-10 rounded-full"
+                        alt=""
+                      />
+                      <h3 className="text-[#636363] pr-2 dark:text-dark-secondary-title">
+                        {card.people}
+                      </h3>
                     </div>
-
-                    <div className="p-6">
-                      <h2 className="bg-gray-400 dark:bg-gray-700 animate-pulse h-4 w-1/4 mb-2 rounded-lg"></h2>
-                      <h1 className="w-1/2 mb-4 h-6 animate-pulse bg-gray-500 dark:bg-gray-700 rounded-lg"></h1>
-                      <p className="leading-relaxed mb-3 w-full h-3 animate-pulse bg-gray-400 dark:bg-gray-700 rounded-lg"></p>
-                      <p className="leading-relaxed mb-3 w-2/3 h-3 animate-pulse bg-gray-400 dark:bg-gray-700 rounded-lg"></p>
-                      <p className="leading-relaxed mb-3 w-1/2 h-3 animate-pulse bg-gray-400 dark:bg-gray-700 rounded-lg"></p>
-                      <div className="flex items-center flex-wrap ">
-                        <a className="bg-indigo-300 dark:bg-gray-700 h-4 animate-pulse mt-2 w-32 inline-flex items-center md:mb-2 lg:mb-0 rounded-lg"></a>
-                        <span className="bg-indigo-300 dark:bg-gray-700 w-16 mt-2 h-4 animate-pulse mr-3 px-2 inline-flex items-center ml-auto leading-none text-sm pr-5 py-1 rounded-lg"></span>
-                      </div>
+                    <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
+                      <BsHeart className="pb-1" />
+                      <h3 className="text-sm">{card.likeCount}</h3>
+                      <BsEye className="pb-1" />
+                      <h3 className="text-sm">{card.view}</h3>
                     </div>
                   </div>
                 </div>
-              ))}
+              </Card>
+            ))}
         </div>
         {nextCard < blogs.length && (
           <div className="w-full py-20" data-aos="fade-up">
