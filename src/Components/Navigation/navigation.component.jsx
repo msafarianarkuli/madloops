@@ -89,7 +89,10 @@ const Navigation = ({ setTheme }) => {
                   </div>
                 )}
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
-                  <button className="text-red-500 mt-3 text-3xl" onClick={setTheme}>
+                  <button
+                    className="text-red-500 mt-3 text-3xl"
+                    onClick={setTheme}
+                  >
                     {localStorage.theme === "dark" ? (
                       <MdLightMode className="text-white" />
                     ) : (
@@ -128,17 +131,28 @@ const Navigation = ({ setTheme }) => {
                       ورود / ثبت نام
                     </Button>
                   </Link>
-                  <div className="float-left text-white m-3">
-                    <div className="flex justify-end items-center col-span-1 relative">
-                      <BsCartFill
-                        onMouseOver={() => setIsCartOpen(!isCartOpen)}
-                        onMouseOut={() => setIsCartOpen(!isCartOpen)}
-                        className="h-9 w-fit dark:text-lite-purple sm:text-deep-purple text-lite-pink cursor-pointer sm:z-0 z-30 relative"
-                      />
-                      <div className="absolute sm:text-white text-dark-secondary dark:text-dark-primary top-5 md:left-4 text-md font-bold md:block hidden sm:z-10 z-50 cursor-pointer">
-                        {cartCount}
-                      </div>
-                    </div>
+                  <div className="float-left text-white ml-4 mt-1">
+                    <Link
+                      className={`h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 ${
+                        isCartOpen ? "dark:bg-gray-400 bg-red-100 z-30" : null
+                      }  
+                    `}
+                      to="/cart"
+                    >
+                      <RiShoppingCartLine className=" p-2 h-11 w-11 text-white dark:text-white hover:scale-110 duration-150" />
+                    </Link>
+                  </div>
+                  <div className="float-right text-white mr-12 mb-4 hover:scale-110 duration-150">
+                    <button
+                      className="text-red-500 mt-3 text-3xl"
+                      onClick={setTheme}
+                    >
+                      {localStorage.theme === "dark" ? (
+                        <MdLightMode className="text-white" />
+                      ) : (
+                        <MdModeNight className="text-yellow-400" />
+                      )}
+                    </button>
                   </div>
                   <div className="pt-14 text-lg text-white text-center">
                     {navlines.map((navline) => {

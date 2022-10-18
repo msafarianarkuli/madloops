@@ -15,7 +15,7 @@ import {
 } from "./../../Core/utils/sorting";
 import { useEffect } from "react";
 import BlogSkeleton from "./../../Components/common/blogSkeleton";
-import getAllNews from "./../../Core/services/api/news/getAllNews";
+// import getAllNews from "./../../Core/services/api/news/getAllNews";
 
 const cardPerRow = 3;
 
