@@ -14,11 +14,11 @@ const LandingOffers = () => {
             </LandingTitle>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="flex justify-center items-center" data-aos="fade-left">
+            <div className="flex justify-center items-center" data-aos="zoom-in-down">
               <OffersForm />
             </div>
             <div className="hidden md:block">
-              <img className="w-96 py-14" data-aos="fade-right" src={offers}  />
+              <img className="w-96 py-14" data-aos="fade-up" src={offers}  />
             </div>
           </div>
         </div>

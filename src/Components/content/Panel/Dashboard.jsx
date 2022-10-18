@@ -2,8 +2,19 @@ import React from 'react';
 import reactIcon from '../../../Assets/img-user-panel/React-icon.svg';
 import PanelHeader from './PanelHeader';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import LastCourseSkeleton from '../../common/Skeleton/LastCourseSkeleton';
+import OfferCourseSkelton from '../../common/Skeleton/OfferCourseSkelton';
 const Dashboard = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
     <>
       <PanelHeader />
@@ -62,74 +73,87 @@ const Dashboard = () => {
           <p className="text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6 text-gray-500 dark:text-dark-secondary-title">
             آخرین دوره ثبت شده:
           </p>
-          <Link to="/single-course">
-            <div
-              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
+          {loading ? (
+            <LastCourseSkeleton />
+          ) : (
+            <Link to="/single-course">
+              <div
+                className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
               dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
-            >
-              <img
-                src={reactIcon}
-                className="w-20 group-hover:rotate-[360deg] duration-700"
-              />
-              <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
-                <p className="text-2xl font-bold mb-4">دوره css </p>
-                <div className="flex flex-col text-lg">
-                  <span className="border-b py-4 sm:py-8">
-                    مهدی اصغری
-                  </span>
-                  <span className="py-4 sm:py-6">500,000 ت</span>
+              >
+                <img
+                  src={reactIcon}
+                  className="w-20 group-hover:rotate-[360deg] duration-700"
+                />
+                <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
+                  <p className="text-2xl font-bold mb-4">دوره css </p>
+                  <div className="flex flex-col text-lg">
+                    <span className="border-b py-4 sm:py-8">
+                      مهدی اصغری
+                    </span>
+                    <span className="py-4 sm:py-6">500,000 ت</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          )}
         </div>
         <div>
           <p className="text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6 text-gray-500 dark:text-dark-secondary-title">
             دوره های پیشنهادی:
           </p>
-          <Link to="/single-course">
-            <div
-              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+          {loading ? (
+            <>
+              <OfferCourseSkelton />
+              <OfferCourseSkelton />
+            </>
+          ) : (
+            <>
+              <Link to="/single-course">
+                <div
+                  className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
               dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
-            >
-              <img
-                src={reactIcon}
-                className="w-20 group-hover:rotate-[360deg] duration-700"
-              />
-              <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
-                <p className="text-xl md:text-2xl font-bold mb-4">
-                  دوره React{' '}
-                </p>
-                <div className="sm:flex justify-between text-lg">
-                  <div>دکتر بحر</div>
-                  <div>500,000 ت</div>
+                >
+                  <img
+                    src={reactIcon}
+                    className="w-20 group-hover:rotate-[360deg] duration-700"
+                  />
+                  <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
+                    <p className="text-xl md:text-2xl font-bold mb-4">
+                      دوره React{' '}
+                    </p>
+                    <div className="sm:flex justify-between text-lg">
+                      <div>دکتر بحر</div>
+                      <div>500,000 ت</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Link>
-          <Link to="/single-course">
-            <div
-              className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+              </Link>
+              <Link to="/single-course">
+                <div
+                  className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
               dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
-            >
-              <img
-                src={reactIcon}
-                className="w-20 group-hover:rotate-[360deg] duration-700"
-              />
-              <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
-                <p className="text-xl md:text-2xl font-bold mb-4">
-                  دوره HTML{' '}
-                </p>
-                <div className="sm:flex justify-between text-lg">
-                  <div>دکتر بحر</div>
-                  <div>500,000 ت</div>
+                >
+                  <img
+                    src={reactIcon}
+                    className="w-20 group-hover:rotate-[360deg] duration-700"
+                  />
+                  <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
+                    <p className="text-xl md:text-2xl font-bold mb-4">
+                      دوره HTML{' '}
+                    </p>
+                    <div className="sm:flex justify-between text-lg">
+                      <div>دکتر بحر</div>
+                      <div>500,000 ت</div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </Link>
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>

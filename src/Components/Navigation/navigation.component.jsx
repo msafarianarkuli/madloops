@@ -29,7 +29,7 @@ const Navigation = ({ setTheme }) => {
 
   return (
     <div className="dark:bg-dark-primary bg-white">
-      <div className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0">
+      <div className="container m-auto z-40 dark:bg-dark-primary bg-white sticky top-0 border-b dark:border-b-dark-tertiary shadow-sm">
         <div className="grid h-16 md:grid-cols-12 grid-cols-2">
           <div className="lg:col-span-2 md:col-span-1 col-span-1">
             <div className="flex justify-start items-center col-span-1 md:m-0 mr-3 sm:mt-1 mt-2">
@@ -89,9 +89,13 @@ const Navigation = ({ setTheme }) => {
                   </div>
                 )}
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
-                  <Link to="/user-panel">
-                    <SiCpanel className="text-5xl text-deep-purple animate-[onHoverGoogle_1s_ease-in-out_infinite]" />
-                  </Link>
+                  <button className="text-red-500 mt-3 text-3xl" onClick={setTheme}>
+                    {localStorage.theme === "dark" ? (
+                      <MdLightMode className="text-white" />
+                    ) : (
+                      <MdModeNight className="text-yellow-400" />
+                    )}
+                  </button>
                 </div>
               </div>
               <div className="flex justify-center items-center col-span-2">
@@ -103,16 +107,6 @@ const Navigation = ({ setTheme }) => {
                     ورود / ثبت نام
                   </Button>
                 </Link>
-                <button
-                  className="text-red-500 mr-4 text-3xl"
-                  onClick={setTheme}
-                >
-                  {localStorage.theme === "dark" ? (
-                    <MdLightMode className="text-white" />
-                  ) : (
-                    <MdModeNight className="text-yellow-400" />
-                  )}
-                </button>
               </div>
             </div>
           </div>

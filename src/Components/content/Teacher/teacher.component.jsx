@@ -22,14 +22,14 @@ const TeacherPage = () => {
     <div className="container m-auto">
       <div className="flex 2xl:flex-row flex-col-reverse justify-between">
         <div className="2xl:w-[50%] w-full md:pr-16 pr-5">
-          <div className="h-16 sm:mt-20 mt-4 mb-1 text-right">
+          <div className="h-16 sm:mt-20 mt-4 mb-1 text-right" data-aos="fade-down">
             <FieldName
               showH2
               title={teacherItem.title}
               classH2Field="sm:text-3xl text-xl dark:text-gray-300"
             />
           </div>
-          <div className="w-500 h-fit text-right">
+          <div className="w-500 h-fit text-right" data-aos="fade-down">
             <FieldName
               showP
               field={teacherItem.description}
@@ -37,7 +37,7 @@ const TeacherPage = () => {
             />
           </div>
 
-          <div className="flex h-16 sm:mt-20 mt-4 mb-1 text-right">
+          <div className="flex h-16 sm:mt-20 mt-4 mb-1 text-right" data-aos="fade-up">
             <div className="bg-gray-200 dark:bg-dark-tertiary dark:text-gray-400 ml-4 h-fit w-fit rounded-lg sm:mt-0 mt-2">
               <SiGmail className="sm:text-6xl text-4xl p-2" />
             </div>
@@ -48,21 +48,21 @@ const TeacherPage = () => {
             />
           </div>
           <div className="flex flex-col justify-center md:flex-row md:justify-around md:gap-0 gap-10 text-center mt-16 mb-11">
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300" data-aos="flip-up">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.reduce((a, b) => a + b.lesson, 0)}+
               </div>
               <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
               <div className="text-[#675F74] text-3xl">درس </div>
             </div>
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300" data-aos="flip-up">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.reduce((a, b) => a + b.hour, 0)}+
               </div>
               <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
               <div className="text-[#675F74] text-3xl">ساعت </div>
             </div>
-            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300">
+            <div className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300" data-aos="flip-up">
               <div className="text-[#C53F3F] text-4xl mt-6">
                 {teachers.length}+
               </div>

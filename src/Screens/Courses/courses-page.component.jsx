@@ -236,7 +236,7 @@ const CoursesPage = () => {
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple h-screen pt-8 w-80 z-50 relative"
+                ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative"
                 : "w-0 z-0"
             } duration-300 ease-in-out relative top-0 right-0`}
           >
@@ -250,9 +250,9 @@ const CoursesPage = () => {
                     dir="rtl"
                     headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
                     headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
-                    headerMainStyle="m-auto p-4 bg-white border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
+                    headerMainStyle="m-auto p-4 bg-white dark:bg-dark-tertiary dark:text-gray-300 border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
                     rounded-tl-xl rounded-tr-xl"
-                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
+                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white dark:bg-dark-tertiary dark:text-gray-300 rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
                     bodyActiveStyle="max-h-[100rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
                     bodyInactiveStyle="max-h-[0rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
                     activeIcon={<FaMinus />}
@@ -292,10 +292,10 @@ const CoursesPage = () => {
                     </Formik>
                   </Accordion>
                 ))}
-                <div className="w-full bg-deep-purple p-4 absolute bottom-0">
+                <div className="w-full bg-deep-purple dark:bg-dark-secondary p-4 absolute bottom-0">
                   <Button
                     onClick={() => setOpenFilter(false)}
-                    classButton="w-full text-black bg-white p-4 rounded-xl text-2xl hover:opacity-75 transition duration-500"
+                    classButton="w-full text-black bg-white dark:bg-dark-tertiary dark:text-gray-300 p-4 rounded-xl text-2xl hover:opacity-75 transition duration-500"
                   >
                     ثبت
                   </Button>
@@ -305,8 +305,8 @@ const CoursesPage = () => {
 
             {openFilter && (
               <BsArrowLeftShort
-                className={`bg-white text-deep-purple rounded-full border-2
-              border-deep-purple text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
+                className={`bg-white text-deep-purple dark:bg-dark-primary dark:text-gray-300 rounded-full border-2
+              border-deep-purple dark:border-lite-purple text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
                 onClick={() => setOpenFilter(!openFilter)}
               />
             )}
