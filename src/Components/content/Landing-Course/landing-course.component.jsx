@@ -116,7 +116,6 @@ const LandingCourse = () => {
             ))}
           </Swiper>
           <Button
-            data-aos="zoom-in-down"
             classButton="btn btn-base dark:text-dark-secondary-title"
             onClick={() => navigate('/courses')}
           >
