@@ -41,7 +41,7 @@ const Footer = () => {
                         name="newsletter"
                         type="text"
                         placeholder="ایمیل خود را وارد نمایید"
-                        className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-300 focus:outline-gray-400 focus:input-shadow outline-0 duration-200"
+                        className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-300 dark:bg-dark-tertiary dark:text-gray-400 focus:outline-gray-400 focus:input-shadow outline-0 duration-200"
                       />
                       <Button
                         ButtonType="submit"
@@ -105,26 +105,26 @@ const Footer = () => {
                 href="https://www.instagram.com/mary_sfry/"
                 className="footer-socialMedia group"
               >
-                <FaInstagram className="group-hover:text-lite-purple text-gray-700" />
+                <FaInstagram className="group-hover:text-lite-purple text-gray-700 dark:text-gray-400" />
               </a>
               <a
                 href="https://web.whatsapp.com/send?phone=+989116935706&text=سلام من از طریق سایت مد لوپس پیام میفرستم و سوالی دارم."
                 className="footer-socialMedia group"
               >
-                <FaWhatsapp className="group-hover:text-green-600 text-gray-700" />
+                <FaWhatsapp className="group-hover:text-green-600 text-gray-700 dark:text-gray-400" />
               </a>
               <a
                 href="https://t.me/+989116935706"
                 className="footer-socialMedia group"
               >
-                <FaTelegramPlane className="group-hover:text-blue-600 text-gray-700" />
+                <FaTelegramPlane className="group-hover:text-blue-600 text-gray-700 dark:text-gray-400" />
               </a>
 
               <a
                 href="https://www.facebook.com/digivillacom"
                 className="footer-socialMedia group"
               >
-                <FaFacebookF className="group-hover:text-blue-800 text-gray-700" />
+                <FaFacebookF className="group-hover:text-blue-800 text-gray-700 dark:text-gray-400" />
               </a>
             </div>
             <div className="text-lg text-center md:text-left dark:text-dark-text">
