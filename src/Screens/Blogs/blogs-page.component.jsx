@@ -15,6 +15,7 @@ import {
 } from "./../../Core/utils/sorting";
 import { useEffect } from "react";
 import BlogSkeleton from "./../../Components/common/blogSkeleton";
+import getAllNews from "./../../Core/services/api/news/getAllNews";
 
 const cardPerRow = 3;
 
@@ -30,9 +31,20 @@ const BlogsPage = () => {
   const handleMoreCard = () => {
     setNextCard(nextCard + cardPerRow);
   };
-  const [blogs] = useState(Data);
-  const data = Object.values(blogs);
 
+  const [blogs, setBlogs] = useState(Data);
+
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await getAllNews();
+  //     setBlogs(data);
+  //   };
+
+  //   getData()
+  // }, []);
+
+  const data = Object.values(blogs);
+  console.log(blogs, "123");
   const [search, setSearch] = useState("");
   const [filterBlogs, setFilterBlogs] = useState([]);
 

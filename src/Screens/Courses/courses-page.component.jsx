@@ -204,14 +204,19 @@ const CoursesPage = () => {
           }
         >
           {loading && <Skeleton items={nextCard} view={showGrid} />}
-          {filterCourses
-            .slice(0, nextCard)
-            .map(
-              (item) =>
-                !loading && (
-                  <CardGridListView item={item} key={item.id} view={showGrid} />
-                )
-            )}
+          {!loading &&
+            filterCourses
+              .slice(0, nextCard)
+              .map(
+                (item) =>
+                  !loading && (
+                    <CardGridListView
+                      item={item}
+                      key={item.id}
+                      view={showGrid}
+                    />
+                  )
+              )}
         </div>
         {nextCard < filterCourses.length && (
           <div className="w-full py-20" data-aos="fade-up">
