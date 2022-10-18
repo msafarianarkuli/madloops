@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import _ from 'lodash';
+import { useEffect } from 'react';
 const Pagination = ({
   itemsCount,
   pageSize,
@@ -8,6 +9,13 @@ const Pagination = ({
   onNext,
   onPrev,
 }) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   const pagesCount = Math.ceil(itemsCount / pageSize);
   if (pagesCount === 1 || pagesCount === 0) return null;
   const pages = _.range(1, pagesCount + 1);
@@ -20,21 +28,30 @@ const Pagination = ({
             قبلی
           </a>
         </li>
-        {pages.map((page) => (
-          <li key={page}>
-            <a
-              className={`pagination-item  ${
-                currentPage === page
-                  ? 'pagination-active'
-                  : 'pagination-hover'
-              }`}
-              onClick={() => onPageChange(page)}
-            >
-              {page}
+        {loading ? (
+          <li>
+            <a className="py-2 px-3 leading-tight text-lite-purple bg-white border border-gray-300 cursor-pointer font-bold dark:bg-dark-tertiary dark:text-dark-secondary-title">
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block"></span>
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1"></span>
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1"></span>
             </a>
           </li>
-        ))}
-
+        ) : (
+          pages.map((page) => (
+            <li key={page}>
+              <a
+                className={`pagination-item  ${
+                  currentPage === page
+                    ? 'pagination-active'
+                    : 'pagination-hover'
+                }`}
+                onClick={() => onPageChange(page)}
+              >
+                {page}
+              </a>
+            </li>
+          ))
+        )}
         <li>
           <a onClick={onNext} className="pagination-next">
             بعدی
