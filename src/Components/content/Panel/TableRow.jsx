@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { FaTrashAlt } from 'react-icons/fa';
 import { MdPostAdd } from 'react-icons/md';
+import TableSkeleton from '../../common/Skeleton/TableSkeleton';
 const TableRow = ({ course, onDelete, onAdd }) => {
   const { id, icon: courseIcon, name, price, teacher, data } = course;
   const { pathname } = useLocation();
-  return (
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  return loading ? (
+    <TableSkeleton />
+  ) : (
     <tr
       className="group border-b text-lite-purple group transition ease-in duration-200
     hover:bg-zinc-50 hover:shadow-sm hover:border-b-0 hover:-translate-y-1
