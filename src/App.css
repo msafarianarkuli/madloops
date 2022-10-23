@@ -68,11 +68,11 @@
   .input-shadow {
     box-shadow: 0 0 0 4px #c7affc;
   }
-  .input-dark{
-    background: #1C1C1C !important;
+  .input-dark {
+    background: #1c1c1c !important;
     color: #e2e2e2;
   }
-  .input-secondary{
+  .input-secondary {
     background: #222326 !important;
     color: #e2e2e2;
   }
@@ -150,5 +150,9 @@
 
   .footer-socialMedia {
     @apply bg-white dark:bg-dark-tertiary p-2 rounded-full shadow-md hover:top-1 hover:shadow-lg hover:scale-125 ease-in-out duration-300;
+  }
+  .gauge-path {
+    stroke-width: 8;
+    stroke-dasharray: 1000;
   }
 }
