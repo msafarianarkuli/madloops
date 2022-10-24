@@ -15,7 +15,7 @@ const Footer = () => {
       <div className="bg-lite-gray dark:bg-dark-secondary">
         <div className="px-4 lg:px-28 divide-y divide-gray-400 w-11/12 container mx-auto pt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-400 md:divide-y-0 ">
-            <div className="flex flex-col pb-5" data-aos="fade-up">
+            <div className="flex flex-col pb-5" data-aos="fade-down">
               <div className="flex items-center">
                 <img className="w-20" src={logo} alt="" />
                 <p className="text-2xl dark:text-dark-primary-title">
@@ -83,7 +83,7 @@ const Footer = () => {
               </Link>
             </div>
 
-            <div className="py-5" data-aos="fade-up">
+            <div className="py-5" data-aos="fade-down">
               <h6 className="text-3xl font-bold mb-2 dark:text-dark-primary-title">
                 &#9679; درباره ما
               </h6>
