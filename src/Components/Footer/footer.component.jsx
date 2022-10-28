@@ -24,7 +24,7 @@ const Footer = () => {
               </div>
               <div>
                 <p className="text-lg dark:text-dark-secondary-title">
-                  تیم مد لوپس زیر نظر آکادمی بحر
+                  تیم مد لوپس زیر نظر آکادمی بحر😎
                 </p>
                 <p className="font-bold text-xl mt-7 mb-2 dark:text-dark-secondary-title">
                   اشتراک در خبرنامه

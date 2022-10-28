@@ -27,7 +27,7 @@ const ForgetPassThirdPage = (props) => {
           <FieldName
             showH2
             showP
-            title="رمز عبور جدیدتو وارد کن :)"
+            title="رمز عبور جدیدتو وارد کن"
             field="توجه ! رمز عبور جدید نباید با رمز عبور پیشین یکسان باشد"
             classH2Field="text-black dark:text-white sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"
