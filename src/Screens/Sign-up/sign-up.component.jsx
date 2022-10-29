@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SignUpFirstPage from "./../../Components/content/SignUp/sign-up-first.component";
 import SignUpSecondPage from "./../../Components/content/SignUp/sign-up-second.component";
 import SignUpThirdPage from "./../../Components/content/SignUp/sign-up-third.component";
 import SignUpFourthPage from "./../../Components/content/SignUp/sign-up-fourth.component";
 import AuthRightSkill from "../../Components/common/AuthRightSkill.component";
+import { toastifyToast } from "../../Components/common/Toast/toast";
+import { useRegisterStudentMutation } from "../../store/auth/authApi";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../store/auth/authSlice";
 
 const SignUpPage = () => {
-  const [data, setData] = useState({
+  const [field, setField] = useState({
     firstName: "",
     lastName: "",
     email: "",
@@ -16,15 +20,48 @@ const SignUpPage = () => {
     password: "",
     confirmPassword: "",
   });
-
   const [currentPage, setCurrentPage] = useState(0);
 
-  const setToReaquest = (formData) => {
-    console.log("Form Submitted", formData);
+  const [register, { isSuccess, data, isError, error, isLoading }] =
+    useRegisterStudentMutation();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isSuccess) {
+      toastifyToast.success(data.message[0].message);
+      dispatch(
+        logIn({ user: data.result.studentModel, token: data.result.jwtToken })
+      );
+      setField("");
+    }
+
+    if (isError) {
+      if (error.status === 400) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else if (error.status === 401) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else if (error.status === 403) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else {
+        toastifyToast.error("مشکلی رخ داده است");
+      }
+    }
+  }, [isLoading]);
+
+  const setToReaquest = async (formData) => {
+    await register({
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      birthDate: formData.birthDate,
+      password: formData.password,
+      nationalId: formData.nationalId,
+      fullName: formData.firstName + " " + formData.lastName,
+    });
   };
 
   const handleNextPage = (newData, finalPage = false) => {
-    setData((prev) => ({ ...prev, ...newData }));
+    setField((prev) => ({ ...prev, ...newData }));
 
     setCurrentPage((prev) => prev + 1);
 
@@ -34,19 +71,23 @@ const SignUpPage = () => {
   };
 
   const handlePrevPage = (newData) => {
-    setData((prev) => ({ ...prev, ...newData }));
+    setField((prev) => ({ ...prev, ...newData }));
     setCurrentPage((prev) => prev - 1);
   };
 
   const stepsPage = [
-    <SignUpFirstPage data={data} next={handleNextPage} />,
+    <SignUpFirstPage data={field} next={handleNextPage} />,
     <SignUpSecondPage
-      data={data}
+      data={field}
       next={handleNextPage}
       prev={handlePrevPage}
     />,
-    <SignUpThirdPage data={data} next={handleNextPage} prev={handlePrevPage} />,
-    <SignUpFourthPage data={data} next={handleNextPage} />,
+    <SignUpThirdPage
+      data={field}
+      next={handleNextPage}
+      prev={handlePrevPage}
+    />,
+    <SignUpFourthPage data={field} next={handleNextPage} />,
   ];
 
   return (
