@@ -42,8 +42,6 @@ function BackToTop() {
 
   return (
     <>
-      <h1>Scroll down</h1>
-
       {showTopBtn && (
         <>
           <svg
