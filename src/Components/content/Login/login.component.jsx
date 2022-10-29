@@ -8,7 +8,6 @@ import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import LoginApi from "../../../Core/services/api/Auth/login-api";
 import { toastifyToast } from "../../common/Toast/toast";
 import { useDispatch } from "react-redux";
 import { useLoginStudentMutation } from "../../../store/auth/authApi";
