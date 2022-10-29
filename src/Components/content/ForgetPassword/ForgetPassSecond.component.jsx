@@ -27,7 +27,7 @@ const ForgetPassSecondPage = (props) => {
           <FieldName
             showH2
             showP
-            title="ایمیلتو بررسی کن :)"
+            title="ایمیلتو بررسی کن"
             field="ما یک کد عبور به ایمیل شما ارسال کردیم !"
             classH2Field="text-black dark:text-white sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"

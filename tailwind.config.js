@@ -23,10 +23,10 @@ module.exports = {
       },
 
       backgroundImage: {
-        "eye-fill": "url('Assets/eye-fill-white.svg')",
-        "heart-fill": "url('Assets/heart-fill-white.svg')",
-        "comment-fill": "url('Assets/chat-left-text-fill-white.svg')",
-        "lines-dash": "url('Assets/img/lines-dash.svg')",
+        "eye-fill": "url('../Assets/eye-fill-white.svg')",
+        "heart-fill": "url('../Assets/heart-fill-white.svg')",
+        "comment-fill": "url('../Assets/chat-left-text-fill-white.svg')",
+        "lines-dash": "url('../Assets/img/lines-dash.svg')",
       },
       height: {
         100: "100px",
@@ -159,7 +159,7 @@ module.exports = {
           "90%": { top: "-10px", opacity: "1" },
           "95%": { top: "-10px", opacity: "1" },
           "100%": { top: "-10px", opacity: "1" },
-        },        
+        },
       },
       animation: {
         onLoadAnim: "onLoadAnim 1.5s ease-in-out",

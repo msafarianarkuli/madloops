@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { FieldName } from "../../common/field-name-component/field-name.component";
+// import getAllCategory from "./../../../Core/services/api/getAllCategory/all-category-api";
 
 const LandingServices = () => {
+  // const [category] = useState(getAllCategory);
+
   return (
     <section className="dark:bg-dark-primary">
       <div className="container m-auto">
@@ -58,7 +61,7 @@ const LandingServices = () => {
                 field="با ارتباط برقرار کردن با ما این فرصت شغلی برات ایجاد میشه"
               />
             </div>
-            <div className="sm:col-span-1 col-span-2"  data-aos="fade-down">
+            <div className="sm:col-span-1 col-span-2" data-aos="fade-down">
               <div
                 className="sm:w-32 sm:h-32 w-28 h-28 xl:mt-14 lg:mt-2 mt-5 rounded-xl bg-lite-pink dark:bg-dark-secondary m-auto 
             hover:scale-110 duration-300 ease-in-out group"

@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const ForgetPassFirstPage = (props) => {
   const handleSubmit = (values) => {
-    props.next(values);
+    props.next(values, true);
   };
   return (
     <div className="flex flex-col w-full dark:bg-dark-primary">
@@ -27,7 +27,7 @@ const ForgetPassFirstPage = (props) => {
             showH2
             showP
             title="رمز عبورتو فراموش کردی؟"
-            field="نگران نباش :) ما دستورالعمل های بازنشانی را برای شما ارسال میکنیم"
+            field="نگران نباش، ما دستورالعمل های بازنشانی را برای شما ارسال میکنیم"
             classH2Field="text-black dark:text-white sm:text-6xl text-5xl"
             classPfield="text-[#8D8D8D] text-xl mt-2"
           />
