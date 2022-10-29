@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import React from "react";
@@ -6,9 +7,55 @@ import { FieldName } from "../../common/field-name-component/field-name.componen
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
 import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import LoginApi from "../../../Core/services/api/Auth/login-api";
+import { toastifyToast } from "../../common/Toast/toast";
+import { useDispatch } from "react-redux";
+import { useLoginStudentMutation } from "../../../store/auth/authApi";
+import { logIn } from "../../../store/auth/authSlice";
 
 const Login = () => {
+  const [field, setField] = useState({
+    email: "",
+    password: "",
+  });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from.pathname || "/";
+
+  const [login, { isLoading, isError, error, isSuccess, data }] =
+    useLoginStudentMutation();
+  const dispatch = useDispatch();
+  console.log(data);
+  useEffect(() => {
+    if (isSuccess) {
+      toastifyToast.success(data.message[0].message);
+      dispatch(
+        logIn({ user: data.result.studentModel, token: data.result.jwtToken })
+      );
+      setField({ email: "", password: "" });
+      navigate(from);
+    }
+
+    if (isError) {
+      if (error.status === 400) {
+        toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
+      } else if (error.status === 401) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else if (error.status === 403) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else {
+        toastifyToast.error(error.data.message.message[0].message);
+      }
+    }
+  }, [isLoading]);
+
+  const handleSubmit = async (values) => {
+    await login(values);
+  };
+
   return (
     <div className="container m-auto">
       <div className="grid grid-cols-2 h-screen">
@@ -49,10 +96,7 @@ const Login = () => {
             </div>
             <div className="h-[487px]">
               <Formik
-                initialValues={{
-                  email: "",
-                  password: "",
-                }}
+                initialValues={field}
                 validationSchema={Yup.object({
                   email: Yup.string()
                     .email("الگوی وارد شده صحیح نمی باشد")
@@ -68,10 +112,7 @@ const Login = () => {
                       "باید شامل 8 نویسه، یک حروف بزرگ، یک عدد و یک نویسه خاص باشد"
                     ),
                 })}
-                onSubmit={(values) => {
-                  console.log(values);
-                  alert(JSON.stringify(values));
-                }}
+                onSubmit={handleSubmit}
               >
                 <Form>
                   <div className="h-28 flex justify-center">

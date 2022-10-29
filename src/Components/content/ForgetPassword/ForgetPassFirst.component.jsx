@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const ForgetPassFirstPage = (props) => {
   const handleSubmit = (values) => {
-    props.next(values);
+    props.next(values, true);
   };
   return (
     <div className="flex flex-col w-full dark:bg-dark-primary">
