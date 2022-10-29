@@ -305,7 +305,7 @@ const CoursesPage = () => {
 
             {openFilter && (
               <BsArrowLeftShort
-                className={`bg-white text-deep-purple dark:bg-dark-primary dark:text-gray-300 rounded-full border-2
+                className={`bg-white text-deep-purple dark:bg-dark-secondary dark:text-gray-300 rounded-full border-2
               border-deep-purple dark:border-lite-purple text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
                 onClick={() => setOpenFilter(!openFilter)}
               />

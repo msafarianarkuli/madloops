@@ -6,6 +6,7 @@ import Toastify from "../Components/common/Toast/toast";
 import UnAuthenticated from "./UnAuthenticated/UnAuthenticated";
 import Authenticated from "./Authenticated/Authenticated";
 import { selectCurrentUser } from "./../store/auth/authSlice";
+import BackToTop from "./../Components/common/BackToTop/BackToTop";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -74,6 +75,7 @@ const App = () => {
           />
         </Routes>
       </Wrapper>
+      <BackToTop />
     </div>
   );
 };

@@ -75,8 +75,12 @@ module.exports = {
           "0%": { transform: "translateX(-300px)" },
           "100%": { transform: "translateX(0)" },
         },
+        onLoadBtn: {
+          "0%": { transform: "translateY(50px)", opacity: "0" },
+          "100%": { transform: "translateX(0)" },
+        },
         onLoadTeacher: {
-          "0%": { transform: "translateX(50px)", opacity: "0" },
+          "0%": { transform: "translateX(50px)" },
           "100%": { transform: "translateX(0)" },
         },
         onLoadHomeRes: {
@@ -160,6 +164,7 @@ module.exports = {
       animation: {
         onLoadAnim: "onLoadAnim 1.5s ease-in-out",
         onLoadHome: "onLoadHome 2s ease-in-out",
+        onLoadBtn: "onLoadHome 2s ease-in-out",
         onLoadTeacher: "onLoadHome 2s ease-in-out",
         onLoadHomeRes: "onLoadHome 1s ease-in-out",
         onHoverGoogle: "onHoverGoogle 1s ease-in-out infinite",
