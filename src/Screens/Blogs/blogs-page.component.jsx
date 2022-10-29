@@ -56,7 +56,7 @@ const BlogsPage = () => {
       setFilterBlogs(data);
       setLoading(false);
     }, 5000);
-    return () => clearTimeout(timer);
+    clearTimeout(timer);
   }, []);
 
   const handleSearch = (value) => {

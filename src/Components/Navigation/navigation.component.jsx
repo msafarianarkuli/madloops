@@ -5,13 +5,14 @@ import { Button } from "../../Components/common/button-component/button.componen
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
 import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
-
 import { MdLightMode, MdModeNight } from "react-icons/md";
-import { RiShoppingCartLine, RiLoginCircleFill } from "react-icons/ri";
-import { SiCpanel } from "react-icons/si";
+import { RiShoppingCartLine } from "react-icons/ri";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
 import { CartContext } from "../../Core/context/cart.context";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
+import { clearStorage } from "../../Core/services/storage/storage";
 
 const Navigation = ({ setTheme }) => {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
@@ -23,9 +24,13 @@ const Navigation = ({ setTheme }) => {
     { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     Aos.init({ duration: 1000, easing: "ease-in-quart" });
   }, []);
+
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <div className="dark:bg-dark-primary bg-white">
@@ -89,7 +94,10 @@ const Navigation = ({ setTheme }) => {
                   </div>
                 )}
                 <div className="md:ml-24 cursor-pointer absolute hover:scale-110 duration-150">
-                  <button className="text-red-500 mt-3 text-3xl" onClick={setTheme}>
+                  <button
+                    className="text-red-500 mt-3 text-3xl"
+                    onClick={setTheme}
+                  >
                     {localStorage.theme === "dark" ? (
                       <MdLightMode className="text-white" />
                     ) : (
@@ -98,16 +106,29 @@ const Navigation = ({ setTheme }) => {
                   </button>
                 </div>
               </div>
-              <div className="flex justify-center items-center col-span-2">
-                <Link to="login">
-                  <Button
-                    classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
+              {currentUser ? (
+                <Button
+                  onClick={() => {
+                    dispatch(logOut(currentUser));
+                    clearStorage();
+                  }}
+                  classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
+                          text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
+                >
+                  خروج
+                </Button>
+              ) : (
+                <div className="flex justify-center items-center col-span-2">
+                  <Link to="login">
+                    <Button
+                      classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
                     text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
-                  >
-                    ورود / ثبت نام
-                  </Button>
-                </Link>
-              </div>
+                    >
+                      ورود / ثبت نام
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
           <div className="fixed top-0 left-0 md:hidden z-30">
