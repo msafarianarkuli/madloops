@@ -8,7 +8,6 @@ import Dashboard from "../../Components/content/Panel/Dashboard";
 import MyCourses from "../../Components/content/Panel/MyCourses";
 import CoursesList from "../../Components/content/Panel/CoursesList";
 import EditProfile from "../../Components/content/Panel/EditProfile";
-import NotFoundPage from "../../Screens/Not-Found/not-found.component";
 
 const Authenticated = (props) => {
   return (
@@ -19,7 +18,7 @@ const Authenticated = (props) => {
         <Route path="courseList" element={<CoursesList />} />
         <Route path="editProfile" element={<EditProfile />} />
       </Route>
-      <Route path="not-found" element={<NotFoundPage />} />
+
       <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
     </Routes>
   );

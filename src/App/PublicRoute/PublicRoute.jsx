@@ -14,6 +14,7 @@ import SendMessage from "./../../Components/content/ContactUs/SendMessage";
 import Location from "./../../Components/content/ContactUs/Location";
 import CartPage from "./../../Components/content/Cart/cart.component";
 import Footer from "./../../Components/Footer/footer.component";
+import NotFoundPage from "./../../Screens/Not-Found/not-found.component";
 
 const PublicRoute = (props) => {
   return (
@@ -32,10 +33,8 @@ const PublicRoute = (props) => {
           <Route path="location" element={<Location />} />
         </Route>
         <Route path="cart" element={<CartPage />} />
-        {/* <Route path="/" element={<Navigate to="/" replace />} /> */}
-        <Route path="/*" element={<Navigate to="/not-found" replace />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-
       <Footer />
     </>
   );
