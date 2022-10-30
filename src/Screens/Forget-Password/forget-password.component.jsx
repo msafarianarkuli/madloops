@@ -4,12 +4,8 @@ import ForgetPassSecondPage from "./../../Components/content/ForgetPassword/Forg
 import ForgetPassThirdPage from "./../../Components/content/ForgetPassword/ForgetPassThird.component";
 import ForgetPassFourthPage from "./../../Components/content/ForgetPassword/ForgetPassFourth.component";
 import AuthRightSkill from "../../Components/common/AuthRightSkill.component";
-import {
-  useForgetPasswordMutation,
-  useResetPasswordMutation,
-} from "../../store/auth/authApi";
+import { useForgetPasswordMutation } from "../../store/auth/authApi";
 import { toastifyToast } from "./../../Components/common/Toast/toast";
-import { useGetUserByIdQuery } from "../../store/studentManager/studentApi";
 
 const ForgetPasswordPage = () => {
   const [field, setField] = useState({
@@ -23,9 +19,6 @@ const ForgetPasswordPage = () => {
   const [forgetPassword, { isSuccess, isLoading, isError, error, data }] =
     useForgetPasswordMutation();
 
-  const [resetPassword] = useResetPasswordMutation();
-  const { requestId: userId } = useGetUserByIdQuery();
-
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
@@ -37,9 +30,7 @@ const ForgetPasswordPage = () => {
   }, [isLoading]);
 
   const setToReaquest = async (formData) => {
-    const result = await forgetPassword({ email: formData.email });
-    console.log(result, "...", userId);
-    if (userId) await resetPassword({ password: formData.password });
+    await forgetPassword({ email: formData.email });
   };
 
   const handleNextPage = (newData, finalPage = false) => {
