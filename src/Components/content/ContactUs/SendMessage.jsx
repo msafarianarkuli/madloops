@@ -1,41 +1,86 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import InputGroup from "../../common/Inputs/TextInputs/InputGroup";
 import Textarea from "../../common/Inputs/TextareaInputs/Textarea";
 import { Button } from "../../common/button-component/button.component";
 import { BsPerson, BsEnvelope, BsPhoneVibrate } from "react-icons/bs";
-const SendMessage = () => {
-  return (
-    <>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          phone: "",
-          message: "",
-        }}
-        validationSchema={Yup.object({
-          name: Yup.string().required(
-            "لطفا فیلد نام و  نام خانوادگی را پر کنید"
-          ),
-          email: Yup.string()
-            .email("الگوی وارد شده صحیح نمی باشد")
-            .required("لطفا فیلد ایمیل را پر کنید"),
-          phone: Yup.string()
-            .required("لطفا فیلد شماره تماس را پر کنید")
-            .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
-            .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
-            .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
+import { useContactUsMutation } from "../../../store/contactUs/contact-us-api-slice";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "./../../../store/auth/authSlice";
+import { toastifyToast } from "../../common/Toast/toast";
 
-          message: Yup.string().required("لطفا پیغام خود را بنویسید"),
-        })}
-        onSubmit={(values) => {
-          console.log(values);
-        }}
-      >
-        <Form>
-          <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28">
+const SendMessage = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const [contact, setCantact] = useState({
+    name: currentUser ? currentUser.fullName : "",
+    email: currentUser ? currentUser.email : "",
+    message: "",
+    phone: "",
+  });
+  const [contactUs, { isSuccess, data, isError, error, isLoading }] =
+    useContactUsMutation();
+
+  useEffect(() => {
+    if (isSuccess) {
+      toastifyToast.success(data.message[0].message);
+      setCantact(null);
+    }
+
+    if (isError) {
+      if (error.status === 400) {
+        toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
+      } else if (error.status === 401) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else if (error.status === 403) {
+        toastifyToast.error(error.data.message.message[0].message);
+      } else {
+        toastifyToast.error(error.data.message.message[0].message);
+      }
+    }
+  }, [isLoading]);
+
+  const handleSubmit = async (values) => {
+    if (currentUser) {
+      const resuol = await contactUs(values);
+      console.log(resuol);
+    } else {
+      const resuol = await contactUs({
+        text: values.message,
+        name: values.name,
+        email: values.email,
+      });
+      console.log(resuol);
+    }
+  };
+
+  return (
+    <Formik
+      initialValues={contact}
+      validationSchema={Yup.object({
+        name: Yup.string().required("لطفا فیلد نام و  نام خانوادگی را پر کنید"),
+        email: Yup.string()
+          .email("الگوی وارد شده صحیح نمی باشد")
+          .required("لطفا فیلد ایمیل را پر کنید"),
+        phone: Yup.string()
+          .required("لطفا فیلد شماره تماس را پر کنید")
+          .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+          .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
+          .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
+
+        message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+      })}
+      onSubmit={handleSubmit}
+    >
+      <Form>
+        <div
+          className={
+            !currentUser
+              ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28"
+              : "w-8/12 mx-auto"
+          }
+        >
+          {!currentUser && (
             <div>
               <div data-aos="fade-down">
                 <InputGroup
@@ -62,27 +107,27 @@ const SendMessage = () => {
                 />
               </div>
             </div>
-            <div data-aos="fade-right">
-              <Textarea
-                label="پیام"
-                name="message"
-                className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 
+          )}
+          <div data-aos="fade-right">
+            <Textarea
+              label="پیام"
+              name="message"
+              className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 
                 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white dark:bg-dark-secondary dark:text-gray-300"
-              />
-            </div>
+            />
           </div>
-          <Button
-            data-aos="zoom-in-up"
-            data-aos-duration="1000"
-            ButtonType="submit"
-            classButton="border-2 rounded-lg text-base pt-3 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
+        </div>
+        <Button
+          // data-aos="zoom-in-up"
+          // data-aos-duration="1000"
+          type="submit"
+          classButton="border-2 rounded-lg text-base pt-3 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
             hover:bg-lite-purple hover:border-lite-purple hover:shadow-md mx-auto block"
-          >
-            ارسال پیام
-          </Button>
-        </Form>
-      </Formik>
-    </>
+        >
+          ارسال پیام
+        </Button>
+      </Form>
+    </Formik>
   );
 };
 
