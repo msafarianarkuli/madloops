@@ -9,6 +9,7 @@ import {
   useResetPasswordMutation,
 } from "../../store/auth/authApi";
 import { toastifyToast } from "./../../Components/common/Toast/toast";
+import { useGetUserByIdQuery } from "../../store/studentManager/studentApi";
 
 const ForgetPasswordPage = () => {
   const [field, setField] = useState({
@@ -23,6 +24,7 @@ const ForgetPasswordPage = () => {
     useForgetPasswordMutation();
 
   const [resetPassword] = useResetPasswordMutation();
+  const { requestId: userId } = useGetUserByIdQuery();
 
   useEffect(() => {
     if (isSuccess) {
@@ -35,8 +37,9 @@ const ForgetPasswordPage = () => {
   }, [isLoading]);
 
   const setToReaquest = async (formData) => {
-    await forgetPassword({ email: formData.email });
-    // console.log(result);
+    const result = await forgetPassword({ email: formData.email });
+    console.log(result, "...", userId);
+    if (userId) await resetPassword({ password: formData.password });
   };
 
   const handleNextPage = (newData, finalPage = false) => {
