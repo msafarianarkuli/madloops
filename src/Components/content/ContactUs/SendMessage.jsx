@@ -24,7 +24,7 @@ const SendMessage = () => {
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
-      setCantact(null);
+      setCantact({ name: "", email: "", message: "", phone: "" });
     }
 
     if (isError) {
@@ -41,9 +41,14 @@ const SendMessage = () => {
   }, [isLoading]);
 
   const handleSubmit = async (values) => {
+    console.log("sadasd");
     if (currentUser) {
-      const resuol = await contactUs(values);
-      console.log(resuol);
+      const resuol = await contactUs({
+        text: values.message,
+        name: values.name,
+        email: values.email,
+      });
+      console.log(resuol, "sadasd");
     } else {
       const resuol = await contactUs({
         text: values.message,
@@ -55,79 +60,83 @@ const SendMessage = () => {
   };
 
   return (
-    <Formik
-      initialValues={contact}
-      validationSchema={Yup.object({
-        name: Yup.string().required("لطفا فیلد نام و  نام خانوادگی را پر کنید"),
-        email: Yup.string()
-          .email("الگوی وارد شده صحیح نمی باشد")
-          .required("لطفا فیلد ایمیل را پر کنید"),
-        phone: Yup.string()
-          .required("لطفا فیلد شماره تماس را پر کنید")
-          .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
-          .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
-          .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
+    <>
+      <Formik
+        initialValues={contact}
+        validationSchema={Yup.object({
+          name: Yup.string().required(
+            "لطفا فیلد نام و  نام خانوادگی را پر کنید"
+          ),
+          email: Yup.string()
+            .email("الگوی وارد شده صحیح نمی باشد")
+            .required("لطفا فیلد ایمیل را پر کنید"),
+          phone: Yup.string()
+            .required("لطفا فیلد شماره تماس را پر کنید")
+            .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+            .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
+            .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
 
-        message: Yup.string().required("لطفا پیغام خود را بنویسید"),
-      })}
-      onSubmit={handleSubmit}
-    >
-      <Form>
-        <div
-          className={
-            !currentUser
-              ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28"
-              : "w-8/12 mx-auto"
-          }
-        >
-          {!currentUser && (
-            <div>
-              <div data-aos="fade-down">
-                <InputGroup
-                  label="نام و نام خانوادگی"
-                  name="name"
-                  type="text"
-                  icon={<BsPerson />}
-                />
+          message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+        })}
+        onSubmit={handleSubmit}
+      >
+        <Form>
+          <div
+            className={
+              !currentUser
+                ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28"
+                : "w-8/12 mx-auto"
+            }
+          >
+            {!currentUser && (
+              <div>
+                <div data-aos="fade-down">
+                  <InputGroup
+                    label="نام و نام خانوادگی"
+                    name="name"
+                    type="text"
+                    icon={<BsPerson />}
+                  />
+                </div>
+                <div data-aos="fade-left">
+                  <InputGroup
+                    label="ایمیل"
+                    name="email"
+                    type="text"
+                    icon={<BsEnvelope />}
+                  />
+                </div>
+                <div data-aos="fade-up">
+                  <InputGroup
+                    label="شماره تماس"
+                    type="text"
+                    name="phone"
+                    icon={<BsPhoneVibrate />}
+                  />
+                </div>
               </div>
-              <div data-aos="fade-left">
-                <InputGroup
-                  label="ایمیل"
-                  name="email"
-                  type="text"
-                  icon={<BsEnvelope />}
-                />
-              </div>
-              <div data-aos="fade-up">
-                <InputGroup
-                  label="شماره تماس"
-                  type="text"
-                  name="phone"
-                  icon={<BsPhoneVibrate />}
-                />
-              </div>
-            </div>
-          )}
-          <div data-aos="fade-right">
-            <Textarea
-              label="پیام"
-              name="message"
-              className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 
+            )}
+            <div data-aos="fade-right">
+              <Textarea
+                label="پیام"
+                name="message"
+                className="rounded-lg py-2 bg-[#F1F2F7] min-h-full outline-none w-full max-h-64 
                 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white dark:bg-dark-secondary dark:text-gray-300"
-            />
+              />
+            </div>
           </div>
-        </div>
-        <Button
-          // data-aos="zoom-in-up"
-          // data-aos-duration="1000"
-          type="submit"
-          classButton="border-2 rounded-lg text-base pt-3 pb-3 px-10 transition ease-out duration-300 border-lite-purple  bg-lite-purple text-white
+          <Button
+            // data-aos="zoom-in-up"
+            // data-aos-duration="1000"
+            type="submit"
+            classButton="border-2 rounded-lg text-base pt-3 pb-3 px-10 transition ease-out duration-300 border-lite-purple bg-lite-purple text-white
             hover:bg-lite-purple hover:border-lite-purple hover:shadow-md mx-auto block"
-        >
-          ارسال پیام
-        </Button>
-      </Form>
-    </Formik>
+          >
+            ارسال پیام
+          </Button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 
