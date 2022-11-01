@@ -1,12 +1,14 @@
-import React from 'react';
-import reactIcon from '../../../Assets/img-user-panel/React-icon.svg';
-import PanelHeader from './PanelHeader';
-import { Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import LastCourseSkeleton from '../../common/Skeleton/LastCourseSkeleton';
-import OfferCourseSkelton from '../../common/Skeleton/OfferCourseSkelton';
+import React, { useEffect, useState } from "react";
+import reactIcon from "../../../Assets/img-user-panel/React-icon.svg";
+import PanelHeader from "./PanelHeader";
+import { Link, useNavigate } from "react-router-dom";
+import LastCourseSkeleton from "../../common/Skeleton/LastCourseSkeleton";
+import OfferCourseSkelton from "../../common/Skeleton/OfferCourseSkelton";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "./../../../store/auth/authSlice";
+
 const Dashboard = () => {
+  const currentUser = useSelector(selectCurrentUser);
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -14,6 +16,7 @@ const Dashboard = () => {
       setLoading(false);
     }, 3000);
   }, []);
+  console.log(currentUser);
 
   return (
     <>
@@ -21,7 +24,7 @@ const Dashboard = () => {
       {/* 1 */}
       <div className="mx-2 md:mx-10 sm:my-5 relative overflow-hidden rounded-xl animate-[onLoadPanel_1s_ease-in]">
         <div
-          onClick={() => navigate('/user-panel/editProfile')}
+          onClick={() => navigate("/user-panel/editProfile")}
           className="absolute top-0 sm:top-auto sm:bottom-0 left-0 px-8 py-2 sm:px-10 sm:py-4 rounded-tl-xl rounded-br-xl
            sm:rounded-tl-none sm:rounded-br-none sm:rounded-tr-xl sm:rounded-bl-xl border-4 text-xl font-bold text-blue-500
            hover:bg-lite-purple hover:text-white transition ease-in-out duration-300 cursor-pointer"
@@ -33,35 +36,37 @@ const Dashboard = () => {
           px-3 lg:px-10 py-5 text-lg lg:text-2xl dark:text-dark-secondary-title"
         >
           <p>
-            نام:{' '}
+            نام و نام خانوادگی:
             <span className="font-bold text-lite-purple">
-              میکائیل
+              {currentUser?.fullName}
             </span>
           </p>
 
           <p>
-            نام خانوادگی:{' '}
-            <span className="text-lite-purple font-bold">محسنی</span>
-          </p>
-
-          <p>
-            شماره همراه:{' '}
+            تاریخ تولد:
             <span className="text-lite-purple font-bold">
-              09031471874
+              {currentUser?.birthDate}
             </span>
           </p>
 
           <p>
-            شماره ملی:{' '}
+            شماره همراه:
             <span className="text-lite-purple font-bold">
-              2150008898
+              {currentUser?.phoneNumber}
             </span>
           </p>
 
           <p>
-            ایمیل:{' '}
+            شماره ملی:
+            <span className="text-lite-purple font-bold">
+              {currentUser?.nationalId}
+            </span>
+          </p>
+
+          <p>
+            ایمیل:
             <span className="text-lite-purple text-sm lg:text-xl font-bold">
-              infoAcademicfirst@gmail.com
+              {currentUser?.email}
             </span>
           </p>
         </div>
@@ -89,9 +94,7 @@ const Dashboard = () => {
                 <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
                   <p className="text-2xl font-bold mb-4">دوره css </p>
                   <div className="flex flex-col text-lg">
-                    <span className="border-b py-4 sm:py-8">
-                      مهدی اصغری
-                    </span>
+                    <span className="border-b py-4 sm:py-8">مهدی اصغری</span>
                     <span className="py-4 sm:py-6">500,000 ت</span>
                   </div>
                 </div>
@@ -122,7 +125,7 @@ const Dashboard = () => {
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره React{' '}
+                      دوره React{" "}
                     </p>
                     <div className="sm:flex justify-between text-lg">
                       <div>دکتر بحر</div>
@@ -143,7 +146,7 @@ const Dashboard = () => {
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره HTML{' '}
+                      دوره HTML{" "}
                     </p>
                     <div className="sm:flex justify-between text-lg">
                       <div>دکتر بحر</div>
