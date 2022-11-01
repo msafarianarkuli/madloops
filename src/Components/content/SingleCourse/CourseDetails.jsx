@@ -7,7 +7,8 @@ import {
   FaHourglassEnd,
 } from 'react-icons/fa';
 
-const CourseDetails = () => {
+const CourseDetails = ({ item }) => {
+  console.log(item);
   return (
     <div className="course-Detail-container" data-aos="fade-down">
       <div className="course-detail-title-box">
@@ -19,7 +20,7 @@ const CourseDetails = () => {
           <p className="mr-3">نام دوره:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>انگولار</p>
+          <p>{item?.title}</p>
         </div>
       </div>
       <div className="course-detail-item-even">
@@ -28,7 +29,7 @@ const CourseDetails = () => {
           <p className="mr-3">ترم ارائه شده:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>انگولار</p>
+          <p>تابستان</p>
         </div>
       </div>
       <div className="course-detail-item-odd">
@@ -37,7 +38,7 @@ const CourseDetails = () => {
           <p className="mr-3">شروع ترم:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>1401/10/13</p>
+          <p>{item?.startDate.slice(0, 10)}</p>
         </div>
       </div>
       <div className="course-detail-item-even">
@@ -46,7 +47,7 @@ const CourseDetails = () => {
           <p className="mr-3">پایان ترم:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>1401/10/13</p>
+          <p>{item?.endDate.slice(0, 10)}</p>
         </div>
       </div>
       <div></div>

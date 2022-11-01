@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import { FaCoins } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
-import { CartContext } from "../../../Core/context/cart.context";
-import { Button } from "./../../common/button-component/button.component";
+import React, { useContext } from 'react';
+import { FaCoins } from 'react-icons/fa';
+import { TbDiscount2 } from 'react-icons/tb';
+import { CartContext } from '../../../Core/context/cart.context';
+import { Button } from './../../common/button-component/button.component';
 
 const CoursePrice = ({ item }) => {
   const { AddItemToCart } = useContext(CartContext);
@@ -19,7 +19,9 @@ const CoursePrice = ({ item }) => {
         </div>
         <div>
           <p>
-            <del className="line-through decoration-red-600">200،000 تومان</del>
+            <del className="line-through decoration-red-600">
+              {item?.cost} تومان
+            </del>
           </p>
         </div>
       </div>
@@ -29,7 +31,7 @@ const CoursePrice = ({ item }) => {
           <p className="mr-3">قیمت دوره با تخفیف:</p>
         </div>
         <div>
-          <p className="text-[#42CD36]">200،000 تومان</p>
+          <p className="text-[#42CD36]">{item?.cost} تومان</p>
         </div>
       </div>
       <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8] dark:bg-dark-tertiary dark:text-dark-text">
@@ -42,7 +44,9 @@ const CoursePrice = ({ item }) => {
         onClick={addProductToCart}
       >
         <div>
-          <Button classButton="text-white">افزودن به سبد خرید!</Button>
+          <Button classButton="text-white">
+            افزودن به سبد خرید!
+          </Button>
         </div>
       </div>
     </div>

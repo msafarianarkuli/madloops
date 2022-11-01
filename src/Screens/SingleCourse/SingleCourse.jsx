@@ -9,11 +9,18 @@ import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
 import CoursesTab from '../../Components/common/tabs/CoursesTab';
 import commentData from '../../Core/services/Fake Service/CourseComments';
-import { getCourse } from '../../Core/services/Fake Service/CoursesPage';
+import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
+import img from '../../Assets/img/blog1.JPG';
 
 const SingleCourse = () => {
   const { id } = useParams();
-  const [item] = useState(getCourse(Number(id)));
+  const { course, isLoading } = useGetCoursesQuery('getCourses', {
+    selectFromResult: ({ data, isLoading }) => ({
+      course: data?.result.find((item) => item._id === id),
+      isLoading,
+    }),
+  });
+
   const [comments, setComments] = useState(commentData);
 
   const handlelike = (id) => {
@@ -86,15 +93,18 @@ const SingleCourse = () => {
 
   return (
     <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
-      <div className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary" data-aos="fade-up">
+      <div
+        className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary"
+        data-aos="fade-up"
+      >
         <div className="rounded-lg overflow-hidden">
-          <img src={item.image} className="w-full h-500" />
+          <img src={img} className="w-full h-500" />
           <div className="px-4 lg:px-16">
             <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
-              {item.title}
+              {course?.lesson.lessonName}
             </h1>
             <p className="text-lg lg:text-2xl text-gray-400 leading-10 dark:text-dark-text">
-              {item.description}
+              {course?.lesson.description}
             </p>
           </div>
           <CoursesTab
@@ -107,10 +117,10 @@ const SingleCourse = () => {
       </div>
       <div className="xl:col-span-3">
         <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-1">
-          <CourseDetails />
-          <CourseOpacity />
+          <CourseDetails item={course} />
+          <CourseOpacity item={course} />
           <CourseTeacher />
-          <CoursePrice item={item} />
+          <CoursePrice item={course} />
           <CoursePrerequisite />
           <CourseProperTo />
           <CourceImproperTo />
