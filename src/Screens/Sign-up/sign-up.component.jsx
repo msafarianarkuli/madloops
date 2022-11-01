@@ -57,6 +57,8 @@ const SignUpPage = () => {
       password: formData.password,
       nationalId: formData.nationalId,
       fullName: formData.firstName + " " + formData.lastName,
+      profile:
+        "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
     });
   };
 
