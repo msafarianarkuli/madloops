@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaUsers, FaUserGraduate } from 'react-icons/fa';
-const CourseOpacity = () => {
+const CourseOpacity = ({ item }) => {
+  console.log(item);
   return (
     <div className="course-Detail-container" data-aos="fade-left">
       <div className="course-detail-title-box">
@@ -12,7 +13,7 @@ const CourseOpacity = () => {
           <p className="mr-3">ظرفیت کل دوره</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>100</p>
+          <p>{item?.capacity}</p>
         </div>
       </div>
       <div className="course-detail-item-even">
