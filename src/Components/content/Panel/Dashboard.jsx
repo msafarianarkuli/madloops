@@ -6,9 +6,11 @@ import LastCourseSkeleton from "../../common/Skeleton/LastCourseSkeleton";
 import OfferCourseSkelton from "../../common/Skeleton/OfferCourseSkelton";
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
+import { useGetCoursesQuery } from "../../../store/courses/coursesSlice";
 
 const Dashboard = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const { data, isLoading } = useGetCoursesQuery();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -16,7 +18,14 @@ const Dashboard = () => {
       setLoading(false);
     }, 3000);
   }, []);
-  console.log(currentUser);
+
+  const getDate = () => {
+    const orderedDates = data?.result
+      .slice()
+      .sort((a, b) => b.startDate.localeCompare(a.startDate));
+
+    return { orderedDates: orderedDates[0] };
+  };
 
   return (
     <>
@@ -78,24 +87,30 @@ const Dashboard = () => {
           <p className="text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6 text-gray-500 dark:text-dark-secondary-title">
             آخرین دوره ثبت شده:
           </p>
-          {loading ? (
+          {isLoading ? (
             <LastCourseSkeleton />
           ) : (
-            <Link to="/single-course">
+            <Link to={`/courses/${getDate().orderedDates._id}`}>
               <div
                 className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
               dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
               >
                 <img
-                  src={reactIcon}
+                  src={getDate().orderedDates.lesson.image}
                   className="w-20 group-hover:rotate-[360deg] duration-700"
                 />
                 <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
-                  <p className="text-2xl font-bold mb-4">دوره css </p>
+                  <p className="text-2xl font-bold mb-4">
+                    {getDate().orderedDates.title}
+                  </p>
                   <div className="flex flex-col text-lg">
-                    <span className="border-b py-4 sm:py-8">مهدی اصغری</span>
-                    <span className="py-4 sm:py-6">500,000 ت</span>
+                    <span className="border-b py-4 sm:py-8">
+                      {getDate().orderedDates.teacher.fullName}
+                    </span>
+                    <span className="py-4 sm:py-6">
+                      {getDate().orderedDates.cost} ت
+                    </span>
                   </div>
                 </div>
               </div>

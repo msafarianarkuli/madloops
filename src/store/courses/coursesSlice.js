@@ -1,11 +1,12 @@
-import { apiSlice } from '../../Core/services/api/apiSlice';
+import { apiSlice } from "../../Core/services/api/apiSlice";
 
-export const extendedApiSlice = apiSlice.injectEndpoints({
+export const courseApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getCourses: builder.query({
-      query: () => 'course/getall',
+      query: () => "course/getall",
     }),
+    providesTags: ["courses"],
   }),
 });
 
-export const { useGetCoursesQuery } = extendedApiSlice;
+export const { useGetCoursesQuery } = courseApiSlice;

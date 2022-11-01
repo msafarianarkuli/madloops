@@ -13,14 +13,18 @@ export const studentApiSlice = apiSlice.injectEndpoints({
       providesTags: (id) => [{ type: "student", id }],
     }),
     updateStudentInfo: builder.mutation({
-      query: ({ id, ...rest }) => ({
-        url: `student/${id}`,
+      query: (rest) => ({
+        url: `student/${rest._id}`,
         method: "PUT",
-        body: rest,
+        body: rest.rest,
       }),
       invalidatesTags: ["student"],
     }),
   }),
 });
 
-export const {} = studentApiSlice;
+export const {
+  useGetAllStudentQuery,
+  useGetStudentByIdQuery,
+  useUpdateStudentInfoMutation,
+} = studentApiSlice;
