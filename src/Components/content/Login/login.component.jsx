@@ -27,7 +27,6 @@ const Login = () => {
   const [login, { isLoading, isError, error, isSuccess, data }] =
     useLoginStudentMutation();
   const dispatch = useDispatch();
-  console.log(data);
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);

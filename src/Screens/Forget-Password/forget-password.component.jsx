@@ -4,10 +4,7 @@ import ForgetPassSecondPage from "./../../Components/content/ForgetPassword/Forg
 import ForgetPassThirdPage from "./../../Components/content/ForgetPassword/ForgetPassThird.component";
 import ForgetPassFourthPage from "./../../Components/content/ForgetPassword/ForgetPassFourth.component";
 import AuthRightSkill from "../../Components/common/AuthRightSkill.component";
-import {
-  useForgetPasswordMutation,
-  useResetPasswordMutation,
-} from "../../store/auth/authApi";
+import { useForgetPasswordMutation } from "../../store/auth/authApi";
 import { toastifyToast } from "./../../Components/common/Toast/toast";
 
 const ForgetPasswordPage = () => {
@@ -22,8 +19,6 @@ const ForgetPasswordPage = () => {
   const [forgetPassword, { isSuccess, isLoading, isError, error, data }] =
     useForgetPasswordMutation();
 
-  const [resetPassword] = useResetPasswordMutation();
-
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
@@ -36,7 +31,6 @@ const ForgetPasswordPage = () => {
 
   const setToReaquest = async (formData) => {
     await forgetPassword({ email: formData.email });
-    // console.log(result);
   };
 
   const handleNextPage = (newData, finalPage = false) => {
