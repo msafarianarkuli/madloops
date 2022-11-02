@@ -253,11 +253,11 @@ const CoursesPage = () => {
                     item={filter}
                     onToggle={handleToggle}
                     dir="rtl"
-                    headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none"
-                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms]"
-                    headerMainStyle="m-auto p-4 bg-white dark:bg-dark-tertiary dark:text-gray-300 border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
+                    headerActiveStyle="border-b-0 rounded-bl-none rounded-br-none dark:border-dark-secondary"
+                    headerInactiveStyle="border-b-2 rounded-bl-xl rounded-br-xl delay-[300ms] dark:border-dark-secondary"
+                    headerMainStyle="m-auto p-4 bg-white dark:bg-dark-tertiary dark:text-gray-300 dark:border-dark-secondary border-t-2 border-r-2 border-l-2 border-gray-200 w-10/12
                     rounded-tl-xl rounded-tr-xl"
-                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white dark:bg-dark-tertiary dark:text-gray-300 rounded-bl-xl rounded-br-xl border-r-2 border-l-2"
+                    bodyMainStyle="mx-auto w-10/12 px-2 bg-white dark:bg-dark-tertiary dark:text-gray-300 rounded-bl-xl dark:border-dark-secondary rounded-br-xl border-r-2 border-l-2"
                     bodyActiveStyle="max-h-[100rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
                     bodyInactiveStyle="max-h-[0rem] overflow-hidden transition-[max-height] ease-in-out duration-300"
                     activeIcon={<FaMinus />}
@@ -311,7 +311,7 @@ const CoursesPage = () => {
             {openFilter && (
               <BsArrowLeftShort
                 className={`bg-white text-deep-purple dark:bg-dark-secondary dark:text-gray-300 rounded-full border-2
-              border-deep-purple dark:border-lite-purple text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
+              border-deep-purple dark:border-dark-tertiary text-4xl absolute p-1 -left-4 top-4 cursor-pointer rotate-180`}
                 onClick={() => setOpenFilter(!openFilter)}
               />
             )}
