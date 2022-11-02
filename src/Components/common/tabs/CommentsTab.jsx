@@ -13,7 +13,7 @@ const CommentsTab = ({
   return (
     <>
       {commentActive ? (
-        <div className="block md:flex border-2 border-gray-200 rounded-lg p-2 md:p-5 mb-5 mr-2">
+        <div className="block md:flex border-2 dark:border-dark-tertiary border-gray-200 rounded-lg p-2 md:p-5 mb-5 mr-2">
           <div
             className="bg-lite-purple text-white absolute cursor-pointer -top-[1px] -left-[1px] px-4 py-1 rounded-tl-lg rounded-br-lg"
             onClick={() => setCommentActive(false)}

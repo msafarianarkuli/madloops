@@ -44,7 +44,7 @@ const CustomTab = ({ children, tabs }) => {
             </Tab>
           ))}
         </TabList>
-        <div className="bg-lite-gray border-2 px-2 pt-10 lg:px-4 lg:py-11 rounded-xl relative mb-10 dark:bg-dark-primary">
+        <div className="bg-lite-gray border-2 dark:border-dark-tertiary px-2 pt-10 lg:px-4 lg:py-11 rounded-xl relative mb-10 dark:bg-dark-primary">
           <div className="faq-container pl-2 lg:pl-4">{children}</div>
         </div>
       </Tabs>
