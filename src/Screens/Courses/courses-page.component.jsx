@@ -93,7 +93,7 @@ const CoursesPage = () => {
 
   return (
     <section>
-      <div className="container m-auto ">
+      <div className="container m-auto dark:bg-dark-primary">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-200">
           <div className="grid h-2/6" data-aos="fade-up">
             <div className="grid">
@@ -178,7 +178,7 @@ const CoursesPage = () => {
           <h2
             className="text-center xl:text-4xl lg:text-3xl md:text-2xl sm:text-xl text-base
            bg-white text-[#675F74] sm:w-2/6 w-3/6 absolute -top-4 right-[25%]
-            md:-top-7 sm:-top-5 sm:right-[34%] dark:bg-dark-primary dark:text-dark-primary-title"
+            md:-top-7 sm:-top-5 sm:right-[34%] dark:bg-dark-primary dark:text-gray-300"
           >
             در میان دوره ها کاوش کنید
           </h2>
