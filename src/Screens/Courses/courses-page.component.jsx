@@ -1,24 +1,24 @@
-import { BsDashLg, BsFilter, BsArrowLeftShort } from 'react-icons/bs';
-import { FaMinus, FaPlus } from 'react-icons/fa';
-import { FieldName } from './../../Components/common/field-name-component/field-name.component';
-import { useState, useRef, useContext, useEffect } from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-import GroupButton from './../../Components/common/GroupButton/GroupButton';
-import { Button } from './../../Components/common/button-component/button.component';
-import Data from '../../Core/services/Fake Service/CoursesPage';
-import CardGridListView from '../../Components/common/CardGridAndList-view.component';
-import GridAndList from './../../Components/common/gridAndList-item.component';
-import Accordion from './../../Components/common/Accordion/Accordion';
-import { Formik, Form } from 'formik';
-import InputGroups from './../../Components/common/Inputs/TextInputs/Input';
+import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
+import { useState, useRef, useContext, useEffect } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import GroupButton from "./../../Components/common/GroupButton/GroupButton";
+import { Button } from "./../../Components/common/button-component/button.component";
+import Data from "../../Core/services/Fake Service/CoursesPage";
+import CardGridListView from "../../Components/common/CardGridAndList-view.component";
+import GridAndList from "./../../Components/common/gridAndList-item.component";
+import Accordion from "./../../Components/common/Accordion/Accordion";
+import { Formik, Form } from "formik";
+import InputGroups from "./../../Components/common/Inputs/TextInputs/Input";
 import {
   handleDateSortingDes,
   handleLikeSorting,
   handleViewSorting,
-} from './../../Core/utils/sorting';
-import { ProductsContext } from '../../Core/context/products.context';
-import Skeleton from '../../Components/common/coursesSkeleton.component';
-import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
+} from "./../../Core/utils/sorting";
+import { ProductsContext } from "../../Core/context/products.context";
+import Skeleton from "../../Components/common/coursesSkeleton.component";
+import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
 
 const cardPerRow = 3;
 
@@ -29,26 +29,26 @@ const CoursesPage = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
-    { id: 1, title: 'همه', type: 'all' },
-    { id: 2, title: 'جدیدترین ها', type: 'new' },
-    { id: 3, title: 'محبوب ترین ها', type: 'like' },
-    { id: 4, title: 'پربازدید ترین ها', type: 'view' },
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "جدیدترین ها", type: "new" },
+    { id: 3, title: "محبوب ترین ها", type: "like" },
+    { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
 
   const [filterCourses, setFilterCourses] = useState([]);
 
   const handleSorting = (type) => {
     switch (type) {
-      case 'all':
+      case "all":
         setFilterCourses(products);
         break;
-      case 'view':
+      case "view":
         setFilterCourses(handleViewSorting(products));
         break;
-      case 'new':
+      case "new":
         setFilterCourses(handleDateSortingDes(products));
         break;
-      case 'like':
+      case "like":
         setFilterCourses(handleLikeSorting(products));
         break;
     }
@@ -92,7 +92,7 @@ const CoursesPage = () => {
   }
 
   return (
-    <section>
+    <section className="dark:bg-dark-primary">
       <div className="container m-auto dark:bg-dark-primary">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-200">
           <div className="grid h-2/6" data-aos="fade-up">
@@ -110,7 +110,7 @@ const CoursesPage = () => {
             >
               <Typewriter
                 words={[
-                  'یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند',
+                  "یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند",
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -123,10 +123,7 @@ const CoursesPage = () => {
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-40 drop-shadow-xl shadow-black">
               <img
                 data-aos="fade-left"
-                src={
-                  require('../../Assets/Online learning-amico.svg')
-                    .default
-                }
+                src={require("../../Assets/Online learning-amico.svg").default}
                 alt=""
               />
             </div>
@@ -200,17 +197,14 @@ const CoursesPage = () => {
               />
             </div>
 
-            <GridAndList
-              showGrid={showGrid}
-              setShowGrid={setShowGrid}
-            />
+            <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
           </div>
         </div>
         <div
           className={
             !showGrid
-              ? 'sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto my-10 w-[80%]'
-              : 'sm:my-20 mx-auto sm:w-10/12 mt-10 w-[80%]'
+              ? "sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto my-10 w-[80%]"
+              : "sm:my-20 mx-auto sm:w-10/12 mt-10 w-[80%]"
           }
         >
           {content}
@@ -247,8 +241,8 @@ const CoursesPage = () => {
           <div
             className={`${
               openFilter
-                ? 'bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative'
-                : 'w-0 z-0'
+                ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative"
+                : "w-0 z-0"
             } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
@@ -271,7 +265,7 @@ const CoursesPage = () => {
                   >
                     <Formik
                       initialValues={{
-                        checkbox: '',
+                        checkbox: "",
                       }}
                     >
                       <Form>

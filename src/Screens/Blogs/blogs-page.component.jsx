@@ -187,8 +187,8 @@ const BlogsPage = () => {
   }
 
   return (
-    <section>
-      <div className="container m-auto">
+    <section className="dark:bg-dark-primary">
+      <div className="container m-auto dark:bg-dark-primary">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-100">
           <div className="grid h-2/6" data-aos="fade-up">
             <div className="grid">
