@@ -5,7 +5,7 @@ import { MdPostAdd } from "react-icons/md";
 import TableSkeleton from "../../common/Skeleton/TableSkeleton";
 
 const TableRow = ({ course, onDelete, onAdd }) => {
-  const { _id, title, cost, teacher, data } = course;
+  const { _id, title, cost, teacher, lesson } = course;
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -24,7 +24,7 @@ const TableRow = ({ course, onDelete, onAdd }) => {
     >
       <td className="px-xl py-4 font-medium text-center hidden sm:table-cell">
         <img
-          src={teacher.image}
+          src={lesson.image}
           className="w-12 mx-auto group-hover:rotate-[360deg] duration-700"
         />
       </td>
@@ -45,7 +45,7 @@ const TableRow = ({ course, onDelete, onAdd }) => {
         onClick={
           pathname === "/user-panel/myCourses" || pathname === "/cart"
             ? () => onDelete(_id)
-            : () => onAdd(course)
+            : () => onAdd(course._id)
         }
       >
         {pathname === "/user-panel/myCourses" || pathname === "/cart" ? (

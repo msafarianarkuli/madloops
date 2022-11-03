@@ -47,14 +47,18 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((course) => (
-          <TableRow
-            key={course._id}
-            course={course}
-            onDelete={onDelete}
-            onAdd={onAdd}
-          />
-        ))}
+        {data.length > 0 ? (
+          data.map((course) => (
+            <TableRow
+              key={course._id}
+              course={course}
+              onDelete={onDelete}
+              onAdd={onAdd}
+            />
+          ))
+        ) : (
+          <h2 className="text-center text-4xl">دوره ای یافت نشد!</h2>
+        )}
       </tbody>
     </table>
   );

@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logIn } from "../../../store/auth/authSlice";
 import { toastifyToast } from "../../common/Toast/toast";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
-import { useUploadImgMutation } from "../../../store/upload-img/uploadApiSlice";
+import { useUploadImgMutation } from "../../../store/upload/uploadApiSlice";
 
 const EditProfile = () => {
   const currentUser = useSelector(selectCurrentUser);

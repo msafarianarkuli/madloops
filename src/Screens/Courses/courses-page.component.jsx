@@ -85,9 +85,9 @@ const CoursesPage = () => {
   if (isLoading) {
     content = <Skeleton items={nextCard} view={showGrid} />;
   } else if (isSuccess) {
-    content = data.result.map((item) => (
-      <CardGridListView item={item} key={item._id} />
-    ));
+    content = data.result
+      .slice(0, nextCard)
+      .map((item) => <CardGridListView item={item} key={item._id} />);
     console.log(data.result);
   }
 

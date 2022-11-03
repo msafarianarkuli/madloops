@@ -26,7 +26,9 @@ const PanelHeader = ({ data, onSearch }) => {
             initialValues={{ search: "" }}
             onSubmit={(values) => {
               onSearch(
-                data.filter((course) => course.title.includes(values.search))
+                data
+                  ?.map((data) => data)
+                  .filter((course) => course.title.includes(values.search))
               );
             }}
           >
