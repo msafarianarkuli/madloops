@@ -3,22 +3,21 @@ import { apiSlice } from "./../../Core/services/api/apiSlice";
 export const studentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllStudent: builder.query({
-      query: (id) => ({ url: `student/${id}` }),
+      query: () => "student/getall",
       providesTags: ["student"],
     }),
-
     getStudentById: builder.query({
       query: (id) => ({ url: `student/${id}` }),
-      transformResponse: (response) => response.data,
-      providesTags: (id) => [{ type: "student", id }],
+      // transformResponse: (response) => response.data,
+      // providesTags: (id) => [{ type: "student", id }],
     }),
     updateStudentInfo: builder.mutation({
-      query: (rest) => ({
-        url: `student/${rest._id}`,
+      query: (obj) => ({
+        url: `student/${obj._id}`,
         method: "PUT",
-        body: rest.rest,
+        body: obj,
       }),
-      invalidatesTags: ["student"],
+      invalidatesTags: () => [{ type: "student" }],
     }),
   }),
 });
