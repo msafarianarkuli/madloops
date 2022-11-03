@@ -5,8 +5,6 @@ import { FiClock } from "react-icons/fi";
 import { Button } from "../../Components/common/button-component/button.component";
 import BlogTab from "../../Components/common/tabs/BlogTab";
 import commentData from "../../Core/services/Fake Service/CourseComments";
-import { getBlog } from "../../Core/services/Fake Service/Blogs";
-import Data from "./../../Core/services/Fake Service/Blogs";
 import { handleDateSortingDes } from "../../Core/utils/sorting";
 import Like from "../../Components/common/Like/Like";
 import {
@@ -104,11 +102,6 @@ const SingleBlog = () => {
     setComments(comments);
     console.log("sent", comments);
   };
-
-  // useEffect(() => {
-  //   const findItem = data.result?.find((item) => item._id === id);
-  //   setBlogItem(findItem);
-  // }, [id]);
 
   const handleLeadP = (value) => {
     const trimmedLead =

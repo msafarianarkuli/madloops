@@ -30,11 +30,11 @@ const Login = () => {
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
+      navigate(from);
       dispatch(
         logIn({ user: data.result.studentModel, token: data.result.jwtToken })
       );
       setField({ email: "", password: "" });
-      navigate(from);
     }
 
     if (isError) {

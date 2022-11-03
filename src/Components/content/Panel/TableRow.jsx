@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { FaTrashAlt } from 'react-icons/fa';
-import { MdPostAdd } from 'react-icons/md';
-import TableSkeleton from '../../common/Skeleton/TableSkeleton';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
+import { MdPostAdd } from "react-icons/md";
+import TableSkeleton from "../../common/Skeleton/TableSkeleton";
+
 const TableRow = ({ course, onDelete, onAdd }) => {
-  const { id, icon: courseIcon, name, price, teacher, data } = course;
+  const { _id, title, cost, teacher, data } = course;
   const { pathname } = useLocation();
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -23,32 +24,31 @@ const TableRow = ({ course, onDelete, onAdd }) => {
     >
       <td className="px-xl py-4 font-medium text-center hidden sm:table-cell">
         <img
-          src={courseIcon}
+          src={teacher.image}
           className="w-12 mx-auto group-hover:rotate-[360deg] duration-700"
         />
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center">
-        {name}
+        {title}
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center hidden sm:table-cell">
-        {teacher}
+        {teacher.fullName}
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4  text-center">
-        {price}
+        {cost}
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center hidden lg:table-cell">
-        {data}
+        1400/03/03
       </td>
       <td
         className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center cursor-pointer"
         onClick={
-          pathname === '/user-panel/myCourses' || pathname === '/cart'
-            ? () => onDelete(id)
+          pathname === "/user-panel/myCourses" || pathname === "/cart"
+            ? () => onDelete(_id)
             : () => onAdd(course)
         }
       >
-        {pathname === '/user-panel/myCourses' ||
-        pathname === '/cart' ? (
+        {pathname === "/user-panel/myCourses" || pathname === "/cart" ? (
           <FaTrashAlt className="mx-auto hover:text-red-500 transition ease-in-out duration-300" />
         ) : (
           <MdPostAdd className="mx-auto group-hover:text-green-500 transition ease-in-out duration-300 text-3xl" />

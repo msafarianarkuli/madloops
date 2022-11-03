@@ -1,10 +1,10 @@
-import React from 'react';
-import { Formik, Form } from 'formik';
-import { useLocation } from 'react-router-dom';
-import Input from '../../common/Inputs/TextInputs/Input';
-import { Button } from '../../common/button-component/button.component';
-import zing from '../../../Assets/img-user-panel/zing.svg';
-import cart from '../../../Assets/img-user-panel/cart.svg';
+import React from "react";
+import { Formik, Form } from "formik";
+import { useLocation } from "react-router-dom";
+import Input from "../../common/Inputs/TextInputs/Input";
+import { Button } from "../../common/button-component/button.component";
+import zing from "../../../Assets/img-user-panel/zing.svg";
+import cart from "../../../Assets/img-user-panel/cart.svg";
 
 const PanelHeader = ({ data, onSearch }) => {
   let location = useLocation();
@@ -17,18 +17,16 @@ const PanelHeader = ({ data, onSearch }) => {
         />
       </div>
       <div className="basis-1/2">
-        {location.pathname === '/user-panel' ? (
+        {location.pathname === "/user-panel" ? (
           <p className="text-3xl md:text-4xl xl:text-5xl text-center font-bold text-lite-purple dark:text-dark-primary-title">
             داشبورد
           </p>
         ) : (
           <Formik
-            initialValues={{ search: '' }}
+            initialValues={{ search: "" }}
             onSubmit={(values) => {
               onSearch(
-                data.filter((course) =>
-                  course.name.includes(values.search)
-                )
+                data.filter((course) => course.title.includes(values.search))
               );
             }}
           >
