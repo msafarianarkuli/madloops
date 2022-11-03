@@ -242,12 +242,12 @@ const CardGridListView = ({ item, view }) => {
           <div
             className={
               !view
-                ? 'flex justify-between btn p-0 group-hover:border-lite-purple dark:group-hover:border-[#b073cc]'
-                : 'flex items-stretch btn p-0 sm:w-fit sm:h-fit w-64 h-10 group-hover:border-lite-purple dark:group-hover:border-[#b073cc] md:mt-28 sm:mt-36'
+                ? 'flex justify-between rounded-lg p-0 '
+                : 'flex items-stretch rounded-lg p-0 sm:w-fit sm:h-fit w-64 h-10 md:mt-28 sm:mt-36'
             }
           >
             <Button
-              className={`hover:btn-base md:w-[20%] h-fit md:p-4 ${
+              className={`hover:btn-base md:w-[20%] border-t-2 border-b-2 group-hover:border-lite-purple dark:group-hover:border-[#8055D9] duration-150 border-r-2 h-fit md:p-4 ${
                 view
                   ? 'sm:w-fit w-fit sm:p-2 p-[11px]'
                   : 'sm:w-full p-4'
@@ -256,7 +256,7 @@ const CardGridListView = ({ item, view }) => {
               <BsFillShareFill className="mx-auto dark:text-[#E5E7EB]" />
             </Button>
             <Button
-              className={`hover:btn-base md:w-[20%] sm:w-fit w-fit h-fit md:p-4 ${
+              className={`hover:btn-base md:w-[20%] border-t-2 border-b-2 group-hover:border-lite-purple dark:group-hover:border-[#8055D9] duration-150 sm:w-fit w-fit h-fit md:p-4 ${
                 view ? 'sm:p-2 p-[11px]' : 'p-4 sm:w-full'
               } outline-none self-end`}
             >
@@ -267,8 +267,8 @@ const CardGridListView = ({ item, view }) => {
               ButtonType="button"
               classButton={
                 !view
-                  ? 'hover:btn-base w-[60%] sm:w-full h-fit p-3 dark:text-[#E5E7EB] outline-0'
-                  : 'hover:bg-[#8055D9] hover:text-white dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 sm:p-2 md:text-base sm:text-xs'
+                  ? 'hover:btn-base w-[60%] group-hover:border-lite-purple dark:group-hover:border-[#8055D9] duration-150 rounded-l-lg border-l-2 border-t-2 border-b-2 sm:w-full h-fit p-3 dark:text-[#E5E7EB] outline-0'
+                  : 'hover:bg-[#8055D9] rounded-lg hover:text-white dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 sm:p-2 md:text-base sm:text-xs'
               }
             >
               جزئیات دوره

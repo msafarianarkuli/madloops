@@ -4,7 +4,7 @@ import Login from "./../../Components/content/Login/login.component";
 const LoginPage = ({isDarkmode}) => {
   return (
     <section>
-      <div>
+      <div className="m-auto w-full h-screen">
         <Login />
       </div>
     </section>

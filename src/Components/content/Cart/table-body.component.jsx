@@ -1,10 +1,10 @@
-import { set } from 'lodash';
-import React, { useContext } from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { FaTrashAlt } from 'react-icons/fa';
-import TableSkeleton from '../../common/Skeleton/TableSkeleton';
-import { CartContext } from './../../../Core/context/cart.context';
+import { set } from "lodash";
+import React, { useContext } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { FaTrashAlt } from "react-icons/fa";
+import TableSkeleton from "../../common/Skeleton/TableSkeleton";
+import { CartContext } from "./../../../Core/context/cart.context";
 
 const TableBody = ({ course }) => {
   const { removeItemFromCart } = useContext(CartContext);

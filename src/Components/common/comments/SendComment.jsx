@@ -37,10 +37,10 @@ const SendComment = ({ onCommentActive, onSendReply }) => {
         >
           <Form>
             <div className="bg-slate-100 text-base md:text-xl text-gray-400 rounded-lg dark:bg-dark-secondary">
-              <div className="flex w-full border rounded-tl-xl rounded-tr-xl">
-                <div className="w-1/2 p-2 md:p-4 border-l">
+              <div className="flex w-full border dark:border-dark-tertiary rounded-tl-xl rounded-tr-xl">
+                <div className="w-1/2 p-2 md:p-4 border-l dark:border-dark-tertiary">
                   <Input
-                    className="bg-transparent w-full outline-none border-b-2 mb-2 focus:border-b-lite-purple duration-300"
+                    className="bg-transparent w-full outline-none border-b-2 mb-2 dark:border-dark-tertiary dark:focus:border-b-lite-purple duration-300"
                     type="text"
                     name="name"
                     label="نام:"
@@ -48,21 +48,21 @@ const SendComment = ({ onCommentActive, onSendReply }) => {
                 </div>
                 <div className="w-1/2 p-2 md:p-4">
                   <Input
-                    className="bg-transparent w-full outline-none border-b-2 mb-2 focus:border-b-lite-purple duration-300 dark:selection:bg-red-600"
+                    className="bg-transparent w-full outline-none border-b-2 mb-2 dark:border-dark-tertiary dark:focus:border-b-lite-purple duration-300 dark:selection:bg-red-600"
                     type="text"
                     name="email"
                     label="ایمیل:"
                   />
                 </div>
               </div>
-              <div className="flex border-r border-l border-b p-4">
+              <div className="flex border-r border-l border-b dark:border-dark-tertiary p-4">
                 <Textarea
                   className="grow min-h-fit max-h-72 bg-transparent outline-none block"
                   name="body"
                   label="متن نظر:"
                 />
               </div>
-              <div className="border-r border-l border-b rounded-bl-lg rounded-br-lg bg-lite-purple text-center text-white overflow-hidden">
+              <div className="border-r border-l border-b rounded-bl-lg dark:border-dark-tertiary rounded-br-lg bg-lite-purple text-center text-white overflow-hidden">
                 <button className="w-full py-2" type="submit">
                   ارسال نظر
                 </button>

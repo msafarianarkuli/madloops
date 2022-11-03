@@ -122,7 +122,7 @@ const LandingModal = ({ showModal, setShowModal }) => {
                             label="پیام"
                             name="message"
                             placeholder="لطفا پیام خود را درج کنید..."
-                            className="rounded-lg py-2 bg-[#F1F2F7] dark:bg-dark-secondary dark:text-gray-300 outline-none w-full min-h-full max-h-64 px-4 border-2 border-[#F1F2F7] focus:border-lite-purple focus:bg-white"
+                            className="rounded-lg py-2 bg-[#F1F2F7] dark:bg-dark-secondary dark:text-gray-300 outline-none w-full min-h-full max-h-64 px-4 border-2 border-[#F1F2F7] dark:border-dark-tertiary focus:border-lite-purple dark:focus:border-lite-purple focus:bg-white duration-200"
                           />
                         </div>
                       </div>

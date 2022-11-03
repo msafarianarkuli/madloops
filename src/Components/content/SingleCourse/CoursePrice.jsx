@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { FaCoins } from 'react-icons/fa';
-import { TbDiscount2 } from 'react-icons/tb';
-import { CartContext } from '../../../Core/context/cart.context';
-import { Button } from './../../common/button-component/button.component';
+import React, { useContext } from "react";
+import { FaCoins } from "react-icons/fa";
+import { TbDiscount2 } from "react-icons/tb";
+import { CartContext } from "../../../Core/context/cart.context";
+import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const { AddItemToCart } = useContext(CartContext);
@@ -40,13 +40,19 @@ const CoursePrice = ({ item }) => {
         </div>
       </div>
       <div
-        className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#42CD36] cursor-pointer hover:bg-green-500 duration-300"
+        className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-zinc-400 hover:bg-zinc-500 dark:bg-zinc-600 cursor-pointer dark:hover:bg-zinc-700 duration-300"
+        // onClick={addProductToCart}
+      >
+        <div>
+          <Button classButton="text-white">افزودن به علاقه مندی</Button>
+        </div>
+      </div>
+      <div
+        className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#42CD36] cursor-pointer hover:bg-green-600 duration-300"
         onClick={addProductToCart}
       >
         <div>
-          <Button classButton="text-white">
-            افزودن به سبد خرید!
-          </Button>
+          <Button classButton="text-white">افزودن به سبد خرید</Button>
         </div>
       </div>
     </div>

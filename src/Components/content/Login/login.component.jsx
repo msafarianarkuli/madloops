@@ -55,7 +55,7 @@ const Login = () => {
   };
 
   return (
-    <div className="container m-auto">
+    <div className="dark:bg-dark-primary">
       <div className="grid grid-cols-2 h-screen">
         <div className="col-span-1 lg:block hidden dark:bg-[#222326] bg-lite-gray relative">
           <div className="h-650">

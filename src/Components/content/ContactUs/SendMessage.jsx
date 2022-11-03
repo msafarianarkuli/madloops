@@ -84,7 +84,7 @@ const SendMessage = () => {
           <div
             className={
               !currentUser
-                ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28"
+                ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28 mt-5"
                 : "w-8/12 mx-auto"
             }
           >
@@ -106,7 +106,7 @@ const SendMessage = () => {
                     icon={<BsEnvelope />}
                   />
                 </div>
-                <div data-aos="fade-up">
+                <div>
                   <InputGroup
                     label="شماره تماس"
                     type="text"

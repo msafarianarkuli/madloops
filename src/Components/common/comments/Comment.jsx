@@ -37,7 +37,7 @@ const Comment = ({
   return (
     <>
       <div
-        className="border-2 bg-slate-100 rounded-lg p-3 mb-3 dark:bg-dark-secondary"
+        className="border-2 dark:border-dark-tertiary bg-slate-100 rounded-lg p-3 mb-3 dark:bg-dark-secondary"
         dir="rtl"
       >
         <div className="flex justify-between">
@@ -98,7 +98,7 @@ const Comment = ({
                   <Input
                     type="text"
                     name="reply"
-                    className="border border-gray-200 duration-150 rounded-md px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-0 focus:input-shadow focus:shadow-purple-300"
+                    className="border dark:border-dark-tertiary border-gray-200 duration-150 rounded-md px-3 w-full mb-3 lg:mb-0 md:flex-1 outline-0 focus:input-shadow focus:shadow-purple-300"
                   />
                   <div className="text-left md:flex-none">
                     <Button

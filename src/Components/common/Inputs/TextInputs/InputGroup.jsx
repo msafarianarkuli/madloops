@@ -13,9 +13,9 @@ const InputGroups = ({ label, icon, ...props }) => {
         ) : null}
 
         <div
-          className="flex items-center bg-[#F1F2F7] rounded-lg border-2 border-[#F1F2F7]
+          className="flex items-center bg-[#F1F2F7] rounded-lg border-2 dark:border-dark-tertiary border-[#F1F2F7]
            text-gray-600 focus-within:text-[#673CC0] focus-within:bg-white
-            focus-within:border-[#673CC0] focus-within:border-2
+            focus-within:border-[#673CC0] dark:focus-within:border-[#673CC0] focus-within:border-2
             transition ease-in duration-200 dark:bg-dark-secondary dark:text-dark-primary-title"
         >
           <div className="flex items-center rounded-tr-lg rounded-br-lg  text-2xl min-h-[40px] bg-transparent px-2">

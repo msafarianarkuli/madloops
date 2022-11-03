@@ -187,8 +187,8 @@ const BlogsPage = () => {
   }
 
   return (
-    <section>
-      <div className="container m-auto">
+    <section className="dark:bg-dark-primary">
+      <div className="container m-auto dark:bg-dark-primary">
         <div className="grid sm:grid-cols-2 2xl:h-500 xl:h-400 lg:h-400 md:h-250 sm:h-200 h-100">
           <div className="grid h-2/6" data-aos="fade-up">
             <div className="grid">
@@ -251,7 +251,7 @@ const BlogsPage = () => {
             })}
           </div>
         </div>
-        <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto my-10 w-[80%]">
+        <div className="sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-[80%] xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:w-[80%] md:grid-cols-2 md:gap-x-5 md:gap-y-10 md:w-[100%] sm:grid-cols-1 sm:gap-20 sm:w-[55%] mx-auto mt-10 pb-10 w-[80%]">
           {content}
         </div>
         {content

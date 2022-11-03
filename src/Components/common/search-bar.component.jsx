@@ -11,7 +11,7 @@ const SearchBar = ({ value, onChange }) => {
           type="text"
           placeholder="جستجو از بین هزاران مقاله"
           className="w-full py-4 pl-12 pr-4 text-gray-500 border rounded-lg outline-none bg-gray-50 transition ease-in-out delay-150 
-          focus:bg-white focus:border-indigo-600 dark:bg-transparent"
+          focus:bg-white focus:border-lite-purple dark:border-dark-tertiary dark:focus:border-lite-purple dark:bg-transparent"
           onChange={onChange}
           value={value}
         />

@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
-import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
-import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
-import CourseTeacher from '../../Components/content/SingleCourse/CourseTeacher';
-import CoursePrice from '../../Components/content/SingleCourse/CoursePrice';
-import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrerequisite';
-import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
-import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
-import CoursesTab from '../../Components/common/tabs/CoursesTab';
-import commentData from '../../Core/services/Fake Service/CourseComments';
-import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
-import img from '../../Assets/img/blog1.JPG';
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import CourseDetails from "../../Components/content/SingleCourse/CourseDetails";
+import CourseOpacity from "../../Components/content/SingleCourse/CourseOpacity";
+import CourseTeacher from "../../Components/content/SingleCourse/CourseTeacher";
+import CoursePrice from "../../Components/content/SingleCourse/CoursePrice";
+import CoursePrerequisite from "../../Components/content/SingleCourse/CoursePrerequisite";
+import CourseProperTo from "../../Components/content/SingleCourse/CourseProperTo";
+import CourceImproperTo from "../../Components/content/SingleCourse/CourceImproperTo";
+import CoursesTab from "../../Components/common/tabs/CoursesTab";
+import commentData from "../../Core/services/Fake Service/CourseComments";
+import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
+import img from "../../Assets/img/blog1.JPG";
 
 const SingleCourse = () => {
   const { id } = useParams();
-  const { course, isLoading } = useGetCoursesQuery('getCourses', {
+  const { course, isLoading } = useGetCoursesQuery("getCourses", {
     selectFromResult: ({ data, isLoading }) => ({
       course: data?.result.find((item) => item._id === id),
       isLoading,
@@ -41,7 +41,7 @@ const SingleCourse = () => {
           : comment;
       })
     );
-    console.log('liked', id);
+    console.log("liked", id);
   };
 
   const handleDislike = (id) => {
@@ -62,68 +62,70 @@ const SingleCourse = () => {
           : comment;
       })
     );
-    console.log('disLiked', id);
+    console.log("disLiked", id);
   };
 
   const handleSendReply = (
     refId,
     reply,
-    name = 'میهمان',
-    email = 'example@gmail.com'
+    name = "میهمان",
+    email = "example@gmail.com"
   ) => {
     const newReply = {
       id: comments.length + 1,
       refId: refId,
       userName: name,
-      date: '16 خرداد 1401',
-      time: '14:53',
+      date: "16 خرداد 1401",
+      time: "14:53",
       body: reply,
       liked: false,
       disLiked: false,
       likeCount: 0,
       disLikeCount: 0,
-      userImg: '',
+      userImg: "",
       email: email,
     };
     comments.unshift(newReply);
     setComments(comments);
     // setAnswerActive(false);
-    console.log('sent', comments);
+    console.log("sent", comments);
   };
 
   return (
-    <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
-      <div
-        className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary"
-        data-aos="fade-up"
-      >
-        <div className="rounded-lg overflow-hidden">
-          <img src={img} className="w-full h-500" />
-          <div className="px-4 lg:px-16">
-            <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
-              {course?.lesson.lessonName}
-            </h1>
-            <p className="text-lg lg:text-2xl text-gray-400 leading-10 dark:text-dark-text">
-              {course?.lesson.description}
-            </p>
+    <div className="dark:bg-dark-primary">
+      <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 p-2 lg:p-6 container mx-auto h-fit">
+        <div
+          className="xl:col-span-9 bg-[#F9F9FF] custom-shadow dark:shadow-none  rounded-lg dark:bg-dark-secondary"
+          data-aos="fade-up"
+        >
+          <div className="rounded-lg overflow-hidden">
+            <img src={img} className="w-full h-500" />
+            <div className="px-4 lg:px-16">
+              <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
+                {course?.lesson.lessonName}
+              </h1>
+              <p className="text-lg lg:text-2xl text-gray-400 leading-10 dark:text-dark-text">
+                {course?.lesson.description}
+              </p>
+            </div>
+            <CoursesTab
+              comments={comments}
+              onLike={handlelike}
+              onDisLike={handleDislike}
+              onSendReply={handleSendReply}
+            />
           </div>
-          <CoursesTab
-            comments={comments}
-            onLike={handlelike}
-            onDisLike={handleDislike}
-            onSendReply={handleSendReply}
-          />
         </div>
-      </div>
-      <div className="xl:col-span-3">
-        <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-1">
-          <CourseDetails item={course} />
-          <CourseOpacity item={course} />
-          <CourseTeacher />
-          <CoursePrice item={course} />
-          <CoursePrerequisite />
-          <CourseProperTo />
-          <CourceImproperTo />
+        <div className="xl:col-span-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-1">
+            <CourseDetails item={course} />
+            <CourseOpacity item={course} />
+            <CourseTeacher />
+            <CoursePrice item={course} />
+            <CoursePrerequisite />
+            <CourseProperTo />
+            <CourceImproperTo />
+          </div>
         </div>
       </div>
     </div>
