@@ -1,21 +1,29 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Button } from "../../Components/common/button-component/button.component";
 import "../Navigation/navigation.styles.scss";
 import { BsList } from "react-icons/bs";
-import { BsArrowLeftShort, BsCartFill } from "react-icons/bs";
+import { BsArrowLeftShort } from "react-icons/bs";
 import { MdLightMode, MdModeNight } from "react-icons/md";
 import { RiShoppingCartLine } from "react-icons/ri";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
-import { CartContext } from "../../Core/context/cart.context";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
 import { clearStorage } from "../../Core/services/storage/storage";
+import {
+  selectCartCount,
+  selectIsCartOpen,
+  setIsCartOpen,
+} from "./../../store/cart/cartSlice";
 
 const Navigation = ({ setTheme }) => {
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+  const cartCount = useSelector(selectCartCount);
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const currentUser = useSelector(selectCurrentUser);
+  const dispatch = useDispatch();
+
   const [open, setOpen] = useState(false);
   const [navlines] = useState([
     { id: 1, title: "خانه", path: "/" },
@@ -24,13 +32,9 @@ const Navigation = ({ setTheme }) => {
     { id: 4, title: "تماس با ما", path: "/contactUs" },
   ]);
 
-  const dispatch = useDispatch();
-
   useEffect(() => {
     Aos.init({ duration: 1000, easing: "ease-in-quart" });
   }, []);
-
-  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <div className="dark:bg-dark-primary bg-white">
@@ -82,8 +86,8 @@ const Navigation = ({ setTheme }) => {
                     isCartOpen ? "dark:bg-gray-400 bg-red-100 z-30" : null
                   }  
                 `}
-                  onMouseEnter={() => setIsCartOpen(true)}
-                  onMouseLeave={() => setIsCartOpen(false)}
+                  onMouseEnter={() => dispatch(setIsCartOpen(true))}
+                  onMouseLeave={() => dispatch(setIsCartOpen(false))}
                   to="/cart"
                 >
                   <RiShoppingCartLine className=" p-2 h-full w-full text-black dark:text-white" />

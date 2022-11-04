@@ -41,11 +41,11 @@ const Login = () => {
       if (error.status === 400) {
         toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
       } else if (error.status === 401) {
-        toastifyToast.error(error.data.message.message[0].message);
+        toastifyToast.error(error.data.message[0].message);
       } else if (error.status === 403) {
-        toastifyToast.error(error.data.message.message[0].message);
+        toastifyToast.error(error.data.message[0].message);
       } else {
-        toastifyToast.error(error.data.message.message[0].message);
+        toastifyToast.error(error.data.message[0].message);
       }
     }
   }, [isLoading]);

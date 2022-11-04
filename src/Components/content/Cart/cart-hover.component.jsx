@@ -1,9 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../../Core/context/cart.context";
+import {
+  selectCartItems,
+  selectIsCartOpen,
+  setIsCartOpen,
+} from "../../../store/cart/cartSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const CartHover = () => {
-  const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   return (
     <div
@@ -14,23 +22,23 @@ const CartHover = () => {
         display: !isCartOpen ? "none" : "grid",
         transition: "all ease-in 200ms",
       }}
-      onMouseEnter={() => setIsCartOpen(isCartOpen)}
-      onMouseLeave={() => setIsCartOpen(!isCartOpen)}
+      onMouseEnter={() => dispatch(setIsCartOpen(isCartOpen))}
+      onMouseLeave={() => dispatch(setIsCartOpen(!isCartOpen))}
     >
       {cartItems.map((item) => {
         return (
           <div
             className="w-full h-full flex border-b-2 dark:bg-dark-secondary bg-white p-2 rounded-lg"
-            key={item.id}
+            key={item._id}
           >
-            <div className="w-20 p-2 h-20 my-auto">
-              <img src={item.image} className="w-full h-full" />
+            {/* <div className="w-20 p-2 h-20 my-auto">
+              <img src={item.lesson.image} className="w-full h-full" />
             </div>
             <div className="flex flex-col my-auto mr-4">
               <h1 className="dark:text-gray-100">{item.title}</h1>
-              <h4 className="dark:text-gray-400">{item.teacher}</h4>
-              <p className="dark:text-gray-500">{item.price}تومان</p>
-            </div>
+              <h4 className="dark:text-gray-400">{item.teacher.fullName}</h4>
+              <p className="dark:text-gray-500">{item.cost}تومان</p>
+            </div> */}
           </div>
         );
       })}

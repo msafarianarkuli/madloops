@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-
+import React from "react";
 import TableBody from "./table-body.component";
-import { CartContext } from "../../../Core/context/cart.context";
+import { useSelector } from "react-redux";
+import { selectCartItems } from "../../../store/cart/cartSlice";
 
 const CartTable = () => {
-  const { cartItems } = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
   return (
     <table className="min-w-full h-fit dark:bg-dark-primary">
       <thead className="text-base lg:text-xl font-bold bg-[#f8f8f8] dark:bg-dark-secondary">
@@ -49,7 +49,7 @@ const CartTable = () => {
       ) : (
         <tbody>
           {cartItems.map((course) => (
-            <TableBody key={course.id} course={course} />
+            <TableBody key={course._id} course={course} />
           ))}
         </tbody>
       )}

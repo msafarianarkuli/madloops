@@ -196,7 +196,6 @@ const CoursesPage = () => {
                 width="sm:text-base sm:w-fit sm:p-fit"
               />
             </div>
-
             <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
           </div>
         </div>

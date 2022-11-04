@@ -1,7 +1,6 @@
-import React from 'react';
-import { FaUsers, FaUserGraduate } from 'react-icons/fa';
+import React from "react";
+import { FaUsers, FaUserGraduate } from "react-icons/fa";
 const CourseOpacity = ({ item }) => {
-  console.log(item);
   return (
     <div className="course-Detail-container" data-aos="fade-left">
       <div className="course-detail-title-box">

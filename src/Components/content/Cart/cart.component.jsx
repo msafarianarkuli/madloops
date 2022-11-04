@@ -1,12 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import CartTable from "./cart-table.component";
 import { Button } from "./../../common/button-component/button.component";
-import { CartContext } from "./../../../Core/context/cart.context";
+import { resetItem, selectCartTotalPrice } from "../../../store/cart/cartSlice";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const CartPage = () => {
-  const { cartTotal, clearCart, cartItems } = useContext(CartContext);
-
-  const clearCartItem = () => clearCart(cartItems.length);
+  const dispatch = useDispatch();
+  const cartTotal = useSelector(selectCartTotalPrice);
+  const clearCartItem = () => dispatch(resetItem);
 
   return (
     <div className="dark:bg-dark-primary w-full h-96">

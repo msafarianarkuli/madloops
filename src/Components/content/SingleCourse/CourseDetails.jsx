@@ -1,14 +1,13 @@
-import React from 'react';
+import React from "react";
 import {
   FaAndroid,
   FaGraduationCap,
   FaCalendarCheck,
   FaHourglassStart,
   FaHourglassEnd,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 
 const CourseDetails = ({ item }) => {
-  console.log(item);
   return (
     <div className="course-Detail-container" data-aos="fade-down">
       <div className="course-detail-title-box">

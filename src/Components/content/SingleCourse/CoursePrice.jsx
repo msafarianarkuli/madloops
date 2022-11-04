@@ -1,12 +1,16 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaCoins } from "react-icons/fa";
 import { TbDiscount2 } from "react-icons/tb";
-import { CartContext } from "../../../Core/context/cart.context";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, selectCartItems } from "../../../store/cart/cartSlice";
 import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
-  const { AddItemToCart } = useContext(CartContext);
-  const addProductToCart = () => AddItemToCart(item);
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const addProductToCart = () => dispatch(addItem("cartItems", "item"));
+  // console.log(cartItems, item);
+
   return (
     <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
