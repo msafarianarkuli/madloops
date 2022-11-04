@@ -2,14 +2,20 @@ import React from "react";
 import { FaCoins } from "react-icons/fa";
 import { TbDiscount2 } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  addBookMark,
+  selectBookMarkItems,
+} from "../../../store/bookmark/bookmarkSlice";
 import { addItem, selectCartItems } from "../../../store/cart/cartSlice";
 import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
-  const addProductToCart = () => dispatch(addItem("cartItems", "item"));
-  // console.log(cartItems, item);
+  const bookMarkItems = useSelector(selectBookMarkItems);
+
+  const addProductToCart = () => dispatch(addItem(cartItems, item));
+  const addProductForSave = () => dispatch(addBookMark(bookMarkItems, item));
 
   return (
     <div className="course-Detail-container" data-aos="fade-up">
@@ -45,7 +51,7 @@ const CoursePrice = ({ item }) => {
       </div>
       <div
         className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-zinc-400 hover:bg-zinc-500 dark:bg-zinc-600 cursor-pointer dark:hover:bg-zinc-700 duration-300"
-        // onClick={addProductToCart}
+        onClick={addProductForSave}
       >
         <div>
           <Button classButton="text-white">افزودن به علاقه مندی</Button>

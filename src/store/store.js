@@ -13,22 +13,24 @@ import {
   REGISTER,
 } from "redux-persist";
 import cartReducer from "./cart/cartSlice";
+import bookMarkReducer from "./bookmark/bookmarkSlice";
 
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["auth", "cart"],
+  blacklist: ["auth", "cart", "bookMark"],
 };
 
 const authPersist = persistReducer(persistConfig, authReducer);
-
 const cartPersist = persistReducer(persistConfig, cartReducer);
+const bookMarkPersist = persistReducer(persistConfig, bookMarkReducer);
 
 export const store = configureStore({
   reducer: {
     [apiSlice.reducerPath]: apiSlice.reducer,
     auth: authPersist,
     cart: cartPersist,
+    bookMark: bookMarkPersist,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
