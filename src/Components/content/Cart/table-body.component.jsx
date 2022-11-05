@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
 import { removeItem, selectCartItems } from "../../../store/cart/cartSlice";
 import TableSkeleton from "../../common/Skeleton/TableSkeleton";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const TableBody = ({ course }) => {
   const { title, cost, teacher, date, lesson } = course;
@@ -15,8 +15,7 @@ const TableBody = ({ course }) => {
     }, 3000);
   }, []);
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
-  const removeItems = () => dispatch(removeItem(cartItems, course));
+  const removeItems = () => dispatch(removeItem(course._id));
 
   return loading ? (
     <TableSkeleton />

@@ -6,15 +6,14 @@ import {
   addBookMark,
   selectBookMarkItems,
 } from "../../../store/bookmark/bookmarkSlice";
-import { addItem, selectCartItems } from "../../../store/cart/cartSlice";
+import { addItem } from "../../../store/cart/cartSlice";
 import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
   const bookMarkItems = useSelector(selectBookMarkItems);
 
-  const addProductToCart = () => dispatch(addItem(cartItems, item));
+  const addProductToCart = () => dispatch(addItem(item));
   const addProductForSave = () => dispatch(addBookMark(bookMarkItems, item));
 
   return (

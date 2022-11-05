@@ -1,39 +1,39 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
+import { toastifyToast } from "./../../Components/common/Toast/toast";
 
-const addCartItem = (cartItems, productToAdd) => {
-  console.log(cartItems, "salam", productToAdd);
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem._id === productToAdd?._id
-  );
-  console.log(existingCartItem);
-  if (existingCartItem) {
-    return cartItems.map((cartItem) =>
-      cartItem._id === productToAdd?._id
-        ? { ...cartItem, quantity: cartItem.quantity }
-        : cartItem
-    );
-  }
-  console.log([...cartItems, { ...productToAdd, quantity: 1 }]);
-  return [...cartItems, { ...productToAdd, quantity: 1 }];
-};
+// const addCartItem = (cartItems, productToAdd) => {
+//   const existingCartItem = cartItems.find(
+//     (cartItem) => cartItem._id === productToAdd?._id
+//   );
 
-const removeCartItem = (cartItems, cartItemToRemove) => {
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem._id === cartItemToRemove._id
-  );
+//   if (existingCartItem) {
+//     return cartItems.map((cartItem) =>
+//       cartItem._id === productToAdd?._id
+//         ? { ...cartItem, quantity: cartItem.quantity }
+//         : cartItem
+//     );
+//   }
+//   console.log([...cartItems, { ...productToAdd, quantity: 1 }]);
+//   return [...cartItems, { ...productToAdd, quantity: 1 }];
+// };
 
-  if (existingCartItem.quantity === 1) {
-    return cartItems.filter(
-      (cartItem) => cartItem._id !== cartItemToRemove._id
-    );
-  }
+// const removeCartItem = (cartItems, cartItemToRemove) => {
+//   const existingCartItem = cartItems.find(
+//     (cartItem) => cartItem._id === cartItemToRemove._id
+//   );
 
-  return cartItems.map((cartItem) =>
-    cartItem._id === cartItemToRemove._id
-      ? { ...cartItem, quantity: cartItem.quantity - 1 }
-      : cartItem
-  );
-};
+//   if (existingCartItem.quantity === 1) {
+//     return cartItems.filter(
+//       (cartItem) => cartItem._id !== cartItemToRemove._id
+//     );
+//   }
+
+//   return cartItems.map((cartItem) =>
+//     cartItem._id === cartItemToRemove._id
+//       ? { ...cartItem, quantity: cartItem.quantity - 1 }
+//       : cartItem
+//   );
+// };
 
 const initialState = {
   cartItems: [],
@@ -45,15 +45,19 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      const { cartItems, productToAdd } = action.payload;
-      console.log(cartItems, productToAdd);
-      const newCartItems = addCartItem(cartItems, productToAdd);
-      state.cartItems = newCartItems;
+      const existingCartItem = state.cartItems.find(
+        (cartItem) => cartItem._id === action.payload?._id
+      );
+      if (existingCartItem) {
+        toastifyToast.warning("دوره از قبل در سبد خرید شما موجود است!");
+      } else {
+        state.cartItems.push(action.payload);
+      }
     },
     removeItem: (state, action) => {
-      const { cartItems, cartItemToRemove } = action.payload;
-      const newCartItems = removeCartItem(cartItems, cartItemToRemove);
-      state.cartItems = newCartItems;
+      state.cartItems = state.cartItems.filter(
+        (item) => item._id !== action.payload
+      );
     },
     resetItem: (state) => {
       state.cartItems = [];
@@ -76,8 +80,9 @@ export const selectCartItems = createSelector(
   (cart) => cart.cartItems
 );
 
-export const selectCartCount = createSelector(selectCartItems, (cartItems) =>
-  cartItems.reduce((total, cartItem) => total + cartItem.quantity, 0)
+export const selectCartCount = createSelector(
+  selectCartItems,
+  (cartItems) => cartItems.length
 );
 
 export const selectCartTotalPrice = createSelector(

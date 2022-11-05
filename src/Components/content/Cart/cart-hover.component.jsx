@@ -12,7 +12,7 @@ const CartHover = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const isCartOpen = useSelector(selectIsCartOpen);
-
+  console.log(cartItems);
   return (
     <div
       className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-lg"
@@ -25,25 +25,25 @@ const CartHover = () => {
       onMouseEnter={() => dispatch(setIsCartOpen(isCartOpen))}
       onMouseLeave={() => dispatch(setIsCartOpen(!isCartOpen))}
     >
-      {cartItems.map((item) => {
+      {cartItems?.map((item) => {
         return (
           <div
             className="w-full h-full flex border-b-2 dark:bg-dark-secondary bg-white p-2 rounded-lg"
             key={item._id}
           >
-            {/* <div className="w-20 p-2 h-20 my-auto">
+            <div className="w-20 p-2 h-20 my-auto">
               <img src={item.lesson.image} className="w-full h-full" />
             </div>
             <div className="flex flex-col my-auto mr-4">
               <h1 className="dark:text-gray-100">{item.title}</h1>
               <h4 className="dark:text-gray-400">{item.teacher.fullName}</h4>
               <p className="dark:text-gray-500">{item.cost}تومان</p>
-            </div> */}
+            </div>
           </div>
         );
       })}
 
-      {cartItems.length === 0 ? (
+      {cartItems?.length === 0 ? (
         <div className="w-full h-full text-center font-bold bg-white relative">
           <img
             className=""

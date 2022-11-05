@@ -1,36 +1,36 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Button } from "../../common/button-component/button.component";
 import GroupButton from "../../common/GroupButton/GroupButton";
 import LandingTitle from "../../common/LandingTitle/LandingTitle";
 import CardAI from "../../common/Card/Card";
-import { ProductsContext } from "./../../../Core/context/products.context";
 import {
   handleLikeSorting,
   handleDateSortingDes,
 } from "../../../Core/utils/sorting";
 import { useNavigate } from "react-router-dom";
+import { useGetCoursesQuery } from "../../../store/courses/coursesSlice";
 
 const LandingCourse = () => {
-  const { products } = useContext(ProductsContext);
+  const { data, isLoading } = useGetCoursesQuery();
   const navigate = useNavigate();
   const [groupBtnList] = useState([
     { id: 1, title: "همه", type: "all" },
     { id: 2, title: "جدیدترین دوره ها", type: "new" },
     { id: 3, title: "محبوب ترین دوره ها", type: "like" },
   ]);
-  const [filterCourses, setFilterCourses] = useState(products);
+  const [filterCourses, setFilterCourses] = useState([]);
 
   const handleSorting = (type) => {
     switch (type) {
       case "all":
-        setFilterCourses(products);
+        setFilterCourses(data?.result);
         break;
       case "new":
-        setFilterCourses(handleDateSortingDes(products, 5));
+        setFilterCourses(handleDateSortingDes(data?.result, 5));
         break;
       case "like":
-        setFilterCourses(handleLikeSorting(products, 5));
+        setFilterCourses(handleLikeSorting(data?.result, 5));
         break;
     }
   };
@@ -49,7 +49,7 @@ const LandingCourse = () => {
           </div>
           <Swiper
             data-aos="slide-up"
-            className="mt-10 h-[500px]"
+            className="mt-10 h-[540px]"
             spaceBetween={20}
             slidesPerView={4}
             breakpoints={{
@@ -73,9 +73,9 @@ const LandingCourse = () => {
             centeredSlides={true}
             centeredSlidesBounds={true}
           >
-            {filterCourses.map((item) => (
-              <SwiperSlide key={item.id}>
-                {item ? (
+            {filterCourses?.map((item) => (
+              <SwiperSlide key={item._id}>
+                {isLoading ? (
                   <div className="w-full">
                     <div className="h-full border-2 border-gray-200 dark:border-gray-700 rounded-lg">
                       <div className="flex justify-center items-center animate-pulse w-full h-48 bg-gray-400 rounded-t-lg dark:bg-gray-700">

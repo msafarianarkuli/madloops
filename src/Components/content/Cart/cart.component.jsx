@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartTotal = useSelector(selectCartTotalPrice);
-  const clearCartItem = () => dispatch(resetItem);
+  const clearCartItem = () => dispatch(resetItem());
 
   return (
     <div className="dark:bg-dark-primary w-full h-96">
