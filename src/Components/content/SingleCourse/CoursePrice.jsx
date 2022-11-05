@@ -2,19 +2,16 @@ import React from "react";
 import { FaCoins } from "react-icons/fa";
 import { TbDiscount2 } from "react-icons/tb";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addBookMark,
-  selectBookMarkItems,
-} from "../../../store/bookmark/bookmarkSlice";
+import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
+import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
 import { addItem } from "../../../store/cart/cartSlice";
 import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const dispatch = useDispatch();
-  const bookMarkItems = useSelector(selectBookMarkItems);
 
   const addProductToCart = () => dispatch(addItem(item));
-  const addProductForSave = () => dispatch(addBookMark(bookMarkItems, item));
+  const addProductForSave = () => dispatch(addBookMark(item));
 
   return (
     <div className="course-Detail-container" data-aos="fade-up">

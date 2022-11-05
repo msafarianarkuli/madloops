@@ -8,32 +8,22 @@ import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
 import disLikeIcon from '../../../Assets/dislikesolid.png';
 import { Form, Formik } from 'formik';
-const Comment = ({
-  info,
-  onDisLike,
-  onLike,
-  onSend,
-  replies,
-  answerActive,
-  setAnswerActive,
-}) => {
-  const {
-    id,
-    refId,
-    userName,
-    date,
-    time,
-    body,
-    liked,
-    disLiked,
-    likeCount,
-    disLikeCount,
-  } = info;
+import { useState } from 'react';
+import {
+  timeConvert,
+  dateConvert,
+} from '../../../Core/utils/TimeAndDateConverter';
+import { useAddReplyMutation } from '../../../store/comments/commentsSlice';
+const Comment = ({ info }) => {
+  const [addReply] = useAddReplyMutation();
+  const [answerActive, setAnswerActive] = useState(false);
+
+  const { _id, username, createDate, comment, answer } = info;
 
   const handleCommentReply = () => {
     setAnswerActive(true);
   };
-
+  const date = dateConvert(createDate);
   return (
     <>
       <div
@@ -49,39 +39,41 @@ const Comment = ({
             />
             <div className="flex flex-col">
               <p className="text-lg sm:text-xl lg:text-2xl mb-1 dark:text-dark-secondary-title">
-                {userName}
+                {username}
               </p>
               <div className="flex">
                 <p className="text-xs sm:text-sm text-gray-400 ml-4">
-                  {date}
+                  {`${date.day} ${date.monthTitle} ${date.year}`}
                 </p>
                 <p className="text-xs sm:text-sm text-gray-400">
-                  {time}
+                  {timeConvert(createDate)}
                 </p>
               </div>
             </div>
           </div>
           <div className="flex items-center text-gray-400 text-lg">
             <span className="px-3 w-8 mb-1">
-              {likeCount === 0 ? ' ' : likeCount}
+              {/* {likeCount === 0 ? ' ' : likeCount} */}
             </span>
             <img
-              src={liked ? likeFillIcon : likeIcon}
+              // src={liked ? likeFillIcon : likeIcon}
+              src={likeIcon}
               className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
-              onClick={() => onLike(id)}
+              // onClick={() => onLike(id)}
             />
             <span className="px-4 w-8 mb-1">
-              {disLikeCount === 0 ? ' ' : disLikeCount}
+              {/* {disLikeCount === 0 ? ' ' : disLikeCount} */}
             </span>
             <img
-              src={disLiked ? disLikeFillIcon : disLikeIcon}
+              // src={disLiked ? disLikeFillIcon : disLikeIcon}
+              src={disLikeIcon}
               className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
-              onClick={() => onDisLike(id)}
+              // onClick={() => onDisLike(id)}
             />
           </div>
         </div>
         <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all dark:text-dark-text">
-          {body}
+          {comment}
         </p>
         {answerActive ? (
           <Formik
@@ -89,7 +81,11 @@ const Comment = ({
               reply: '',
             }}
             onSubmit={(values) => {
-              onSend(id, values.reply);
+              addReply({
+                id: _id,
+                answer: values.reply,
+              });
+              setAnswerActive(false);
             }}
           >
             {({ values }) => (
@@ -132,14 +128,58 @@ const Comment = ({
             </Button>
           </div>
         )}
-        {replies.map((reply) => (
-          <Reply
-            key={replies.id}
-            info={reply}
-            onLike={onLike}
-            onDisLike={onDisLike}
-          />
-        ))}
+        {answer ? (
+          <div
+            className="mx-4 sm:mx-10 rounded-lg p-3 my-3"
+            dir="rtl"
+          >
+            <div className="flex justify-between">
+              <div className="flex">
+                <img
+                  src={user}
+                  alt=""
+                  className="w-8 h-8 sm:w-14 sm:h-14 rounded-full ml-3"
+                />
+                <div className="flex flex-col">
+                  <p className="text-lg sm:text-xl lg:text-2xl mb-1 dark:text-dark-secondary-title">
+                    {/* {username} */}میهمان
+                  </p>
+                  <div className="flex">
+                    <p className="text-xs sm:text-sm text-gray-400 ml-4">
+                      {`${date.day} ${date.monthTitle} ${date.year}`}
+                    </p>
+                    <p className="text-xs sm:text-sm text-gray-400">
+                      {timeConvert(createDate)}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center text-gray-400 text-lg">
+                <span className="px-3 w-8 mb-1">
+                  {/* {likeCount === 0 ? ' ' : likeCount} */}
+                </span>
+                <img
+                  // src={liked ? likeFillIcon : likeIcon}
+                  src={likeFillIcon}
+                  className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
+                  // onClick={() => onLike(_id)}
+                />
+                <span className="px-4 w-8 mb-1">
+                  {/* {disLikeCount === 0 ? ' ' : disLikeCount} */}
+                </span>
+                <img
+                  // src={disLiked ? disLikeFillIcon : disLikeIcon}
+                  src={disLikeIcon}
+                  className="w-4 h-4 sm:w-5 sm:h-5 cursor-pointer"
+                  // onClick={() => onDisLike(_id)}
+                />
+              </div>
+            </div>
+            <p className="text-lg lg:text-xl text-gray-400 mt-2 mb-3 mr-8 break-all dark:text-dark-text">
+              {answer}
+            </p>
+          </div>
+        ) : null}
       </div>
     </>
   );

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 import {
   FaAndroid,
   FaGraduationCap,
   FaCalendarCheck,
   FaHourglassStart,
   FaHourglassEnd,
-} from "react-icons/fa";
-
+} from 'react-icons/fa';
+import { solarDateArrange } from '../../../Core/utils/TimeAndDateConverter';
 const CourseDetails = ({ item }) => {
   return (
     <div className="course-Detail-container" data-aos="fade-down">
@@ -28,7 +28,7 @@ const CourseDetails = ({ item }) => {
           <p className="mr-3">ترم ارائه شده:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>تابستان</p>
+          <p>{item?.lesson.lessonName}</p>
         </div>
       </div>
       <div className="course-detail-item-odd">
@@ -37,7 +37,7 @@ const CourseDetails = ({ item }) => {
           <p className="mr-3">شروع ترم:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>{item?.startDate.slice(0, 10)}</p>
+          <p>{solarDateArrange(item?.startDate)}</p>
         </div>
       </div>
       <div className="course-detail-item-even">
@@ -46,7 +46,7 @@ const CourseDetails = ({ item }) => {
           <p className="mr-3">پایان ترم:</p>
         </div>
         <div className="text-zinc-500 dark:text-dark-text">
-          <p>{item?.endDate.slice(0, 10)}</p>
+          <p>{solarDateArrange(item?.endDate)}</p>
         </div>
       </div>
       <div></div>

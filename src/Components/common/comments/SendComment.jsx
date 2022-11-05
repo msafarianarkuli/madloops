@@ -4,8 +4,11 @@ import * as Yup from 'yup';
 import Textarea from '../Inputs/TextareaInputs/Textarea';
 import Input from '../Inputs/TextInputs/Input';
 import profile from '../../../Assets/profile.png';
+import { useAddNewCommentMutation } from '../../../store/comments/commentsSlice';
 
-const SendComment = ({ onCommentActive, onSendReply }) => {
+const SendComment = ({ onCommentActive }) => {
+  const [addNewComment] = useAddNewCommentMutation();
+
   return (
     <>
       <img
@@ -31,7 +34,12 @@ const SendComment = ({ onCommentActive, onSendReply }) => {
             body: Yup.string().required('لطفا نظر خود را بیان کنید'),
           })}
           onSubmit={(values) => {
-            onSendReply(0, values.body, values.name, values.email);
+            addNewComment({
+              postId: '123fsfdfsfsdd4',
+              email: values.email,
+              username: values.name,
+              comment: values.body,
+            });
             onCommentActive(false);
           }}
         >

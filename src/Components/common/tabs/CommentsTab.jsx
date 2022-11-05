@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import SendComment from '../comments/SendComment';
 import Comment from '../comments/Comment';
+import { useGetCommentsQuery } from '../../../store/comments/commentsSlice';
 
-const CommentsTab = ({
-  onLike,
-  onDisLike,
-  onSendReply,
-  comments,
-}) => {
+const CommentsTab = () => {
+  const { data: comments } = useGetCommentsQuery();
+
   const [commentActive, setCommentActive] = useState(false);
-  const [answerActive, setAnswerActive] = useState(false);
   return (
     <>
       {commentActive ? (
@@ -20,10 +17,7 @@ const CommentsTab = ({
           >
             انصراف
           </div>
-          <SendComment
-            onCommentActive={setCommentActive}
-            onSendReply={onSendReply}
-          />
+          <SendComment onCommentActive={setCommentActive} />
         </div>
       ) : (
         <div>
@@ -33,17 +27,8 @@ const CommentsTab = ({
           >
             ارسال دیدگاه
           </div>
-          {comments.map((comment) => (
-            <Comment
-              key={comment.id}
-              info={comment}
-              onLike={onLike}
-              onDisLike={onDisLike}
-              onSend={onSendReply}
-              replies={comments}
-              answerActive={answerActive}
-              setAnswerActive={setAnswerActive}
-            />
+          {comments?.map((comment) => (
+            <Comment key={comment._id} info={comment} />
           ))}
         </div>
       )}

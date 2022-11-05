@@ -1,61 +1,30 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-
-const addBookMarkItem = (bookMarkItems, productToAdd) => {
-  console.log(bookMarkItems, "salam", productToAdd);
-  const existingBookMarkItem = bookMarkItems.find(
-    (bookMarkItem) => bookMarkItem._id === productToAdd?._id
-  );
-  console.log(existingBookMarkItem);
-  if (existingBookMarkItem) {
-    return bookMarkItems.map((bookMarkItem) =>
-      bookMarkItem._id === productToAdd?._id
-        ? { ...bookMarkItem, quantity: bookMarkItem.quantity }
-        : bookMarkItem
-    );
-  }
-  console.log([...bookMarkItems, { ...productToAdd, quantity: 1 }]);
-  return [...bookMarkItems, { ...productToAdd, quantity: 1 }];
-};
-
-const removeBookMarkItem = (bookMarkItems, bookMarkItemToRemove) => {
-  const existingBookMarkItem = bookMarkItems.find(
-    (bookMarkItem) => bookMarkItem._id === bookMarkItemToRemove._id
-  );
-
-  if (existingBookMarkItem.quantity === 1) {
-    return bookMarkItems.filter(
-      (bookMarkItem) => bookMarkItem._id !== bookMarkItemToRemove._id
-    );
-  }
-
-  return bookMarkItems.map((bookMarkItem) =>
-    bookMarkItem._id === bookMarkItemToRemove._id
-      ? { ...bookMarkItem, quantity: bookMarkItem.quantity - 1 }
-      : bookMarkItem
-  );
-};
+import {
+  createSelector,
+  createSlice,
+  current,
+} from '@reduxjs/toolkit';
 
 const initialState = {
   bookMarkItems: [],
 };
 
 const bookMarkSlice = createSlice({
-  name: "bookMark",
+  name: 'bookMark',
   initialState,
   reducers: {
     addBookMark: (state, action) => {
-      const { bookMarkItems, productToAdd } = action.payload;
-      console.log(bookMarkItems, productToAdd);
-      const newBookMarkItems = addBookMarkItem(bookMarkItems, productToAdd);
-      state.bookMarkItems.push(newBookMarkItems);
+      const existingBookMarkItem = state.bookMarkItems.find(
+        (bookMarkItem) => bookMarkItem._id === action.payload?._id
+      );
+      if (existingBookMarkItem) {
+        alert('از قبل وجود دارد');
+      }
+      state.bookMarkItems.push(action.payload);
     },
     removeBookMark: (state, action) => {
-      const { bookMarkItems, bookMarkItemToRemove } = action.payload;
-      const newBookMarkItems = removeBookMarkItem(
-        bookMarkItems,
-        bookMarkItemToRemove
+      state.bookMarkItems = state.bookMarkItems.filter(
+        (item) => item._id !== action.payload
       );
-      state.bookMarkItems = newBookMarkItems;
     },
   },
 });

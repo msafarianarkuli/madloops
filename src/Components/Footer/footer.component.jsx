@@ -1,15 +1,21 @@
-import { Formik, Form } from "formik";
-import { Link } from "react-router-dom";
+import { Formik, Form } from 'formik';
+import { Link } from 'react-router-dom';
 import {
   FaInstagram,
   FaWhatsapp,
   FaFacebookF,
   FaTelegramPlane,
-} from "react-icons/fa";
-import { Button, Input } from "..";
-import logo from "../../Assets/img/site-logo.png";
+} from 'react-icons/fa';
+import { Button, Input } from '..';
+import logo from '../../Assets/img/site-logo.png';
+import emailjs from '@emailjs/browser';
 
 const Footer = () => {
+  const templateParams = {
+    name: 'James',
+    notes: 'Check this out!',
+  };
+
   return (
     <footer>
       <div className="bg-lite-gray dark:bg-dark-secondary">
@@ -30,7 +36,7 @@ const Footer = () => {
                   اشتراک در خبرنامه
                 </p>
                 <Formik
-                  initialValues={{ newsletter: "" }}
+                  initialValues={{ newsletter: '' }}
                   onSubmit={(values) => {
                     console.log(values);
                   }}
@@ -55,8 +61,14 @@ const Footer = () => {
                 </Formik>
               </div>
             </div>
-            <div className="text-2xl flex flex-col justify-between md:justify-evenly py-5 pr-5 lg:mx-auto" data-aos="fade-down">
-              <p className="dark:text-dark-primary-title"> &#9679; منو</p>
+            <div
+              className="text-2xl flex flex-col justify-between md:justify-evenly py-5 pr-5 lg:mx-auto"
+              data-aos="fade-down"
+            >
+              <p className="dark:text-dark-primary-title">
+                {' '}
+                &#9679; منو
+              </p>
               <Link
                 to="/"
                 className="hover:text-gray-400 text-gray-600 dark:text-dark-secondary-title dark:hover:text-white transition ease-in duration-150"
@@ -88,14 +100,15 @@ const Footer = () => {
                 &#9679; درباره ما
               </h6>
               <p className="text-lg text-gray-600 dark:text-dark-text">
-                آکادمی بحر اولین بار در سال 88 توسط دکتر محمد حسین بحر العلومی
-                به وجود آمد. در مراطب اول دانشجویان خوبی را جذب کرد و حتی
-                دانشجویانی با گرفتن درخواست کاری از کشور خارج شدند. بعد ها
-                آکادمی بحر با توسعه به یکی از برترین آکادمی های برنامه نویسی زیر
-                نظر دکتر بحر شد و استادانی با سطح بالا همچون دکتر بحر وارد جامعه
-                شدند و دانشجویانی را تربیت میکنند شعار آکادمی بحر این است که
-                دانشجویانی با سواد و برتر را وارد جامعه کند تا نامش به نیک یاد
-                شود
+                آکادمی بحر اولین بار در سال 88 توسط دکتر محمد حسین بحر
+                العلومی به وجود آمد. در مراطب اول دانشجویان خوبی را
+                جذب کرد و حتی دانشجویانی با گرفتن درخواست کاری از کشور
+                خارج شدند. بعد ها آکادمی بحر با توسعه به یکی از برترین
+                آکادمی های برنامه نویسی زیر نظر دکتر بحر شد و استادانی
+                با سطح بالا همچون دکتر بحر وارد جامعه شدند و
+                دانشجویانی را تربیت میکنند شعار آکادمی بحر این است که
+                دانشجویانی با سواد و برتر را وارد جامعه کند تا نامش به
+                نیک یاد شود
               </p>
             </div>
           </div>

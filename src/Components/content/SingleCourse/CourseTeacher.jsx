@@ -5,16 +5,19 @@ import {
   FaLinkedinIn,
 } from 'react-icons/fa';
 import bahr from '../../../Assets/bahr.jpg';
-const CourseTeacher = () => {
+const CourseTeacher = ({ item }) => {
   return (
     <div className="course-Detail-container" data-aos="fade-up">
       <div className="course-detail-title-box">
         <p className="course-detail-title">مدرس</p>
       </div>
       <div className="flex text-gray-400 text-lg bg-[#E8E8E8] h-full">
-        <img src={bahr} className="w-40 h-full object-cover" />
+        <img
+          src={item?.teacher.profile}
+          className="w-40 h-full object-cover"
+        />
         <div className="p-4 dark:bg-dark-tertiary dark:text-dark-text">
-          <h3 className="text-xl">استاد بحرالعلوم</h3>
+          <h3 className="text-xl">استاد {item?.teacher.fullName}</h3>
           <p className="text-base">
             آموزش پروژه محور انگولار اولین دوره از سری دوره های هیولا
             شو و پروژه محور در وب سایت **** است
