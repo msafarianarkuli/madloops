@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
 import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
@@ -9,7 +9,6 @@ import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
 import CoursesTab from '../../Components/common/tabs/CoursesTab';
 import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
-import img from '../../Assets/img/blog1.JPG';
 
 const SingleCourse = () => {
   const { id } = useParams();
@@ -27,7 +26,10 @@ const SingleCourse = () => {
           data-aos="fade-up"
         >
           <div className="rounded-lg overflow-hidden">
-            <img src={img} className="w-full h-500" />
+            <img
+              src={course?.lesson.image}
+              className="w-full h-500"
+            />
             <div className="px-4 lg:px-16">
               <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
                 {course?.lesson.lessonName}
@@ -43,7 +45,7 @@ const SingleCourse = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-1">
             <CourseDetails item={course} />
             <CourseOpacity item={course} />
-            <CourseTeacher />
+            <CourseTeacher item={course} />
             <CoursePrice item={course} />
             <CoursePrerequisite />
             <CourseProperTo />
