@@ -38,25 +38,6 @@ const BlogsPage = () => {
     setNextCard(nextCard + cardPerRow);
   };
 
-  // const result = async () => {
-  //   const response = await data;
-  //   console.log(response.result, "dar");
-  //   return response.result;
-  // };
-  // console.log(result.result, "dar");
-  // const [blogs] = useState(Data);
-
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await getAllNews();
-  //     setBlogs(data);
-  //   };
-
-  //   getData();
-  // }, []);
-
-  // const data = Object.values(news);
-
   const [search, setSearch] = useState("");
   const [filterBlogs, setFilterBlogs] = useState([]);
 
@@ -69,6 +50,10 @@ const BlogsPage = () => {
       )
     );
   };
+
+  useEffect(() => {
+    handleSorting("all");
+  }, [isLoading]);
 
   const handleSorting = (type) => {
     switch (type) {

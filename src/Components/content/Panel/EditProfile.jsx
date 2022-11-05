@@ -1,15 +1,15 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Form, Formik, isEmptyArray } from "formik";
+import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
 import Input from "../../common/Inputs/TextInputs/Input";
 import CustomDatePicker from "../../common/Date-Picker/date-picker-component";
 import { useUpdateStudentInfoMutation } from "../../../store/studentManager/studentApi";
-import { useDispatch, useSelector } from "react-redux";
-import { logIn } from "../../../store/auth/authSlice";
+import { useSelector } from "react-redux";
 import { toastifyToast } from "../../common/Toast/toast";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
 import { useUploadImgMutation } from "../../../store/upload/uploadApiSlice";
+import axios from "axios";
 
 const EditProfile = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -23,7 +23,6 @@ const EditProfile = () => {
     profile: "",
   });
 
-  const dispatch = useDispatch();
   const [updateStudentInfo, { isSuccess, data, isError, error, isLoading }] =
     useUpdateStudentInfoMutation();
 
@@ -50,15 +49,6 @@ const EditProfile = () => {
 
   const handleSubmit = (values) => {
     const editing = async () => {
-      // if (
-      //   values.firstName + " " + values.lastName === currentUser.fullName &&
-      //   values.email === currentUser.email &&
-      //   values.phoneNumber === currentUser.phoneNumber &&
-      //   values.nationalId === currentUser.nationalId &&
-      //   values.birthDate === currentUser.birthDate
-      // ) {
-      //   toastifyToast.error("اطلاعات وارد شده تکراری است");
-      // } else { }
       if (values.profile === "") {
         console.log(values.profile);
         const update = await updateStudentInfo({
@@ -66,41 +56,34 @@ const EditProfile = () => {
           email: values.email,
           phoneNumber: values.phoneNumber,
           birthDate: values.birthDate,
-          nationalId: values.nationalId,
+          nationalId: currentUser.nationalId,
           profile:
             "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
           _id: currentUser._id,
         });
 
-        // toastifyToast.success(update.message[0].message, {});
-        console.log(update);
-        // dispatch(logIn({ user: update.result }));
+        toastifyToast.success(update.message[0].message, {});
       } else {
-        // let myFormData = new FormData();
-        // values.profile.forEach((photo, index) => {
-        //   myFormData.append(`photo${photo}`, values.profile[index]);
-        // });
         const imagefile = document.querySelector("#file");
+        console.log(imagefile.files[0]);
         let myFormData = new FormData();
-        myFormData.append("image", imagefile.files[0]);
-        const upload = await uploadImg(myFormData);
-        console.log(upload);
-        console.log(values.profile);
-        if (upload.status === 200) {
+        myFormData.append("image", values.profile);
+        const upload = await uploadImg({ myFormData: myFormData });
+
+        if (upload.data.success === true) {
           const Picture = upload.data.result;
 
           const update = await updateStudentInfo({
             email: values.email,
             phoneNumber: values.phoneNumber,
             birthDate: values.birthDate,
-            nationalId: values.nationalId,
+            nationalId: currentUser.nationalId,
             fullName: values.firstName + " " + values.lastName,
             profile: Picture,
             _id: currentUser._id,
           });
           console.log(update);
-          toastifyToast.success(update.message[0].message, {});
-          // dispatch(logIn({ user: update.result }));
+          toastifyToast.success(update.data.message[0].message);
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید", {});
         }
@@ -148,11 +131,6 @@ const EditProfile = () => {
             lastName: Yup.string().required(
               "لطفا فیلد نام خانوادگی را پر کنید"
             ),
-            nationalId: Yup.string()
-              .required("لطفا فیلد کد ملی را پر کنید")
-              .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
-              .min(10, "تعداد ارقام کد ملی صحیح نیست")
-              .max(10, "تعداد ارقام کد ملی صحیح نیست"),
             email: Yup.string()
               .email("الگوی وارد شده صحیح نمی باشد")
               .required("لطفا فیلد ایمیل را پر کنید"),
@@ -174,9 +152,7 @@ const EditProfile = () => {
                 className="invisible"
                 ref={fileInput}
                 onChange={(event) => {
-                  const files = event.target.files;
-                  let myFiles = Array.from(files);
-                  setFieldValue("profile", myFiles);
+                  setFieldValue("profile", event.target.files[0]);
                 }}
                 multiple
               />
@@ -205,7 +181,8 @@ const EditProfile = () => {
                     name="nationalId"
                     type="text"
                     label="کد ملی:"
-                    placeholder="2150008898"
+                    placeholder={currentUser.nationalId}
+                    disabled
                   />
                 </div>
                 <div>

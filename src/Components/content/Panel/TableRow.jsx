@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { FaTrashAlt } from 'react-icons/fa';
-import { MdPostAdd } from 'react-icons/md';
-import TableSkeleton from '../../common/Skeleton/TableSkeleton';
-import { useDispatch } from 'react-redux';
-import { removeBookMark } from '../../../store/bookmark/bookmarkSlice';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa";
+import { MdPostAdd } from "react-icons/md";
+import TableSkeleton from "../../common/Skeleton/TableSkeleton";
+import { useDispatch } from "react-redux";
+import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
 
 const TableRow = ({ course, onDelete, onAdd }) => {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const TableRow = ({ course, onDelete, onAdd }) => {
       setLoading(false);
     }, 3000);
   }, []);
-
+  console.log(_id);
   return loading ? (
     <TableSkeleton />
   ) : (
@@ -45,15 +45,14 @@ const TableRow = ({ course, onDelete, onAdd }) => {
       </td>
       <td
         className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center cursor-pointer"
-        // onClick={
-        //   pathname === '/user-panel/myCourses' || pathname === '/cart'
-        //     ? () => onDelete(_id)
-        //     : () => onAdd(course._id)
-        // }
-        onClick={() => dispatch(onDelete(_id))}
+        onClick={
+          pathname === "/user-panel/myCourses" || pathname === "/cart"
+            ? () => onDelete(_id)
+            : () => onAdd(_id)
+        }
+        // onClick={() => dispatch(onDelete(_id))}
       >
-        {pathname === '/user-panel/myCourses' ||
-        pathname === '/cart' ? (
+        {pathname === "/user-panel/myCourses" || pathname === "/cart" ? (
           <FaTrashAlt className="mx-auto hover:text-red-500 transition ease-in-out duration-300" />
         ) : (
           <MdPostAdd className="mx-auto group-hover:text-green-500 transition ease-in-out duration-300 text-3xl" />

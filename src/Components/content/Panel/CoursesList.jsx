@@ -32,6 +32,7 @@ const CoursesList = () => {
       const response = await allCourse;
 
       const filteredData = response?.result.filter((row) => {
+        console.log(row);
         const isInTerm = row.students.some(
           (student) => student._id === studentInfo._id
         );
@@ -57,7 +58,11 @@ const CoursesList = () => {
   }, [isLoad]);
 
   const addCourse = async (courseId) => {
-    await addStudentToCourse({ courseId: courseId, _id: currentUser._id });
+    console.log(courseId, currentUser);
+    await addStudentToCourse({
+      courseId: { courseId: courseId },
+      obj: currentUser._id,
+    });
 
     setCoursesList((old) => {
       let newData = [...old];
