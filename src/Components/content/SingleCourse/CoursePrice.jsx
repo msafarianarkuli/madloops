@@ -1,21 +1,20 @@
-import React from "react";
-import { FaCoins } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
-import { useDispatch, useSelector } from "react-redux";
+import React from 'react';
+import { FaCoins } from 'react-icons/fa';
+import { TbDiscount2 } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBookMark } from '../../../store/bookmark/bookmarkSlice';
 import {
-  addBookMark,
-  selectBookMarkItems,
-} from "../../../store/bookmark/bookmarkSlice";
-import { addItem, selectCartItems } from "../../../store/cart/cartSlice";
-import { Button } from "./../../common/button-component/button.component";
+  addItem,
+  selectCartItems,
+} from '../../../store/cart/cartSlice';
+import { Button } from './../../common/button-component/button.component';
 
 const CoursePrice = ({ item }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
-  const bookMarkItems = useSelector(selectBookMarkItems);
 
   const addProductToCart = () => dispatch(addItem(cartItems, item));
-  const addProductForSave = () => dispatch(addBookMark(bookMarkItems, item));
+  const addProductForSave = () => dispatch(addBookMark(item));
 
   return (
     <div className="course-Detail-container" data-aos="fade-up">
@@ -54,7 +53,9 @@ const CoursePrice = ({ item }) => {
         onClick={addProductForSave}
       >
         <div>
-          <Button classButton="text-white">افزودن به علاقه مندی</Button>
+          <Button classButton="text-white">
+            افزودن به علاقه مندی
+          </Button>
         </div>
       </div>
       <div

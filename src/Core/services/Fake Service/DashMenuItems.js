@@ -1,5 +1,9 @@
 import { v4 as uuidv4 } from 'uuid';
-import { BsFillGridFill, BsFillPlayCircleFill } from 'react-icons/bs';
+import {
+  BsFillGridFill,
+  BsFillPlayCircleFill,
+  BsBookmarkHeartFill,
+} from 'react-icons/bs';
 import {
   FaClipboardList,
   FaUserEdit,
@@ -19,6 +23,14 @@ const Data = [
     ),
     title: 'دوره های من',
     path: 'myCourses',
+  },
+  {
+    id: uuidv4(),
+    icon: (
+      <BsBookmarkHeartFill className="inline-block sm:text-2xl" />
+    ),
+    title: 'لیست علاقه مندی ها',
+    path: 'bookmark',
   },
   {
     id: uuidv4(),
