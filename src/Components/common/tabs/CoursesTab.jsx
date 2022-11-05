@@ -7,7 +7,7 @@ import Accordion from '../Accordion/Accordion';
 import tabData from '../../../Core/services/Fake Service/CourseTabList';
 import faqList from '../../../Core/services/Fake Service/faqs';
 
-const BlogTab = ({ onLike, onDisLike, onSendReply, comments }) => {
+const BlogTab = () => {
   const [faq, setFaq] = useState(faqList);
   const handleToggle = (id) => {
     //this func is for every faq to be open or close
@@ -41,12 +41,7 @@ const BlogTab = ({ onLike, onDisLike, onSendReply, comments }) => {
         ))}
       </TabPanel>
       <TabPanel>
-        <CommentsTab
-          onLike={onLike}
-          onDisLike={onDisLike}
-          onSendReply={onSendReply}
-          comments={comments}
-        />
+        <CommentsTab />
       </TabPanel>
     </CustomTab>
   );
