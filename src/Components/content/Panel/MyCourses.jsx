@@ -23,6 +23,7 @@ const MyCourses = () => {
   const [pageSize, setPageSize] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState();
+  const [searchList, setSearchList] = useState([]);
 
   useEffect(() => {
     const getCourseForUser = async () => {
@@ -35,7 +36,7 @@ const MyCourses = () => {
         );
         if (isInCourse) return row;
       });
-
+      setSearchList(filteredData);
       const paginateData = paginate(filteredData, currentPage, pageSize);
       const dataCount = filteredData?.length;
       setCount(dataCount);
@@ -90,7 +91,7 @@ const MyCourses = () => {
 
   return (
     <div className="px-3 md:px-5">
-      <PanelHeader data={myCourse} onSearch={handleSearch} />
+      <PanelHeader data={searchList} onSearch={handleSearch} />
       <PanelTable data={myCourse} onDelete={deleteCourse} />
       <Pagination
         itemsCount={count}

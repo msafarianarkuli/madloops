@@ -1,8 +1,8 @@
 //this function gets a string of numbers and seperate it by three
 function addComma(str) {
-  var objRegex = new RegExp('(-?[0-9]+)([0-9]{3})');
+  var objRegex = new RegExp("(-?[0-9]+)([0-9]{3})");
   while (objRegex.test(str)) {
-    str = str.replace(objRegex, '$1,$2');
+    str = str.replace(objRegex, "$1,$2");
   }
   return str;
 }
@@ -26,4 +26,19 @@ const rateCalculate = (item) => {
   return fractionLike;
 };
 
-export { addComma, rateCalculate };
+const handleCategory = (category) => {
+  let val = null;
+  switch (category) {
+    case "news":
+      val = "اخبار";
+      break;
+    case "article":
+      val = "مقالات";
+      break;
+    default:
+      break;
+  }
+  return val;
+};
+
+export { addComma, rateCalculate, handleCategory };

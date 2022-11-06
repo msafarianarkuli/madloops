@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef, useContext } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -13,10 +13,9 @@ import { Formik, Form } from "formik";
 import InputGroups from "./../../Components/common/Inputs/TextInputs/Input";
 import {
   handleDateSortingDes,
-  handleLikeSorting,
+  handleCostSorting,
   handleViewSorting,
 } from "./../../Core/utils/sorting";
-import { ProductsContext } from "../../Core/context/products.context";
 import Skeleton from "../../Components/common/coursesSkeleton.component";
 import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
 
@@ -31,25 +30,29 @@ const CoursesPage = () => {
   const [groupBtnList] = useState([
     { id: 1, title: "همه", type: "all" },
     { id: 2, title: "جدیدترین ها", type: "new" },
-    { id: 3, title: "محبوب ترین ها", type: "like" },
+    { id: 3, title: "گران ترین ها", type: "like" },
     { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
 
   const [filterCourses, setFilterCourses] = useState([]);
 
+  useEffect(() => {
+    handleSorting("all");
+  }, [isLoading]);
+
   const handleSorting = (type) => {
     switch (type) {
       case "all":
-        setFilterCourses(data.result);
+        setFilterCourses(data);
         break;
       case "view":
-        setFilterCourses(handleViewSorting(data.result));
+        setFilterCourses(handleViewSorting(data));
         break;
       case "new":
-        setFilterCourses(handleDateSortingDes(data.result));
+        setFilterCourses(handleDateSortingDes(data));
         break;
       case "like":
-        setFilterCourses(handleLikeSorting(data.result));
+        setFilterCourses(handleCostSorting(data));
         break;
     }
   };
@@ -79,12 +82,11 @@ const CoursesPage = () => {
     }
   };
 
-  console.log(data);
   let content;
   if (isLoading) {
     content = <Skeleton items={nextCard} view={showGrid} />;
   } else if (isSuccess) {
-    content = data
+    content = filterCourses
       ?.slice(0, nextCard)
       .map((item) => <CardGridListView item={item} key={item._id} />);
   }
@@ -133,7 +135,7 @@ const CoursesPage = () => {
             data-aos="flip-right"
           >
             <div className="text-[#C53F3F] text-4xl mt-6">
-              {/* {filterCourses.reduce((a, b) => a + b.lesson, 0)}+ */} 1
+              {filterCourses?.reduce((a, b) => a + b.lessonNumber, 0)}+
             </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl dark:text-dark-text">
@@ -145,7 +147,7 @@ const CoursesPage = () => {
             data-aos="flip-down"
           >
             <div className="text-[#C53F3F] text-4xl mt-6">
-              {/* {filterCourses.reduce((a, b) => a + b.hour, 0)}+ */}1
+              {filterCourses?.reduce((a, b) => a + b.hour, 0)}+
             </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl dark:text-dark-text">
@@ -157,7 +159,7 @@ const CoursesPage = () => {
             data-aos="flip-left"
           >
             <div className="text-[#C53F3F] text-4xl mt-6">
-              {/* {filterCourses.length}+ */}
+              {filterCourses?.length}+
             </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl dark:text-dark-text">

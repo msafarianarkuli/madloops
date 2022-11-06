@@ -5,7 +5,7 @@ import GroupButton from "../../common/GroupButton/GroupButton";
 import LandingTitle from "../../common/LandingTitle/LandingTitle";
 import CardAI from "../../common/Card/Card";
 import {
-  handleLikeSorting,
+  handleCostSorting,
   handleDateSortingDes,
 } from "../../../Core/utils/sorting";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +17,7 @@ const LandingCourse = () => {
   const [groupBtnList] = useState([
     { id: 1, title: "همه", type: "all" },
     { id: 2, title: "جدیدترین دوره ها", type: "new" },
-    { id: 3, title: "محبوب ترین دوره ها", type: "like" },
+    { id: 3, title: "گران ترین دوره ها", type: "like" },
   ]);
   const [filterCourses, setFilterCourses] = useState([]);
 
@@ -34,7 +34,7 @@ const LandingCourse = () => {
         setFilterCourses(handleDateSortingDes(data, 5));
         break;
       case "like":
-        setFilterCourses(handleLikeSorting(data, 5));
+        setFilterCourses(handleCostSorting(data, 5));
         break;
     }
   };

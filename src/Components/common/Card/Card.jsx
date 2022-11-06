@@ -3,8 +3,12 @@ import { Button } from "./../button-component/button.component";
 import starFill from "../../../Assets/star-fill.svg";
 import { HiOutlineUser, HiOutlineUsers } from "react-icons/hi";
 import { useNavigate } from "react-router-dom";
+import { useGetCoursesLikeQuery } from "../../../store/courses/coursesSlice";
+import { rateCalculate } from "../../../Core/utils/funcs";
 
 const CardAI = ({ item }) => {
+  const { data: courseLike } = useGetCoursesLikeQuery(item._id);
+
   const handleLead = (value) => {
     const trimmedLead =
       value
@@ -24,10 +28,10 @@ const CardAI = ({ item }) => {
           alt=""
         />
       </div>
-      <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
+      {/* <p className="text-right text-xs font-bold text-blue-600 mt-4 mb-2">
         آرشیو شده
-      </p>
-      <div className="">
+      </p> */}
+      <div className="mt-5">
         <p className="text-right text-xl mb-3 text-gray-900 dark:text-dark-primary-title">
           {item.title}
         </p>
@@ -41,7 +45,7 @@ const CardAI = ({ item }) => {
           </div>
           <div className="flex">
             <img className="ml-3" src={starFill} alt="" />
-            <span>{item.likeCount}</span>
+            <span> {rateCalculate(courseLike?.result)}</span>
           </div>
         </div>
 
