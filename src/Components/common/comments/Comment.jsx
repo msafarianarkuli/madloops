@@ -24,6 +24,7 @@ const Comment = ({ info }) => {
     setAnswerActive(true);
   };
   const date = dateConvert(createDate);
+  console.log(date);
   return (
     <>
       <div

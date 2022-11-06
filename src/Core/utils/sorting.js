@@ -1,12 +1,12 @@
 export const handleLikeSorting = (list, numSlice) => {
-  const numDescending = [...list].sort((a, b) => b.likeCount - a.likeCount);
+  const numDescending = [...list].sort((a, b) => b.like - a.like);
 
   return numDescending.slice(0, numSlice);
 };
 
 export const handleDateSortingDes = (list, numSlice) => {
   const numDescending = [...list].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    (a, b) => b.createDate - a.createDate
   );
 
   return numDescending.slice(0, numSlice);
@@ -14,7 +14,7 @@ export const handleDateSortingDes = (list, numSlice) => {
 
 export const handleDateSortingAs = (list, numSlice) => {
   const numAscending = [...list].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+    (a, b) => a.createDate - b.createDate
   );
 
   return numAscending.slice(0, numSlice);

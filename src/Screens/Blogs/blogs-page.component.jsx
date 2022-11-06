@@ -1,19 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import SearchBar from "./../../Components/common/search-bar.component";
-import { Typewriter } from "react-simple-typewriter";
-import { Card } from "./../../Components/common/Card/card.component";
-import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
-import { Button } from "../../Components/common/button-component/button.component";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FieldName } from './../../Components/common/field-name-component/field-name.component';
+import SearchBar from './../../Components/common/search-bar.component';
+import { Typewriter } from 'react-simple-typewriter';
+import { Card } from './../../Components/common/Card/card.component';
+import { BsFillCircleFill, BsEye, BsHeart } from 'react-icons/bs';
+import { Button } from '../../Components/common/button-component/button.component';
 import {
   handleDateSortingAs,
   handleDateSortingDes,
   handleLikeSorting,
   handleViewSorting,
-} from "./../../Core/utils/sorting";
-import BlogSkeleton from "./../../Components/common/blogSkeleton";
-import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
+} from './../../Core/utils/sorting';
+import BlogSkeleton from './../../Components/common/blogSkeleton';
+import { useGetAllNewsQuery } from '../../store/news/newsApiSlice';
+import { dateConvert } from '../../Core/utils/TimeAndDateConverter';
 
 const cardPerRow = 3;
 
@@ -27,50 +28,53 @@ const BlogsPage = () => {
   } = useGetAllNewsQuery();
 
   const [groupBtnList] = useState([
-    { id: 1, title: "همه", type: "all" },
-    { id: 2, title: "محبوب ترین ها", type: "like" },
-    { id: 3, title: "پربازدید ترین ها", type: "view" },
-    { id: 4, title: "جدیدترین ها", type: "new" },
-    { id: 5, title: "قدیمی ترین ها", type: "old" },
+    { id: 1, title: 'همه', type: 'all' },
+    { id: 2, title: 'محبوب ترین ها', type: 'like' },
+    { id: 3, title: 'پربازدید ترین ها', type: 'view' },
+    { id: 4, title: 'جدیدترین ها', type: 'new' },
+    { id: 5, title: 'قدیمی ترین ها', type: 'old' },
   ]);
   const [nextCard, setNextCard] = useState(cardPerRow);
   const handleMoreCard = () => {
     setNextCard(nextCard + cardPerRow);
   };
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState('');
   const [filterBlogs, setFilterBlogs] = useState([]);
 
   const handleSearch = (value) => {
     setSearch(value);
     setFilterBlogs(
-      data.result?.filter(
+      data?.filter(
         (item) =>
-          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+          item.title
+            .toString()
+            .toLowerCase()
+            .indexOf(search.toLowerCase()) > -1
       )
     );
   };
 
   useEffect(() => {
-    handleSorting("all");
+    handleSorting('all');
   }, [isLoading]);
 
   const handleSorting = (type) => {
     switch (type) {
-      case "all":
-        setFilterBlogs(data.result);
+      case 'all':
+        setFilterBlogs(data);
         break;
-      case "view":
-        setFilterBlogs(handleViewSorting(data.result));
+      case 'view':
+        setFilterBlogs(handleViewSorting(data));
         break;
-      case "new":
-        setFilterBlogs(handleDateSortingDes(data.result));
+      case 'new':
+        setFilterBlogs(handleDateSortingDes(data));
         break;
-      case "old":
-        setFilterBlogs(handleDateSortingAs(data.result));
+      case 'old':
+        setFilterBlogs(handleDateSortingAs(data));
         break;
-      case "like":
-        setFilterBlogs(handleLikeSorting(data.result));
+      case 'like':
+        setFilterBlogs(handleLikeSorting(data));
         break;
     }
   };
@@ -87,10 +91,10 @@ const BlogsPage = () => {
     const classActive = [];
     classActive.push(
       selectedBlogButton === item
-        ? "border-deep-purple text-deep-purple"
-        : "border-transparent"
+        ? 'border-deep-purple text-deep-purple'
+        : 'border-transparent'
     );
-    return classActive.join(" , ");
+    return classActive.join(' , ');
   };
 
   const blogSortAndSet = (item) => {
@@ -102,12 +106,12 @@ const BlogsPage = () => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
 
   const navigate = useNavigate();
-
   let content;
   if (isLoading) {
     content = <BlogSkeleton />;
@@ -117,7 +121,7 @@ const BlogsPage = () => {
         showImage
         showStruc
         classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
-        key={card.id}
+        key={card._id}
         imageUrl={card.image}
         classImage="rounded-t-lg w-full h-full"
         classMainImg="w-full h-72"
@@ -131,7 +135,7 @@ const BlogsPage = () => {
             <div className="flex items-center">
               <BsFillCircleFill className="w-2 text-[#1F18DB]" />
               <h3 className="text-[#636363] mr-3 dark:text-dark-secondary-title">
-                زمان مطالعه: {card.readTime} دقیقه
+                زمان مطالعه: {card.studyTime} دقیقه
               </h3>
             </div>
             <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
@@ -149,7 +153,7 @@ const BlogsPage = () => {
           <div className="flex justify-between">
             <div className="flex items-center">
               <img
-                src={require("../../Assets/profile.png")}
+                src={require('../../Assets/profile.png')}
                 className="w-10 rounded-full"
                 alt=""
               />
@@ -159,7 +163,7 @@ const BlogsPage = () => {
             </div>
             <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
               <BsHeart className="pb-1" />
-              <h3 className="text-sm">{card.likeCount}</h3>
+              <h3 className="text-sm">{card.like}</h3>
               <BsEye className="pb-1" />
               <h3 className="text-sm">{card.view}</h3>
             </div>
@@ -168,7 +172,7 @@ const BlogsPage = () => {
       </Card>
     ));
   } else if (isError) {
-    <h2>{error.data.message[0].message}.</h2>;
+    <h2>{error.data?.message[0].message}.</h2>;
   }
 
   return (
@@ -187,7 +191,7 @@ const BlogsPage = () => {
             <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text">
               <Typewriter
                 words={[
-                  "پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.",
+                  'پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.',
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -200,7 +204,9 @@ const BlogsPage = () => {
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-28 drop-shadow-xl shadow-black">
               <img
                 data-aos="fade-left"
-                src={require("../../Assets/Blog post-amico.svg").default}
+                src={
+                  require('../../Assets/Blog post-amico.svg').default
+                }
                 alt=""
               />
             </div>

@@ -7,21 +7,23 @@ function addComma(str) {
   return str;
 }
 
-const rateClaculate = (item) => {
+const rateCalculate = (item) => {
   const likeNumber = item?.like;
   const disLikeNumber = item?.dislike;
-  const fractionLike = likeNumber / (likeNumber + disLikeNumber);
-  if (fractionLike < 0.2) {
-    return 1;
-  } else if (fractionLike >= 0.2 && fractionLike < 0.4) {
-    return 2;
-  } else if (fractionLike >= 0.4 && fractionLike < 0.6) {
-    return 3;
-  } else if (fractionLike >= 0.6 && fractionLike < 0.8) {
-    return 4;
-  } else if (fractionLike >= 0.8) {
-    return 5;
-  }
+  const fractionLike =
+    likeNumber > 0 ? likeNumber / (likeNumber + disLikeNumber) : 0;
+  // if (fractionLike < 0.2) {
+  //   return 1;
+  // } else if (fractionLike >= 0.2 && fractionLike < 0.4) {
+  //   return 2;
+  // } else if (fractionLike >= 0.4 && fractionLike < 0.6) {
+  //   return 3;
+  // } else if (fractionLike >= 0.6 && fractionLike < 0.8) {
+  //   return 4;
+  // } else if (fractionLike >= 0.8) {
+  //   return 5;
+  // }
+  return fractionLike;
 };
 
-export { addComma, rateClaculate };
+export { addComma, rateCalculate };
