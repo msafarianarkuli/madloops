@@ -64,7 +64,7 @@ const LandingBlog = () => {
         >
           {data?.result.map((item) => {
             return (
-              <SwiperSlide key={item.id} className="px-10">
+              <SwiperSlide key={item._id} className="px-10">
                 {!item ? (
                   <div
                     role="status"

@@ -13,7 +13,7 @@ const PanelHeader = ({ data, onSearch }) => {
   const counter = useSelector(selectCartCount);
   let location = useLocation();
   const navigate = useNavigate();
-
+  console.log(data);
   return (
     <div className="flex justify-end items-center py-5 lg:py-8 px-4 lg:px-2 animate-[onLoadPanel_.5s_ease-in]">
       <div className="basis-1/4">
@@ -34,7 +34,13 @@ const PanelHeader = ({ data, onSearch }) => {
               onSearch(
                 data
                   ?.map((data) => data)
-                  .filter((course) => course.title.includes(values.search))
+                  .filter(
+                    (course) =>
+                      course.title
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(values.search) > -1
+                  )
               );
             }}
           >

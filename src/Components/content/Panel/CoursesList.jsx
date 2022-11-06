@@ -32,11 +32,10 @@ const CoursesList = () => {
       const response = await allCourse;
 
       const filteredData = response?.result.filter((row) => {
-        console.log(row);
-        const isInTerm = row.students.some(
+        const isInCourse = row.students.some(
           (student) => student._id === studentInfo._id
         );
-        if (!isInTerm) return row;
+        if (!isInCourse) return row;
       });
 
       const paginateData = paginate(filteredData, currentPage, pageSize);
