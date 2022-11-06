@@ -55,7 +55,10 @@ const MyCourses = () => {
   }, [isLoad]);
 
   const deleteCourse = async (courseId) => {
-    await deleteStudentFromCourse({ courseId: courseId, _id: currentUser._id });
+    await deleteStudentFromCourse({
+      courseId: { courseId: courseId },
+      obj: currentUser._id,
+    });
 
     setMyCourse((old) => {
       let newData = [...old];
@@ -70,6 +73,7 @@ const MyCourses = () => {
     setCurrentPage(1);
     setMyCourse(arr);
   };
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCoins } from 'react-icons/fa';
 import { TbDiscount2 } from 'react-icons/tb';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBookMark } from '../../../store/bookmark/bookmarkSlice';
 import { addItem } from '../../../store/cart/cartSlice';
 import { Button } from './../../common/button-component/button.component';

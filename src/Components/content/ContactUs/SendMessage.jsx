@@ -41,21 +41,18 @@ const SendMessage = () => {
   }, [isLoading]);
 
   const handleSubmit = async (values) => {
-    console.log("sadasd");
     if (currentUser) {
-      const resuol = await contactUs({
+      await contactUs({
         text: values.message,
         name: values.name,
         email: values.email,
       });
-      console.log(resuol, "sadasd");
     } else {
-      const resuol = await contactUs({
+      await contactUs({
         text: values.message,
         name: values.name,
         email: values.email,
       });
-      console.log(resuol);
     }
   };
 
@@ -63,21 +60,27 @@ const SendMessage = () => {
     <>
       <Formik
         initialValues={contact}
-        validationSchema={Yup.object({
-          name: Yup.string().required(
-            "لطفا فیلد نام و  نام خانوادگی را پر کنید"
-          ),
-          email: Yup.string()
-            .email("الگوی وارد شده صحیح نمی باشد")
-            .required("لطفا فیلد ایمیل را پر کنید"),
-          phone: Yup.string()
-            .required("لطفا فیلد شماره تماس را پر کنید")
-            .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
-            .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
-            .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
+        validationSchema={
+          !currentUser
+            ? Yup.object({
+                name: Yup.string().required(
+                  "لطفا فیلد نام و  نام خانوادگی را پر کنید"
+                ),
+                email: Yup.string()
+                  .email("الگوی وارد شده صحیح نمی باشد")
+                  .required("لطفا فیلد ایمیل را پر کنید"),
+                phone: Yup.string()
+                  .required("لطفا فیلد شماره تماس را پر کنید")
+                  .matches(/^[0-9]+$/, "الگوی وارد شده صحیح نمی باشد")
+                  .min(11, "تعداد ارقام شماره تلفن صحیح نیست")
+                  .max(11, "تعداد ارقام شماره تلفن صحیح نیست"),
 
-          message: Yup.string().required("لطفا پیغام خود را بنویسید"),
-        })}
+                message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+              })
+            : Yup.object({
+                message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+              })
+        }
         onSubmit={handleSubmit}
       >
         <Form>

@@ -12,7 +12,7 @@ const CartHover = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
   const isCartOpen = useSelector(selectIsCartOpen);
-  console.log(cartItems);
+
   return (
     <div
       className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-lg"

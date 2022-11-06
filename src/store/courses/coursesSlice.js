@@ -16,18 +16,18 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       providesTags: ["courses"],
     }),
     addStudentToCourse: builder.mutation({
-      query: ({ courseId, _id }) => ({
-        url: `course/addStudentToCourse/${_id}`,
+      query: (obj) => ({
+        url: `course/addStudentToCourse/${obj.obj}`,
         method: "POST",
-        body: courseId,
+        body: obj.courseId,
       }),
       invalidatesTags: ["courses"],
     }),
     deleteStudentFromCourse: builder.mutation({
-      query: ({ courseId, _id }) => ({
-        url: `course/removeStudentFromCourse/${_id}`,
+      query: (obj) => ({
+        url: `course/removeStudentFromCourse/${obj.obj}`,
         method: "POST",
-        body: courseId,
+        body: obj.courseId,
       }),
       invalidatesTags: ["courses"],
     }),

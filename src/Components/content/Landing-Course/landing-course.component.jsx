@@ -21,6 +21,10 @@ const LandingCourse = () => {
   ]);
   const [filterCourses, setFilterCourses] = useState([]);
 
+  useEffect(() => {
+    handleSorting("all");
+  }, [isLoading]);
+
   const handleSorting = (type) => {
     switch (type) {
       case "all":

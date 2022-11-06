@@ -15,7 +15,14 @@ export const studentApiSlice = apiSlice.injectEndpoints({
       query: (obj) => ({
         url: `student/${obj._id}`,
         method: "PUT",
-        body: obj,
+        body: {
+          birthDate: obj.birthDate,
+          email: obj.email,
+          fullName: obj.fullName,
+          nationalId: obj.nationalId,
+          phoneNumber: obj.phoneNumber,
+          profile: obj.profile,
+        },
       }),
       invalidatesTags: () => [{ type: "student" }],
     }),
