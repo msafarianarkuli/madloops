@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 import {
   DashMenuItemSm,
   DashMenuItemLg,
-} from '../../Components/content/Panel/DashMenuItem';
-import Profile from '../../Components/content/Panel/Profile';
-import DashMenuData from '../../Core/services/Fake Service/DashMenuItems';
-import '../Panel/userpanel.styles.scss';
+} from "../../Components/content/Panel/DashMenuItem";
+import Profile from "../../Components/content/Panel/Profile";
+import DashMenuData from "../../Core/services/Fake Service/DashMenuItems";
+import "../Panel/userpanel.styles.scss";
 
 const UserPanel = () => {
   const [menuItems] = useState(DashMenuData);
+
   return (
     <>
       <div className="container mx-auto">
