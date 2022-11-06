@@ -19,10 +19,13 @@ import {
   addBookMark,
   selectBookMarkItems,
 } from './../../store/bookmark/bookmarkSlice';
+import { rateCalculate } from '../../Core/utils/funcs';
+import { useGetCoursesLikeQuery } from '../../store/courses/coursesSlice';
 
 const CardGridListView = ({ item, view }) => {
   const dispatch = useDispatch();
   const bookMarkItems = useSelector(selectBookMarkItems);
+  const { data: courseLike } = useGetCoursesLikeQuery(item._id);
 
   const handleLead = (value) => {
     const trimmedLead =
@@ -197,7 +200,7 @@ const CardGridListView = ({ item, view }) => {
                 <h3 className="text-[#3A3737] dark:text-[#E5E7EB] pt-2 pr-2">
                   <p className="text-[#6C757D] inline-block">5 / </p>
                   {/* {item.likeCount} //modify */}
-                  180
+                  {rateCalculate(courseLike?.result)}
                 </h3>
               </div>
             </div>

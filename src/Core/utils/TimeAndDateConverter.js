@@ -1,3 +1,7 @@
+function getDateFormat(uDate, option) {
+  let date = new Intl.DateTimeFormat('fa-IR', option).format(uDate);
+  return date;
+}
 const dateConvert = (date) => {
   const convertedDate = new Date(date);
   const solarDate = {
@@ -9,11 +13,6 @@ const dateConvert = (date) => {
   };
   return solarDate;
 };
-
-function getDateFormat(uDate, option) {
-  let date = new Intl.DateTimeFormat('fa-IR', option).format(uDate);
-  return date;
-}
 
 const timeConvert = (date) => {
   const d = new Date(date);

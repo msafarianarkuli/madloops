@@ -1,46 +1,68 @@
-import { apiSlice } from "./../../Core/services/api/apiSlice";
-
+import { apiSlice } from './../../Core/services/api/apiSlice';
+import { dateConvert } from '../../Core/utils/TimeAndDateConverter';
 export const newsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllNews: builder.query({
-      query: () => "news",
-      providesTags: ["news"],
+      query: () => 'news',
+      transformResponse: (responseData) => {
+        const loadedNews = responseData.result.map((news) => {
+          // news.tag;
+          const dateRand =
+            Math.trunc(Math.random() * 15000000000) + 1;
+          const d = new Date();
+          const timestamp = d.getTime();
+          const newDate = new Date(timestamp - dateRand);
+          const ISODate = newDate.toISOString();
+          const xISO = dateConvert(ISODate);
+          const studyTimeRand = Math.trunc(Math.random() * 15) + 1;
+          const ViewRand = Math.trunc(Math.random() * 200) + 1;
+          const likeRand = Math.trunc(Math.random() * 200) + 1;
+          news.date = `${xISO.day} ${xISO.monthTitle} ${xISO.year}`;
+          news.createDate = newDate;
+          news.like = likeRand;
+          news.view = ViewRand;
+          news.studyTime = studyTimeRand;
+          return news;
+        });
+        return loadedNews;
+      },
+      providesTags: ['news'],
     }),
     getTopNews: builder.query({
-      query: () => "news/topNews",
-      providesTags: ["news"],
+      query: () => 'news/topNews',
+      providesTags: ['news'],
     }),
     getTopArticles: builder.query({
-      query: () => "news/topArticles",
-      providesTags: ["news"],
+      query: () => 'news/topArticles',
+      providesTags: ['news'],
     }),
     getNewsById: builder.query({
       query: (id) => ({ url: `news/${id}` }),
       transformResponse: (response) => response.data,
-      providesTags: (id) => [{ type: "news", id }],
+      providesTags: (id) => [{ type: 'news', id }],
     }),
     addNews: builder.mutation({
       query: (obj) => ({
-        url: "news/",
-        method: "POST",
+        url: 'news/',
+        method: 'POST',
         body: obj,
       }),
-      invalidatesTags: ["news"],
+      invalidatesTags: ['news'],
     }),
     updateNews: builder.mutation({
       query: ({ id, ...rest }) => ({
         url: `news/${id}`,
-        method: "PUT",
+        method: 'PUT',
         body: rest,
       }),
-      invalidatesTags: ["news"],
+      invalidatesTags: ['news'],
     }),
     deleteNews: builder.mutation({
       query: (id) => ({
         url: `news/${id}`,
-        method: "DELETE",
+        method: 'DELETE',
       }),
-      invalidatesTags: ["news"],
+      invalidatesTags: ['news'],
     }),
   }),
 });
