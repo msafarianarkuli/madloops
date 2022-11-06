@@ -3,6 +3,7 @@ import {
   createSlice,
   current,
 } from '@reduxjs/toolkit';
+import { toastifyToast } from './../../Components/common/Toast/toast';
 
 const initialState = {
   bookMarkItems: [],
@@ -17,7 +18,9 @@ const bookMarkSlice = createSlice({
         (bookMarkItem) => bookMarkItem._id === action.payload?._id
       );
       if (existingBookMarkItem) {
-        alert('از قبل وجود دارد');
+        toastifyToast.warning(
+          'این دوره قبلا به لیست علاقه مندی های شما اضافه شده است'
+        );
       }
       state.bookMarkItems.push(action.payload);
     },
