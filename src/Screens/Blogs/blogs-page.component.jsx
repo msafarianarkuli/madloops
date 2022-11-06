@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FieldName } from './../../Components/common/field-name-component/field-name.component';
-import SearchBar from './../../Components/common/search-bar.component';
-import { Typewriter } from 'react-simple-typewriter';
-import { Card } from './../../Components/common/Card/card.component';
-import { BsFillCircleFill, BsEye, BsHeart } from 'react-icons/bs';
-import { Button } from '../../Components/common/button-component/button.component';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
+import SearchBar from "./../../Components/common/search-bar.component";
+import { Typewriter } from "react-simple-typewriter";
+import { Card } from "./../../Components/common/Card/card.component";
+import { BsFillCircleFill, BsEye, BsHeart } from "react-icons/bs";
+import { Button } from "../../Components/common/button-component/button.component";
 import {
   handleDateSortingAs,
   handleDateSortingDes,
   handleLikeSorting,
   handleViewSorting,
-} from './../../Core/utils/sorting';
-import BlogSkeleton from './../../Components/common/blogSkeleton';
-import { useGetAllNewsQuery } from '../../store/news/newsApiSlice';
-import { dateConvert } from '../../Core/utils/TimeAndDateConverter';
+} from "./../../Core/utils/sorting";
+import BlogSkeleton from "./../../Components/common/blogSkeleton";
+import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
+import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
 
 const cardPerRow = 3;
 
@@ -28,18 +28,18 @@ const BlogsPage = () => {
   } = useGetAllNewsQuery();
 
   const [groupBtnList] = useState([
-    { id: 1, title: 'همه', type: 'all' },
-    { id: 2, title: 'محبوب ترین ها', type: 'like' },
-    { id: 3, title: 'پربازدید ترین ها', type: 'view' },
-    { id: 4, title: 'جدیدترین ها', type: 'new' },
-    { id: 5, title: 'قدیمی ترین ها', type: 'old' },
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "محبوب ترین ها", type: "like" },
+    { id: 3, title: "پربازدید ترین ها", type: "view" },
+    { id: 4, title: "جدیدترین ها", type: "new" },
+    { id: 5, title: "قدیمی ترین ها", type: "old" },
   ]);
   const [nextCard, setNextCard] = useState(cardPerRow);
   const handleMoreCard = () => {
     setNextCard(nextCard + cardPerRow);
   };
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [filterBlogs, setFilterBlogs] = useState([]);
 
   const handleSearch = (value) => {
@@ -47,33 +47,30 @@ const BlogsPage = () => {
     setFilterBlogs(
       data?.filter(
         (item) =>
-          item.title
-            .toString()
-            .toLowerCase()
-            .indexOf(search.toLowerCase()) > -1
+          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
       )
     );
   };
 
   useEffect(() => {
-    handleSorting('all');
+    handleSorting("all");
   }, [isLoading]);
 
   const handleSorting = (type) => {
     switch (type) {
-      case 'all':
+      case "all":
         setFilterBlogs(data);
         break;
-      case 'view':
+      case "view":
         setFilterBlogs(handleViewSorting(data));
         break;
-      case 'new':
+      case "new":
         setFilterBlogs(handleDateSortingDes(data));
         break;
-      case 'old':
+      case "old":
         setFilterBlogs(handleDateSortingAs(data));
         break;
-      case 'like':
+      case "like":
         setFilterBlogs(handleLikeSorting(data));
         break;
     }
@@ -91,10 +88,10 @@ const BlogsPage = () => {
     const classActive = [];
     classActive.push(
       selectedBlogButton === item
-        ? 'border-deep-purple text-deep-purple'
-        : 'border-transparent'
+        ? "border-deep-purple text-deep-purple"
+        : "border-transparent"
     );
-    return classActive.join(' , ');
+    return classActive.join(" , ");
   };
 
   const blogSortAndSet = (item) => {
@@ -106,8 +103,7 @@ const BlogsPage = () => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
-      '...';
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
 
@@ -153,12 +149,12 @@ const BlogsPage = () => {
           <div className="flex justify-between">
             <div className="flex items-center">
               <img
-                src={require('../../Assets/profile.png')}
+                src={require("../../Assets/profile.png")}
                 className="w-10 rounded-full"
                 alt=""
               />
               <h3 className="text-[#636363] pr-2 dark:text-dark-secondary-title">
-                {card.people}
+                {/* {card.people} 12 */} 12
               </h3>
             </div>
             <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
@@ -191,7 +187,7 @@ const BlogsPage = () => {
             <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text">
               <Typewriter
                 words={[
-                  'پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.',
+                  "پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.",
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -204,9 +200,7 @@ const BlogsPage = () => {
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-28 drop-shadow-xl shadow-black">
               <img
                 data-aos="fade-left"
-                src={
-                  require('../../Assets/Blog post-amico.svg').default
-                }
+                src={require("../../Assets/Blog post-amico.svg").default}
                 alt=""
               />
             </div>

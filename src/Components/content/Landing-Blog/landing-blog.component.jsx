@@ -6,7 +6,6 @@ import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import useSwiperRef from "./swiper-wrapper-button";
-import Data from "../../../Core/services/Fake Service/Blogs";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useGetAllNewsQuery } from "../../../store/news/newsApiSlice";
@@ -14,8 +13,6 @@ import { useGetAllNewsQuery } from "../../../store/news/newsApiSlice";
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingBlog = () => {
-  const [blogs, setBlogs] = useState(Data);
-
   const { data } = useGetAllNewsQuery();
 
   const handleLead = (value) => {
@@ -62,7 +59,7 @@ const LandingBlog = () => {
             disableOnInteraction: false,
           }}
         >
-          {data?.result.map((item) => {
+          {data?.map((item) => {
             return (
               <SwiperSlide key={item._id} className="px-10">
                 {!item ? (
@@ -114,7 +111,7 @@ const LandingBlog = () => {
                         <BsFillCircleFill className="lg:hidden md:w-2 md:mt-[1px] w-[3px] pb-1" />
                         <div className="lg:mr-5 md:mr-2 mr-1 flex">
                           <p className="text-[8px] sm:text-xs pl-1 md:pl-2 lg:text-base ">
-                            {item.readTime}
+                            {item.studyTime}
                           </p>
                           <h5 className="lg:text-base text-gray-200 sm:text-xs text-[8px]">
                             دقیقه مطالعه
@@ -126,11 +123,11 @@ const LandingBlog = () => {
                       </p>
                       <div className="lg:flex xl:mt-8 lg:mt-4 sm:mt-4 mt-4">
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">
-                          2 بازدید
+                          {item.view} بازدید
                         </h5>
                         <span className="lg:block hidden">|</span>
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-heart-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
-                          34 لایک
+                          {item.like} لایک
                         </h5>
                         <span className="lg:block hidden">|</span>
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-comment-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">

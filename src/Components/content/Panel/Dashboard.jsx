@@ -26,13 +26,13 @@ const Dashboard = () => {
   }, []);
 
   const getDate = () => {
-    const orderedDates = data?.result
+    const orderedDates = data
       .slice()
       .sort((a, b) => b.startDate.localeCompare(a.startDate));
 
     return { orderedDates: orderedDates[0] };
   };
-
+  console.log(data);
   return (
     <>
       <PanelHeader />

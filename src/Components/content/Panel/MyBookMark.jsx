@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import PanelTable from './PanelTable';
-import PanelHeader from './PanelHeader';
-import Pagination from '../../common/Pagination/Pagination';
-import { paginate } from '../../../Core/utils/paginate';
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../../store/auth/authSlice';
+import React, { useState, useEffect } from "react";
+import PanelTable from "./PanelTable";
+import PanelHeader from "./PanelHeader";
+import Pagination from "../../common/Pagination/Pagination";
+import { paginate } from "../../../Core/utils/paginate";
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../store/auth/authSlice";
 import {
   useDeleteStudentFromCourseMutation,
   useGetCoursesQuery,
-} from '../../../store/courses/coursesSlice';
-import { toastifyToast } from '../../common/Toast/toast';
-import { selectBookMarkItems } from '../../../store/bookmark/bookmarkSlice';
-import { removeBookMark } from '../../../store/bookmark/bookmarkSlice';
+} from "../../../store/courses/coursesSlice";
+import { toastifyToast } from "../../common/Toast/toast";
+import { selectBookMarkItems } from "../../../store/bookmark/bookmarkSlice";
+import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
 
 const MyBookMark = () => {
   const FavCourses = useSelector(selectBookMarkItems);
@@ -33,18 +33,14 @@ const MyBookMark = () => {
       const studentInfo = currentUser;
       const response = await allCourse;
 
-      const filteredData = response?.result.filter((row) => {
+      const filteredData = response?.filter((row) => {
         const isInCourse = row.students.some(
           (student) => student._id === studentInfo._id
         );
         if (isInCourse) return row;
       });
 
-      const paginateData = paginate(
-        filteredData,
-        currentPage,
-        pageSize
-      );
+      const paginateData = paginate(filteredData, currentPage, pageSize);
       const dataCount = filteredData?.length;
       setCount(dataCount);
       setMyCourse(paginateData);
@@ -71,9 +67,7 @@ const MyBookMark = () => {
     setMyCourse((old) => {
       let newData = [...old];
       let newCoursesData = newData;
-      newCoursesData = newCoursesData.filter(
-        (item) => item._id !== courseId
-      );
+      newCoursesData = newCoursesData.filter((item) => item._id !== courseId);
       newData = newCoursesData;
       return newData;
     });
@@ -94,8 +88,7 @@ const MyBookMark = () => {
   };
 
   const handlePrev = () => {
-    currentPage !== 1 &&
-      setCurrentPage((currentPage) => currentPage - 1);
+    currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
   };
 
   return (

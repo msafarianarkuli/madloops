@@ -28,13 +28,13 @@ const LandingCourse = () => {
   const handleSorting = (type) => {
     switch (type) {
       case "all":
-        setFilterCourses(data?.result);
+        setFilterCourses(data);
         break;
       case "new":
-        setFilterCourses(handleDateSortingDes(data?.result, 5));
+        setFilterCourses(handleDateSortingDes(data, 5));
         break;
       case "like":
-        setFilterCourses(handleLikeSorting(data?.result, 5));
+        setFilterCourses(handleLikeSorting(data, 5));
         break;
     }
   };

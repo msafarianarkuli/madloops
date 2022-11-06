@@ -29,7 +29,7 @@ const MyCourses = () => {
       const studentInfo = currentUser;
       const response = await allCourse;
 
-      const filteredData = response?.result.filter((row) => {
+      const filteredData = response?.filter((row) => {
         const isInCourse = row.students.some(
           (student) => student._id === studentInfo._id
         );
