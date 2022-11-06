@@ -15,6 +15,7 @@ import {
 import BlogSkeleton from "./../../Components/common/blogSkeleton";
 import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
 import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
+import { handleCategory } from "../../Core/utils/funcs";
 
 const cardPerRow = 3;
 
@@ -116,7 +117,7 @@ const BlogsPage = () => {
       <Card
         showImage
         showStruc
-        classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:drop-shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
+        classCard="m-auto mb-10 sm:mb-0 text-gray-500 cursor-pointer shadow-lg shadow-[#E5E5E5] rounded-md flex flex-col ease-in-out duration-200 hover:scale-105 hover:shadow-[#E8E3FE] dark:shadow-none dark:bg-dark-secondary"
         key={card._id}
         imageUrl={card.image}
         classImage="rounded-t-lg w-full h-full"
@@ -135,7 +136,7 @@ const BlogsPage = () => {
               </h3>
             </div>
             <div className="bg-[#F6F6FB] text-[#4C0FFB] px-3 rounded-full self-center">
-              # بهترین
+              {handleCategory(card.category)}
             </div>
           </div>
           <div className="flex items-center">

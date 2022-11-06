@@ -6,7 +6,6 @@ export const newsApiSlice = apiSlice.injectEndpoints({
       query: () => "news",
       transformResponse: (responseData) => {
         const loadedNews = responseData.result.map((news) => {
-          // news.tag;
           const dateRand = Math.trunc(Math.random() * 15000000000) + 1;
           const d = new Date();
           const timestamp = d.getTime();
@@ -17,7 +16,7 @@ export const newsApiSlice = apiSlice.injectEndpoints({
           const ViewRand = Math.trunc(Math.random() * 200) + 1;
           const likeRand = Math.trunc(Math.random() * 200) + 1;
           news.date = `${xISO.day} ${xISO.monthTitle} ${xISO.year}`;
-          // news.createDate = newDate;
+          news.startDate = newDate.toISOString();
           news.like = likeRand;
           news.view = ViewRand;
           news.studyTime = studyTimeRand;

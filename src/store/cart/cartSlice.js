@@ -1,40 +1,6 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { toastifyToast } from "./../../Components/common/Toast/toast";
 
-// const addCartItem = (cartItems, productToAdd) => {
-//   const existingCartItem = cartItems.find(
-//     (cartItem) => cartItem._id === productToAdd?._id
-//   );
-
-//   if (existingCartItem) {
-//     return cartItems.map((cartItem) =>
-//       cartItem._id === productToAdd?._id
-//         ? { ...cartItem, quantity: cartItem.quantity }
-//         : cartItem
-//     );
-//   }
-//   console.log([...cartItems, { ...productToAdd, quantity: 1 }]);
-//   return [...cartItems, { ...productToAdd, quantity: 1 }];
-// };
-
-// const removeCartItem = (cartItems, cartItemToRemove) => {
-//   const existingCartItem = cartItems.find(
-//     (cartItem) => cartItem._id === cartItemToRemove._id
-//   );
-
-//   if (existingCartItem.quantity === 1) {
-//     return cartItems.filter(
-//       (cartItem) => cartItem._id !== cartItemToRemove._id
-//     );
-//   }
-
-//   return cartItems.map((cartItem) =>
-//     cartItem._id === cartItemToRemove._id
-//       ? { ...cartItem, quantity: cartItem.quantity - 1 }
-//       : cartItem
-//   );
-// };
-
 const initialState = {
   cartItems: [],
   isCartOpen: false,
