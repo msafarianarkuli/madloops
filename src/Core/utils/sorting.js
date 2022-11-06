@@ -4,9 +4,15 @@ export const handleLikeSorting = (list, numSlice) => {
   return numDescending.slice(0, numSlice);
 };
 
+export const handleCostSorting = (list, numSlice) => {
+  const numDescending = [...list].sort((a, b) => b.cost - a.cost);
+
+  return numDescending.slice(0, numSlice);
+};
+
 export const handleDateSortingDes = (list, numSlice) => {
   const numDescending = [...list].sort(
-    (a, b) => b.createDate - a.createDate
+    (a, b) => new Date(b.startDate) - new Date(a.startDate)
   );
 
   return numDescending.slice(0, numSlice);
@@ -14,7 +20,7 @@ export const handleDateSortingDes = (list, numSlice) => {
 
 export const handleDateSortingAs = (list, numSlice) => {
   const numAscending = [...list].sort(
-    (a, b) => a.createDate - b.createDate
+    (a, b) => new Date(a.startDate) - new Date(b.startDate)
   );
 
   return numAscending.slice(0, numSlice);
@@ -23,5 +29,6 @@ export const handleDateSortingAs = (list, numSlice) => {
 export const handleViewSorting = (list, numSlice) => {
   const numDescending = [...list].sort((a, b) => b.view - a.view);
 
+  console.log(numDescending);
   return numDescending.slice(0, numSlice);
 };

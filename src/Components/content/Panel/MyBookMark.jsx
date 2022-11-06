@@ -82,7 +82,7 @@ const MyBookMark = () => {
   };
 
   const handleNext = () => {
-    const pagesCount = Math.ceil(myCourse.result.length / pageSize);
+    const pagesCount = Math.ceil(myCourse.length / pageSize);
     currentPage !== pagesCount &&
       setCurrentPage((currentPage) => currentPage + 1);
   };

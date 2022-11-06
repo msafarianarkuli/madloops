@@ -1,6 +1,6 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import TableRow from './TableRow';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import TableRow from "./TableRow";
 
 const PanelTable = ({ data, onDelete, onAdd }) => {
   const { pathname } = useLocation();
@@ -42,24 +42,25 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
             scope="col"
             className="text-gray-900 py-4 dark:text-dark-secondary-title"
           >
-            {pathname === '/user-panel/courseList' ? 'افزودن' : 'حذف'}
+            {pathname === "/user-panel/courseList" ? "افزودن" : "حذف"}
           </th>
         </tr>
       </thead>
-      <tbody>
-        {data.length > 0 ? (
-          data.map((course) => (
+
+      {data.length > 0 ? (
+        <tbody>
+          {data.map((course) => (
             <TableRow
               key={course._id}
               course={course}
               onDelete={onDelete}
               onAdd={onAdd}
             />
-          ))
-        ) : (
-          <h2 className="text-center text-4xl">دوره ای یافت نشد!</h2>
-        )}
-      </tbody>
+          ))}
+        </tbody>
+      ) : (
+        <h2 className="text-center text-4xl">دوره ای یافت نشد!</h2>
+      )}
     </table>
   );
 };
