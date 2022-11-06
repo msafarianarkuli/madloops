@@ -16,7 +16,7 @@ export const newsApiSlice = apiSlice.injectEndpoints({
     }),
     getNewsById: builder.query({
       query: (id) => ({ url: `news/${id}` }),
-      transformResponse: (response) => response.data,
+      transformResponse: (response) => response.result,
       providesTags: (id) => [{ type: "news", id }],
     }),
     addNews: builder.mutation({

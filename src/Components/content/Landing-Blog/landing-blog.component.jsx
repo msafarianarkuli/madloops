@@ -9,11 +9,14 @@ import useSwiperRef from "./swiper-wrapper-button";
 import Data from "../../../Core/services/Fake Service/Blogs";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useGetAllNewsQuery } from "../../../store/news/newsApiSlice";
 
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingBlog = () => {
   const [blogs, setBlogs] = useState(Data);
+
+  const { data } = useGetAllNewsQuery();
 
   const handleLead = (value) => {
     const trimmedLead =
@@ -59,7 +62,7 @@ const LandingBlog = () => {
             disableOnInteraction: false,
           }}
         >
-          {blogs.map((item) => {
+          {data?.result.map((item) => {
             return (
               <SwiperSlide key={item.id} className="px-10">
                 {!item ? (
@@ -123,23 +126,23 @@ const LandingBlog = () => {
                       </p>
                       <div className="lg:flex xl:mt-8 lg:mt-4 sm:mt-4 mt-4">
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px]  bg-eye-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:ml-4">
-                          {item.view} بازدید
+                          2 بازدید
                         </h5>
                         <span className="lg:block hidden">|</span>
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-heart-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
-                          {item.likeCount} لایک
+                          34 لایک
                         </h5>
                         <span className="lg:block hidden">|</span>
                         <h5 className="2xl:text-base dark:text-gray-300 xl:text-sm lg:text-xs sm:text-[12px] text-[8px] bg-comment-fill lg:bg-[length:16px] bg-[length:10px] sm:bg-[length:12px] lg:leading-6 md:leading-5 bg-no-repeat bg-right pr-5 lg:mx-4">
-                          {item.comment} نظر
+                          12 نظر
                         </h5>
                       </div>
                       <p className="w-10/12 hidden dark:text-gray-300 lg:mt-4 text-right 2xl:text-base xl:text-sm lg:text-xs lg:block lg:leading-relaxed sm:hidden">
-                        {handleLead(item.description)}
+                        {handleLead(item.text)}
                       </p>
                       <Button
                         classButton="text-[10px] xl:text-base xl:my-8 md:my-6 sm:text-sm sm:my-4 mt-2 animate-[onHoverGoogle_1s_ease-in-out_infinite]"
-                        onClick={() => navigate(`blogs/${item.id}`)}
+                        onClick={() => navigate(`blogs/${item._id}`)}
                       >
                         بیشتر بخوانید ...
                       </Button>

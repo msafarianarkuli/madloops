@@ -168,7 +168,7 @@ const BlogsPage = () => {
       </Card>
     ));
   } else if (isError) {
-    <h2>{error.data.message.message[0].message}.</h2>;
+    <h2>{error.data.message[0].message}.</h2>;
   }
 
   return (

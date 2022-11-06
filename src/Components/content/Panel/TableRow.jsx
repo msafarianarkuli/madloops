@@ -16,7 +16,7 @@ const TableRow = ({ course, onDelete, onAdd }) => {
       setLoading(false);
     }, 3000);
   }, []);
-  console.log(_id);
+
   return loading ? (
     <TableSkeleton />
   ) : (

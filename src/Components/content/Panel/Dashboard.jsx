@@ -4,12 +4,18 @@ import PanelHeader from "./PanelHeader";
 import { Link, useNavigate } from "react-router-dom";
 import LastCourseSkeleton from "../../common/Skeleton/LastCourseSkeleton";
 import OfferCourseSkelton from "../../common/Skeleton/OfferCourseSkelton";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "./../../../store/auth/authSlice";
 import { useGetCoursesQuery } from "../../../store/courses/coursesSlice";
+import { useSelector } from "react-redux";
+import { useGetStudentByIdQuery } from "../../../store/studentManager/studentApi";
+import { DecodeToken } from "../../../Core/utils/decodeToken";
+import { selectToken } from "../../../store/auth/authSlice";
 
 const Dashboard = () => {
-  const currentUser = useSelector(selectCurrentUser);
+  const userToken = useSelector(selectToken);
+  const id = DecodeToken(userToken);
+  const { data: userById } = useGetStudentByIdQuery({
+    id: id._id,
+  });
   const { data, isLoading } = useGetCoursesQuery();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
@@ -47,35 +53,35 @@ const Dashboard = () => {
           <p>
             نام و نام خانوادگی:
             <span className="font-bold text-lite-purple">
-              {currentUser?.fullName}
+              {userById?.fullName}
             </span>
           </p>
 
           <p>
             تاریخ تولد:
             <span className="text-lite-purple font-bold">
-              {currentUser?.birthDate}
+              {userById?.birthDate}
             </span>
           </p>
 
           <p>
             شماره همراه:
             <span className="text-lite-purple font-bold">
-              {currentUser?.phoneNumber}
+              {userById?.phoneNumber}
             </span>
           </p>
 
           <p>
             شماره ملی:
             <span className="text-lite-purple font-bold">
-              {currentUser?.nationalId}
+              {userById?.nationalId}
             </span>
           </p>
 
           <p>
             ایمیل:
             <span className="text-lite-purple text-sm lg:text-xl font-bold">
-              {currentUser?.email}
+              {userById?.email}
             </span>
           </p>
         </div>
@@ -140,7 +146,7 @@ const Dashboard = () => {
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره React{" "}
+                      دوره React
                     </p>
                     <div className="sm:flex justify-between text-lg">
                       <div>دکتر بحر</div>
@@ -161,7 +167,7 @@ const Dashboard = () => {
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره HTML{" "}
+                      دوره HTML
                     </p>
                     <div className="sm:flex justify-between text-lg">
                       <div>دکتر بحر</div>
