@@ -1,11 +1,10 @@
-import React from "react";
-import { FaCoins } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
-import { useDispatch, useSelector } from "react-redux";
-import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
-import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
-import { addItem } from "../../../store/cart/cartSlice";
-import { Button } from "./../../common/button-component/button.component";
+import React from 'react';
+import { FaCoins } from 'react-icons/fa';
+import { TbDiscount2 } from 'react-icons/tb';
+import { useDispatch, useSelector } from 'react-redux';
+import { addBookMark } from '../../../store/bookmark/bookmarkSlice';
+import { addItem } from '../../../store/cart/cartSlice';
+import { Button } from './../../common/button-component/button.component';
 
 const CoursePrice = ({ item }) => {
   const dispatch = useDispatch();
@@ -50,7 +49,9 @@ const CoursePrice = ({ item }) => {
         onClick={addProductForSave}
       >
         <div>
-          <Button classButton="text-white">افزودن به علاقه مندی</Button>
+          <Button classButton="text-white">
+            افزودن به علاقه مندی
+          </Button>
         </div>
       </div>
       <div
