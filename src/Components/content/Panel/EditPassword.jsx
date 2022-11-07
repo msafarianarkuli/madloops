@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
@@ -22,24 +22,6 @@ const EditPassword = () => {
   });
 
   const [resetPassword] = useResetPasswordMutation();
-
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     setStudentInfo("");
-  //   }
-
-  //   if (isError) {
-  //     if (error.originalStatus === 400) {
-  //       toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
-  //     } else if (error.originalStatus === 401) {
-  //       toastifyToast.error("عدم دسترسی؛ لطفا وارد حساب خود شوید");
-  //     } else if (error.originalStatus === 403) {
-  //       toastifyToast.error(error?.data.message.message[0].message);
-  //     } else {
-  //       toastifyToast.error("مشکلی رخ داده است.");
-  //     }
-  //   }
-  // }, [isLoading]);
 
   const handleSubmit = (values) => {
     const editing = async () => {
