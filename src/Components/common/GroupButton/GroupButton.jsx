@@ -62,14 +62,14 @@ const GroupButton = ({ items, width, onSorting }) => {
           </span>
         </button>
         <div
-          className={`groupBtn-sm-div absolute w-[95%] left-0 right-0 mx-auto bg-white z-10 ${
+          className={`groupBtn-sm-div absolute w-[95%] left-0 right-0 mx-auto bg-white mt-5 ${
             openGroupBtn ? 'block' : 'hidden'
           }`}
         >
           {items.map((item, index) => (
             <div
               key={item.id}
-              className={`groupBtn-sm-item ${GroupBtnClassSm(
+              className={`groupBtn-sm-item pr-5 z-50 ${GroupBtnClassSm(
                 item.type,
                 index
               )}`}

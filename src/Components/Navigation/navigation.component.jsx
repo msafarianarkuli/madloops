@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NavigationChange from "../Navigation/navigation-change-login.component";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import { Button } from "../../Components/common/button-component/button.component";
@@ -11,7 +12,6 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
-import { clearStorage } from "../../Core/services/storage/storage";
 import {
   selectCartCount,
   selectIsCartOpen,
@@ -111,22 +111,15 @@ const Navigation = ({ setTheme }) => {
                 </div>
               </div>
               {currentUser ? (
-                <Button
-                  onClick={() => {
-                    dispatch(logOut(currentUser));
-                    clearStorage();
-                  }}
-                  classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
-                          text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
-                >
-                  خروج
-                </Button>
+                <div className="flex justify-center items-center col-span-2">
+                  <NavigationChange />
+                </div>
               ) : (
                 <div className="flex justify-center items-center col-span-2">
                   <Link to="login">
                     <Button
                       classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple
-                    text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-xl text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
+                    text-deep-purple pt-2 pb-3 xl:px-10 lg:px-6 md:px-4 rounded-lg text-lg dark:hover:bg-lite-purple hover:bg-deep-purple dark:hover:text-white hover:text-white"
                     >
                       ورود / ثبت نام
                     </Button>
@@ -145,14 +138,21 @@ const Navigation = ({ setTheme }) => {
             >
               {open && (
                 <div className="h-5/6">
-                  <Link to="/login">
-                    <Button
-                      classButton="btn dark:bg-dark-secondary bg-deep-purple border-r-2 border-l-0 dark:border-lite-purple border-white float-left duration-300 ease-in-out 
+                  {currentUser ? (
+                    <div className="flex justify-center items-center col-span-2">
+                      <NavigationChange />
+                    </div>
+                  ) : (
+                    <Link to="/login">
+                      <Button
+                        classButton="btn dark:bg-dark-secondary bg-deep-purple border-r-2 border-l-0 dark:border-lite-purple border-white float-left duration-300 ease-in-out 
                       text-white dark:text-gray-300 pt-2 pb-3 px-10 rounded-r-xl rounded-l-none text-lg hover:translate-x-1"
-                    >
-                      ورود / ثبت نام
-                    </Button>
-                  </Link>
+                      >
+                        ورود / ثبت نام
+                      </Button>
+                    </Link>
+                  )}
+
                   <div className="float-left text-white ml-4 mt-1">
                     <Link
                       className={`h-12 w-12 rounded-md cursor-pointer dark:bg-black-300 ${
@@ -164,7 +164,7 @@ const Navigation = ({ setTheme }) => {
                       <RiShoppingCartLine className=" p-2 h-11 w-11 text-white dark:text-white hover:scale-110 duration-150" />
                     </Link>
                   </div>
-                  <div className="float-right text-white mr-12 mb-4 hover:scale-110 duration-150">
+                  <div className="float-right text-white mr-6 mb-4 hover:scale-110 duration-150">
                     <button
                       className="text-red-500 mt-3 text-3xl"
                       onClick={setTheme}

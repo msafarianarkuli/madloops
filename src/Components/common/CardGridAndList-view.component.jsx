@@ -35,6 +35,8 @@ const CardGridListView = ({ item, view }) => {
 
   const dates = dateConvert(item.startDate);
 
+  console.log(view);
+
   return (
     <Fragment>
       <Card
@@ -44,9 +46,9 @@ const CardGridListView = ({ item, view }) => {
         classCard={
           view
             ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mt-8 overflow-hidden hover:shadow-purple w-full relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
-            : "mb-10 sm:mb-0 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
+            : "my-8 sm:mb-0 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
         }
-        imageUrl={img}
+        imageUrl={item.lesson.image}
         classImage={
           view
             ? "inset-0 h-full w-full object-cover object-center"

@@ -90,7 +90,7 @@ const LandingBlog = () => {
                   </div>
                 ) : (
                   <div className="grid grid-cols-5 mt-1 rounded-lg sm:mt-10 lg:mt-24 dark:bg-dark-secondary bg-[#5DC8B2]">
-                    <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-lg dark:bg-dark-primary bg-white z-100">
+                    <div className="w-28 2xl:w-[22rem] xl:w-[18rem] xl:absolute xl:top-0 xl:right-36 lg:w-[14rem] lg:absolute lg:top-0 lg:right-28 lg:m-0 md:w-[10rem] md:mx-16 md:my-6 sm:w-[12rem] rounded-lg dark:bg-dark-primary bg-gray-300 z-100">
                       <img
                         src={item.image}
                         className="lg:p-2 xl:w-[600px] w-full md:h-[204px] h-[146px] sm:h-[222px] xl:h-[340px] lg:h-[320px] lg:rounded-2xl rounded-r-lg md:rounded-lg"
