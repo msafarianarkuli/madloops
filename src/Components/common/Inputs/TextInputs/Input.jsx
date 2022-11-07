@@ -1,6 +1,6 @@
-import React from 'react';
-import { useField } from 'formik';
-const InputGroups = ({ label, className, err, ...props }) => {
+import React from "react";
+import { useField } from "formik";
+const InputGroups = ({ label, className, err, check, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
@@ -9,7 +9,7 @@ const InputGroups = ({ label, className, err, ...props }) => {
           {label}
         </label>
       ) : null}
-      <input {...props} {...field} className={className} />
+      <input checked={check} {...props} {...field} className={className} />
       {err ? null : (
         <div className="text-red-500 h-[20px] mb-1">
           {meta.touched && meta.error ? (

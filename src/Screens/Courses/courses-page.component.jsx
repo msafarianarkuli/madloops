@@ -1,7 +1,7 @@
 import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import GroupButton from "./../../Components/common/GroupButton/GroupButton";
 import { Button } from "./../../Components/common/button-component/button.component";
@@ -64,7 +64,6 @@ const CoursesPage = () => {
 
   const [filteredItem, setFilteredItem] = useState(filterList);
   const handleToggle = (id) => {
-    //this func is for every faq to be open or close
     setFilteredItem(
       filteredItem.map((item) => {
         return item.id === id
@@ -81,6 +80,33 @@ const CoursesPage = () => {
       setOpenFilter(false);
     }
   };
+
+  // const handleFilterChange = useCallback(
+  //   (event) => {
+  //     setState((previousState) => {
+  //       let filters = new Set(previousState.filters);
+  //       let products = PRODUCTS;
+
+  //       if (event.target.checked) {
+  //         filters.add(event.target.value);
+  //       } else {
+  //         filters.delete(event.target.value);
+  //       }
+
+  //       if (filters.size) {
+  //         products = products.filter((product) => {
+  //           return filters.has(product.category);
+  //         });
+  //       }
+
+  //       return {
+  //         filters,
+  //         products,
+  //       };
+  //     });
+  //   },
+  //   [setState]
+  // );
 
   let content;
   if (isLoading) {
@@ -207,20 +233,6 @@ const CoursesPage = () => {
           }
         >
           {content}
-          {/* {loading && <Skeleton items={nextCard} view={showGrid} />}
-          {!loading &&
-            filterCourses
-              .slice(0, nextCard)
-              .map(
-                (item) =>
-                  !loading && (
-                    <CardGridListView
-                      item={item}
-                      key={item.id}
-                      view={showGrid}
-                    />
-                  )
-              )} */}
         </div>
         {nextCard < filterCourses?.length && (
           <div className="w-full py-20" data-aos="fade-up">
@@ -262,38 +274,46 @@ const CoursesPage = () => {
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
-                    <Formik
+                    {/* <Formik
                       initialValues={{
-                        checkbox: "",
+                        checkbox: true,
                       }}
                     >
-                      <Form>
-                        {filter.filterServices?.map((item) => {
-                          return (
-                            <div className="m-auto" key={item.id}>
-                              <label
-                                className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
-                                htmlFor="checkbox"
-                              >
-                                ({item.total}) ,
-                                {item.title
-                                  ? item.title
-                                  : item.rate
-                                  ? item.rate
-                                  : item.start}
-                                {item.end}
-                                <InputGroups
-                                  type="checkbox"
-                                  name="checkbox"
-                                  id="checkbox"
-                                  className="inline-block w-10 h-5"
-                                />
-                              </label>
-                            </div>
-                          );
-                        })}
-                      </Form>
-                    </Formik>
+                      {({ initialValues }) => (
+                        <Form> */}
+                    {filter.filterServices?.map((item) => {
+                      return (
+                        <div className="m-auto" key={item.id}>
+                          <label
+                            className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
+                            htmlFor="checkbox"
+                          >
+                            ({item.total}) ,
+                            {item.title
+                              ? item.title
+                              : item.rate
+                              ? item.rate
+                              : item.duration}
+                            {/* <InputGroups
+                              type="checkbox"
+                              id="checkbox"
+                              check={item.checked}
+                              className="inline-block w-10 h-5"
+                            /> */}
+                            <input
+                              type="checkbox"
+                              id="checkbox"
+                              // check={item.checked}
+                              // onChange={handleChange}
+                              className="inline-block w-10 h-5"
+                            />
+                          </label>
+                        </div>
+                      );
+                    })}
+                    {/* </Form>
+                      )}
+                    </Formik> */}
                   </Accordion>
                 ))}
                 <div className="w-full bg-deep-purple dark:bg-dark-secondary p-4 absolute bottom-0">

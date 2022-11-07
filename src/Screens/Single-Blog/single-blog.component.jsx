@@ -22,7 +22,9 @@ const SingleBlog = () => {
         blogs: data,
       }),
     });
-  // const [blogItem, setBlogItem] = useState([]);
+
+  const blogss = handleDateSortingDes(blogs);
+
   const navigate = useNavigate();
   const [comments, setComments] = useState(commentData);
 
@@ -134,7 +136,7 @@ const SingleBlog = () => {
             />
           </div>
         </div>
-        <div className="h-72">
+        <div className="h-full">
           <div className="w-10/12 m-auto">
             <FieldName
               showP
@@ -193,8 +195,7 @@ const SingleBlog = () => {
                   <div className="sm:col-span-2 col-span-10 flex justify-between sm:border-r-2 border-b-none border-lite-purple">
                     <FiClock className="mt-5 md:mr-5 sm:mr-2 mr-24 text-lg text-gray-600 dark:text-dark-secondary-title" />
                     <span className="mt-4 sm:mb-0 mb-4 md:ml-4 sm:ml-2 ml-28 text-gray-600 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
-                      {/* {blogItem.date} */}
-                      1401
+                      {blogItem.date}
                     </span>
                   </div>
                 </div>
@@ -223,7 +224,7 @@ const SingleBlog = () => {
                 </h2>
               </div>
               <div className="overflow-y-scroll ml-1 p-1 pr-0 faq-container h-650">
-                {blogs?.map((item) => {
+                {blogss?.map((item) => {
                   return (
                     <div
                       onClick={() => navigate(`/blogs/${item._id}`)}
@@ -251,8 +252,7 @@ const SingleBlog = () => {
                         <div className="col-span-2 w-36 flex justify-between">
                           <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600 dark:text-dark-secondary-title" />
                           <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md dark:text-dark-secondary-title">
-                            {/* {item.date} */}
-                            1400
+                            {item.date}
                           </span>
                         </div>
                       </div>
