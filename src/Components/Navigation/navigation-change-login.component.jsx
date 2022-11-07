@@ -10,9 +10,14 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStorage } from "../../Core/services/storage/storage";
 import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
+import {
+  selectSessionCurrentUser,
+  logOutSession,
+} from "../../store/auth/authSessionSlice";
 
 const NavigationChange = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const dispatch = useDispatch();
 
   const classNames = (...classes) => {
@@ -102,24 +107,24 @@ const NavigationChange = () => {
               )}
             </Menu.Item>
             <Menu.Item>
-            {({ active }) => (
-              <Link to="/">
-                <div className="relative group">
-                  <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
-                  <div
-                    className={classNames(
-                      active
-                        ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                        : "text-gray-700",
-                      "block px-14 py-3 dark:text-gray-400"
-                    )}
-                  >
-                    نقد و نظرات
+              {({ active }) => (
+                <Link to="/">
+                  <div className="relative group">
+                    <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
+                    <div
+                      className={classNames(
+                        active
+                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                          : "text-gray-700",
+                        "block px-14 py-3 dark:text-gray-400"
+                      )}
+                    >
+                      نقد و نظرات
+                    </div>
                   </div>
-                </div>
-              </Link>
-            )}
-          </Menu.Item>
+                </Link>
+              )}
+            </Menu.Item>
             <hr className="mt-2 dark:border-dark-tertiary" />
             <Menu.Item>
               {({ active }) => (
@@ -128,6 +133,7 @@ const NavigationChange = () => {
                   <button
                     onClick={() => {
                       dispatch(logOut(currentUser));
+                      dispatch(logOutSession(currentSessionUser));
                       clearStorage();
                     }}
                     type="submit"
