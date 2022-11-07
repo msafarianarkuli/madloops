@@ -2,90 +2,69 @@ import React, { useState, useEffect } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
-import Input from "../../common/Inputs/TextInputs/Input";
-import { useUpdateStudentInfoMutation } from "../../../store/studentManager/studentApi";
 import { useSelector } from "react-redux";
 import { toastifyToast } from "../../common/Toast/toast";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
-import { useUploadImgMutation } from "../../../store/upload/uploadApiSlice";
 import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 import InputFeild from "./../../common/Inputs/TextInputs/InputFeild";
+import { useResetPasswordMutation } from "../../../store/auth/authApi";
+import { useGetStudentByIdQuery } from "../../../store/studentManager/studentApi";
 
 const EditPassword = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
   const [studentInfo, setStudentInfo] = useState({
-    email: "",
     password: "",
+    confirmPassword: "",
+  });
+  const { data: userById } = useGetStudentByIdQuery({
+    id: currentUser?._id || currentSessionUser?._id,
   });
 
-  const [updateStudentInfo, { isSuccess, isError, error, isLoading }] =
-    useUpdateStudentInfoMutation();
+  const [resetPassword] = useResetPasswordMutation();
 
-  const [uploadImg] = useUploadImgMutation();
+  // useEffect(() => {
+  //   if (isSuccess) {
+  //     setStudentInfo("");
+  //   }
 
-  useEffect(() => {
-    if (isSuccess) {
-      setStudentInfo("");
-    }
-
-    if (isError) {
-      if (error.originalStatus === 400) {
-        toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
-      } else if (error.originalStatus === 401) {
-        toastifyToast.error("عدم دسترسی؛ لطفا وارد حساب خود شوید");
-      } else if (error.originalStatus === 403) {
-        toastifyToast.error(error?.data.message.message[0].message);
-      } else {
-        toastifyToast.error("مشکلی رخ داده است.");
-      }
-    }
-  }, [isLoading]);
+  //   if (isError) {
+  //     if (error.originalStatus === 400) {
+  //       toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
+  //     } else if (error.originalStatus === 401) {
+  //       toastifyToast.error("عدم دسترسی؛ لطفا وارد حساب خود شوید");
+  //     } else if (error.originalStatus === 403) {
+  //       toastifyToast.error(error?.data.message.message[0].message);
+  //     } else {
+  //       toastifyToast.error("مشکلی رخ داده است.");
+  //     }
+  //   }
+  // }, [isLoading]);
 
   const handleSubmit = (values) => {
     const editing = async () => {
-      if (values.profile === "") {
-        console.log(values.profile);
-        const update = await updateStudentInfo({
-          fullName: values.firstName + " " + values.lastName,
-          email: values.email,
-          phoneNumber: values.phoneNumber,
-          birthDate: values.birthDate,
-          nationalId: currentUser?.nationalId || currentSessionUser?.nationalId,
-          profile:
-            "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
-          _id: currentUser?._id || currentSessionUser?._id,
+      const userObj = {
+        password: values.password,
+        confirmPassword: values.confirmPassword,
+        id: currentUser?._id || currentSessionUser?._id,
+      };
+
+      if (userById?.resetPasswordToken) {
+        const response = await resetPassword({
+          password: userObj?.password,
+          token: userById?.resetPasswordToken,
         });
-
-        toastifyToast.success(update.message[0].message, {});
-      } else {
-        const imagefile = document.querySelector("#file");
-        console.log(imagefile.files[0]);
-        let myFormData = new FormData();
-        myFormData.append("image", values.profile);
-        const upload = await uploadImg({ myFormData: myFormData });
-
-        if (upload.data.success === true) {
-          const Picture = upload.data.result;
-
-          const update = await updateStudentInfo({
-            email: values.email,
-            phoneNumber: values.phoneNumber,
-            birthDate: values.birthDate,
-            nationalId:
-              currentUser?.nationalId || currentSessionUser?.nationalId,
-            fullName: values.firstName + " " + values.lastName,
-            profile: Picture,
-            _id: currentUser?._id || currentSessionUser?._id,
-          });
-
-          toastifyToast.success(update.data.message[0].message);
+        if (response.status === 200) {
+          toastifyToast.success(response.data.message[0].message);
+          values.password = "";
+          values.confirmPassword = "";
         } else {
-          toastifyToast.warning("لطفا مجددا امتحان فرمایید", {});
+          toastifyToast.warning("لطفا مجددا امتحان فرمایید");
         }
       }
     };
-    // editing();
+
+    editing();
   };
 
   const handleReset = (resetForm) => {
@@ -104,7 +83,7 @@ const EditPassword = () => {
         </div>
 
         <Formik
-          initialValues={{ password: "", confirmPassword: "" }}
+          initialValues={studentInfo}
           validationSchema={Yup.object({
             password: Yup.string()
               .required("لطفا رمز عبور خود را وارد کنید")
