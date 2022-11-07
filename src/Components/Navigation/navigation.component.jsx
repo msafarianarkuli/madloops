@@ -17,11 +17,16 @@ import {
   selectIsCartOpen,
   setIsCartOpen,
 } from "./../../store/cart/cartSlice";
+import {
+  selectSessionCurrentUser,
+  logOutSession,
+} from "../../store/auth/authSessionSlice";
 
 const Navigation = ({ setTheme }) => {
   const cartCount = useSelector(selectCartCount);
   const isCartOpen = useSelector(selectIsCartOpen);
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
@@ -110,10 +115,11 @@ const Navigation = ({ setTheme }) => {
                   </button>
                 </div>
               </div>
-              {currentUser ? (
+              {currentUser || currentSessionUser ? (
                 <Button
                   onClick={() => {
                     dispatch(logOut(currentUser));
+                    dispatch(logOutSession(currentSessionUser));
                     clearStorage();
                   }}
                   classButton="btn border-2 dark:border-lite-purple border-deep-purple duration-300 ease-in-out xl:text-xl lg:ml-0 md:ml-12 dark:text-lite-purple

@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { FaTrashAlt } from "react-icons/fa";
-import { removeItem, selectCartItems } from "../../../store/cart/cartSlice";
+import { removeItem } from "../../../store/cart/cartSlice";
 import TableSkeleton from "../../common/Skeleton/TableSkeleton";
 import { useDispatch } from "react-redux";
-
+import { dateConvert } from "../../../Core/utils/TimeAndDateConverter";
 const TableBody = ({ course }) => {
-  const { title, cost, teacher, date, lesson } = course;
+  const { title, cost, teacher, startDate, lesson } = course;
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -17,6 +17,9 @@ const TableBody = ({ course }) => {
   const dispatch = useDispatch();
   const removeItems = () => dispatch(removeItem(course._id));
 
+  const dates = dateConvert(startDate);
+  const [date] = startDate.split("T");
+  console.log(date);
   return loading ? (
     <TableSkeleton />
   ) : (

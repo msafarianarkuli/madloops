@@ -1,54 +1,52 @@
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import {
   BsFillGridFill,
   BsFillPlayCircleFill,
   BsBookmarkHeartFill,
-} from 'react-icons/bs';
-import {
-  FaClipboardList,
-  FaUserEdit,
-  FaTimesCircle,
-} from 'react-icons/fa';
+} from "react-icons/bs";
+import { FaClipboardList, FaUserEdit, FaTimesCircle } from "react-icons/fa";
 const Data = [
   {
     id: uuidv4(),
     icon: <BsFillGridFill className="inline-block sm:text-2xl" />,
-    title: 'داشبورد',
-    path: '',
+    title: "داشبورد",
+    path: "",
   },
   {
     id: uuidv4(),
-    icon: (
-      <BsFillPlayCircleFill className="inline-block sm:text-2xl" />
-    ),
-    title: 'دوره های من',
-    path: 'myCourses',
+    icon: <BsFillPlayCircleFill className="inline-block sm:text-2xl" />,
+    title: "دوره های من",
+    path: "myCourses",
   },
   {
     id: uuidv4(),
-    icon: (
-      <BsBookmarkHeartFill className="inline-block sm:text-2xl" />
-    ),
-    title: 'لیست علاقه مندی ها',
-    path: 'bookmark',
+    icon: <BsBookmarkHeartFill className="inline-block sm:text-2xl" />,
+    title: "لیست علاقه مندی ها",
+    path: "bookmark",
   },
   {
     id: uuidv4(),
     icon: <FaClipboardList className="inline-block sm:text-2xl" />,
-    title: 'لیست دوره ها',
-    path: 'courseList',
+    title: "لیست دوره ها",
+    path: "courseList",
   },
   {
     id: uuidv4(),
     icon: <FaUserEdit className="inline-block sm:text-2xl" />,
-    title: 'ویرایش پروفایل',
-    path: 'editProfile',
+    title: "ویرایش پروفایل",
+    path: "editProfile",
+  },
+  {
+    id: uuidv4(),
+    icon: <FaUserEdit className="inline-block sm:text-2xl" />,
+    title: "ویرایش پسورد",
+    path: "editPassword",
   },
   {
     id: uuidv4(),
     icon: <FaTimesCircle className="inline-block sm:text-2xl" />,
-    title: 'خروج',
-    path: '/',
+    title: "خروج",
+    path: "/",
   },
 ];
 

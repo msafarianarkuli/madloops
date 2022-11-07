@@ -10,9 +10,11 @@ import {
   useGetCoursesQuery,
 } from "../../../store/courses/coursesSlice";
 import { toastifyToast } from "../../common/Toast/toast";
+import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 
 const MyCourses = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const { data: allCourse, isLoading } = useGetCoursesQuery();
   const [
     deleteStudentFromCourse,
@@ -27,7 +29,7 @@ const MyCourses = () => {
 
   useEffect(() => {
     const getCourseForUser = async () => {
-      const studentInfo = currentUser;
+      const studentInfo = currentUser || currentSessionUser;
       const response = await allCourse;
 
       const filteredData = response?.filter((row) => {
@@ -58,7 +60,7 @@ const MyCourses = () => {
   const deleteCourse = async (courseId) => {
     await deleteStudentFromCourse({
       courseId: { courseId: courseId },
-      obj: currentUser._id,
+      obj: currentUser?._id || currentSessionUser?._id,
     });
 
     setMyCourse((old) => {

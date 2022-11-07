@@ -12,11 +12,13 @@ import {
 import { toastifyToast } from "../../common/Toast/toast";
 import { selectBookMarkItems } from "../../../store/bookmark/bookmarkSlice";
 import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
+import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 
 const MyBookMark = () => {
   const FavCourses = useSelector(selectBookMarkItems);
 
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const { data: allCourse, isLoading } = useGetCoursesQuery();
   const [
     deleteStudentFromCourse,
@@ -30,7 +32,7 @@ const MyBookMark = () => {
 
   useEffect(() => {
     const getCourseForUser = async () => {
-      const studentInfo = currentUser;
+      const studentInfo = currentUser || currentSessionUser;
       const response = await allCourse;
 
       const filteredData = response?.filter((row) => {
@@ -61,7 +63,7 @@ const MyBookMark = () => {
   const deleteCourse = async (courseId) => {
     await deleteStudentFromCourse({
       courseId: courseId,
-      _id: currentUser._id,
+      _id: currentUser?._id || currentSessionUser?._id,
     });
 
     setMyCourse((old) => {

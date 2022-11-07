@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import Data from "../../../Core/services/Fake Service/Teacher";
+import React from "react";
 import { BsPlayFill } from "react-icons/bs";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
 import { Button } from "./../../common/button-component/button.component";
@@ -24,7 +23,6 @@ const LandingTeacher = () => {
     return trimmedLead;
   };
 
-  const { teachers } = Data;
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
   const navigate = useNavigate();

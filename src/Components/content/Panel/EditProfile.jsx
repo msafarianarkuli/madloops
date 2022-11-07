@@ -9,10 +9,11 @@ import { useSelector } from "react-redux";
 import { toastifyToast } from "../../common/Toast/toast";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
 import { useUploadImgMutation } from "../../../store/upload/uploadApiSlice";
-import axios from "axios";
+import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 
 const EditProfile = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const [studentInfo, setStudentInfo] = useState({
     firstName: "",
     lastName: "",
@@ -23,14 +24,13 @@ const EditProfile = () => {
     profile: "",
   });
 
-  const [updateStudentInfo, { isSuccess, data, isError, error, isLoading }] =
+  const [updateStudentInfo, { isSuccess, isError, error, isLoading }] =
     useUpdateStudentInfoMutation();
 
   const [uploadImg] = useUploadImgMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      toastifyToast.success(data.message[0].message);
       setStudentInfo("");
     }
 
@@ -56,10 +56,10 @@ const EditProfile = () => {
           email: values.email,
           phoneNumber: values.phoneNumber,
           birthDate: values.birthDate,
-          nationalId: currentUser.nationalId,
+          nationalId: currentUser?.nationalId || currentSessionUser?.nationalId,
           profile:
             "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
-          _id: currentUser._id,
+          _id: currentUser?._id || currentSessionUser?._id,
         });
 
         toastifyToast.success(update.message[0].message, {});
@@ -77,12 +77,13 @@ const EditProfile = () => {
             email: values.email,
             phoneNumber: values.phoneNumber,
             birthDate: values.birthDate,
-            nationalId: currentUser.nationalId,
+            nationalId:
+              currentUser?.nationalId || currentSessionUser?.nationalId,
             fullName: values.firstName + " " + values.lastName,
             profile: Picture,
-            _id: currentUser._id,
+            _id: currentUser?._id || currentSessionUser?._id,
           });
-          console.log(update);
+
           toastifyToast.success(update.data.message[0].message);
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید", {});
@@ -181,7 +182,9 @@ const EditProfile = () => {
                     name="nationalId"
                     type="text"
                     label="کد ملی:"
-                    placeholder={currentUser.nationalId}
+                    placeholder={
+                      currentUser?.nationalId || currentSessionUser?.nationalId
+                    }
                     disabled
                   />
                 </div>

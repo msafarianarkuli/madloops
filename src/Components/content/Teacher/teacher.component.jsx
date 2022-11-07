@@ -10,58 +10,80 @@ import {
 } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
 import { useParams } from "react-router-dom";
-import { getTeacher } from "../../../Core/services/Fake Service/Teacher";
-import Data from "./../../../Core/services/Fake Service/Teacher";
+import { useGetLastTeacherQuery } from "../../../store/teacherManager/teacherApiSlice";
 
 const TeacherPage = () => {
-  const { teachers } = Data;
   const { id } = useParams();
-  const [teacherItem] = useState(getTeacher(Number(id)));
+  const { teacherItem, isLoading, isSuccess, isError, error } =
+    useGetLastTeacherQuery("getLastTeacher", {
+      selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
+        teacherItem: data?.result.find((item) => item._id === Number(id)),
+        isLoading,
+        isSuccess,
+        isError,
+        error,
+      }),
+    });
+
+  // console.log(teacherItem);
+
+  let content;
+
+  if (isLoading) {
+    content = <h2 className="m-auto text-6xl">Loading...</h2>;
+  } else if (isSuccess) {
+    content = (
+      <>
+        <div
+          className="h-16 sm:mt-20 mt-4 mb-1 text-right"
+          data-aos="fade-down"
+        >
+          <FieldName
+            showH2
+            title={teacherItem.name}
+            classH2Field="sm:text-3xl text-xl dark:text-gray-300"
+          />
+        </div>
+        <div className="w-500 h-fit text-right" data-aos="fade-down">
+          <FieldName
+            showP
+            field={teacherItem.discription}
+            classPfield="sm:text-xl text-md pt-3 text-gray-400 break-all"
+          />
+        </div>
+        <div
+          className="flex h-16 sm:mt-20 mt-4 mb-1 text-right"
+          data-aos="fade-up"
+        >
+          <div className="bg-gray-200 dark:bg-dark-tertiary dark:text-gray-400 ml-4 h-fit w-fit rounded-lg sm:mt-0 mt-2">
+            <SiGmail className="sm:text-6xl text-4xl p-2" />
+          </div>
+          <FieldName
+            showH2
+            title={`ایمیل: ${teacherItem.email}`}
+            classH2Field="sm:text-3xl text-base pt-3 text-gray-500 dark:text-gray-600"
+          />
+        </div>
+      </>
+    );
+  } else if (isError) {
+    content = (
+      <h2 className="m-auto text-6xl">{error?.data.message[0].message}</h2>
+    );
+  }
 
   return (
     <div className="dark:bg-dark-primary">
       <div className="container m-auto">
         <div className="flex 2xl:flex-row flex-col-reverse justify-between">
           <div className="2xl:w-[50%] w-full md:pr-16 pr-5">
-            <div
-              className="h-16 sm:mt-20 mt-4 mb-1 text-right"
-              data-aos="fade-down"
-            >
-              <FieldName
-                showH2
-                title={teacherItem.title}
-                classH2Field="sm:text-3xl text-xl dark:text-gray-300"
-              />
-            </div>
-            <div className="w-500 h-fit text-right" data-aos="fade-down">
-              <FieldName
-                showP
-                field={teacherItem.description}
-                classPfield="sm:text-xl text-md pt-3 text-gray-400 break-all"
-              />
-            </div>
-
-            <div
-              className="flex h-16 sm:mt-20 mt-4 mb-1 text-right"
-              data-aos="fade-up"
-            >
-              <div className="bg-gray-200 dark:bg-dark-tertiary dark:text-gray-400 ml-4 h-fit w-fit rounded-lg sm:mt-0 mt-2">
-                <SiGmail className="sm:text-6xl text-4xl p-2" />
-              </div>
-              <FieldName
-                showH2
-                title={`ایمیل: ${teacherItem.gmail}`}
-                classH2Field="sm:text-3xl text-base pt-3 text-gray-500 dark:text-gray-600"
-              />
-            </div>
-            <div className="flex flex-col justify-center md:flex-row md:justify-around md:gap-0 gap-10 text-center mt-16 mb-11">
+            {content}
+            {/* <div className="flex flex-col justify-center md:flex-row md:justify-around md:gap-0 gap-10 text-center mt-16 mb-11">
               <div
                 className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
                 data-aos="flip-up"
               >
-                <div className="text-[#C53F3F] text-4xl mt-6">
-                  {teachers.reduce((a, b) => a + b.lesson, 0)}+
-                </div>
+                <div className="text-[#C53F3F] text-4xl mt-6"></div>
                 <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
                 <div className="text-[#675F74] text-3xl">درس </div>
               </div>
@@ -69,9 +91,7 @@ const TeacherPage = () => {
                 className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
                 data-aos="flip-up"
               >
-                <div className="text-[#C53F3F] text-4xl mt-6">
-                  {teachers.reduce((a, b) => a + b.hour, 0)}+
-                </div>
+                <div className="text-[#C53F3F] text-4xl mt-6"></div>
                 <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
                 <div className="text-[#675F74] text-3xl">ساعت </div>
               </div>
@@ -79,19 +99,17 @@ const TeacherPage = () => {
                 className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
                 data-aos="flip-up"
               >
-                <div className="text-[#C53F3F] text-4xl mt-6">
-                  {teachers.length}+
-                </div>
+                <div className="text-[#C53F3F] text-4xl mt-6"></div>
                 <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
                 <div className="text-[#675F74] text-3xl">دوره </div>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="2xl:w-[50%] w-full 2xl:h-800 xl:h-600 lg:h-550 md:h-450 h-350 overflow-hidden animate-[onLoadTeacher_1s_ease-in-out] ">
             <div className="relative xl:top-0 lg:top-5 md:top-12 sm:top-5 top-8">
               <div className="absolute lg:top-16 sm:top-8 2xl:inset-x-[300px] xl:inset-x-[450px] lg:inset-x-80 md:inset-x-60 sm:inset-x-60 2xl:w-9/12 xl:w-4/12 lg:w-5/12 md:w-5/12 sm:w-4/12 w-9/12 h-9/12 sm:left-0 left-[12%] sm:p-0 p-5 bg-gray-200 dark:bg-dark-secondary rounded-full z-10">
                 <img
-                  src={teacherItem.img}
+                  // src={teacherItem?.image}
                   className="rounded-full w-full h-full 2xl:p-28 lg:p-20 md:p-10 sm:p-8 p-3"
                   alt="bahr"
                 />
