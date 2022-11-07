@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Button } from "./../../common/button-component/button.component";
-import { FieldName } from "../../common/field-name-component/field-name.component";
-import { Typewriter } from "react-simple-typewriter";
-import { Link } from "react-router-dom";
-import LandingModal from "../../common/Landing-Modal/landing-modal.component";
-import Robot from "../Landing-Header/landing-header-robot.component";
+import React, { useState, useEffect } from 'react';
+import { Button } from './../../common/button-component/button.component';
+import { FieldName } from '../../common/field-name-component/field-name.component';
+import { Typewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom';
+import LandingModal from '../../common/Landing-Modal/landing-modal.component';
+import Robot from '../Landing-Header/landing-header-robot.component';
+import { useGetAllNewsQuery } from '../../../store/news/newsApiSlice';
+import { useGetCoursesQuery } from '../../../store/courses/coursesSlice';
+import { useGetAllTeachersQuery } from '../../../store/teacherManager/teacherApiSlice';
+import { useGetLessonsQuery } from '../../../store/lesson/lessonApiSlice';
 
 const LandingHeader = () => {
   const [showModal, setShowModal] = useState(false);
+  const { data: allNews } = useGetAllNewsQuery();
+  const { data: allCourses } = useGetCoursesQuery();
+  const { data: allLessons } = useGetLessonsQuery();
+  const { data: allTeachers } = useGetAllTeachersQuery();
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -29,7 +37,7 @@ const LandingHeader = () => {
                 <div className="h-[130px]" data-aos="fade-down">
                   <Typewriter
                     words={[
-                      "برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.",
+                      'برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.',
                     ]}
                     cursor
                     cursorStyle=" |"
@@ -39,52 +47,55 @@ const LandingHeader = () => {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-2 sm:pt-1 sm:text-xs" data-aos="fade-down">
+            <div
+              className="grid grid-cols-4 h-1/6 text-sm mt-7 2xl:mt-0 xl:mt-10 xl:pt-4 lg:text-lg lg:mt-4 lg:pt-2 md:text-sm md:mt-0 md:pt-0 sm:mt-2 sm:pt-1 sm:text-xs"
+              data-aos="fade-down"
+            >
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require("../../../Assets/img/students.png")}
+                  src={require('../../../Assets/img/students.png')}
                   alt="student"
                 />
                 <FieldName
                   showP
-                  field="984 کاربر"
+                  field={`${allLessons?.result.length} درس`}
                   classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require("../../../Assets/img/online-learning.png")}
+                  src={require('../../../Assets/img/online-learning.png')}
                   alt="online-learning"
                 />
                 <FieldName
                   showP
-                  field="210 دوره"
+                  field={`${allCourses?.length} دوره`}
                   classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require("../../../Assets/img/newsletter.png")}
+                  src={require('../../../Assets/img/newsletter.png')}
                   alt="newsletter"
                 />
                 <FieldName
                   showP
-                  field="430 مقاله"
+                  field={`${allNews?.length} مقاله`}
                   classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require("../../../Assets/img/presentation.png")}
+                  src={require('../../../Assets/img/presentation.png')}
                   alt="presentation"
                 />
                 <FieldName
                   showP
-                  field="12 استاد"
+                  field={`${allTeachers?.result.length} استاد`}
                   classPfield="mt-3 text-center dark:text-dark-secondary-title"
                 />
               </div>
