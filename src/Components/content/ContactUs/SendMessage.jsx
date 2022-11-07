@@ -9,12 +9,21 @@ import { useContactUsMutation } from "../../../store/contactUs/contact-us-api-sl
 import { useSelector } from "react-redux";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
 import { toastifyToast } from "../../common/Toast/toast";
+import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 
 const SendMessage = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+
   const [contact, setCantact] = useState({
-    name: currentUser ? currentUser.fullName : "",
-    email: currentUser ? currentUser.email : "",
+    name:
+      currentUser || currentSessionUser
+        ? currentUser?.fullName || currentSessionUser?.fullName
+        : "",
+    email:
+      currentUser || currentSessionUser
+        ? currentUser?.email || currentSessionUser?.email
+        : "",
     message: "",
     phone: "",
   });
@@ -41,7 +50,7 @@ const SendMessage = () => {
   }, [isLoading]);
 
   const handleSubmit = async (values) => {
-    if (currentUser) {
+    if (currentUser || currentSessionUser) {
       await contactUs({
         text: values.message,
         name: values.name,
@@ -61,7 +70,7 @@ const SendMessage = () => {
       <Formik
         initialValues={contact}
         validationSchema={
-          !currentUser
+          !currentUser && !currentSessionUser
             ? Yup.object({
                 name: Yup.string().required(
                   "لطفا فیلد نام و  نام خانوادگی را پر کنید"
@@ -86,12 +95,12 @@ const SendMessage = () => {
         <Form>
           <div
             className={
-              !currentUser
+              !currentUser && !currentSessionUser
                 ? "grid grid-cols-1 sm:grid-cols-2 sm:gap-5 md:gap-8 lg:gap-8 xl:mx-28 mt-5"
                 : "w-8/12 mx-auto"
             }
           >
-            {!currentUser && (
+            {!currentUser && !currentSessionUser ? (
               <div>
                 <div data-aos="fade-down">
                   <InputGroup
@@ -118,7 +127,7 @@ const SendMessage = () => {
                   />
                 </div>
               </div>
-            )}
+            ) : null}
             <div data-aos="fade-right">
               <Textarea
                 label="پیام"

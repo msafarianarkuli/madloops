@@ -9,10 +9,12 @@ import { useSelector } from "react-redux";
 import { useGetStudentByIdQuery } from "../../../store/studentManager/studentApi";
 import { DecodeToken } from "../../../Core/utils/decodeToken";
 import { selectToken } from "../../../store/auth/authSlice";
+import { selectSessionToken } from "../../../store/auth/authSessionSlice";
 
 const Dashboard = () => {
   const userToken = useSelector(selectToken);
-  const id = DecodeToken(userToken);
+  const userSessionToken = useSelector(selectSessionToken);
+  const id = DecodeToken(userToken || userSessionToken);
   const { data: userById } = useGetStudentByIdQuery({
     id: id._id,
   });

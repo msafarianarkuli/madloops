@@ -8,12 +8,21 @@ import { useSelector } from "react-redux";
 import { selectCurrentUser } from "../../../store/auth/authSlice";
 import { useContactUsMutation } from "../../../store/contactUs/contact-us-api-slice";
 import { toastifyToast } from "../Toast/toast";
+import { selectSessionCurrentUser } from "./../../../store/auth/authSessionSlice";
 
 const OffersForm = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+
   const [contact, setCantact] = useState({
-    name: currentUser ? currentUser.fullName : "",
-    email: currentUser ? currentUser.email : "",
+    name:
+      currentUser || currentSessionUser
+        ? currentUser?.fullName || currentSessionUser?.fullName
+        : "",
+    email:
+      currentUser || currentSessionUser
+        ? currentUser?.email || currentSessionUser?.email
+        : "",
     message: "",
   });
   const [contactUs, { isSuccess, data, isError, error, isLoading }] =
@@ -39,7 +48,7 @@ const OffersForm = () => {
   }, [isLoading]);
 
   const handleSubmit = async (values) => {
-    if (currentUser) {
+    if (currentUser || currentSessionUser) {
       await contactUs({
         text: values.message,
         name: values.name,
@@ -56,30 +65,36 @@ const OffersForm = () => {
 
   return (
     <div className="form py-2 md:bg-transparent bg-gray-200 dark:bg-transparent shadow-md">
-      {!currentUser && (
+      {!currentUser || !currentSessionUser ? (
         <label htmlFor="email" className="dark:text-dark-primary-title">
           ایمیل:
         </label>
-      )}
+      ) : null}
       <Formik
         initialValues={contact}
-        validationSchema={Yup.object({
-          email: Yup.string()
-            .email("الگوی وارد شده صحیح نمی باشد")
-            .required("لطفا فیلد ایمیل را پر کنید"),
-          message: Yup.string().required("لطفا پیغام خود را بنویسید"),
-        })}
+        validationSchema={
+          !currentUser && !currentSessionUser
+            ? Yup.object({
+                email: Yup.string()
+                  .email("الگوی وارد شده صحیح نمی باشد")
+                  .required("لطفا فیلد ایمیل را پر کنید"),
+                message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+              })
+            : Yup.object({
+                message: Yup.string().required("لطفا پیغام خود را بنویسید"),
+              })
+        }
         onSubmit={handleSubmit}
       >
         <Form>
-          {!currentUser && (
+          {!currentUser && !currentSessionUser ? (
             <Input
               name="email"
               placeholder="ایمیل خود را وارد کنید.."
               type="text"
               className="rounded-lg mt-1 py-2 px-2 border border-gray-400 hover:border-lite-purple bg-transparent input w-full"
             />
-          )}
+          ) : null}
           <Textarea
             name="message"
             placeholder="متن خود را وارد کنید..."

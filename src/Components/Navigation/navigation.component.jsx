@@ -17,11 +17,16 @@ import {
   selectIsCartOpen,
   setIsCartOpen,
 } from "./../../store/cart/cartSlice";
+import {
+  selectSessionCurrentUser,
+  logOutSession,
+} from "../../store/auth/authSessionSlice";
 
 const Navigation = ({ setTheme }) => {
   const cartCount = useSelector(selectCartCount);
   const isCartOpen = useSelector(selectIsCartOpen);
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(false);
@@ -110,7 +115,7 @@ const Navigation = ({ setTheme }) => {
                   </button>
                 </div>
               </div>
-              {currentUser ? (
+              {currentUser || currentSessionUser ? (
                 <div className="flex justify-center items-center col-span-2">
                   <NavigationChange />
                 </div>
@@ -138,7 +143,7 @@ const Navigation = ({ setTheme }) => {
             >
               {open && (
                 <div className="h-5/6">
-                  {currentUser ? (
+                  {currentUser || currentSessionUser  ? (
                     <div className="flex justify-center items-center col-span-2">
                       <NavigationChange />
                     </div>
