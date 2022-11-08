@@ -14,10 +14,14 @@ import {
   selectSessionCurrentUser,
   logOutSession,
 } from "../../store/auth/authSessionSlice";
+import { useGetStudentByIdQuery } from "../../store/studentManager/studentApi";
 
 const NavigationChange = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
+  const { data: userById } = useGetStudentByIdQuery({
+    id: currentUser?._id || currentSessionUser?._id,
+  });
   const dispatch = useDispatch();
 
   const classNames = (...classes) => {
@@ -30,7 +34,7 @@ const NavigationChange = () => {
         <Menu.Button className="inline-flex justify-center w-full text-gray-700 bg-gray-200 dark:bg-dark-tertiary dark:hover:scale-105 rounded-lg shadow-sm hover:bg-gray-300 outline-none duration-150">
           <img
             className="ml-2 w-12 h-12 rounded-r-lg"
-            src={require("../../Assets/img/mic.jpg")}
+            src={userById?.profile}
             alt="shopping"
           />
           <FiChevronLeft className="w-4 h-4 -rotate-90 mt-4 ml-2 dark:text-gray-400" />
@@ -61,7 +65,7 @@ const NavigationChange = () => {
                         "block px-5 py-6 text-xl rounded-t-lg dark:text-gray-400"
                       )}
                     >
-                      میکائیل محسنی
+                      {userById?.fullName}
                     </div>
                   </div>
                 </Link>

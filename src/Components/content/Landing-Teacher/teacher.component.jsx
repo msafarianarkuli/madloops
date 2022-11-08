@@ -22,7 +22,7 @@ const LandingTeacher = () => {
         .substring(0, value.substring(0, 100).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
-  console.log(data);
+
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
   const navigate = useNavigate();

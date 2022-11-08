@@ -11,16 +11,13 @@ import { RiShoppingCartLine } from "react-icons/ri";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import CartHover from "./../content/Cart/cart-hover.component";
 import { useDispatch, useSelector } from "react-redux";
-import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
+import { selectCurrentUser } from "../../store/auth/authSlice";
 import {
   selectCartCount,
   selectIsCartOpen,
   setIsCartOpen,
 } from "./../../store/cart/cartSlice";
-import {
-  selectSessionCurrentUser,
-  logOutSession,
-} from "../../store/auth/authSessionSlice";
+import { selectSessionCurrentUser } from "../../store/auth/authSessionSlice";
 
 const Navigation = ({ setTheme }) => {
   const cartCount = useSelector(selectCartCount);
@@ -143,7 +140,7 @@ const Navigation = ({ setTheme }) => {
             >
               {open && (
                 <div className="h-5/6">
-                  {currentUser || currentSessionUser  ? (
+                  {currentUser || currentSessionUser ? (
                     <div className="flex justify-center items-center col-span-2">
                       <NavigationChange />
                     </div>
