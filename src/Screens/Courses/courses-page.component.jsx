@@ -114,7 +114,7 @@ const CoursesPage = () => {
   } else if (isSuccess) {
     content = filterCourses
       ?.slice(0, nextCard)
-      .map((item) => <CardGridListView item={item} key={item._id} />);
+      .map((item) => <CardGridListView view={showGrid} item={item} key={item._id} />);
   }
 
   return (
