@@ -30,9 +30,6 @@ const SignUpPage = () => {
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
-      dispatch(
-        logIn({ user: data.result.studentModel, token: data.result.jwtToken })
-      );
       setField("");
     }
 
