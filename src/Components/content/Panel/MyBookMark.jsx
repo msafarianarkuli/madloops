@@ -1,84 +1,35 @@
-import React, { useState, useEffect } from "react";
-import PanelTable from "./PanelTable";
-import PanelHeader from "./PanelHeader";
-import Pagination from "../../common/Pagination/Pagination";
-import { paginate } from "../../../Core/utils/paginate";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../../store/auth/authSlice";
-import {
-  useDeleteStudentFromCourseMutation,
-  useGetCoursesQuery,
-} from "../../../store/courses/coursesSlice";
-import { toastifyToast } from "../../common/Toast/toast";
-import { selectBookMarkItems } from "../../../store/bookmark/bookmarkSlice";
-import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
+import React, { useState, useEffect } from 'react';
+import PanelTable from './PanelTable';
+import PanelHeader from './PanelHeader';
+import Pagination from '../../common/Pagination/Pagination';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBookMarkItems } from '../../../store/bookmark/bookmarkSlice';
+import { removeBookMark } from '../../../store/bookmark/bookmarkSlice';
+import { paginate } from '../../../Core/utils/paginate';
 
 const MyBookMark = () => {
-  const FavCourses = useSelector(selectBookMarkItems);
-
-  const currentUser = useSelector(selectCurrentUser);
-  const { data: allCourse, isLoading } = useGetCoursesQuery();
-  const [
-    deleteStudentFromCourse,
-    { isSuccess, isError, error, isLoading: isLoad, data },
-  ] = useDeleteStudentFromCourseMutation();
-
-  const [myCourse, setMyCourse] = useState([]);
-  const [pageSize, setPageSize] = useState(4);
-  const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState();
+  const [pageSize, setPageSize] = useState(2);
+  const [currentPage, setCurrentPage] = useState(1);
+  const FavCourses = useSelector(selectBookMarkItems);
+  const [myCourse, setMyCourse] = useState(FavCourses);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const getCourseForUser = async () => {
-      const studentInfo = currentUser;
-      const response = await allCourse;
-
-      const filteredData = response?.filter((row) => {
-        const isInCourse = row.students.some(
-          (student) => student._id === studentInfo._id
-        );
-        if (isInCourse) return row;
-      });
-
-      const paginateData = paginate(filteredData, currentPage, pageSize);
-      const dataCount = filteredData?.length;
-      setCount(dataCount);
-      setMyCourse(paginateData);
-    };
-    getCourseForUser();
-  }, [currentPage, isLoading]);
-
-  useEffect(() => {
-    if (isSuccess) {
-      toastifyToast.success(data.message[0].message);
-    }
-
-    if (isError) {
-      toastifyToast.error(error.data.message[0].message);
-    }
-  }, [isLoad]);
-
-  const deleteCourse = async (courseId) => {
-    await deleteStudentFromCourse({
-      courseId: courseId,
-      _id: currentUser._id,
-    });
-
-    setMyCourse((old) => {
-      let newData = [...old];
-      let newCoursesData = newData;
-      newCoursesData = newCoursesData.filter((item) => item._id !== courseId);
-      newData = newCoursesData;
-      return newData;
-    });
-  };
+    const paginateData = paginate(myCourse, currentPage, pageSize);
+    const dataCount = myCourse?.length;
+    setCount(dataCount);
+    setMyCourse(paginateData);
+  }, [currentPage]);
 
   const handleSearch = (arr) => {
     setCurrentPage(1);
     setMyCourse(arr);
   };
+
   const handlePageChange = (page) => {
     setCurrentPage(page);
+    console.log(page);
   };
 
   const handleNext = () => {
@@ -88,13 +39,21 @@ const MyBookMark = () => {
   };
 
   const handlePrev = () => {
-    currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
+    currentPage !== 1 &&
+      setCurrentPage((currentPage) => currentPage - 1);
+  };
+
+  const handleDelete = (id) => {
+    dispatch(removeBookMark(id));
+    const newFavs = myCourse.filter((course) => course._id !== id);
+    setMyCourse(newFavs);
+    console.log(id);
   };
 
   return (
     <div className="px-3 md:px-5">
-      <PanelHeader data={myCourse} onSearch={handleSearch} />
-      <PanelTable data={FavCourses} onDelete={removeBookMark} />
+      <PanelHeader data={FavCourses} onSearch={handleSearch} />
+      <PanelTable data={myCourse} onDelete={handleDelete} />
       <Pagination
         itemsCount={count}
         pageSize={pageSize}

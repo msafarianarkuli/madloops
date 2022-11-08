@@ -1,18 +1,18 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import CourseDetails from "../../Components/content/SingleCourse/CourseDetails";
-import CourseOpacity from "../../Components/content/SingleCourse/CourseOpacity";
-import CourseTeacher from "../../Components/content/SingleCourse/CourseTeacher";
-import CoursePrice from "../../Components/content/SingleCourse/CoursePrice";
-import CoursePrerequisite from "../../Components/content/SingleCourse/CoursePrerequisite";
-import CourseProperTo from "../../Components/content/SingleCourse/CourseProperTo";
-import CourceImproperTo from "../../Components/content/SingleCourse/CourceImproperTo";
-import CoursesTab from "../../Components/common/tabs/CoursesTab";
-import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
+import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
+import CourseTeacher from '../../Components/content/SingleCourse/CourseTeacher';
+import CoursePrice from '../../Components/content/SingleCourse/CoursePrice';
+import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrerequisite';
+import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
+import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
+import CoursesTab from '../../Components/common/tabs/CoursesTab';
+import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
 
 const SingleCourse = () => {
   const { id } = useParams();
-  const { course } = useGetCoursesQuery("getCourses", {
+  const { course } = useGetCoursesQuery('getCourses', {
     selectFromResult: ({ data }) => ({
       course: data?.find((item) => item._id === id),
     }),
@@ -26,7 +26,10 @@ const SingleCourse = () => {
           data-aos="fade-up"
         >
           <div className="rounded-lg overflow-hidden">
-            <img src={course?.lesson.image} className="w-full h-500" />
+            <img
+              src={course?.lesson.image}
+              className="w-full h-500"
+            />
             <div className="px-4 lg:px-16">
               <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
                 {course?.lesson.lessonName}
@@ -35,7 +38,7 @@ const SingleCourse = () => {
                 {course?.lesson.description}
               </p>
             </div>
-            <CoursesTab />
+            <CoursesTab courseId={id} />
           </div>
         </div>
         <div className="xl:col-span-3">

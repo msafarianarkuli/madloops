@@ -7,7 +7,7 @@ import Accordion from '../Accordion/Accordion';
 import tabData from '../../../Core/services/Fake Service/CourseTabList';
 import faqList from '../../../Core/services/Fake Service/faqs';
 
-const BlogTab = () => {
+const CoursesTab = ({ courseId }) => {
   const [faq, setFaq] = useState(faqList);
   const handleToggle = (id) => {
     //this func is for every faq to be open or close
@@ -41,10 +41,10 @@ const BlogTab = () => {
         ))}
       </TabPanel>
       <TabPanel>
-        <CommentsTab />
+        <CommentsTab id={courseId} />
       </TabPanel>
     </CustomTab>
   );
 };
 
-export default BlogTab;
+export default CoursesTab;

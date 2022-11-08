@@ -6,7 +6,7 @@ import Input from '../Inputs/TextInputs/Input';
 import profile from '../../../Assets/profile.png';
 import { useAddNewCommentMutation } from '../../../store/comments/commentsSlice';
 
-const SendComment = ({ onCommentActive }) => {
+const SendComment = ({ onCommentActive, courseId }) => {
   const [addNewComment] = useAddNewCommentMutation();
 
   return (
@@ -35,7 +35,7 @@ const SendComment = ({ onCommentActive }) => {
           })}
           onSubmit={(values) => {
             addNewComment({
-              postId: '123fsfdfsfsdd4',
+              postId: courseId,
               email: values.email,
               username: values.name,
               comment: values.body,

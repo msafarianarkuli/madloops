@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa";
-import { MdPostAdd } from "react-icons/md";
-import TableSkeleton from "../../common/Skeleton/TableSkeleton";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { FaTrashAlt } from 'react-icons/fa';
+import { MdPostAdd } from 'react-icons/md';
+import TableSkeleton from '../../common/Skeleton/TableSkeleton';
+import { useDispatch } from 'react-redux';
 
 const TableRow = ({ course, onDelete, onAdd }) => {
   const dispatch = useDispatch();
@@ -45,15 +45,15 @@ const TableRow = ({ course, onDelete, onAdd }) => {
       <td
         className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center cursor-pointer"
         onClick={
-          pathname === "/user-panel/myCourses"
+          pathname === '/user-panel/myCourses'
             ? () => onDelete(_id)
-            : pathname === "/user-panel/courseList"
+            : pathname === '/user-panel/courseList'
             ? () => onAdd(_id)
-            : () => dispatch(onDelete(_id))
+            : () => onDelete(_id)
         }
       >
-        {pathname === "/user-panel/myCourses" ||
-        pathname === "/user-panel/bookmark" ? (
+        {pathname === '/user-panel/myCourses' ||
+        pathname === '/user-panel/bookmark' ? (
           <FaTrashAlt className="mx-auto hover:text-red-500 transition ease-in-out duration-300" />
         ) : (
           <MdPostAdd className="mx-auto group-hover:text-green-500 transition ease-in-out duration-300 text-3xl" />
