@@ -6,8 +6,6 @@ import SignUpFourthPage from "./../../Components/content/SignUp/sign-up-fourth.c
 import AuthRightSkill from "../../Components/common/AuthRightSkill.component";
 import { toastifyToast } from "../../Components/common/Toast/toast";
 import { useRegisterStudentMutation } from "../../store/auth/authApi";
-import { useDispatch } from "react-redux";
-import { logIn } from "../../store/auth/authSlice";
 
 const SignUpPage = () => {
   const [field, setField] = useState({
@@ -24,8 +22,6 @@ const SignUpPage = () => {
 
   const [register, { isSuccess, data, isError, error, isLoading }] =
     useRegisterStudentMutation();
-
-  const dispatch = useDispatch();
 
   useEffect(() => {
     if (isSuccess) {
