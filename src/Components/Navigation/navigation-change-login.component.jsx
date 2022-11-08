@@ -9,16 +9,30 @@ import { Menu, Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStorage } from "../../Core/services/storage/storage";
-import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
+import {
+  logOut,
+  selectCurrentUser,
+  selectToken,
+} from "../../store/auth/authSlice";
 import {
   selectSessionCurrentUser,
+  selectSessionToken,
   logOutSession,
 } from "../../store/auth/authSessionSlice";
+import { useGetStudentByIdQuery } from "../../store/studentManager/studentApi";
+import { DecodeToken } from "../../Core/utils/decodeToken";
 
 const NavigationChange = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
   const dispatch = useDispatch();
+  const userToken = useSelector(selectToken);
+  const userSessionToken = useSelector(selectSessionToken);
+  const id = DecodeToken(userToken || userSessionToken);
+
+  const { data: userById } = useGetStudentByIdQuery({
+    id: id._id,
+  });
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(" ");
@@ -27,7 +41,7 @@ const NavigationChange = () => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="mt-2 text-base">
-        <Menu.Button className="inline-flex justify-center w-full text-gray-700 bg-gray-200 dark:bg-dark-tertiary dark:hover:scale-105 rounded-lg shadow-sm hover:bg-gray-300 outline-none duration-150">
+        <Menu.Button className="inline-flex justify-center w-full text-gray-700 bg-gray-200 dark:bg-dark-tertiary hover:scale-105 rounded-lg shadow-sm outline-none duration-150">
           <img
             className="ml-2 w-12 h-12 rounded-r-lg"
             src={require("../../Assets/img/mic.jpg")}
@@ -61,7 +75,7 @@ const NavigationChange = () => {
                         "block px-5 py-6 text-xl rounded-t-lg dark:text-gray-400"
                       )}
                     >
-                      میکائیل محسنی
+                      {" " + userById?.fullName}
                     </div>
                   </div>
                 </Link>
