@@ -10,22 +10,20 @@ import {
 } from "react-icons/bs";
 import { SiGmail } from "react-icons/si";
 import { useParams } from "react-router-dom";
-import { useGetLastTeacherQuery } from "../../../store/teacherManager/teacherApiSlice";
+import { useGetAllTeachersQuery } from "../../../store/teacherManager/teacherApiSlice";
 
 const TeacherPage = () => {
   const { id } = useParams();
   const { teacherItem, isLoading, isSuccess, isError, error } =
-    useGetLastTeacherQuery("getLastTeacher", {
+    useGetAllTeachersQuery("getLastTeacher", {
       selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
-        teacherItem: data?.result.find((item) => item._id === Number(id)),
+        teacherItem: data?.result.find((item) => item._id === id),
         isLoading,
         isSuccess,
         isError,
         error,
       }),
     });
-
-  // console.log(teacherItem);
 
   let content;
 
@@ -40,14 +38,14 @@ const TeacherPage = () => {
         >
           <FieldName
             showH2
-            title={teacherItem.name}
+            title={teacherItem?.fullName}
             classH2Field="sm:text-3xl text-xl dark:text-gray-300"
           />
         </div>
         <div className="w-500 h-fit text-right" data-aos="fade-down">
           <FieldName
             showP
-            field={teacherItem.discription}
+            field={teacherItem?.phoneNumber}
             classPfield="sm:text-xl text-md pt-3 text-gray-400 break-all"
           />
         </div>
@@ -60,7 +58,7 @@ const TeacherPage = () => {
           </div>
           <FieldName
             showH2
-            title={`ایمیل: ${teacherItem.email}`}
+            title={`ایمیل: ${teacherItem?.email}`}
             classH2Field="sm:text-3xl text-base pt-3 text-gray-500 dark:text-gray-600"
           />
         </div>
@@ -78,12 +76,14 @@ const TeacherPage = () => {
         <div className="flex 2xl:flex-row flex-col-reverse justify-between">
           <div className="2xl:w-[50%] w-full md:pr-16 pr-5">
             {content}
-            {/* <div className="flex flex-col justify-center md:flex-row md:justify-around md:gap-0 gap-10 text-center mt-16 mb-11">
+            <div className="flex flex-col justify-center md:flex-row md:justify-evenly md:gap-0 gap-10 text-center mt-16 mb-11">
               <div
                 className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
                 data-aos="flip-up"
               >
-                <div className="text-[#C53F3F] text-4xl mt-6"></div>
+                <div className="text-[#C53F3F] text-4xl mt-6">
+                  {teacherItem?.courses.map((data) => data.lesson).length}+
+                </div>
                 <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
                 <div className="text-[#675F74] text-3xl">درس </div>
               </div>
@@ -91,25 +91,19 @@ const TeacherPage = () => {
                 className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
                 data-aos="flip-up"
               >
-                <div className="text-[#C53F3F] text-4xl mt-6"></div>
+                <div className="text-[#C53F3F] text-4xl mt-6">
+                  {teacherItem?.courses.length}+
+                </div>
                 <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
-                <div className="text-[#675F74] text-3xl">ساعت </div>
+                <div className="text-[#675F74] text-3xl">دوره</div>
               </div>
-              <div
-                className="bg-[#F6F6FB] dark:bg-dark-secondary w-52 h-40 rounded-sm md:mx-0 mx-auto hover:scale-110 duration-300"
-                data-aos="flip-up"
-              >
-                <div className="text-[#C53F3F] text-4xl mt-6"></div>
-                <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
-                <div className="text-[#675F74] text-3xl">دوره </div>
-              </div>
-            </div> */}
+            </div>
           </div>
           <div className="2xl:w-[50%] w-full 2xl:h-800 xl:h-600 lg:h-550 md:h-450 h-350 overflow-hidden animate-[onLoadTeacher_1s_ease-in-out] ">
             <div className="relative xl:top-0 lg:top-5 md:top-12 sm:top-5 top-8">
               <div className="absolute lg:top-16 sm:top-8 2xl:inset-x-[300px] xl:inset-x-[450px] lg:inset-x-80 md:inset-x-60 sm:inset-x-60 2xl:w-9/12 xl:w-4/12 lg:w-5/12 md:w-5/12 sm:w-4/12 w-9/12 h-9/12 sm:left-0 left-[12%] sm:p-0 p-5 bg-gray-200 dark:bg-dark-secondary rounded-full z-10">
                 <img
-                  // src={teacherItem?.image}
+                  src={teacherItem?.profile}
                   className="rounded-full w-full h-full 2xl:p-28 lg:p-20 md:p-10 sm:p-8 p-3"
                   alt="bahr"
                 />

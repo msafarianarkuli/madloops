@@ -34,7 +34,7 @@ const Dashboard = () => {
 
     return { orderedDates: orderedDates[0] };
   };
-  console.log(data);
+
   return (
     <>
       <PanelHeader />

@@ -14,7 +14,7 @@ const SingleBlog = () => {
   const { blogs, blogItem, isLoading, isSuccess, isError, error } =
     useGetAllNewsQuery("getAllNews", {
       selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
-        blogItem: data?.find((item) => item._id === id),
+        blogItem: data?.result.find((item) => item._id === id),
         isLoading,
         isSuccess,
         isError,
@@ -148,7 +148,7 @@ const SingleBlog = () => {
       </>
     );
   } else if (isError) {
-    <h2>{error.data.message[0].message}.</h2>;
+    body = <h2>{error?.data.message[0].message}.</h2>;
   }
 
   return (
@@ -195,7 +195,7 @@ const SingleBlog = () => {
                   <div className="sm:col-span-2 col-span-10 flex justify-between sm:border-r-2 border-b-none border-lite-purple">
                     <FiClock className="mt-5 md:mr-5 sm:mr-2 mr-24 text-lg text-gray-600 dark:text-dark-secondary-title" />
                     <span className="mt-4 sm:mb-0 mb-4 md:ml-4 sm:ml-2 ml-28 text-gray-600 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
-                      {blogItem.date}
+                      {blogItem?.date}
                     </span>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ const SingleBlog = () => {
                       <div className="col-span-2 overflow-hidden">
                         <img
                           className="w-full h-full duration-300 rounded-l-lg group-hover:rounded-r-lg group-hover:rounded-l-none"
-                          src={item?.image}
+                          src={item.image}
                           alt=""
                         />
                       </div>
