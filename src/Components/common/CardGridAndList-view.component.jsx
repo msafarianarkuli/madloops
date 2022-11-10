@@ -260,8 +260,8 @@ const CardGridListView = ({ item, view }) => {
               ButtonType="button"
               classButton={
                 !view
-                  ? "hover:btn-base w-[60%] group-hover:border-lite-purple dark:group-hover:border-[#8055D9] duration-150 rounded-l-lg border-l-2 border-t-2 border-b-2 sm:w-full h-fit p-3 dark:text-[#E5E7EB] outline-0"
-                  : "hover:bg-[#8055D9] rounded-lg hover:text-white dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 sm:p-2 md:text-base sm:text-xs"
+                  ? "hover:btn-base w-[60%] group-hover:border-lite-purple dark:group-hover:border-[#8055D9] rounded-l-lg border-l-2 border-t-2 border-b-2 sm:w-full h-fit p-3 dark:text-[#E5E7EB] outline-0"
+                  : "hover:bg-[#8055D9] rounded-l-lg border-2 border-r-0 hover:border-[#8055D9] group-hover:border-[#8055D9] duration-150 hover:text-white dark:text-[#E5E7EB] md:w-40 sm:w-full w-60 sm:w-28 sm:p-2 md:text-base sm:text-xs"
               }
             >
               جزئیات دوره

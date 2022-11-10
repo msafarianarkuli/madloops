@@ -53,37 +53,37 @@ const Dashboard = () => {
           px-3 lg:px-10 py-5 text-lg lg:text-2xl dark:text-dark-secondary-title"
         >
           <p>
-            نام و نام خانوادگی:
+            نام و نام خانوادگی :
             <span className="font-bold text-lite-purple">
-              {userById?.fullName}
+              {" " + userById?.fullName}
             </span>
           </p>
 
           <p>
-            تاریخ تولد:
+            تاریخ تولد :
             <span className="text-lite-purple font-bold">
-              {userById?.birthDate}
+              {" " + userById?.birthDate}
             </span>
           </p>
 
           <p>
-            شماره همراه:
+            شماره همراه :
             <span className="text-lite-purple font-bold">
-              {userById?.phoneNumber}
+              {" " + userById?.phoneNumber}
             </span>
           </p>
 
           <p>
-            شماره ملی:
+            شماره ملی :
             <span className="text-lite-purple font-bold">
-              {userById?.nationalId}
+              {" " + userById?.nationalId}
             </span>
           </p>
 
           <p>
             ایمیل:
             <span className="text-lite-purple text-sm lg:text-xl font-bold">
-              {userById?.email}
+              {" " + userById?.email}
             </span>
           </p>
         </div>
@@ -93,7 +93,7 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mx-2 lg:mx-10 mt-6 animate-[onLoadPanel_1.5s_ease-in]">
         <div>
           <p className="text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6 text-gray-500 dark:text-dark-secondary-title">
-            آخرین دوره ثبت شده:
+            آخرین دوره ثبت شده :
           </p>
           {isLoading ? (
             <LastCourseSkeleton />
@@ -127,7 +127,7 @@ const Dashboard = () => {
         </div>
         <div>
           <p className="text-2xl lg:text-3xl font-bold mr-5 lg:mr-10 mb-2 lg:mb-6 text-gray-500 dark:text-dark-secondary-title">
-            دوره های پیشنهادی:
+            دوره های پیشنهادی :
           </p>
           {loading ? (
             <>

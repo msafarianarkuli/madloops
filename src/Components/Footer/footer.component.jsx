@@ -19,7 +19,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="bg-lite-gray dark:bg-dark-secondary">
-        <div className="px-4 lg:px-28 divide-y divide-gray-400 w-full container mx-auto pt-12">
+        <div className="px-4 lg:px-28 divide-y divide-gray-400 dark:divide-dark-tertiary w-full container mx-auto pt-12">
           <div className="grid grid-cols-1 md:grid-cols-3 divide-y divide-gray-400 md:divide-y-0 ">
             <div className="flex flex-col pb-5" data-aos="fade-down">
               <div className="flex items-center">
@@ -47,7 +47,7 @@ const Footer = () => {
                         name="newsletter"
                         type="text"
                         placeholder="ایمیل خود را وارد نمایید"
-                        className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-300 dark:bg-dark-tertiary dark:text-gray-400 focus:outline-gray-400 focus:input-shadow outline-0 duration-200"
+                        className="flex-1 py-3 px-3 md:py-2 md:px-2 lg:py-3 lg:px-3 ml-3 md:ml-1 lg:ml-3 rounded-lg border-2 border-gray-500 dark:bg-dark-tertiary dark:text-gray-400 focus:border-lite-purple outline-0 duration-200"
                       />
                       <Button
                         ButtonType="submit"
@@ -66,7 +66,6 @@ const Footer = () => {
               data-aos="fade-down"
             >
               <p className="dark:text-dark-primary-title">
-                {' '}
                 &#9679; منو
               </p>
               <Link
