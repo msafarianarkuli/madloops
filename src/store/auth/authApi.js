@@ -22,21 +22,16 @@ export const authApiSlice = apiSlice.injectEndpoints({
       query: (obj) => ({
         url: "forgetpassword",
         method: "POST",
-        body: obj,
+        body: { email: obj.email },
       }),
       invalidatesTags: ["forgetpassword"],
     }),
     resetPassword: builder.mutation({
-      query: (pass) => {
-        console.log();
-        return {
-          url: `resetPassword/${pass.token}`,
-          method: "POST",
-          body: {
-            password: pass.password,
-          },
-        };
-      },
+      query: (pass) => ({
+        url: `resetPassword/${pass.token}`,
+        method: "POST",
+        body: { password: pass.password },
+      }),
       invalidatesTags: ["resetPassword"],
     }),
   }),

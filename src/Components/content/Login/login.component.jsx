@@ -6,7 +6,6 @@ import AnimateLoginSvg from "../../common/Animate-Login-SVG/animate-login-svg.co
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
-import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toastifyToast } from "../../common/Toast/toast";
 import { useDispatch } from "react-redux";
@@ -37,14 +36,15 @@ const Login = () => {
     }
 
     if (isError) {
+      console.log(data);
       if (error.status === 400) {
         toastifyToast.error("احتمالا چیزی را اشتباه وارد کردید!");
       } else if (error.status === 401) {
-        toastifyToast.error(error.data.message[0].message);
+        toastifyToast.error(error.data.message.message[0].message);
       } else if (error.status === 403) {
-        toastifyToast.error(error.data.message[0].message);
+        toastifyToast.error(error.data.message.message[0].message);
       } else {
-        toastifyToast.error(error.data.message[0].message);
+        toastifyToast.error(error.data.message.message[0].message);
       }
     }
   }, [isLoading]);
@@ -55,7 +55,6 @@ const Login = () => {
         email: values.email,
         password: values.password,
       });
-
       dispatch(
         logIn({
           user: response.data.result.studentModel,
@@ -74,6 +73,9 @@ const Login = () => {
         })
       );
     }
+  };
+  const handleEmpLogin = () => {
+    window.location.href = "http://localhost:2001/home";
   };
 
   return (
@@ -190,12 +192,12 @@ const Login = () => {
                   </div>
                   <div className="mt-2 h-14 flex justify-center">
                     <Button
-                      className="relative border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:shadow-purple sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
+                      ButtonType="button"
+                      onClick={handleEmpLogin}
+                      className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:shadow-purple sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
                     ease-in-out group"
-                      ButtonType="submit"
                     >
-                      ادامه با گوگل
-                      <FcGoogle className="text-2xl group-hover:animate-[onHoverGoogle_1s_ease-in-out_infinite] absolute sm:left-32 left-24 top-3  group-hover:text-3xl group-hover:top-2 duration-200" />
+                      ورود کارمندان
                     </Button>
                   </div>
                   <div className="mt-2 h-8 flex justify-center text-sick-gray">
