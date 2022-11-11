@@ -7,6 +7,7 @@ import UnAuthenticated from "./UnAuthenticated/UnAuthenticated";
 import Authenticated from "./Authenticated/Authenticated";
 import { selectCurrentUser } from "./../store/auth/authSlice";
 import BackToTop from "./../Components/common/BackToTop/BackToTop";
+import { selectSessionCurrentUser } from "../store/auth/authSessionSlice";
 
 const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -55,6 +56,7 @@ const App = () => {
     setIsDarkMode(!isDarkMode);
   };
   const user = useSelector(selectCurrentUser);
+  const sessionUser = useSelector(selectSessionCurrentUser);
 
   return (
     <div
@@ -66,7 +68,7 @@ const App = () => {
           <Route
             path="*"
             element={
-              user ? (
+              user || sessionUser ? (
                 <Authenticated setTheme={setTheme} />
               ) : (
                 <UnAuthenticated setTheme={setTheme} />

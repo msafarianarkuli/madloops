@@ -7,6 +7,7 @@ import Pagination from '../../common/Pagination/Pagination';
 import { paginate } from '../../../Core/utils/paginate';
 import { useSelector } from 'react-redux';
 import { selectCurrentUser } from './../../../store/auth/authSlice';
+import { selectSessionCurrentUser } from './../../../store/auth/authSessionSlice';
 import { toastifyToast } from './../../common/Toast/toast';
 import {
   useAddStudentToCourseMutation,
@@ -15,6 +16,7 @@ import {
 
 const CoursesList = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const { data: allCourse, isLoading } = useGetCoursesQuery();
   const [
     addStudentToCourse,
@@ -29,7 +31,7 @@ const CoursesList = () => {
 
   useEffect(() => {
     const getCourseByUserId = async () => {
-      const studentInfo = currentUser;
+      const studentInfo = currentUser || currentSessionUser;
       const response = await allCourse;
 
       const filteredData = response?.filter((row) => {
@@ -62,10 +64,9 @@ const CoursesList = () => {
   }, [isLoad]);
 
   const addCourse = async (courseId) => {
-    console.log(courseId, currentUser);
     await addStudentToCourse({
       courseId: { courseId: courseId },
-      obj: currentUser._id,
+      obj: currentUser?._id || currentSessionUser?._id,
     });
 
     setCoursesList((old) => {
@@ -82,7 +83,6 @@ const CoursesList = () => {
   const handleSearch = (arr) => {
     setCurrentPage(1);
     setCoursesList(arr);
-    console.log(arr);
   };
   const handlePageChange = (page) => {
     setCurrentPage(page);

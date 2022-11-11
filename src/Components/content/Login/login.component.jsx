@@ -12,11 +12,13 @@ import { toastifyToast } from "../../common/Toast/toast";
 import { useDispatch } from "react-redux";
 import { useLoginStudentMutation } from "../../../store/auth/authApi";
 import { logIn } from "../../../store/auth/authSlice";
+import { logInSession } from "../../../store/auth/authSessionSlice";
 
 const Login = () => {
   const [field, setField] = useState({
     email: "",
     password: "",
+    rememberMe: false,
   });
 
   const location = useLocation();
@@ -31,9 +33,6 @@ const Login = () => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
       navigate(from);
-      dispatch(
-        logIn({ user: data.result.studentModel, token: data.result.jwtToken })
-      );
       setField({ email: "", password: "" });
     }
 
@@ -51,7 +50,30 @@ const Login = () => {
   }, [isLoading]);
 
   const handleSubmit = async (values) => {
-    await login(values);
+    if (values.rememberMe === true) {
+      const response = await login({
+        email: values.email,
+        password: values.password,
+      });
+
+      dispatch(
+        logIn({
+          user: response.data.result.studentModel,
+          token: response.data.result.jwtToken,
+        })
+      );
+    } else {
+      const response = await login({
+        email: values.email,
+        password: values.password,
+      });
+      dispatch(
+        logInSession({
+          user: response.data.result.studentModel,
+          token: response.data.result.jwtToken,
+        })
+      );
+    }
   };
 
   return (

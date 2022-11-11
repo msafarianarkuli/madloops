@@ -6,7 +6,7 @@ export const apiSlice = createApi({
     baseUrl: "https://api.madloops.sepehracademy.ir/api/",
     headers: { "content-type": "application/json" },
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().auth.token;
+      const token = getState().auth.token || getState().authSession.token;
 
       if (token) {
         headers.set("x-auth-token", `${token}`);

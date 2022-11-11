@@ -164,7 +164,7 @@ const SingleBlog = () => {
       </>
     );
   } else if (isError) {
-    <h2>{error.data.message[0].message}.</h2>;
+    body = <h2>{error?.data.message[0].message}.</h2>;
   }
 
   return (
@@ -245,7 +245,7 @@ const SingleBlog = () => {
                       <div className="col-span-2 overflow-hidden">
                         <img
                           className="w-full h-full duration-300 rounded-l-lg group-hover:rounded-r-lg group-hover:rounded-l-none"
-                          src={item?.image}
+                          src={item.image}
                           alt=""
                         />
                       </div>

@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import Data from "../../../Core/services/Fake Service/Teacher";
+import React from "react";
 import { BsPlayFill } from "react-icons/bs";
 import { FieldName } from "./../../common/field-name-component/field-name.component";
 import { Button } from "./../../common/button-component/button.component";
@@ -10,12 +9,12 @@ import "swiper/css/navigation";
 import useSwiperRef from "./../Landing-Blog/swiper-wrapper-button";
 import { useNavigate } from "react-router-dom";
 import "./swi.styles.scss";
-import { useGetLastTeacherQuery } from "../../../store/teacherManager/teacherApiSlice";
+import { useGetAllTeachersQuery } from "../../../store/teacherManager/teacherApiSlice";
 
 SwiperCore.use([Autoplay, Navigation]);
 
 const LandingTeacher = () => {
-  const { data, isLoading } = useGetLastTeacherQuery();
+  const { data, isLoading } = useGetAllTeachersQuery();
   const handleLead = (value) => {
     const trimmedLead =
       value
@@ -24,7 +23,6 @@ const LandingTeacher = () => {
     return trimmedLead;
   };
 
-  const { teachers } = Data;
   const [nextEl, nextElRef] = useSwiperRef();
   const [prevEl, prevElRef] = useSwiperRef();
   const navigate = useNavigate();
@@ -67,25 +65,25 @@ const LandingTeacher = () => {
                     <div className="sm:mr-6 p-3 sm:ml-8 lg:ml-0">
                       <div className="flex sm:justify-between justify-center">
                         <h2 className="text-xl my-5 sm:block lg:hidden hidden dark:text-dark-primary-title">
-                          {item.name}
+                          {item.fullName}
                         </h2>
                         <div className="md:mr-14 lg:hidden sm:block cursor-pointer">
                           <img
-                            src={item.image}
+                            src={item.profile}
                             className="rounded-full sm:block lg:hidden sm:w-16 w-24 mt-5"
                           />
                         </div>
                       </div>
 
                       <h2 className="sm:text-xl text-base xl my-5 ml-2 lg:block sm:hidden dark:text-dark-primary-title">
-                        {item.name}
+                        {item.fullName}
                       </h2>
 
                       <h4 className="sm:text-base text-sm text-[#615C67] dark:text-dark-secondary-title">
                         {item.email}
                       </h4>
                       <p className="sm:text-sm text-xs mt-2 text-[#4A4453] dark:text-dark-text">
-                        {item.discription}
+                        {item.phoneNumber}
                       </p>
                       <Button
                         onClick={() => navigate(`teacher/${item._id}`)}
@@ -97,7 +95,7 @@ const LandingTeacher = () => {
 
                     <div className="relative 2xl:left-6 xl:left-12 left-6 lg:block sm:hidden lg:mb-5 z-0">
                       <img
-                        src={item.image}
+                        src={item.profile}
                         className="rounded-full xl:w-52 lg:w-44 sm:w-16 2xl:mx-36 xl:mx-28 lg:mx-16 mt-10 z-10 lg:block hidden"
                       />
                       <div className="lg:block hidden">
@@ -122,7 +120,7 @@ const LandingTeacher = () => {
                 ) : isPrev || isNext ? (
                   <div className="m-auto flex justify-center rounded-full w-28 p-3 opacity-75 bg-gray-200">
                     <img
-                      src={item.image}
+                      src={item.profile}
                       className="rounded-full w-28"
                       alt=""
                     />
@@ -130,7 +128,7 @@ const LandingTeacher = () => {
                 ) : (
                   <div className="m-auto flex rounded-full w-14 p-2 opacity-50 bg-gray-200">
                     <img
-                      src={item.image}
+                      src={item.profile}
                       className="rounded-full w-14"
                       alt=""
                     />

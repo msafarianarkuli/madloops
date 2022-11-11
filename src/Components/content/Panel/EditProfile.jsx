@@ -4,15 +4,26 @@ import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
 import Input from "../../common/Inputs/TextInputs/Input";
 import CustomDatePicker from "../../common/Date-Picker/date-picker-component";
-import { useUpdateStudentInfoMutation } from "../../../store/studentManager/studentApi";
+import {
+  useGetStudentByIdQuery,
+  useUpdateStudentInfoMutation,
+} from "../../../store/studentManager/studentApi";
 import { useSelector } from "react-redux";
 import { toastifyToast } from "../../common/Toast/toast";
-import { selectCurrentUser } from "./../../../store/auth/authSlice";
+import { selectToken } from "./../../../store/auth/authSlice";
 import { useUploadImgMutation } from "../../../store/upload/uploadApiSlice";
-import axios from "axios";
+import { selectSessionToken } from "../../../store/auth/authSessionSlice";
+import { DecodeToken } from "../../../Core/utils/decodeToken";
 
 const EditProfile = () => {
-  const currentUser = useSelector(selectCurrentUser);
+  const userToken = useSelector(selectToken);
+  const userSessionToken = useSelector(selectSessionToken);
+  const id = DecodeToken(userToken || userSessionToken);
+
+  const { data: userById } = useGetStudentByIdQuery({
+    id: id._id,
+  });
+
   const [studentInfo, setStudentInfo] = useState({
     firstName: "",
     lastName: "",
@@ -23,14 +34,13 @@ const EditProfile = () => {
     profile: "",
   });
 
-  const [updateStudentInfo, { isSuccess, data, isError, error, isLoading }] =
+  const [updateStudentInfo, { isSuccess, isError, error, isLoading }] =
     useUpdateStudentInfoMutation();
 
   const [uploadImg] = useUploadImgMutation();
 
   useEffect(() => {
     if (isSuccess) {
-      toastifyToast.success(data.message[0].message);
       setStudentInfo("");
     }
 
@@ -56,10 +66,10 @@ const EditProfile = () => {
           email: values.email,
           phoneNumber: values.phoneNumber,
           birthDate: values.birthDate,
-          nationalId: currentUser.nationalId,
+          nationalId: userById?.nationalId,
           profile:
             "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
-          _id: currentUser._id,
+          _id: id._id,
         });
 
         toastifyToast.success(update.message[0].message, {});
@@ -77,12 +87,12 @@ const EditProfile = () => {
             email: values.email,
             phoneNumber: values.phoneNumber,
             birthDate: values.birthDate,
-            nationalId: currentUser.nationalId,
+            nationalId: userById?.nationalId,
             fullName: values.firstName + " " + values.lastName,
             profile: Picture,
-            _id: currentUser._id,
+            _id: id._id,
           });
-          console.log(update);
+
           toastifyToast.success(update.data.message[0].message);
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید", {});
@@ -98,6 +108,16 @@ const EditProfile = () => {
   };
 
   const fileInput = useRef();
+  const splite = () => {
+    try {
+      const [firstName, ...rest] = userById.fullName.split(" ");
+      const lastName = rest.join(" ");
+      return [firstName, lastName];
+    } catch (err) {
+      return err;
+    }
+  };
+
   return (
     <>
       <div>
@@ -163,7 +183,7 @@ const EditProfile = () => {
                     name="firstName"
                     type="text"
                     label="نام:"
-                    placeholder="میکائیل"
+                    placeholder={splite()[0]}
                   />
                 </div>
                 <div>
@@ -172,7 +192,7 @@ const EditProfile = () => {
                     name="lastName"
                     type="text"
                     label="نام خانوادگی:"
-                    placeholder="michael"
+                    placeholder={splite()[1]}
                   />
                 </div>
                 <div>
@@ -181,7 +201,7 @@ const EditProfile = () => {
                     name="nationalId"
                     type="text"
                     label="کد ملی:"
-                    placeholder={currentUser.nationalId}
+                    placeholder={userById?.nationalId}
                     disabled
                   />
                 </div>
@@ -191,14 +211,14 @@ const EditProfile = () => {
                     name="email"
                     type="text"
                     label="ایمیل:"
-                    placeholder="example@gmail.com"
+                    placeholder={userById?.email}
                   />
                 </div>
                 <div>
                   <CustomDatePicker
                     name="birthDate"
                     label="تاریخ تولد:"
-                    placeholder="1401/06/12"
+                    placeholder={userById?.birthDate}
                     classLabel="text-gray-600 block text-lg dark:text-dark-secondary-title"
                     className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
                   />
@@ -209,7 +229,7 @@ const EditProfile = () => {
                     name="phoneNumber"
                     type="text"
                     label="شماره موبایل:"
-                    placeholder="09031471874"
+                    placeholder={userById?.phoneNumber}
                   />
                 </div>
               </div>

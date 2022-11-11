@@ -86,7 +86,7 @@ const CoursesPage = () => {
   } else if (isSuccess) {
     content = filterCourses
       ?.slice(0, nextCard)
-      .map((item) => <CardGridListView item={item} key={item._id} />);
+      .map((item) => <CardGridListView view={showGrid} item={item} key={item._id} />);
   }
 
   const [filteredItem, setFilteredItem] = useState(filterList);
@@ -283,7 +283,7 @@ const CoursesPage = () => {
           <div className="w-full py-20" data-aos="fade-up">
             <Button
               onClick={handleMoreCard}
-              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out duration-300"
+              classButton="block p-3 w-40 mx-auto text-2xl text-[#815AE2] border-2 border-[#815AE2] outline rounded-xl hover:bg-[#815AE2] hover:text-white ease-in-out outline-0 duration-300"
             >
               بیشتر
             </Button>
