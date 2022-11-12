@@ -75,7 +75,7 @@ const Login = () => {
     }
   };
   const handleEmpLogin = () => {
-    window.location.href = "http://localhost:2001/home";
+    window.location.href = "http://localhost:2001";
   };
 
   return (

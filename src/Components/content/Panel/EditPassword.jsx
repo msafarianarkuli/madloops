@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
@@ -20,10 +20,23 @@ const EditPassword = () => {
     password: "",
     confirmPassword: "",
   });
-  const { data: userById, isFetching } = useGetStudentByIdQuery({
+  const {
+    data: userById,
+    isLoading,
+    isFetching,
+  } = useGetStudentByIdQuery({
     id: currentUser?._id || currentSessionUser?._id,
   });
-  console.log(userById);
+
+  useEffect(() => {
+    const getMountUser = async () => {
+      const userData = await userById;
+      console.log(userData);
+    };
+    getMountUser();
+  }, [isFetching, isLoading]);
+
+  // console.log(userById);
   const [resetPassword] = useResetPasswordMutation();
   const [forgetPassword] = useForgetPasswordMutation();
 
@@ -35,31 +48,39 @@ const EditPassword = () => {
         id: currentUser?._id || currentSessionUser?._id,
       };
 
-      if (userById?.resetPasswordToken !== null) {
+      if (userById?.resetPasswordToken !== undefined) {
         const response = await resetPassword({
           password: userObj.password,
           token: userById?.resetPasswordToken,
         });
-        if (response.status === 200) {
-          toastifyToast.success(response.data.message[0].message);
+        console.log(response.result === "info");
+        if (response.result === "info") {
+          toastifyToast.success(response.message[0].message);
           values.password = "";
           values.confirmPassword = "";
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+          console.log("userData");
         }
       } else {
-        await forgetPassword({ email: userById?.email });
-        await isFetching;
-        const response = await resetPassword({
-          password: userObj.password,
-          token: userById?.resetPasswordToken,
-        });
-        if (response.status === 200) {
-          toastifyToast.success(response.data.message[0].message);
-          values.password = "";
-          values.confirmPassword = "";
+        const res = await forgetPassword({ email: userById?.email });
+
+        if (res.result === "info") {
+          const response = await resetPassword({
+            password: userObj.password,
+            token: userById?.resetPasswordToken,
+          });
+          if (response.result === "info") {
+            toastifyToast.success(response.data.message[0].message);
+            values.password = "";
+            values.confirmPassword = "";
+          } else {
+            toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+            console.log("userba");
+          }
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+          console.log("userfas");
         }
       }
     };
