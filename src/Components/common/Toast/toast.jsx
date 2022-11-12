@@ -19,6 +19,7 @@ const Toastify = () => {
       style={{
         width: "350px",
         fontSize: "18px",
+        fontFamily: "roya",
       }}
     />
   );

@@ -67,7 +67,7 @@ const CoursePrice = ({ item }) => {
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          akbar={addProductForSave}
+          click={addProductForSave}
         />
       </div>
       <div>
@@ -82,7 +82,7 @@ const CoursePrice = ({ item }) => {
         <Modal
           showModal={showEModal}
           setShowModal={setEShowModal}
-          akbar={addProductToCart}
+          click={addProductToCart}
         />
       </div>
     </div>
