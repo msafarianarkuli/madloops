@@ -4,7 +4,7 @@ import reactIcon from '../../../Assets/img-user-panel/React-icon.svg';
 const OfferCourseSkelton = () => {
   return (
     <div
-      className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+      className="border-4 dark:border-dark-tertiary rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
     hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
     dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
     >

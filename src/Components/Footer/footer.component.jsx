@@ -62,10 +62,10 @@ const Footer = () => {
               </div>
             </div>
             <div
-              className="text-2xl flex flex-col justify-between md:justify-evenly py-5 pr-5 lg:mx-auto"
+              className="text-2xl flex flex-col justify-between md:justify-evenly pt-1 pb-5 pr-5 lg:mx-auto"
               data-aos="fade-down"
             >
-              <p className="dark:text-dark-primary-title">
+              <p className="text-3xl dark:text-dark-primary-title">
                 &#9679; منو
               </p>
               <Link

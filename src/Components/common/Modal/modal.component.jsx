@@ -1,6 +1,5 @@
-import React, { useEffect, useCallback, useRef, Children } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import { Button } from "../button-component/button.component";
 
 const Modal = ({ showModal, setShowModal, akbar }) => {
   const modalRef = useRef();

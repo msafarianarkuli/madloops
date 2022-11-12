@@ -3,7 +3,7 @@ import React from 'react';
 const LastCourseSkeleton = () => {
   return (
     <div
-      className="border-4 rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
+      className="border-4 dark:border-dark-tertiary rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white
             hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
             dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
     >

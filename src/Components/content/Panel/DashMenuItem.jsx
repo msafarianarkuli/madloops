@@ -13,7 +13,7 @@ const DashMenuItemLg = ({ items }) => {
           : 'bg-white rounded-md lg:rounded-xl mt-4 hover:shadow-purple text-gray-500 p-2 flex transition ease-in duration-200 dark:bg-dark-secondary dark:text-dark-secondary-title dark:hover:shadow-purple'
       } ${
         title === 'خروج'
-          ? 'hover:bg-[#FF1C1C] hover:text-white transition ease-out duration-200'
+          ? 'hover:bg-[#FF1C1C] dark:hover:bg-[#951111] hover:text-white transition ease-out duration-200'
           : 'hover:text-lite-purple'
       }`}
     >
@@ -33,8 +33,8 @@ const DashMenuItemSm = ({ items }) => {
       to={path}
       className={
         pathname.slice(12) === path || pathname.slice(12) === null
-          ? 'bg-white rounded-md lg:rounded-xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 shadow-purple text-lite-purple transition ease-in duration-300'
-          : 'bg-white rounded-md lg:rounded-xl px-2 py-1 sm:px-3 sm:py-2 mx-1 sm:mx-4 hover:shadow-purple text-gray-500 transition ease-in duration-300'
+          ? 'bg-white rounded-md lg:rounded-xl px-1.5 py-1 sm:px-2.5 sm:py-2 mx-1 sm:mx-4 shadow-purple text-lite-purple transition ease-in duration-300'
+          : 'bg-white rounded-md lg:rounded-xl px-1.5 py-1 sm:px-2.5 sm:py-2 mx-1 sm:mx-4 hover:shadow-purple text-gray-500 transition ease-in duration-300'
       }
     >
       {icon}

@@ -20,14 +20,14 @@ const TableRow = ({ course, onDelete, onAdd }) => {
     <TableSkeleton />
   ) : (
     <tr
-      className="group border-b text-lite-purple group transition ease-in duration-200
+      className="group border-b dark:border-gray-500 text-lite-purple group transition ease-in duration-200
     hover:bg-zinc-50 hover:shadow-sm hover:border-b-0 hover:-translate-y-1
     dark:hover:bg-dark-tertiary"
     >
       <td className="px-xl py-4 font-medium text-center hidden sm:table-cell">
         <img
           src={lesson.image}
-          className="w-12 mx-auto group-hover:rotate-[360deg] duration-700"
+          className="w-12 mx-auto group-hover:scale-105 duration-700"
         />
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center">

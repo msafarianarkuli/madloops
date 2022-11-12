@@ -6,7 +6,7 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
   const { pathname } = useLocation();
   return (
     <table className="min-w-full animate-[onLoadPanel_1s_ease-in]">
-      <thead className="border-b text-base lg:text-xl font-bold">
+      <thead className="border-b dark:border-dark-tertiary text-base lg:text-xl font-bold">
         <tr>
           <th
             scope="col"
