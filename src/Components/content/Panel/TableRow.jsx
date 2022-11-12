@@ -27,7 +27,7 @@ const TableRow = ({ course, onDelete, onAdd }) => {
       <td className="px-xl py-4 font-medium text-center hidden sm:table-cell">
         <img
           src={lesson.image}
-          className="w-12 mx-auto group-hover:scale-105 duration-700"
+          className="w-12 mx-auto group-hover:scale-105 duration-700 rounded-md"
         />
       </td>
       <td className="text-base lg:text-xl font-light px-3 md:px-6 py-4 text-center">

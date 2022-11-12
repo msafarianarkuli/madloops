@@ -40,7 +40,7 @@ const Data = [
   // {
   //   id: uuidv4(),
   //   icon: <IoNotifications className="inline-block sm:text-2xl" />,
-  //   title: "اعلان ها",
+  //   title: "پیغام ها",
   //   path: "courseList",
   // },
   {

@@ -5,7 +5,7 @@ import TableRow from "./TableRow";
 const PanelTable = ({ data, onDelete, onAdd }) => {
   const { pathname } = useLocation();
   return (
-    <table className="min-w-full animate-[onLoadPanel_1s_ease-in]">
+    <table className="min-w-full animate-[onLoadPanel_1s_ease-in] relative">
       <thead className="border-b dark:border-dark-tertiary text-base lg:text-xl font-bold">
         <tr>
           <th
@@ -59,7 +59,12 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
           ))}
         </tbody>
       ) : (
-        <h2 className="text-center text-4xl">دوره ای یافت نشد!</h2>
+        <div className=" absolute right-[38%]">
+          <img
+            className="w-72 mt-12"
+            src={require("../../../Assets/img/mic.jpg")}
+          />
+        </div>
       )}
     </table>
   );

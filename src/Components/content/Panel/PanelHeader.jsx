@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
+import { Menu, Transition } from "@headlessui/react";
 import Input from "../../common/Inputs/TextInputs/Input";
 import { Button } from "../../common/button-component/button.component";
 import zing from "../../../Assets/img-user-panel/zing.svg";
@@ -9,18 +10,134 @@ import cart2 from "../../../Assets/img-user-panel/cart2.svg";
 import { selectCartCount } from "../../../store/cart/cartSlice";
 import { useSelector } from "react-redux";
 
+import { BsEyeFill } from "react-icons/bs";
+import { RiNotificationBadgeFill } from "react-icons/ri";
+
 const PanelHeader = ({ data, onSearch }) => {
   const counter = useSelector(selectCartCount);
   let location = useLocation();
   const navigate = useNavigate();
 
+  const classNames = (...classes) => {
+    return classes.filter(Boolean).join(" ");
+  };
+
   return (
     <div className="flex justify-end items-center py-5 lg:py-8 px-4 lg:px-2 animate-[onLoadPanel_.5s_ease-in]">
       <div className="basis-1/4">
-        <img
-          src={zing}
-          className="ml-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
-        />
+        <Menu as="div" className="relative">
+          <div className="mt-2 text-base absolute sm:-bottom-11 -bottom-8 xl:right-28 lg:right-[70px] md:right-12 sm:right-9">
+            <Menu.Button>
+              <img
+                className="mr-auto sm:mx-auto cursor-pointer w-10 h-10 sm:w-auto sm:h-auto hover:scale-125 transition ease-in-out duration-300"
+                src={zing}
+                alt="notification"
+              />
+            </Menu.Button>
+          </div>
+
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform opacity-0 scale-50"
+            enterTo="transform opacity-100 scale-100"
+            leave="transition ease-in duration-75"
+            leaveFrom="transform opacity-100 scale-100"
+            leaveTo="transform opacity-0 scale-50"
+          >
+            <Menu.Items className="absolute xl:-left-44 md:-left-48 sm:-left-56 -left-[234px] sm:w-96 w-[321px] z-50 sm:mt-16 mt-10 origin-top-right bg-white dark:bg-dark-secondary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
+              <div class="block py-4 px-4 rounded-t-lg text-xl text-center text-gray-700 bg-gray-50 dark:bg-dark-tertiary dark:text-white">
+                پیغام ها
+              </div>
+              <div className="text-right text-lg">
+                <hr className="dark:border-dark-tertiary" />
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/user-panel/myCourses">
+                      <div
+                        href="#"
+                        class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
+                      >
+                        <div class="flex-shrink-0">
+                          <div class="flex justify-center mt-5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
+                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100"/>
+                          </div>
+                        </div>
+                        <div class="pr-3 w-full">
+                          <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
+                            <span class="font-semibold text-lg text-gray-900 dark:text-white">
+                              خبر جدید برای تست کردن لیست باکس نوتیفیکیشن
+                            </span>
+                          </div>
+                          <div class="text-sm text-lite-purple font-mono group-hover:text-gray-400">
+                            10 دقیقه پیش
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/user-panel/">
+                      <div className="relative group">
+                        {/* <BsFillBookmarkHeartFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" /> */}
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                              : "text-gray-700",
+                            "block px-14 py-8 dark:text-gray-400"
+                          )}
+                        >
+                          علاقه مندی ها
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/">
+                      <div className="relative group">
+                        {/* <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" /> */}
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                              : "text-gray-700",
+                            "block px-14 py-8 dark:text-gray-400"
+                          )}
+                        >
+                          نقد و نظرات
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <hr className="dark:border-dark-tertiary" />
+                <Menu.Item>
+                  {({ active }) => (
+                    <div className="relative group">
+                      <BsEyeFill className="w-4.5 h-4.5 mr-2 absolute sm:right-[118px] right-[88px] top-5 text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 duration-150" />
+                      <button
+                        type="submit"
+                        className={classNames(
+                          active
+                            ? "bg-gray-100 dark:bg-dark-primary text-gray-900 duration-150"
+                            : "text-gray-700",
+                          "block w-full py-4 px-4 rounded-b-lg text-xl text-center text-gray-700 bg-gray-50 dark:bg-dark-tertiary dark:text-white"
+                        )}
+                      >
+                        مشاهده همه
+                      </button>
+                    </div>
+                  )}
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
       </div>
       <div className="basis-1/2">
         {location.pathname === "/user-panel" ? (
@@ -55,7 +172,7 @@ const PanelHeader = ({ data, onSearch }) => {
               />
               <Button
                 ButtonType="submit"
-                classButton="border rounded-lg w-full py-1 md:py-2 px-2 border-lite-purple text-lite-purple hover:text-white hover:bg-lite-purple
+                classButton="border-2 rounded-lg w-full py-1 md:py-2 px-2 border-lite-purple text-lite-purple hover:text-white hover:bg-lite-purple
                 transition ease-out duration-300 dark:bg-lite-purple dark:text-dark-primary-title dark:hover:border-deep-purple dark:hover:bg-deep-purple"
               >
                 جست و جو

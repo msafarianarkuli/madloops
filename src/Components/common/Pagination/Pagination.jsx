@@ -24,23 +24,23 @@ const Pagination = ({
     <nav className="flex justify-center">
       <ul className="flex absolute lg:bottom-16 sm:bottom-6 bottom-20">
         <li>
-          <a onClick={onPrev} className="pagination-prev">
+          <a onClick={onPrev} className="pagination-prev dark:border-dark-tertiary dark:hover:bg-dark-secondary">
             قبلی
           </a>
         </li>
         {loading ? (
           <li>
-            <a className="py-2 px-3 leading-tight text-lite-purple bg-white border border-gray-300 cursor-pointer font-bold dark:bg-dark-tertiary dark:text-dark-secondary-title">
-              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block"></span>
-              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1"></span>
-              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1"></span>
+            <a className="py-2 px-3 leading-tight text-lite-purple bg-white border border-gray-300 cursor-pointer font-bold dark:border-dark-tertiary dark:bg-dark-tertiary dark:text-dark-secondary-title">
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block "></span>
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1 "></span>
+              <span className="w-2 h-2 bg-white animate-pulse rounded-full inline-block mr-1 "></span>
             </a>
           </li>
         ) : (
           pages.map((page) => (
             <li key={page}>
               <a
-                className={`pagination-item  ${
+                className={`pagination-item dark:border-dark-tertiary  ${
                   currentPage === page
                     ? 'pagination-active'
                     : 'pagination-hover'
@@ -53,7 +53,7 @@ const Pagination = ({
           ))
         )}
         <li>
-          <a onClick={onNext} className="pagination-next">
+          <a onClick={onNext} className="pagination-next dark:border-dark-tertiary dark:hover:bg-dark-secondary">
             بعدی
           </a>
         </li>
