@@ -18,6 +18,7 @@ const cartSlice = createSlice({
         toastifyToast.warning("دوره از قبل در سبد خرید شما موجود است!");
       } else {
         state.cartItems.push(action.payload);
+        toastifyToast.success("دوره به سبد خرید شما اضافه شد");
       }
     },
     removeItem: (state, action) => {
