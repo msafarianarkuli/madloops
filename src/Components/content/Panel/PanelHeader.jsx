@@ -22,6 +22,14 @@ const PanelHeader = ({ data, onSearch }) => {
     return classes.filter(Boolean).join(" ");
   };
 
+  const handleLeadSP = (value) => {
+    const trimmedLead =
+      value
+        .substring(0, 60)
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+    return trimmedLead;
+  };
+
   return (
     <div className="flex justify-end items-center py-5 lg:py-8 px-4 lg:px-2 animate-[onLoadPanel_.5s_ease-in]">
       <div className="basis-1/4">
@@ -56,17 +64,17 @@ const PanelHeader = ({ data, onSearch }) => {
                     <Link to="/user-panel/myCourses">
                       <div
                         href="#"
-                        class="flex py-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
+                        class="flex py-3 px-4 w-full h-20 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
                       >
                         <div class="flex-shrink-0">
-                          <div class="flex justify-center mt-5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
+                          <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
                             <RiNotificationBadgeFill className="w-5 h-5 text-gray-100"/>
                           </div>
                         </div>
                         <div class="pr-3 w-full">
                           <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
                             <span class="font-semibold text-lg text-gray-900 dark:text-white">
-                              خبر جدید برای تست کردن لیست باکس نوتیفیکیشن
+                              {handleLeadSP('خبر جدید برای تست کردن لیست باکس نوتیفیکیشن')}
                             </span>
                           </div>
                           <div class="text-sm text-lite-purple font-mono group-hover:text-gray-400">
@@ -79,37 +87,25 @@ const PanelHeader = ({ data, onSearch }) => {
                 </Menu.Item>
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/user-panel/">
-                      <div className="relative group">
-                        {/* <BsFillBookmarkHeartFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" /> */}
-                        <div
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                              : "text-gray-700",
-                            "block px-14 py-8 dark:text-gray-400"
-                          )}
-                        >
-                          علاقه مندی ها
+                    <Link to="/user-panel/myCourses">
+                      <div
+                        href="#"
+                        class="flex py-3 px-4 w-full h-20 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
+                      >
+                        <div class="flex-shrink-0">
+                          <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
+                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100"/>
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <Link to="/">
-                      <div className="relative group">
-                        {/* <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" /> */}
-                        <div
-                          className={classNames(
-                            active
-                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                              : "text-gray-700",
-                            "block px-14 py-8 dark:text-gray-400"
-                          )}
-                        >
-                          نقد و نظرات
+                        <div class="pr-3 w-full">
+                          <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
+                            <span class="font-semibold text-lg text-gray-900 dark:text-white">
+                            {handleLeadSP("دوره اکبر اصغر نژاد اسموس کلایی موجود شد")}
+                            </span>
+                          </div>
+                          <div class="text-sm text-lite-purple font-mono group-hover:text-gray-400">
+                            همین الان
+                          </div>
                         </div>
                       </div>
                     </Link>
