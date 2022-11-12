@@ -64,7 +64,7 @@ const PanelHeader = ({ data, onSearch }) => {
                     <Link to="/user-panel/myCourses">
                       <div
                         href="#"
-                        class="flex py-3 px-4 w-full h-20 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
+                        class="flex py-3 px-4 w-full sm:h-20 h-28 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
                       >
                         <div class="flex-shrink-0">
                           <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
@@ -90,7 +90,7 @@ const PanelHeader = ({ data, onSearch }) => {
                     <Link to="/user-panel/myCourses">
                       <div
                         href="#"
-                        class="flex py-3 px-4 w-full h-20 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
+                        class="flex py-3 px-4 w-full sm:h-20 h-28 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
                       >
                         <div class="flex-shrink-0">
                           <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
