@@ -3,7 +3,7 @@ import PanelTable from './PanelTable';
 import PanelHeader from './PanelHeader';
 import Pagination from '../../common/Pagination/Pagination';
 import { paginate } from '../../../Core/utils/paginate';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectCurrentUser } from '../../../store/auth/authSlice';
 import {
   useDeleteStudentFromCourseMutation,
