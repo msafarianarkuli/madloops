@@ -50,8 +50,8 @@ const PanelHeader = ({ data, onSearch }) => {
                 type="search"
                 placeholder="دوره مورد نظر.."
                 err={true}
-                className="border mb-3 focus:input-shadow rounded-lg outline-0 w-full text-sm sm:text-lg py-1 md:py-2 px-2
-                 focus:outline focus:outline-gray-400 duration-300 dark:bg-transparent"
+                className="border mb-3 dark:border-gray-600 rounded-lg outline-0 w-full text-sm sm:text-lg py-1 md:py-2 px-2 focus:border-lite-purple
+                  dark:focus:border-lite-purple duration-300 dark:bg-transparent"
               />
               <Button
                 ButtonType="submit"

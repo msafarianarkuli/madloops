@@ -9,6 +9,7 @@ import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
+  const [showEModal, setEShowModal] = useState(false);
   const dispatch = useDispatch();
 
   const addProductToCart = () => dispatch(addItem(item));
@@ -16,6 +17,10 @@ const CoursePrice = ({ item }) => {
 
   const openModal = () => {
     setShowModal((prev) => !prev);
+  };
+
+  const openEModal = () => {
+    setEShowModal((prev) => !prev);
   };
 
   return (
@@ -51,11 +56,6 @@ const CoursePrice = ({ item }) => {
         </div>
       </div>
       <div>
-        <Modal
-          showModal={showModal}
-          setShowModal={setShowModal}
-          akbar={addProductForSave}
-        />
         <div>
           <Button
             onClick={openModal}
@@ -64,21 +64,26 @@ const CoursePrice = ({ item }) => {
             افزودن به علاقه مندی
           </Button>
         </div>
-      </div>
-      <div>
         <Modal
           showModal={showModal}
           setShowModal={setShowModal}
-          akbar={addProductToCart}
+          click={addProductForSave}
         />
+      </div>
+      <div>
         <div className="cursor-pointer">
           <Button
-            onClick={openModal}
+            onClick={openEModal}
             classButton="text-white w-full text-lg xl:py-2 md:py-3 sm:py-4 py-2 px-5 bg-[#42CD36] hover:bg-green-600 duration-300"
           >
             افزودن به سبد خرید
           </Button>
         </div>
+        <Modal
+          showModal={showEModal}
+          setShowModal={setEShowModal}
+          click={addProductToCart}
+        />
       </div>
     </div>
   );

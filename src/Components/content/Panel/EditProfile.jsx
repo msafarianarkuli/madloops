@@ -179,7 +179,7 @@ const EditProfile = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-6 p-6 animate-[onLoadPanel_.5s_ease-in]">
                 <div>
                   <Input
-                    className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-md bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                     name="firstName"
                     type="text"
                     label="نام:"
@@ -188,7 +188,7 @@ const EditProfile = () => {
                 </div>
                 <div>
                   <Input
-                    className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-md bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                     name="lastName"
                     type="text"
                     label="نام خانوادگی:"
@@ -197,7 +197,7 @@ const EditProfile = () => {
                 </div>
                 <div>
                   <Input
-                    className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-md bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                     name="nationalId"
                     type="text"
                     label="کد ملی:"
@@ -207,7 +207,7 @@ const EditProfile = () => {
                 </div>
                 <div>
                   <Input
-                    className="py-2 px-3 w-full rounded-md bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-md bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                     name="email"
                     type="text"
                     label="ایمیل:"
@@ -220,12 +220,12 @@ const EditProfile = () => {
                     label="تاریخ تولد:"
                     placeholder={userById?.birthDate}
                     classLabel="text-gray-600 block text-lg dark:text-dark-secondary-title"
-                    className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-lg bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                   />
                 </div>
                 <div>
                   <Input
-                    className="py-2 px-3 w-full rounded-lg bg-lite-gray focus:outline-gray-400 dark:text-white dark:bg-transparent dark:border"
+                    className="py-2 px-3 w-full dark:border-gray-500 rounded-lg bg-lite-gray outline-0 focus:border-lite-purple duration-150 dark:text-white dark:bg-transparent dark:border"
                     name="phoneNumber"
                     type="text"
                     label="شماره موبایل:"

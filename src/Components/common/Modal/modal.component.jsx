@@ -1,8 +1,7 @@
-import React, { useEffect, useCallback, useRef, Children } from "react";
+import React, { useEffect, useCallback, useRef } from "react";
 import { useSpring, animated } from "react-spring";
-import { Button } from "../button-component/button.component";
 
-const Modal = ({ showModal, setShowModal, akbar }) => {
+const Modal = ({ showModal, setShowModal, click }) => {
   const modalRef = useRef();
 
   const animation = useSpring({
@@ -61,7 +60,7 @@ const Modal = ({ showModal, setShowModal, akbar }) => {
                       خیر !
                     </button>
                     <button
-                      onClick={akbar}
+                      onClick={click}
                       type="submit"
                       className="border-2 border-lite-purple bg-lite-purple px-6 py-2 rounded-lg text-white mx-2
                     hover:bg-green-600 hover:border-green-600 hover:text-white transition ease-in-out duration-300"

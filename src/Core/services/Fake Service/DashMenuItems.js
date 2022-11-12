@@ -4,7 +4,12 @@ import {
   BsFillPlayCircleFill,
   BsBookmarkHeartFill,
 } from "react-icons/bs";
-import { FaClipboardList, FaUserEdit, FaTimesCircle } from "react-icons/fa";
+import {
+  FaClipboardList,
+  FaUserEdit,
+  FaTimesCircle,
+  FaEdit,
+} from "react-icons/fa";
 const Data = [
   {
     id: uuidv4(),
@@ -21,7 +26,7 @@ const Data = [
   {
     id: uuidv4(),
     icon: <BsBookmarkHeartFill className="inline-block sm:text-2xl" />,
-    title: "لیست علاقه مندی ها",
+    title: "علاقه مندی ها",
     path: "bookmark",
   },
   {
@@ -38,7 +43,7 @@ const Data = [
   },
   {
     id: uuidv4(),
-    icon: <FaUserEdit className="inline-block sm:text-2xl" />,
+    icon: <FaEdit className="inline-block sm:text-2xl" />,
     title: "ویرایش پسورد",
     path: "editPassword",
   },
