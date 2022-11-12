@@ -4,8 +4,14 @@ import { Button } from "./../../common/button-component/button.component";
 import { resetItem, selectCartTotalPrice } from "../../../store/cart/cartSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { selectCurrentUser } from "./../../../store/auth/authSlice";
+import { selectSessionCurrentUser } from "./../../../store/auth/authSessionSlice";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartTotal = useSelector(selectCartTotalPrice);
   const clearCartItem = () => dispatch(resetItem());
@@ -26,9 +32,18 @@ const CartPage = () => {
               >
                 حذف همه
               </Button>
-              <Button className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary">
-                ورود و ثبت سفارش
-              </Button>
+              {currentUser || currentSessionUser ? (
+                <Button className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary">
+                  ثبت سفارش
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => navigate("/login")}
+                  className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary"
+                >
+                  ورود و ثبت سفارش
+                </Button>
+              )}
             </div>
           </div>
         </div>
