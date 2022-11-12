@@ -1,12 +1,16 @@
-import { createSelector, createSlice, current } from "@reduxjs/toolkit";
-import { toastifyToast } from "./../../Components/common/Toast/toast";
+import {
+  createSelector,
+  createSlice,
+  current,
+} from '@reduxjs/toolkit';
+import { toastifyToast } from './../../Components/common/Toast/toast';
 
 const initialState = {
   bookMarkItems: [],
 };
 
 const bookMarkSlice = createSlice({
-  name: "bookMark",
+  name: 'bookMark',
   initialState,
   reducers: {
     addBookMark: (state, action) => {
@@ -15,7 +19,7 @@ const bookMarkSlice = createSlice({
       );
       if (existingBookMarkItem) {
         toastifyToast.warning(
-          "این دوره قبلا به لیست علاقه مندی های شما اضافه شده است"
+          'این دوره قبلا به لیست علاقه مندی های شما اضافه شده است'
         );
       } else {
         state.bookMarkItems.push(action.payload);
@@ -24,6 +28,9 @@ const bookMarkSlice = createSlice({
     removeBookMark: (state, action) => {
       state.bookMarkItems = state.bookMarkItems.filter(
         (item) => item._id !== action.payload
+      );
+      toastifyToast.success(
+        'این دوره از لیست علاقه مندی های شما حذف شد'
       );
     },
   },

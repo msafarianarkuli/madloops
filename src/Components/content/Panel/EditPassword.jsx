@@ -7,7 +7,10 @@ import { toastifyToast } from "../../common/Toast/toast";
 import { selectCurrentUser } from "./../../../store/auth/authSlice";
 import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 import InputFeild from "./../../common/Inputs/TextInputs/InputFeild";
-import { useResetPasswordMutation } from "../../../store/auth/authApi";
+import {
+  useResetPasswordMutation,
+  useForgetPasswordMutation,
+} from "../../../store/auth/authApi";
 import { useGetStudentByIdQuery } from "../../../store/studentManager/studentApi";
 
 const EditPassword = () => {
@@ -17,11 +20,12 @@ const EditPassword = () => {
     password: "",
     confirmPassword: "",
   });
-  const { data: userById } = useGetStudentByIdQuery({
+  const { data: userById, isFetching } = useGetStudentByIdQuery({
     id: currentUser?._id || currentSessionUser?._id,
   });
-
+  console.log(userById);
   const [resetPassword] = useResetPasswordMutation();
+  const [forgetPassword] = useForgetPasswordMutation();
 
   const handleSubmit = (values) => {
     const editing = async () => {
@@ -31,9 +35,23 @@ const EditPassword = () => {
         id: currentUser?._id || currentSessionUser?._id,
       };
 
-      if (userById?.resetPasswordToken) {
+      if (userById?.resetPasswordToken !== null) {
         const response = await resetPassword({
-          password: userObj?.password,
+          password: userObj.password,
+          token: userById?.resetPasswordToken,
+        });
+        if (response.status === 200) {
+          toastifyToast.success(response.data.message[0].message);
+          values.password = "";
+          values.confirmPassword = "";
+        } else {
+          toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+        }
+      } else {
+        await forgetPassword({ email: userById?.email });
+        await isFetching;
+        const response = await resetPassword({
+          password: userObj.password,
           token: userById?.resetPasswordToken,
         });
         if (response.status === 200) {

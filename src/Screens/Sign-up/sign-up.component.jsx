@@ -51,7 +51,7 @@ const SignUpPage = () => {
       nationalId: formData.nationalId,
       fullName: formData.firstName + " " + formData.lastName,
       profile:
-        "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
+        "https://mechanicwp.ir/wp-content/uploads/2018/04/user-circle.png",
     });
   };
 

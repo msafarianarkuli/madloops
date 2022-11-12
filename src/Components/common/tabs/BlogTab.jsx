@@ -4,16 +4,11 @@ import CommentsTab from './CommentsTab';
 import CustomTab from './CustomTab';
 import tabData from '../../../Core/services/Fake Service/BlogTabList';
 
-const BlogTab = ({ onLike, onDisLike, onSendReply, comments }) => {
+const BlogTab = ({ blogId }) => {
   return (
     <CustomTab tabs={tabData}>
       <TabPanel>
-        <CommentsTab
-          onLike={onLike}
-          onDisLike={onDisLike}
-          onSendReply={onSendReply}
-          comments={comments}
-        />
+        <CommentsTab blogId={blogId} />
       </TabPanel>
     </CustomTab>
   );

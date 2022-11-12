@@ -3,8 +3,12 @@ import SendComment from '../comments/SendComment';
 import Comment from '../comments/Comment';
 import { useGetCommentsQuery } from '../../../store/comments/commentsSlice';
 
-const CommentsTab = () => {
-  const { data: comments } = useGetCommentsQuery();
+const CommentsTab = ({ id }) => {
+  const { comments } = useGetCommentsQuery('getComments', {
+    selectFromResult: ({ data }) => ({
+      comments: data?.filter((comment) => comment.postId === id),
+    }),
+  });
 
   const [commentActive, setCommentActive] = useState(false);
   return (
@@ -17,7 +21,10 @@ const CommentsTab = () => {
           >
             انصراف
           </div>
-          <SendComment onCommentActive={setCommentActive} />
+          <SendComment
+            onCommentActive={setCommentActive}
+            courseId={id}
+          />
         </div>
       ) : (
         <div>

@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import DashCourses from "../../../Core/services/Fake Service/DashCoursesList";
-import DashUserCourses from "../../../Core/services/Fake Service/DashMyCourses";
-import PanelHeader from "./PanelHeader";
-import PanelTable from "./PanelTable";
-import Pagination from "../../common/Pagination/Pagination";
-import { paginate } from "../../../Core/utils/paginate";
-import { useSelector } from "react-redux";
-import { selectCurrentUser } from "./../../../store/auth/authSlice";
-import { selectSessionCurrentUser } from "./../../../store/auth/authSessionSlice";
-import { toastifyToast } from "./../../common/Toast/toast";
+import React, { useEffect, useState } from 'react';
+import DashCourses from '../../../Core/services/Fake Service/DashCoursesList';
+import DashUserCourses from '../../../Core/services/Fake Service/DashMyCourses';
+import PanelHeader from './PanelHeader';
+import PanelTable from './PanelTable';
+import Pagination from '../../common/Pagination/Pagination';
+import { paginate } from '../../../Core/utils/paginate';
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from './../../../store/auth/authSlice';
+import { selectSessionCurrentUser } from './../../../store/auth/authSessionSlice';
+import { toastifyToast } from './../../common/Toast/toast';
 import {
   useAddStudentToCourseMutation,
   useGetCoursesQuery,
-} from "../../../store/courses/coursesSlice";
+} from '../../../store/courses/coursesSlice';
 
 const CoursesList = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -24,7 +24,7 @@ const CoursesList = () => {
   ] = useAddStudentToCourseMutation();
 
   const [coursesList, setCoursesList] = useState([]);
-  const [pageSize, setPageSize] = useState(4);
+  const [pageSize, setPageSize] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState();
   const [searchList, setSearchList] = useState([]);
@@ -41,7 +41,11 @@ const CoursesList = () => {
         if (!isInCourse) return row;
       });
       setSearchList(filteredData);
-      const paginateData = paginate(filteredData, currentPage, pageSize);
+      const paginateData = paginate(
+        filteredData,
+        currentPage,
+        pageSize
+      );
       const dataCount = filteredData?.length;
       setCount(dataCount);
       setCoursesList(paginateData);
@@ -68,7 +72,9 @@ const CoursesList = () => {
     setCoursesList((old) => {
       let newData = [...old];
       let newCoursesData = newData;
-      newCoursesData = newCoursesData.filter((item) => item._id !== courseId);
+      newCoursesData = newCoursesData.filter(
+        (item) => item._id !== courseId
+      );
       newData = newCoursesData;
       return newData;
     });
@@ -89,7 +95,8 @@ const CoursesList = () => {
   };
 
   const handlePrev = () => {
-    currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
+    currentPage !== 1 &&
+      setCurrentPage((currentPage) => currentPage - 1);
   };
 
   return (

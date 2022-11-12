@@ -5,6 +5,7 @@ import PublicRoute from "../PublicRoute/PublicRoute";
 import LoginPage from "../../Screens/Login/login.component";
 import SignUpPage from "../../Screens/Sign-up/sign-up.component";
 import ForgetPasswordPage from "../../Screens/Forget-Password/forget-password.component";
+import AdminAuth from "../AdminAuthenticated/AdminAuthenticated";
 
 const UnAuthenticated = (props) => {
   return (
@@ -12,6 +13,7 @@ const UnAuthenticated = (props) => {
       <Route path="login" element={<LoginPage />} />
       <Route path="sign-up" element={<SignUpPage />} />
       <Route path="forget-pass" element={<ForgetPasswordPage />} />
+      <Route path="/adminAuth/:token" element={<AdminAuth />} />
 
       <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
     </Routes>

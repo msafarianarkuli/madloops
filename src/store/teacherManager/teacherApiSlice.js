@@ -10,8 +10,20 @@ export const teacherApiSlice = apiSlice.injectEndpoints({
       query: () => "employee/getallteachers",
       providesTags: ["teacher"],
     }),
+    getEmployee: builder.query({
+      query: (id) => ({
+        url: `employee/${id.id}`,
+        headers: {
+          "x-auth-token": id.token,
+        },
+      }),
+      // providesTags: ["employee"],
+    }),
   }),
 });
 
-export const { useGetLastTeacherQuery, useGetAllTeachersQuery } =
-  teacherApiSlice;
+export const {
+  useGetLastTeacherQuery,
+  useGetAllTeachersQuery,
+  useGetEmployeeQuery,
+} = teacherApiSlice;

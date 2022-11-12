@@ -1,20 +1,26 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { FieldName } from "../../Components/common/field-name-component/field-name.component";
-import { FiClock } from "react-icons/fi";
-import { Button } from "../../Components/common/button-component/button.component";
-import BlogTab from "../../Components/common/tabs/BlogTab";
-import commentData from "../../Core/services/Fake Service/CourseComments";
-import { handleDateSortingDes } from "../../Core/utils/sorting";
-import Like from "../../Components/common/Like/Like";
-import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { FieldName } from '../../Components/common/field-name-component/field-name.component';
+import { FiClock } from 'react-icons/fi';
+import { Button } from '../../Components/common/button-component/button.component';
+import BlogTab from '../../Components/common/tabs/BlogTab';
+import commentData from '../../Core/services/Fake Service/CourseComments';
+import { handleDateSortingDes } from '../../Core/utils/sorting';
+import Like from '../../Components/common/Like/Like';
+import { useGetAllNewsQuery } from '../../store/news/newsApiSlice';
 
 const SingleBlog = () => {
   const { id } = useParams();
   const { blogs, blogItem, isLoading, isSuccess, isError, error } =
-    useGetAllNewsQuery("getAllNews", {
-      selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
-        blogItem: data?.result.find((item) => item._id === id),
+    useGetAllNewsQuery('getAllNews', {
+      selectFromResult: ({
+        data,
+        isLoading,
+        isSuccess,
+        isError,
+        error,
+      }) => ({
+        blogItem: data?.find((item) => item._id === id),
         isLoading,
         isSuccess,
         isError,
@@ -23,13 +29,21 @@ const SingleBlog = () => {
       }),
     });
 
-  const blogss = handleDateSortingDes(blogs);
+  const [sortedBlogs, setSortedBlogs] = useState([]);
+
+  useEffect(() => {
+    const offerNews = async () => {
+      const blogss = await handleDateSortingDes(blogs, 5);
+      setSortedBlogs(blogss);
+    };
+    offerNews();
+  }, [isLoading]);
 
   const navigate = useNavigate();
   const [comments, setComments] = useState(commentData);
 
   const handleBlogLike = (id) => {
-    console.log("liked", id);
+    console.log('liked', id);
   };
 
   const handlelike = (id) => {
@@ -50,7 +64,7 @@ const SingleBlog = () => {
           : comment;
       })
     );
-    console.log("liked", id);
+    console.log('liked', id);
   };
 
   const handleDislike = (id) => {
@@ -71,46 +85,48 @@ const SingleBlog = () => {
           : comment;
       })
     );
-    console.log("disLiked", id);
+    console.log('disLiked', id);
   };
 
   const handleSendReply = (
     refId,
     reply,
-    name = "میهمان",
-    email = "example@gmail.com"
+    name = 'میهمان',
+    email = 'example@gmail.com'
   ) => {
     const newReply = {
       id: comments.length + 1,
       refId: refId,
       userName: name,
-      date: "16 خرداد 1401",
-      time: "14:53",
+      date: '16 خرداد 1401',
+      time: '14:53',
       body: reply,
       liked: false,
       disLiked: false,
       likeCount: 0,
       disLikeCount: 0,
-      userImg: "",
+      userImg: '',
       email: email,
     };
     comments.unshift(newReply);
     setComments(comments);
-    console.log("sent", comments);
+    console.log('sent', comments);
   };
 
   const handleLeadP = (value) => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
   const handleLeadH = (value) => {
     const trimmedLead =
       value
         .substring(0, 42)
-        .substring(0, value.substring(0, 40).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 40).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
 
@@ -167,7 +183,7 @@ const SingleBlog = () => {
                     <span className="">
                       <img
                         className="w-10 m-2 sm:mr-5 mr-20"
-                        src={require("../../Assets/img/profile.png")}
+                        src={require('../../Assets/img/profile.png')}
                         alt="profile"
                       />
                     </span>
@@ -201,12 +217,7 @@ const SingleBlog = () => {
                 </div>
               </div>
               <div className="my-10 pb-5">
-                <BlogTab
-                  comments={comments}
-                  onLike={handlelike}
-                  onDisLike={handleDislike}
-                  onSendReply={handleSendReply}
-                />
+                <BlogTab blogId={id} />
               </div>
             </div>
           </div>
@@ -224,7 +235,7 @@ const SingleBlog = () => {
                 </h2>
               </div>
               <div className="overflow-y-scroll ml-1 p-1 pr-0 faq-container h-650">
-                {blogss?.map((item) => {
+                {sortedBlogs?.map((item) => {
                   return (
                     <div
                       onClick={() => navigate(`/blogs/${item._id}`)}
@@ -252,7 +263,7 @@ const SingleBlog = () => {
                         <div className="col-span-2 w-36 flex justify-between">
                           <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600 dark:text-dark-secondary-title" />
                           <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md dark:text-dark-secondary-title">
-                            {item.date}
+                            {item?.date}
                           </span>
                         </div>
                       </div>

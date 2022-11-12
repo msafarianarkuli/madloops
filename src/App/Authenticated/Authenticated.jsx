@@ -10,19 +10,26 @@ import CoursesList from "../../Components/content/Panel/CoursesList";
 import EditProfile from "../../Components/content/Panel/EditProfile";
 import MyBookMark from "../../Components/content/Panel/MyBookMark";
 import EditPassword from "../../Components/content/Panel/EditPassword";
+import { selectCurrentUser } from "./../../store/auth/authSlice";
+import { useSelector } from "react-redux";
+import { selectSessionCurrentUser } from "../../store/auth/authSessionSlice";
 
 const Authenticated = (props) => {
+  const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+  console.log(currentUser || currentSessionUser.role);
   return (
     <Routes>
-      <Route path="user-panel" element={<UserPanel />}>
-        <Route index element={<Dashboard />} />
-        <Route path="myCourses" element={<MyCourses />} />
-        <Route path="courseList" element={<CoursesList />} />
-        <Route path="editProfile" element={<EditProfile />} />
-        <Route path="bookmark" element={<MyBookMark />} />
-        <Route path="editPassword" element={<EditPassword />} />
-      </Route>
-
+      {currentUser?.role || currentSessionUser?.role === "student" ? (
+        <Route path="user-panel" element={<UserPanel />}>
+          <Route index element={<Dashboard />} />
+          <Route path="myCourses" element={<MyCourses />} />
+          <Route path="courseList" element={<CoursesList />} />
+          <Route path="editProfile" element={<EditProfile />} />
+          <Route path="bookmark" element={<MyBookMark />} />
+          <Route path="editPassword" element={<EditPassword />} />
+        </Route>
+      ) : null}
       <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
     </Routes>
   );
