@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import PanelTable from './PanelTable';
-import PanelHeader from './PanelHeader';
-import Pagination from '../../common/Pagination/Pagination';
-import { paginate } from '../../../Core/utils/paginate';
-import { useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../../store/auth/authSlice';
+import React, { useState, useEffect } from "react";
+import PanelTable from "./PanelTable";
+import PanelHeader from "./PanelHeader";
+import Pagination from "../../common/Pagination/Pagination";
+import { paginate } from "../../../Core/utils/paginate";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCurrentUser } from "../../../store/auth/authSlice";
 import {
   useDeleteStudentFromCourseMutation,
   useGetCoursesQuery,
-} from '../../../store/courses/coursesSlice';
-import { toastifyToast } from '../../common/Toast/toast';
-import { selectBookMarkItems } from '../../../store/bookmark/bookmarkSlice';
-import { removeBookMark } from '../../../store/bookmark/bookmarkSlice';
-import { selectSessionCurrentUser } from '../../../store/auth/authSessionSlice';
+} from "../../../store/courses/coursesSlice";
+import { toastifyToast } from "../../common/Toast/toast";
+import { selectBookMarkItems } from "../../../store/bookmark/bookmarkSlice";
+import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
+import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
 
 const MyBookMark = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -42,11 +42,7 @@ const MyBookMark = () => {
         if (isInCourse) return row;
       });
 
-      const paginateData = paginate(
-        filteredData,
-        currentPage,
-        pageSize
-      );
+      const paginateData = paginate(filteredData, currentPage, pageSize);
       const dataCount = filteredData?.length;
       setCount(dataCount);
       setMyCourse(paginateData);
@@ -63,23 +59,6 @@ const MyBookMark = () => {
       toastifyToast.error(error.data.message[0].message);
     }
   }, [isLoad]);
-
-  const deleteCourse = async (courseId) => {
-    await deleteStudentFromCourse({
-      courseId: courseId,
-      _id: currentUser?._id || currentSessionUser?._id,
-    });
-
-    setMyCourse((old) => {
-      let newData = [...old];
-      let newCoursesData = newData;
-      newCoursesData = newCoursesData.filter(
-        (item) => item._id !== courseId
-      );
-      newData = newCoursesData;
-      return newData;
-    });
-  };
 
   const handleSearch = (arr) => {
     setCurrentPage(1);
@@ -98,8 +77,7 @@ const MyBookMark = () => {
   };
 
   const handlePrev = () => {
-    currentPage !== 1 &&
-      setCurrentPage((currentPage) => currentPage - 1);
+    currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
   };
 
   const handleDelete = (id) => {

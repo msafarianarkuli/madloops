@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import editImg from "../../../Assets/img-user-panel/edit.png";
@@ -20,10 +20,23 @@ const EditPassword = () => {
     password: "",
     confirmPassword: "",
   });
-  const { data: userById, isFetching } = useGetStudentByIdQuery({
+  const {
+    data: userById,
+    isLoading,
+    isFetching,
+  } = useGetStudentByIdQuery({
     id: currentUser?._id || currentSessionUser?._id,
   });
-  console.log(userById);
+
+  useEffect(() => {
+    const getMountUser = async () => {
+      const userData = await userById;
+      console.log(userData);
+    };
+    getMountUser();
+  }, [isFetching, isLoading]);
+
+  // console.log(userById);
   const [resetPassword] = useResetPasswordMutation();
   const [forgetPassword] = useForgetPasswordMutation();
 
@@ -35,31 +48,39 @@ const EditPassword = () => {
         id: currentUser?._id || currentSessionUser?._id,
       };
 
-      if (userById?.resetPasswordToken !== null) {
+      if (userById?.resetPasswordToken !== undefined) {
         const response = await resetPassword({
           password: userObj.password,
           token: userById?.resetPasswordToken,
         });
-        if (response.status === 200) {
-          toastifyToast.success(response.data.message[0].message);
+        console.log(response.result === "info");
+        if (response.result === "info") {
+          toastifyToast.success(response.message[0].message);
           values.password = "";
           values.confirmPassword = "";
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+          console.log("userData");
         }
       } else {
-        await forgetPassword({ email: userById?.email });
-        await isFetching;
-        const response = await resetPassword({
-          password: userObj.password,
-          token: userById?.resetPasswordToken,
-        });
-        if (response.status === 200) {
-          toastifyToast.success(response.data.message[0].message);
-          values.password = "";
-          values.confirmPassword = "";
+        const res = await forgetPassword({ email: userById?.email });
+
+        if (res.result === "info") {
+          const response = await resetPassword({
+            password: userObj.password,
+            token: userById?.resetPasswordToken,
+          });
+          if (response.result === "info") {
+            toastifyToast.success(response.data.message[0].message);
+            values.password = "";
+            values.confirmPassword = "";
+          } else {
+            toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+            console.log("userba");
+          }
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+          console.log("userfas");
         }
       }
     };
@@ -102,7 +123,7 @@ const EditPassword = () => {
         >
           {({ resetForm }) => (
             <Form>
-              <div className="flex flex-col items-center">
+              <div className="flex flex-col items-center mt-5">
                 <InputFeild
                   classForm="flex flex-col items-start h-24"
                   label="رمز عبور جدید:"
@@ -126,7 +147,7 @@ const EditPassword = () => {
                   classError="text-red-500 h-[20px] mb-1"
                 />
               </div>
-              <div className="text-center text-base sm:text-xl animate-[onLoadPanel_1s_ease-in]">
+              <div className="mt-10 text-center text-base sm:text-xl animate-[onLoadPanel_1s_ease-in]">
                 <button
                   className="border-2 border-lite-purple px-6 py-2 rounded-lg text-lite-purple mx-2
               hover:border-red-600 hover:text-red-600 transition ease-in-out duration-300"

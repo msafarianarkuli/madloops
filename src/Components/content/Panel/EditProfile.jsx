@@ -68,7 +68,7 @@ const EditProfile = () => {
           birthDate: values.birthDate,
           nationalId: userById?.nationalId,
           profile:
-            "http://res.cloudinary.com/df9w7u89a/image/upload/v1652941122/pmdsibcoa9kuv8xmmozn.png",
+            "https://mechanicwp.ir/wp-content/uploads/2018/04/user-circle.png",
           _id: id._id,
         });
 
