@@ -15,7 +15,7 @@ const CartHover = () => {
 
   return (
     <div
-      className="md:grid hidden w-96 h-fit dark:border-white-secondary border-[1px] fixed top-[56px] left-48 z-40 rounded-lg"
+      className="md:grid hidden w-96 h-fit dark:border-white-secondary border dark:border-dark-tertiary fixed top-[56px] left-48 z-40 rounded-lg"
       style={{
         opacity: !isCartOpen ? "0" : "1",
         visibility: !isCartOpen ? "hidden" : "visible",
@@ -28,7 +28,7 @@ const CartHover = () => {
       {cartItems?.map((item) => {
         return (
           <div
-            className="w-full h-full flex border-b-2 dark:bg-dark-secondary bg-white p-2 rounded-lg"
+            className="w-full h-full flex border-b dark:border-dark-tertiary dark:bg-dark-secondary bg-white p-2 rounded-t-lg"
             key={item._id}
           >
             <div className="w-20 p-2 h-20 my-auto">
