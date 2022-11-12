@@ -11,7 +11,8 @@ import { selectCartCount } from "../../../store/cart/cartSlice";
 import { useSelector } from "react-redux";
 
 import { BsEyeFill } from "react-icons/bs";
-import { RiNotificationBadgeFill } from "react-icons/ri";
+import { RiNotificationBadgeFill, RiChatCheckFill } from "react-icons/ri";
+import { CgMoreVertical } from "react-icons/cg";
 
 const PanelHeader = ({ data, onSearch }) => {
   const counter = useSelector(selectCartCount);
@@ -53,28 +54,74 @@ const PanelHeader = ({ data, onSearch }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-50"
           >
-            <Menu.Items className="absolute xl:-left-44 md:-left-48 sm:-left-56 -left-[234px] sm:w-96 w-[321px] z-50 sm:mt-16 mt-10 origin-top-right bg-white dark:bg-dark-secondary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
+            <Menu.Items className="absolute 2xl:-left-44 xl:-left-56 md:-left-60 sm:-left-64 -left-[234px] sm:w-96 w-[321px] z-40 sm:mt-16 mt-10 origin-top-right bg-white dark:bg-dark-secondary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
               <div class="block py-4 px-4 rounded-t-lg text-xl text-center text-gray-700 bg-gray-50 dark:bg-dark-tertiary dark:text-white">
                 پیغام ها
+                <div className="relative">
+                  <Menu as="div">
+                    <div className="mt-2 text-base absolute -bottom-11 xl:right-28 lg:right-[110px] md:right-28 sm:right-28 right-12">
+                      <Menu.Button>
+                        <CgMoreVertical className="w-6 h-6 absolute hover:text-gray-400 dark:hover:text-gray-400 duration-150 right-52 bottom-11" />
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-50"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-50"
+                        >
+                          <Menu.Items className="absolute sm:-left-64 -left-[255px] sm:w-64 w-[270px] z-50 -mt-5 origin-top-left bg-white dark:bg-dark-primary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link to="/user-panel/">
+                                  <div
+                                    href="#"
+                                    class="flex py-3 px-3 w-full h-14 hover:bg-slate-200 rounded-lg dark:hover:bg-gray-800 group border-b dark:border-dark-tertiary"
+                                  >
+                                    <div class="flex-shrink-0">
+                                      <div class="flex justify-center -mt-0.5 items-center w-9 h-9 rounded-full bg-gray-900 border border-white dark:border-gray-800">
+                                        <RiChatCheckFill className="w-5 h-5 text-gray-100" />
+                                      </div>
+                                    </div>
+                                    <div class="pr-3 w-full">
+                                      <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
+                                        <span class="text-lg text-gray-900 dark:text-white">
+                                          علامت زدن همه به خوانده شده
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu.Button>
+                    </div>
+                  </Menu>
+                </div>
               </div>
               <div className="text-right text-lg">
                 <hr className="dark:border-dark-tertiary" />
                 <Menu.Item>
                   {({ active }) => (
-                    <Link to="/user-panel/myCourses">
+                    <Link to="/user-panel/">
                       <div
                         href="#"
                         class="flex py-3 px-4 w-full sm:h-20 h-28 hover:bg-gray-100 dark:hover:bg-gray-700 group border-b dark:border-dark-tertiary"
                       >
                         <div class="flex-shrink-0">
                           <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
-                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100"/>
+                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100" />
                           </div>
                         </div>
                         <div class="pr-3 w-full">
                           <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
                             <span class="font-semibold text-lg text-gray-900 dark:text-white">
-                              {handleLeadSP('خبر جدید برای تست کردن لیست باکس نوتیفیکیشن')}
+                              {handleLeadSP(
+                                "خبر جدید برای تست کردن لیست باکس نوتیفیکیشن"
+                              )}
                             </span>
                           </div>
                           <div class="text-sm text-lite-purple font-mono group-hover:text-gray-400">
@@ -94,13 +141,15 @@ const PanelHeader = ({ data, onSearch }) => {
                       >
                         <div class="flex-shrink-0">
                           <div class="flex justify-center mt-1.5 items-center w-11 h-11 rounded-full bg-gray-700 border border-white dark:border-gray-800">
-                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100"/>
+                            <RiNotificationBadgeFill className="w-5 h-5 text-gray-100" />
                           </div>
                         </div>
                         <div class="pr-3 w-full">
                           <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">
                             <span class="font-semibold text-lg text-gray-900 dark:text-white">
-                            {handleLeadSP("دوره اکبر اصغر نژاد اسموس کلایی موجود شد")}
+                              {handleLeadSP(
+                                "دوره اکبر اصغر نژاد اسموس کلایی موجود شد"
+                              )}
                             </span>
                           </div>
                           <div class="text-sm text-lite-purple font-mono group-hover:text-gray-400">
