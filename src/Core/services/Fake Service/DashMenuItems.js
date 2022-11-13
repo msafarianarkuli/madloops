@@ -10,6 +10,8 @@ import {
   FaTimesCircle,
   FaEdit,
 } from "react-icons/fa";
+import { IoNotifications } from "react-icons/io5";
+
 const Data = [
   {
     id: uuidv4(),
@@ -35,6 +37,12 @@ const Data = [
     title: "لیست دوره ها",
     path: "courseList",
   },
+  // {
+  //   id: uuidv4(),
+  //   icon: <IoNotifications className="inline-block sm:text-2xl" />,
+  //   title: "پیغام ها",
+  //   path: "courseList",
+  // },
   {
     id: uuidv4(),
     icon: <FaUserEdit className="inline-block sm:text-2xl" />,

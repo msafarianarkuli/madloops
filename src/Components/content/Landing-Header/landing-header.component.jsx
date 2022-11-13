@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
-import { Button } from './../../common/button-component/button.component';
-import { FieldName } from '../../common/field-name-component/field-name.component';
-import { Typewriter } from 'react-simple-typewriter';
-import { Link } from 'react-router-dom';
-import LandingModal from '../../common/Landing-Modal/landing-modal.component';
-import Robot from '../Landing-Header/landing-header-robot.component';
-import { useGetAllNewsQuery } from '../../../store/news/newsApiSlice';
-import { useGetCoursesQuery } from '../../../store/courses/coursesSlice';
-import { useGetAllTeachersQuery } from '../../../store/teacherManager/teacherApiSlice';
-import { useGetLessonsQuery } from '../../../store/lesson/lessonApiSlice';
+import React, { useState } from "react";
+import { Button } from "./../../common/button-component/button.component";
+import { FieldName } from "../../common/field-name-component/field-name.component";
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
+import LandingModal from "../../common/Landing-Modal/landing-modal.component";
+import Robot from "../Landing-Header/landing-header-robot.component";
+import { useGetAllNewsQuery } from "../../../store/news/newsApiSlice";
+import { useGetCoursesQuery } from "../../../store/courses/coursesSlice";
+import { useGetAllTeachersQuery } from "../../../store/teacherManager/teacherApiSlice";
+import { useGetLessonsQuery } from "../../../store/lesson/lessonApiSlice";
+import { FaBookReader } from "react-icons/fa";
 
 const LandingHeader = () => {
   const [showModal, setShowModal] = useState(false);
@@ -37,7 +38,7 @@ const LandingHeader = () => {
                 <div className="h-[130px]" data-aos="fade-down">
                   <Typewriter
                     words={[
-                      'برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.',
+                      "برنامه نویسی با پژوهشگاه سپهر بهترین قدم شما برای کسب رسیدن به اهداف است تا با توانایی و علم هایی که به تنهایی بر توسط پژوهشگاه سپهر کسب کردید بتواند از طرق ان هزینه ها به درامد و خواسته های مورد نظرتان دست یابید و تا به اهدافتون علاوه بر آن بتوانید به تنهایی بصورت فری لنس علم هایی که به کار کنید و هزینه های مناسبی را دست یابید و دریافت کنید.",
                     ]}
                     cursor
                     cursorStyle=" |"
@@ -52,11 +53,7 @@ const LandingHeader = () => {
               data-aos="fade-down"
             >
               <div className="col-span-1">
-                <img
-                  className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/students.png')}
-                  alt="student"
-                />
+                <FaBookReader className="w-8 h-8 xl:w-12 xl:h-12 lg:w-9 lg:h-9 md:w-7 md:h-7 sm:w-5 sm:h-5 m-auto text-[#5DC8B2] hover:scale-125 duration-300 ease-in-out" />
                 <FieldName
                   showP
                   field={`${allLessons?.result.length} درس`}
@@ -66,7 +63,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/online-learning.png')}
+                  src={require("../../../Assets/img/online-learning.png")}
                   alt="online-learning"
                 />
                 <FieldName
@@ -78,7 +75,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/newsletter.png')}
+                  src={require("../../../Assets/img/newsletter.png")}
                   alt="newsletter"
                 />
                 <FieldName
@@ -90,7 +87,7 @@ const LandingHeader = () => {
               <div className="col-span-1">
                 <img
                   className="w-8 xl:w-12 lg:w-9 md:w-7 sm:w-5 m-auto hover:scale-125 duration-300 ease-in-out"
-                  src={require('../../../Assets/img/presentation.png')}
+                  src={require("../../../Assets/img/presentation.png")}
                   alt="presentation"
                 />
                 <FieldName

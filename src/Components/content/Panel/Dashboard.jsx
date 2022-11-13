@@ -106,7 +106,7 @@ const Dashboard = () => {
               >
                 <img
                   src={getDate().orderedDates.lesson.image}
-                  className="w-20 group-hover:scale-105 duration-700"
+                  className="w-20 group-hover:scale-105 duration-700 rounded-md"
                 />
                 <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
                   <p className="text-2xl font-bold mb-4">
@@ -144,7 +144,7 @@ const Dashboard = () => {
                 >
                   <img
                     src={reactIcon}
-                    className="w-20 group-hover:scale-105 duration-700"
+                    className="w-20 group-hover:scale-105 duration-700 rounded-md"
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
@@ -165,7 +165,7 @@ const Dashboard = () => {
                 >
                   <img
                     src={reactIcon}
-                    className="w-20 group-hover:scale-105 duration-700"
+                    className="w-20 group-hover:scale-105 duration-700 rounded-md"
                   />
                   <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
                     <p className="text-xl md:text-2xl font-bold mb-4">
