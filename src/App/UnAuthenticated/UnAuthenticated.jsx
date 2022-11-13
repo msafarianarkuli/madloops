@@ -10,12 +10,11 @@ import AdminAuth from "../AdminAuthenticated/AdminAuthenticated";
 const UnAuthenticated = (props) => {
   return (
     <Routes>
+      <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="sign-up" element={<SignUpPage />} />
       <Route path="forget-pass" element={<ForgetPasswordPage />} />
       <Route path="/adminAuth/:token" element={<AdminAuth />} />
-
-      <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
     </Routes>
   );
 };

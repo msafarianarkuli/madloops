@@ -17,7 +17,11 @@ export const teacherApiSlice = apiSlice.injectEndpoints({
           "x-auth-token": id.token,
         },
       }),
-      // providesTags: ["employee"],
+      transformResponse: (responseData) => {
+        console.log(responseData);
+        return responseData.result;
+      },
+      // providesTags: ["teacher"],
     }),
   }),
 });

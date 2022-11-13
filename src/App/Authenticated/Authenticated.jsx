@@ -20,6 +20,7 @@ const Authenticated = (props) => {
   console.log(currentUser || currentSessionUser.role);
   return (
     <Routes>
+      <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
       {currentUser?.role || currentSessionUser?.role === "student" ? (
         <Route path="user-panel" element={<UserPanel />}>
           <Route index element={<Dashboard />} />
@@ -30,7 +31,6 @@ const Authenticated = (props) => {
           <Route path="editPassword" element={<EditPassword />} />
         </Route>
       ) : null}
-      <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
     </Routes>
   );
 };

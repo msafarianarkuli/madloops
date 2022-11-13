@@ -55,27 +55,32 @@ const Login = () => {
         email: values.email,
         password: values.password,
       });
-      dispatch(
-        logIn({
-          user: response.data.result.studentModel,
-          token: response.data.result.jwtToken,
-        })
-      );
+
+      setTimeout(() => {
+        dispatch(
+          logIn({
+            user: response.data.result.studentModel,
+            token: response.data.result.jwtToken,
+          })
+        );
+      }, 100);
     } else {
       const response = await login({
         email: values.email,
         password: values.password,
       });
-      dispatch(
-        logInSession({
-          user: response.data.result.studentModel,
-          token: response.data.result.jwtToken,
-        })
-      );
+      setTimeout(() => {
+        dispatch(
+          logInSession({
+            user: response.data.result.studentModel,
+            token: response.data.result.jwtToken,
+          })
+        );
+      }, 100);
     }
   };
   const handleEmpLogin = () => {
-    window.location.href = "http://localhost:2001";
+    window.location.href = "http://localhost:2001/login";
   };
 
   return (
