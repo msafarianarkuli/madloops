@@ -64,18 +64,11 @@ const App = () => {
     >
       <Toastify />
       <Wrapper>
-        <Routes>
-          <Route
-            path="*"
-            element={
-              user || sessionUser ? (
-                <Authenticated setTheme={setTheme} />
-              ) : (
-                <UnAuthenticated setTheme={setTheme} />
-              )
-            }
-          />
-        </Routes>
+        {user || sessionUser ? (
+          <Authenticated setTheme={setTheme} />
+        ) : (
+          <UnAuthenticated setTheme={setTheme} />
+        )}
       </Wrapper>
       <BackToTop />
     </div>

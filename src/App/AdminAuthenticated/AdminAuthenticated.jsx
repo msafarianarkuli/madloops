@@ -10,19 +10,19 @@ const AdminAuth = () => {
   const { token } = useParams();
   const id = DecodeToken(token);
   const dispatch = useDispatch();
-  const { data } = useGetEmployeeQuery({
+  const { data, isLoading } = useGetEmployeeQuery({
     id: id._id,
     token: token,
   });
+  console.log(data, isLoading);
   // console.log(employe);
   useEffect(() => {
-    const dataEmployee = async () => {
-      const rtl = await data;
-      dispatch(logIn({ user: rtl, token: token }));
-    };
-    dataEmployee();
-    navigate("/");
-  }, []);
+    if (data) {
+      dispatch(logIn({ user: data, token: token }));
+
+      navigate("/");
+    }
+  }, [data]);
 
   return null;
 };

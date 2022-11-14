@@ -48,6 +48,8 @@ const EditPassword = () => {
         id: currentUser?._id || currentSessionUser?._id,
       };
 
+      console.log("first", userById);
+
       if (userById?.resetPasswordToken !== undefined) {
         const response = await resetPassword({
           password: userObj.password,
@@ -64,13 +66,15 @@ const EditPassword = () => {
         }
       } else {
         const res = await forgetPassword({ email: userById?.email });
-
-        if (res.result === "info") {
+        console.log(res);
+        const re = await userById;
+        if (re.resetPasswordToken) {
           const response = await resetPassword({
             password: userObj.password,
-            token: userById?.resetPasswordToken,
+            token: re?.resetPasswordToken,
           });
-          if (response.result === "info") {
+          console.log("reset", response);
+          if (response.result === "Info") {
             toastifyToast.success(response.data.message[0].message);
             values.password = "";
             values.confirmPassword = "";
