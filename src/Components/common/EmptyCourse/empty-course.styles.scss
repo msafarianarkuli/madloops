@@ -3,6 +3,7 @@
   width: 800px;
   height: 450px;
   overflow: hidden;
+  border-radius: 0 0 0.6rem 0;
 }
 .cont_error {
   position: absolute;
@@ -28,7 +29,7 @@
   background-color: #8a65df;
   box-shadow: 0px 0px 60px 20px rgba(137, 100, 222, 0.5);
   -webkit-transition: all 0.5s;
-  transition: all 0.3s;
+  transition: all 0.5s;
 }
 
 .cont_aura_2 {
@@ -41,7 +42,7 @@
   box-shadow: 0px 0px 60px 10px rgba(131, 95, 214, 0.5),
     0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   z-index: 5;
-  -webkit-transition: all 0.3s;
+  -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
 
