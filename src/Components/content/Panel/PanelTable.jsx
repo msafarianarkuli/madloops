@@ -1,6 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import TableRow from "./TableRow";
+import EmptyCourse from "../../common/EmptyCourse/empty-course.component";
 
 const PanelTable = ({ data, onDelete, onAdd }) => {
   const { pathname } = useLocation();
@@ -59,11 +60,8 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
           ))}
         </tbody>
       ) : (
-        <div className=" absolute right-[38%]">
-          <img
-            className="w-72 mt-12"
-            src={require("../../../Assets/img/mic.jpg")}
-          />
+        <div className="absolute z-50">
+          <EmptyCourse />
         </div>
       )}
     </table>
