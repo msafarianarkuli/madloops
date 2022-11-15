@@ -54,7 +54,7 @@ const PanelHeader = ({ data, onSearch }) => {
             leaveFrom="transform opacity-100 scale-100"
             leaveTo="transform opacity-0 scale-50"
           >
-            <Menu.Items className="absolute 2xl:-left-44 xl:-left-56 md:-left-60 sm:-left-64 -left-[234px] sm:w-96 w-[321px] z-40 sm:mt-16 mt-10 origin-top-right bg-white dark:bg-dark-secondary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
+            <Menu.Items className="absolute 2xl:-left-44 xl:-left-56 md:-left-60 sm:-left-64 -left-[234px] sm:w-96 w-[321px] z-50 sm:mt-16 mt-10 origin-top-right bg-white dark:bg-dark-secondary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
               <div class="block py-4 px-4 rounded-t-lg text-xl text-center text-gray-700 bg-gray-50 dark:bg-dark-tertiary dark:text-white">
                 پیغام ها
                 <div className="relative">
@@ -72,7 +72,7 @@ const PanelHeader = ({ data, onSearch }) => {
                           leaveTo="transform opacity-0 scale-50"
                         >
                           <Menu.Items className="absolute sm:-left-64 -left-[255px] sm:w-64 w-[270px] z-50 -mt-5 origin-top-left bg-white dark:bg-dark-primary rounded-lg shadow-lg border border-gray-200 dark:border-dark-tertiary outline-none">
-                            <Menu.Item>
+                            <Menu.Item className="z-50">
                               {({ active }) => (
                                 <Link to="/user-panel/">
                                   <div
