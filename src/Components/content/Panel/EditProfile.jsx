@@ -78,11 +78,11 @@ const EditProfile = () => {
             "https://mechanicwp.ir/wp-content/uploads/2018/04/user-circle.png",
           _id: id._id,
         });
+
         setRef((old) => !old);
-        toastifyToast.success(update.message[0].message, {});
+        toastifyToast.success(update.data.message[0].message, {});
       } else {
         const imagefile = document.querySelector("#file");
-        console.log(imagefile.files[0]);
         let myFormData = new FormData();
         myFormData.append("image", values.profile);
         const upload = await uploadImg({ myFormData: myFormData });
@@ -100,6 +100,7 @@ const EditProfile = () => {
             _id: id._id,
           });
           setRef((old) => !old);
+
           toastifyToast.success(update.data.message[0].message);
         } else {
           toastifyToast.warning("لطفا مجددا امتحان فرمایید", {});

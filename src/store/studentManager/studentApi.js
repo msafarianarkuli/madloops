@@ -11,7 +11,10 @@ export const studentApiSlice = apiSlice.injectEndpoints({
         url: `student/${id.id}`,
       }),
       transformResponse: (response) => response.result,
-      providesTags: (id) => [{ type: "student", id }],
+      providesTags: (result, id) => [
+        { type: "student", id },
+        // ...result.map((item) => ({ type: "student", id: item._id })),
+      ],
     }),
     updateStudentInfo: builder.mutation({
       query: (obj) => ({
