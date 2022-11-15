@@ -45,14 +45,17 @@ const BlogsPage = () => {
 
   const handleSearch = (value) => {
     setSearch(value);
-    setFilterBlogs(
-      data?.filter(
-        (item) =>
-          item.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
-      )
-    );
   };
-  console.log(filterBlogs, "sadas");
+
+  let filteredBlog = filterBlogs;
+
+  if (search) {
+    filteredBlog = filterBlogs.filter(
+      (blog) =>
+        blog.title.toString().toLowerCase().indexOf(search.toLowerCase()) > -1
+    );
+  }
+
   useEffect(() => {
     handleSorting("all");
   }, [isLoading]);
@@ -113,7 +116,7 @@ const BlogsPage = () => {
   if (isLoading) {
     content = <BlogSkeleton />;
   } else if (isSuccess) {
-    content = filterBlogs?.slice(0, nextCard).map((card) => (
+    content = filteredBlog?.slice(0, nextCard).map((card) => (
       <Card
         showImage
         showStruc
