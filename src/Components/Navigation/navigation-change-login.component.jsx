@@ -43,7 +43,7 @@ const NavigationChange = () => {
       window.location.href = `http://localhost:2001`;
     }
   };
-  console.log(currentUser?.role);
+  console.log(currentUser);
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="mt-2 text-base">
@@ -77,7 +77,8 @@ const NavigationChange = () => {
                 <Button
                   classButton="w-full text-right"
                   onClick={
-                    currentUser?.role === "student"
+                    currentUser?.role === "student" ||
+                    currentSessionUser?.role === "student"
                       ? () => navigate("/user-panel")
                       : handleGoPanel
                   }

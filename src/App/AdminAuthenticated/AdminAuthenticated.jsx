@@ -17,9 +17,10 @@ const AdminAuth = () => {
 
   useEffect(() => {
     if (data) {
-      dispatch(logIn({ user: data, token: token }));
-
       navigate("/");
+      setTimeout(() => {
+        dispatch(logIn({ user: data, token: token }));
+      }, 100);
     }
   }, [data]);
 

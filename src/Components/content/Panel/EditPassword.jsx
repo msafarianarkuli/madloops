@@ -16,6 +16,8 @@ import { useGetStudentByIdQuery } from "../../../store/studentManager/studentApi
 const EditPassword = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
+  const [userData, setUserData] = useState();
+  const [ref, setRef] = useState(false);
   const [studentInfo, setStudentInfo] = useState({
     password: "",
     confirmPassword: "",
@@ -28,36 +30,34 @@ const EditPassword = () => {
     id: currentUser?._id || currentSessionUser?._id,
   });
 
-  useEffect(() => {
-    const getMountUser = async () => {
-      const userData = await userById;
-      console.log(userData);
-    };
-    getMountUser();
-  }, [isFetching, isLoading]);
+  // useEffect(() => {
+  //   const getMountUser = async () => {
+  //     const userdata = await userById;
+  //     setUserData(userdata);
+  //     console.log(userData);
+  //   };
+  //   getMountUser();
+  // }, [ref, isLoading, isFetching]);
 
-  // console.log(userById);
+  console.log(userData, userById);
   const [resetPassword] = useResetPasswordMutation();
   const [forgetPassword] = useForgetPasswordMutation();
 
   const handleSubmit = (values) => {
     const editing = async () => {
-      const userObj = {
-        password: values.password,
-        confirmPassword: values.confirmPassword,
-        id: currentUser?._id || currentSessionUser?._id,
-      };
-
       console.log("first", userById);
 
-      if (userById?.resetPasswordToken !== undefined) {
+      if (
+        userById?.resetPasswordToken !== undefined &&
+        userById?.resetPasswordToken !== null
+      ) {
         const response = await resetPassword({
-          password: userObj.password,
+          password: values.password,
           token: userById?.resetPasswordToken,
         });
-        console.log(response.result === "info");
-        if (response.result === "info") {
-          toastifyToast.success(response.message[0].message);
+        console.log(response);
+        if (response.data) {
+          toastifyToast.success(response.data.message[0].message);
           values.password = "";
           values.confirmPassword = "";
         } else {
@@ -66,15 +66,18 @@ const EditPassword = () => {
         }
       } else {
         const res = await forgetPassword({ email: userById?.email });
+        const userdata = await userById;
+        setUserData(userdata);
+        // setRef((old) => !old);
+
         console.log(res);
-        const re = await userById;
-        if (re.resetPasswordToken) {
+        if (userData?.resetPasswordToken) {
           const response = await resetPassword({
-            password: userObj.password,
-            token: re?.resetPasswordToken,
+            password: values.password,
+            token: userData?.resetPasswordToken,
           });
           console.log("reset", response);
-          if (response.result === "Info") {
+          if (response.data) {
             toastifyToast.success(response.data.message[0].message);
             values.password = "";
             values.confirmPassword = "";
