@@ -6,7 +6,10 @@ import { useGetCommentsQuery } from '../../../store/comments/commentsSlice';
 const CommentsTab = ({ id }) => {
   const { comments } = useGetCommentsQuery('getComments', {
     selectFromResult: ({ data }) => ({
-      comments: data?.filter((comment) => comment.postId === id),
+      comments: data?.filter(
+        (comment) =>
+          comment.postId === id && comment.verified === true
+      ),
     }),
   });
 

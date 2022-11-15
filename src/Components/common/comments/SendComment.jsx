@@ -3,7 +3,7 @@ import { Form, Formik } from 'formik';
 import * as Yup from 'yup';
 import Textarea from '../Inputs/TextareaInputs/Textarea';
 import Input from '../Inputs/TextInputs/Input';
-import profile from '../../../Assets/profile.png';
+import profile from '../../../Assets/user.png';
 import { useAddNewCommentMutation } from '../../../store/comments/commentsSlice';
 import { selectCurrentUser } from './../../../store/auth/authSlice';
 import { useSelector } from 'react-redux';
@@ -82,9 +82,14 @@ const SendComment = ({ onCommentActive, courseId }) => {
                   </div>
                 </div>
               )}
-              <div className="flex border-r border-l border-b dark:border-dark-tertiary p-4">
+              <div
+                className={` border-r border-l border-b dark:border-dark-tertiary p-4 ${
+                  currentUser &&
+                  'border-t rounded-tl-lg rounded-tr-lg'
+                }`}
+              >
                 <Textarea
-                  className="grow min-h-fit max-h-72 bg-transparent outline-none block"
+                  className="grow min-h-fit max-h-72 bg-transparent outline-none block w-[100%]"
                   name="body"
                   label="متن نظر:"
                 />

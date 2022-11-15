@@ -1,64 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PanelTable from './PanelTable';
 import PanelHeader from './PanelHeader';
 import Pagination from '../../common/Pagination/Pagination';
 import { paginate } from '../../../Core/utils/paginate';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../../store/auth/authSlice';
-import {
-  useDeleteStudentFromCourseMutation,
-  useGetCoursesQuery,
-} from "../../../store/courses/coursesSlice";
-import { toastifyToast } from "../../common/Toast/toast";
-import { selectBookMarkItems } from "../../../store/bookmark/bookmarkSlice";
-import { removeBookMark } from "../../../store/bookmark/bookmarkSlice";
-import { selectSessionCurrentUser } from "../../../store/auth/authSessionSlice";
+import { toastifyToast } from '../../common/Toast/toast';
+import { selectBookMarkItems } from '../../../store/bookmark/bookmarkSlice';
+import { removeBookMark } from '../../../store/bookmark/bookmarkSlice';
 
 const MyBookMark = () => {
-  const currentUser = useSelector(selectCurrentUser);
-  const currentSessionUser = useSelector(selectSessionCurrentUser);
-  const { data: allCourse, isLoading } = useGetCoursesQuery();
-  const [
-    deleteStudentFromCourse,
-    { isSuccess, isError, error, isLoading: isLoad, data },
-  ] = useDeleteStudentFromCourseMutation();
-
-  const [count, setCount] = useState();
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const FavCourses = useSelector(selectBookMarkItems);
   const [myCourse, setMyCourse] = useState(FavCourses);
+
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const getCourseForUser = async () => {
-      const studentInfo = currentUser || currentSessionUser;
-      const response = await allCourse;
-
-      const filteredData = response?.filter((row) => {
-        const isInCourse = row.students.some(
-          (student) => student._id === studentInfo._id
-        );
-        if (isInCourse) return row;
-      });
-
-      const paginateData = paginate(filteredData, currentPage, pageSize);
-      const dataCount = filteredData?.length;
-      setCount(dataCount);
-      setMyCourse(paginateData);
-    };
-    getCourseForUser();
-  }, [currentPage, isLoading]);
-
-  useEffect(() => {
-    if (isSuccess) {
-      toastifyToast.success(data.message[0].message);
-    }
-
-    if (isError) {
-      toastifyToast.error(error.data.message[0].message);
-    }
-  }, [isLoad]);
+  const paginateData = paginate(myCourse, currentPage, pageSize);
 
   const handleSearch = (arr) => {
     setCurrentPage(1);
@@ -67,7 +25,6 @@ const MyBookMark = () => {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
-    console.log(page);
   };
 
   const handleNext = () => {
@@ -77,22 +34,22 @@ const MyBookMark = () => {
   };
 
   const handlePrev = () => {
-    currentPage !== 1 && setCurrentPage((currentPage) => currentPage - 1);
+    currentPage !== 1 &&
+      setCurrentPage((currentPage) => currentPage - 1);
   };
 
   const handleDelete = (id) => {
     dispatch(removeBookMark(id));
     const newFavs = myCourse.filter((course) => course._id !== id);
     setMyCourse(newFavs);
-    console.log(id);
   };
 
   return (
     <div className="px-3 md:px-5">
       <PanelHeader data={FavCourses} onSearch={handleSearch} />
-      <PanelTable data={myCourse} onDelete={handleDelete} />
+      <PanelTable data={paginateData} onDelete={handleDelete} />
       <Pagination
-        itemsCount={count}
+        itemsCount={FavCourses.length}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChange={handlePageChange}

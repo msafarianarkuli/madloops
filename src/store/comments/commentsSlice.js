@@ -5,7 +5,21 @@ export const commentApiSlice = apiSlice.injectEndpoints({
     getComments: builder.query({
       query: () => 'comments/',
       transformResponse: (responseData) => {
-        const loadedPosts = [...responseData].sort(
+        const newDate = responseData?.map((comment) => {
+          const likeCount = Math.trunc(Math.random() * 50) + 1;
+          comment.likeCount = likeCount;
+          const disLikeCount = Math.trunc(Math.random() * 50) + 1;
+          comment.disLikeCount = disLikeCount;
+
+          const likeCountAdmin = Math.trunc(Math.random() * 50) + 1;
+          comment.likeCountAdmin = likeCountAdmin;
+          const disLikeCountAdmin =
+            Math.trunc(Math.random() * 50) + 1;
+          comment.disLikeCountAdmin = disLikeCountAdmin;
+
+          return comment;
+        });
+        const loadedPosts = newDate?.sort(
           (a, b) =>
             new Date(b.createDate).getTime() -
             new Date(a.createDate).getTime()
