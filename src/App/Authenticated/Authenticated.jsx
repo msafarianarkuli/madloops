@@ -17,7 +17,7 @@ import { selectSessionCurrentUser } from "../../store/auth/authSessionSlice";
 const Authenticated = (props) => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
-  console.log(currentUser || currentSessionUser.role);
+
   return (
     <Routes>
       <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />

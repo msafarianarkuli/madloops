@@ -6,7 +6,7 @@ import AnimateLoginSvg from "../../common/Animate-Login-SVG/animate-login-svg.co
 import { FieldName } from "../../common/field-name-component/field-name.component";
 import { Button } from "../../common/button-component/button.component";
 import InputFeild from "../../common/Inputs/TextInputs/InputFeild";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toastifyToast } from "../../common/Toast/toast";
 import { useDispatch } from "react-redux";
 import { useLoginStudentMutation } from "../../../store/auth/authApi";
@@ -19,11 +19,7 @@ const Login = () => {
     password: "",
     rememberMe: false,
   });
-
-  const location = useLocation();
   const navigate = useNavigate();
-
-  const from = location.state?.from.pathname || "/";
 
   const [login, { isLoading, isError, error, isSuccess, data }] =
     useLoginStudentMutation();
@@ -31,7 +27,7 @@ const Login = () => {
   useEffect(() => {
     if (isSuccess) {
       toastifyToast.success(data.message[0].message);
-      navigate(from);
+      navigate("/");
       setField({ email: "", password: "" });
     }
 

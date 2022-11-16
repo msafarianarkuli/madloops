@@ -19,18 +19,26 @@ const EditProfile = () => {
   const userToken = useSelector(selectToken);
   const userSessionToken = useSelector(selectSessionToken);
   const id = DecodeToken(userToken || userSessionToken);
+  const [ref, setRef] = useState(false);
 
   const { data: userById } = useGetStudentByIdQuery({
     id: id._id,
   });
 
+  useEffect(() => {
+    const dataGetter = async () => {
+      await userById;
+    };
+    dataGetter();
+  }, [ref]);
+
   const [studentInfo, setStudentInfo] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    nationalId: "",
-    phoneNumber: "",
-    birthDate: "",
+    firstName: userById?.fullName?.split(" ")[0],
+    lastName: userById?.fullName?.split(" ")[1],
+    email: userById?.email,
+    nationalId: userById?.nationalId,
+    phoneNumber: userById?.phoneNumber,
+    birthDate: userById?.birthDate,
     profile: "",
   });
 
@@ -60,7 +68,6 @@ const EditProfile = () => {
   const handleSubmit = (values) => {
     const editing = async () => {
       if (values.profile === "") {
-        console.log(values.profile);
         const update = await updateStudentInfo({
           fullName: values.firstName + " " + values.lastName,
           email: values.email,
@@ -72,10 +79,10 @@ const EditProfile = () => {
           _id: id._id,
         });
 
-        toastifyToast.success(update.message[0].message, {});
+        setRef((old) => !old);
+        toastifyToast.success(update.data.message[0].message, {});
       } else {
         const imagefile = document.querySelector("#file");
-        console.log(imagefile.files[0]);
         let myFormData = new FormData();
         myFormData.append("image", values.profile);
         const upload = await uploadImg({ myFormData: myFormData });
@@ -92,6 +99,7 @@ const EditProfile = () => {
             profile: Picture,
             _id: id._id,
           });
+          setRef((old) => !old);
 
           toastifyToast.success(update.data.message[0].message);
         } else {
@@ -235,6 +243,7 @@ const EditProfile = () => {
               </div>
               <div className="text-center text-base sm:text-xl animate-[onLoadPanel_1s_ease-in]">
                 <button
+                  type="button"
                   className="border-2 border-lite-purple px-6 py-2 rounded-lg text-lite-purple mx-2
               hover:border-red-600 hover:text-red-600 transition ease-in-out duration-300"
                   onClick={() => handleReset(resetForm)}

@@ -1,22 +1,25 @@
-import { apiSlice } from './../../Core/services/api/apiSlice';
+import { apiSlice } from "./../../Core/services/api/apiSlice";
 
 export const studentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllStudent: builder.query({
-      query: () => 'student/getall',
-      providesTags: ['student'],
+      query: () => "student/getall",
+      providesTags: ["student"],
     }),
     getStudentById: builder.query({
       query: (id) => ({
         url: `student/${id.id}`,
       }),
       transformResponse: (response) => response.result,
-      providesTags: (id) => [{ type: 'student', id }],
+      providesTags: (result, id) => [
+        { type: "student", id },
+        // ...result.map((item) => ({ type: "student", id: item._id })),
+      ],
     }),
     updateStudentInfo: builder.mutation({
       query: (obj) => ({
         url: `student/${obj._id}`,
-        method: 'PUT',
+        method: "PUT",
         body: {
           birthDate: obj.birthDate,
           email: obj.email,
@@ -26,7 +29,7 @@ export const studentApiSlice = apiSlice.injectEndpoints({
           profile: obj.profile,
         },
       }),
-      invalidatesTags: () => [{ type: 'student' }],
+      invalidatesTags: () => [{ type: "student" }],
     }),
   }),
 });

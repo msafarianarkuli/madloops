@@ -6,40 +6,55 @@ import {
   BsChatTextFill,
 } from "react-icons/bs";
 import { Menu, Transition } from "@headlessui/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearStorage } from "../../Core/services/storage/storage";
-import {
-  logOut,
-  selectCurrentUser,
-  selectToken,
-} from "../../store/auth/authSlice";
+import { logOut, selectCurrentUser } from "../../store/auth/authSlice";
 import {
   selectSessionCurrentUser,
-  selectSessionToken,
   logOutSession,
 } from "../../store/auth/authSessionSlice";
 import { useGetStudentByIdQuery } from "../../store/studentManager/studentApi";
+import { useEffect, useState } from "react";
+import { Button } from "../common/button-component/button.component";
 
 const NavigationChange = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
-  const { data: userById } = useGetStudentByIdQuery({
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState();
+  const { data: userById, isLoading } = useGetStudentByIdQuery({
     id: currentUser?._id || currentSessionUser?._id,
   });
-  const dispatch = useDispatch();
-
+  useEffect(() => {
+    if (currentUser?.role === "student") {
+      setUserData(userById);
+    }
+  }, [isLoading]);
+  console.log(userData?.role);
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(" ");
   };
 
+  const handleGoPanel = () => {
+    if (currentUser.role === "admin") {
+      dispatch(logOut(currentUser));
+      window.location.href = `http://localhost:2001`;
+    }
+  };
+  console.log(currentUser);
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="mt-2 text-base">
         <Menu.Button className="inline-flex justify-center w-full text-gray-700 bg-gray-200 dark:bg-dark-tertiary hover:scale-105 rounded-lg shadow-sm outline-none duration-150">
           <img
             className="ml-2 w-12 h-12 rounded-r-lg"
-            src={userById?.profile}
+            src={
+              currentUser?.role === "admin" || currentUser?.role === "teacher"
+                ? currentUser?.profile
+                : currentUser?.profile || currentSessionUser?.profile
+            }
             alt="shopping"
           />
           <FiChevronLeft className="w-4 h-4 -rotate-90 mt-4 ml-2 dark:text-gray-400" />
@@ -59,7 +74,15 @@ const NavigationChange = () => {
           <div className="text-right text-lg">
             <Menu.Item>
               {({ active }) => (
-                <Link to="/user-panel">
+                <Button
+                  classButton="w-full text-right"
+                  onClick={
+                    currentUser?.role === "student" ||
+                    currentSessionUser?.role === "student"
+                      ? () => navigate("/user-panel")
+                      : handleGoPanel
+                  }
+                >
                   <div>
                     <FiChevronLeft className="w-5 h-5 ml-2 absolute left-2 top-7 dark:text-gray-400" />
                     <div
@@ -70,71 +93,80 @@ const NavigationChange = () => {
                         "block px-5 py-6 text-xl rounded-t-lg dark:text-gray-400"
                       )}
                     >
-                      {userById?.fullName}
+                      {currentUser?.role === "admin" ||
+                      currentUser?.role === "teacher"
+                        ? currentUser?.fullName
+                        : currentUser?.fullName || currentSessionUser?.fullName}
                     </div>
                   </div>
-                </Link>
+                </Button>
               )}
             </Menu.Item>
             <hr className="py-1 dark:border-dark-tertiary" />
-            <Menu.Item>
-              {({ active }) => (
-                <Link to="/user-panel/myCourses">
-                  <div className="relative group">
-                    <BsFillLayersFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 duration-150" />
-                    <div
-                      className={classNames(
-                        active
-                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                          : "text-gray-700",
-                        "block px-14 py-3 dark:text-gray-400"
-                      )}
-                    >
-                      دوره های من
-                    </div>
-                  </div>
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link to="/user-panel/bookmark">
-                  <div className="relative group">
-                    <BsFillBookmarkHeartFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
-                    <div
-                      className={classNames(
-                        active
-                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                          : "text-gray-700",
-                        "block px-14 py-3 dark:text-gray-400"
-                      )}
-                    >
-                      علاقه مندی ها
-                    </div>
-                  </div>
-                </Link>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <Link to="/">
-                  <div className="relative group">
-                    <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
-                    <div
-                      className={classNames(
-                        active
-                          ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
-                          : "text-gray-700",
-                        "block px-14 py-3 dark:text-gray-400"
-                      )}
-                    >
-                      نقد و نظرات
-                    </div>
-                  </div>
-                </Link>
-              )}
-            </Menu.Item>
-            <hr className="mt-2 dark:border-dark-tertiary" />
+            {currentUser?.role === "student" ||
+            currentSessionUser?.role === "student" ? (
+              <>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/user-panel/myCourses">
+                      <div className="relative group">
+                        <BsFillLayersFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300 duration-150" />
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                              : "text-gray-700",
+                            "block px-14 py-3 dark:text-gray-400"
+                          )}
+                        >
+                          دوره های من
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/user-panel/bookmark">
+                      <div className="relative group">
+                        <BsFillBookmarkHeartFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                              : "text-gray-700",
+                            "block px-14 py-3 dark:text-gray-400"
+                          )}
+                        >
+                          علاقه مندی ها
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <Menu.Item>
+                  {({ active }) => (
+                    <Link to="/">
+                      <div className="relative group">
+                        <BsChatTextFill className="w-5 h-5 ml-2 absolute right-5 top-4 text-gray-500 dark:text-gray-400 group-hover:text-gray-700 dark:group-hover:text-gray-300  duration-150" />
+                        <div
+                          className={classNames(
+                            active
+                              ? "bg-gray-100 dark:bg-gray-700 text-gray-900"
+                              : "text-gray-700",
+                            "block px-14 py-3 dark:text-gray-400"
+                          )}
+                        >
+                          نقد و نظرات
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </Menu.Item>
+                <hr className="mt-2 dark:border-dark-tertiary" />
+              </>
+            ) : null}
+
             <Menu.Item>
               {({ active }) => (
                 <div className="relative group">

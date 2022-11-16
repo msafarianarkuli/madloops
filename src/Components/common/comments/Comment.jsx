@@ -3,6 +3,7 @@ import { Button } from '../button-component/button.component';
 import Reply from './Reply';
 import Input from '../Inputs/TextInputs/Input';
 import user from '../../../Assets/user.png';
+import profile from '../../../Assets/profile.png';
 import likeFillIcon from '../../../Assets/likee.png';
 import likeIcon from '../../../Assets/likesolid.png';
 import disLikeFillIcon from '../../../Assets/dislikee.png';
@@ -14,17 +15,30 @@ import {
   dateConvert,
 } from '../../../Core/utils/TimeAndDateConverter';
 import { useAddReplyMutation } from '../../../store/comments/commentsSlice';
+import { selectCurrentUser } from './../../../store/auth/authSlice';
+import { useSelector } from 'react-redux';
+
 const Comment = ({ info }) => {
   const [addReply] = useAddReplyMutation();
   const [answerActive, setAnswerActive] = useState(false);
+  const currentUser = useSelector(selectCurrentUser);
 
-  const { _id, username, createDate, comment, answer } = info;
+  const {
+    _id,
+    username,
+    createDate,
+    comment,
+    answer,
+    likeCount,
+    disLikeCount,
+    likeCountAdmin,
+    disLikeCountAdmin,
+  } = info;
 
   const handleCommentReply = () => {
     setAnswerActive(true);
   };
   const date = dateConvert(createDate);
-  console.log(date);
   return (
     <>
       <div
@@ -54,7 +68,7 @@ const Comment = ({ info }) => {
           </div>
           <div className="flex items-center text-gray-400 text-lg">
             <span className="px-3 w-8 mb-1">
-              {/* {likeCount === 0 ? ' ' : likeCount} */}
+              {likeCount === 0 ? ' ' : likeCount}
             </span>
             <img
               // src={liked ? likeFillIcon : likeIcon}
@@ -62,8 +76,8 @@ const Comment = ({ info }) => {
               className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
               // onClick={() => onLike(id)}
             />
-            <span className="px-4 w-8 mb-1">
-              {/* {disLikeCount === 0 ? ' ' : disLikeCount} */}
+            <span className="px-3 w-8 mb-1">
+              {disLikeCount === 0 ? ' ' : disLikeCount}
             </span>
             <img
               // src={disLiked ? disLikeFillIcon : disLikeIcon}
@@ -119,15 +133,17 @@ const Comment = ({ info }) => {
             )}
           </Formik>
         ) : (
-          <div className="text-left">
-            <Button
-              classButton="border-2 border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-md rounded-md 
+          currentUser?.role === 'admin' && (
+            <div className="text-left">
+              <Button
+                classButton="border-2 border-[#7F56DA] text-[#7F56DA] px-5 py-1 text-md rounded-md 
               hover:bg-[#7F56DA] hover:text-white transition ease-out duration-200"
-              onClick={handleCommentReply}
-            >
-              پاسخ
-            </Button>
-          </div>
+                onClick={handleCommentReply}
+              >
+                پاسخ
+              </Button>
+            </div>
+          )
         )}
         {answer ? (
           <div
@@ -137,13 +153,13 @@ const Comment = ({ info }) => {
             <div className="flex justify-between">
               <div className="flex">
                 <img
-                  src={user}
+                  src={profile}
                   alt=""
                   className="w-8 h-8 sm:w-14 sm:h-14 rounded-full ml-3"
                 />
                 <div className="flex flex-col">
                   <p className="text-lg sm:text-xl lg:text-2xl mb-1 dark:text-dark-secondary-title">
-                    {/* {username} */}میهمان
+                    ادمین
                   </p>
                   <div className="flex">
                     <p className="text-xs sm:text-sm text-gray-400 ml-4">
@@ -157,7 +173,7 @@ const Comment = ({ info }) => {
               </div>
               <div className="flex items-center text-gray-400 text-lg">
                 <span className="px-3 w-8 mb-1">
-                  {/* {likeCount === 0 ? ' ' : likeCount} */}
+                  {likeCountAdmin === 0 ? ' ' : likeCountAdmin}
                 </span>
                 <img
                   // src={liked ? likeFillIcon : likeIcon}
@@ -165,8 +181,8 @@ const Comment = ({ info }) => {
                   className="w-4 h-4 sm:w-5 sm:h-5 mb-3 cursor-pointer"
                   // onClick={() => onLike(_id)}
                 />
-                <span className="px-4 w-8 mb-1">
-                  {/* {disLikeCount === 0 ? ' ' : disLikeCount} */}
+                <span className="px-3 w-8 mb-1">
+                  {disLikeCountAdmin === 0 ? ' ' : disLikeCountAdmin}
                 </span>
                 <img
                   // src={disLiked ? disLikeFillIcon : disLikeIcon}

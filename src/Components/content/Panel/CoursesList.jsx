@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import DashCourses from '../../../Core/services/Fake Service/DashCoursesList';
-import DashUserCourses from '../../../Core/services/Fake Service/DashMyCourses';
 import PanelHeader from './PanelHeader';
 import PanelTable from './PanelTable';
 import Pagination from '../../common/Pagination/Pagination';
@@ -24,7 +22,7 @@ const CoursesList = () => {
   ] = useAddStudentToCourseMutation();
 
   const [coursesList, setCoursesList] = useState([]);
-  const [pageSize, setPageSize] = useState(2);
+  const [pageSize, setPageSize] = useState(4);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState();
   const [searchList, setSearchList] = useState([]);

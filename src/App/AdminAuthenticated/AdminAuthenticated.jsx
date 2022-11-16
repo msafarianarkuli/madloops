@@ -14,13 +14,13 @@ const AdminAuth = () => {
     id: id._id,
     token: token,
   });
-  console.log(data, isLoading);
-  // console.log(employe);
+
   useEffect(() => {
     if (data) {
-      dispatch(logIn({ user: data, token: token }));
-
       navigate("/");
+      setTimeout(() => {
+        dispatch(logIn({ user: data, token: token }));
+      }, 100);
     }
   }, [data]);
 

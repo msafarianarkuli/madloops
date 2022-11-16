@@ -8,7 +8,7 @@ const BlogTab = ({ blogId }) => {
   return (
     <CustomTab tabs={tabData}>
       <TabPanel>
-        <CommentsTab blogId={blogId} />
+        <CommentsTab id={blogId} />
       </TabPanel>
     </CustomTab>
   );
