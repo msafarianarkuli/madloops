@@ -32,9 +32,19 @@ const EditProfile = () => {
     dataGetter();
   }, [ref]);
 
+  const splite = () => {
+    try {
+      const [firstName, ...rest] = userById.fullName.split(" ");
+      const lastName = rest.join(" ");
+      return [firstName, lastName];
+    } catch (err) {
+      return err;
+    }
+  };
+
   const [studentInfo, setStudentInfo] = useState({
-    firstName: userById?.fullName?.split(" ")[0],
-    lastName: userById?.fullName?.split(" ")[1],
+    firstName: splite()[0],
+    lastName: splite()[1],
     email: userById?.email,
     nationalId: userById?.nationalId,
     phoneNumber: userById?.phoneNumber,
@@ -116,15 +126,6 @@ const EditProfile = () => {
   };
 
   const fileInput = useRef();
-  const splite = () => {
-    try {
-      const [firstName, ...rest] = userById.fullName.split(" ");
-      const lastName = rest.join(" ");
-      return [firstName, lastName];
-    } catch (err) {
-      return err;
-    }
-  };
 
   return (
     <>
