@@ -6,6 +6,10 @@ export const courseApiSlice = apiSlice.injectEndpoints({
       query: () => "course/getall",
       transformResponse: (responseData) => {
         const loadedCourse = responseData.result.map((course) => {
+          const disCountRound = Math.floor(Math.random() * 50);
+          const minus = disCountRound / 100;
+          const coursePrice = course.cost * minus;
+          const newCost = course.cost - coursePrice;
           const hour = Math.trunc(Math.random() * 20) + 1;
           const lessonNumber = Math.trunc(Math.random() * 200) + 1;
           const ViewRand = Math.trunc(Math.random() * 200) + 1;
@@ -14,6 +18,7 @@ export const courseApiSlice = apiSlice.injectEndpoints({
           course.like = likeRand;
           course.view = ViewRand;
           course.hour = hour;
+          course.disCount = newCost;
           return course;
         });
         return loadedCourse;
