@@ -10,6 +10,9 @@ import BackToTop from "./../Components/common/BackToTop/BackToTop";
 import { selectSessionCurrentUser } from "../store/auth/authSessionSlice";
 
 const App = () => {
+  const user = useSelector(selectCurrentUser);
+  const sessionUser = useSelector(selectSessionCurrentUser);
+
   const [isDarkMode, setIsDarkMode] = useState(true);
 
   const { pathname } = useLocation();
@@ -25,6 +28,11 @@ const App = () => {
     window.$crisp = [];
     window.CRISP_WEBSITE_ID = "45b6a943-f35f-4ebe-a62b-c31ea05300b1";
 
+    window.$crisp.push([
+      "set",
+      "user:email",
+      [user?.email || sessionUser?.email],
+    ]);
     (function () {
       let d = document;
       let s = d.createElement("script");
@@ -55,8 +63,6 @@ const App = () => {
       : (localStorage.theme = "dark");
     setIsDarkMode(!isDarkMode);
   };
-  const user = useSelector(selectCurrentUser);
-  const sessionUser = useSelector(selectSessionCurrentUser);
 
   return (
     <div
