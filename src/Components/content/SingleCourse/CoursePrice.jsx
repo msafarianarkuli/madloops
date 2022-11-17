@@ -1,29 +1,22 @@
-import React, { useState, useRef, useEffect } from "react";
-import { FaCoins } from "react-icons/fa";
-import { TbDiscount2 } from "react-icons/tb";
-import { useDispatch } from "react-redux";
-import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
-import { addItem } from "../../../store/cart/cartSlice";
-import Modal from "../../common/Modal/modal.component";
-import { Button } from "./../../common/button-component/button.component";
+import React, { useState, useRef, useEffect } from 'react';
+import { FaCoins } from 'react-icons/fa';
+import { TbDiscount2 } from 'react-icons/tb';
+import { useDispatch } from 'react-redux';
+import { addBookMark } from '../../../store/bookmark/bookmarkSlice';
+import {
+  addItem,
+  setIsCartOpen,
+} from '../../../store/cart/cartSlice';
+import Modal from '../../common/Modal/modal.component';
+import { Button } from './../../common/button-component/button.component';
 
 const CoursePrice = ({ item }) => {
-  const future = new Date(item?.startDate).getTime();
-  // console.log(future);
-  const futureTime = new Date(future + 86400000 * 5).getTime();
-  // console.log(futureTime);
-  // console.log(Date.now() - futureTime);
   const [showModal, setShowModal] = useState(false);
   const [showEModal, setEShowModal] = useState(false);
-  const [minTimer, setMinTimre] = useState({});
-  const [time, setTime] = useState();
-  // new Date(new Date(item?.startDate).getTime() + 5000).getTime()
-  // console.log(time);
-  const [stop, setStop] = useState(false);
   const dispatch = useDispatch();
-  const intervalRef = useRef(null);
   const addProductToCart = () => dispatch(addItem(item));
   const addProductForSave = () => dispatch(addBookMark(item));
+  const intervalRef = useRef(null);
 
   const openModal = () => {
     setShowModal((prev) => !prev);
@@ -33,52 +26,35 @@ const CoursePrice = ({ item }) => {
     setEShowModal((prev) => !prev);
   };
 
-  // useEffect(() => {
-  //   setTime(Date.now() - futureTime);
-  // }, [item?.startDate]);
+  const [days, setDays] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+  const [stop, setStop] = useState(false);
+
+  const getTime = () => {
+    const startDate = new Date(item?.startDate).getTime();
+    const discountDate = startDate + 86400000 * 5;
+    const time = discountDate - new Date().getTime();
+    setDays(Math.floor(time / (1000 * 60 * 60 * 24)));
+    setHours(Math.floor((time / (1000 * 60 * 60)) % 24));
+    setMinutes(Math.floor((time / 1000 / 60) % 60));
+    setSeconds(Math.floor((time / 1000) % 60));
+  };
 
   useEffect(() => {
-    setInterval(() => {
-      setTime(Date.now() - futureTime);
-      console.log(getReturnValues(time));
-    }, 1000);
-  }, []);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+      return;
+    }
+    const interval = (intervalRef.current = setInterval(
+      () => getTime(),
+      1000
+    ));
+    return () => clearInterval(interval);
+  }, [item]);
 
-  // useEffect(() => {
-  //   if (intervalRef.current) {
-  //     clearInterval(intervalRef.current);
-  //     intervalRef.current = null;
-  //     return;
-  //   }
-
-  //   const interval = (intervalRef.current = setInterval(() => {
-  //     setTime(
-  //       new Date(new Date(item?.startDate).getTime() + 86400000 * 5).getTime() -
-  //         Date.now()
-  //       // new Date(item?.startDate).getTime()
-  //     );
-  //   }, 1000));
-
-  //   return () => clearInterval(interval);
-  // }, [stop]);
-
-  // if (minTimer?.seconds <= 0) {
-  //   setStop(true);
-  // }
-  const getReturnValues = (countDown) => {
-    // console.log(date);
-    // const countDown = new Date(date).getTime() - Date.now();
-    // console.log(countDown);
-    const days = Math.floor(countDown / (1000 * 60 * 60 * 24));
-    const hours = Math.floor(
-      (countDown % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-    );
-    const minutes = Math.floor((countDown % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((countDown % (1000 * 60)) / 1000);
-    // setMinTimre({ seconds });
-    return [days, hours, minutes, seconds];
-  };
-  // console.log(getReturnValues(time));
   return (
     <div className="course-Detail-container">
       <div className="course-detail-title-box">
@@ -96,7 +72,9 @@ const CoursePrice = ({ item }) => {
                 {item?.cost} تومان
               </del>
             ) : (
-              <span className="text-[#42CD36]"> {item?.cost} تومان</span>
+              <span className="text-[#42CD36]">
+                {item?.cost} تومان
+              </span>
             )}
           </p>
         </div>
@@ -115,7 +93,8 @@ const CoursePrice = ({ item }) => {
 
           <div className="flex justify-center text-gray-400 text-lg py-2 px-5 bg-[#E8E8E8] dark:bg-dark-tertiary dark:text-dark-text">
             <div>
-              <p className="text-[#42CD36]">09:34:50:28</p>
+              {/* <p className="text-[#42CD36]">{`${seconds}:${minutes}:${hours}:${days}`}</p> */}
+              <p className="text-[#42CD36]">{`${days}:${hours}:${minutes}:${seconds}`}</p>
             </div>
           </div>
         </>
