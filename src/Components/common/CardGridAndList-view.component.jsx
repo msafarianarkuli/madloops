@@ -122,9 +122,6 @@ const CardGridListView = ({ item, view }) => {
               <h3 className="text-[#3A3737] dark:text-[#E5E7EB] pt-2 pr-2">
                 {rateCalculate(courseLike?.result)}
               </h3>
-              <h5 className="text-[#605d5d] dark:text-[#E5E7EB] pt-3 pr-2 text-xs">
-                (145,236)
-              </h5>
             </div>
 
             <div className="flex sm:justify-between justify-start">
