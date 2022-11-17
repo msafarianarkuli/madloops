@@ -32,7 +32,7 @@ const NavigationChange = () => {
       setUserData(userById);
     }
   }, [isLoading]);
-  console.log(userData?.role);
+
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(" ");
   };
@@ -43,7 +43,7 @@ const NavigationChange = () => {
       window.location.href = `http://localhost:2001`;
     }
   };
-  console.log(currentUser);
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div className="mt-2 text-base">

@@ -110,13 +110,13 @@ const BlogsPage = () => {
         .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
-
+  console.log(filteredBlog);
   const navigate = useNavigate();
   let content;
   if (isLoading) {
     content = <BlogSkeleton />;
   } else if (isSuccess) {
-    content = filteredBlog?.slice(0, nextCard).map((card) => (
+    content = filteredBlog.slice(0, nextCard).map((card) => (
       <Card
         showImage
         showStruc
@@ -244,7 +244,7 @@ const BlogsPage = () => {
           {content}
         </div>
         {content
-          ? nextCard < filterBlogs?.length > 0 && (
+          ? nextCard < filteredBlog.length > 0 && (
               <div className="w-full py-20" data-aos="fade-up">
                 <Button
                   onClick={handleMoreCard}

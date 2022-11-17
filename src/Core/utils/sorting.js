@@ -10,12 +10,11 @@ export const handleCostSorting = (list, numSlice) => {
   return numDescending.slice(0, numSlice);
 };
 
-export const handleDateSortingDes = async (list, numSlice) => {
+export const handleDateSortingDes = (list) => {
   const numDescending = [...list].sort(
     (a, b) => new Date(b.startDate) - new Date(a.startDate)
   );
-
-  return numDescending.slice(0, numSlice);
+  return numDescending;
 };
 
 export const handleDateSortingAs = (list, numSlice) => {
