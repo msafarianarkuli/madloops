@@ -46,23 +46,25 @@ const CardGridListView = ({ item, view }) => {
         classCard={
           view
             ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mt-8 overflow-hidden hover:shadow-purple w-full relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
-            : "my-8 sm:mb-0 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
+            : "my-8 sm:mb-0 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-150 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
         }
         imageUrl={item.lesson.image}
         classImage={
           view
-            ? "inset-0 h-full w-full object-cover object-center"
-            : "rounded-t-lg w-full h-full"
+            ? "inset-0 w-full h-full object-cover object-center hover:cursor-pointer"
+            : "rounded-t-lg w-full h-full hover:cursor-pointer"
         }
+        clickId={() => navigate(`${item._id}`)}
+        clickH3={() => navigate(`${item._id}`)}
         classMainImg={
-          view ? "h-64 w-auto md:w-1/2 sm:w-2/4" : "m-auto w-full h-52"
+          view ? "h-64 w-96" : "m-auto w-full h-52"
         }
         cardBody={!view ? "w-80 mx-6 mt-5" : "w-100 h-[50%] sm:mr-3 mr-6 mt-4"}
         role={item.title}
         classRole={
           view
-            ? "text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900 dark:text-[#E5E7EB]"
-            : "text-right font-bold text-2xl text-gray-900 dark:text-[#E5E7EB]"
+            ? "text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900 dark:text-[#E5E7EB] hover:cursor-pointer"
+            : "text-right font-bold text-2xl text-gray-900 dark:text-[#E5E7EB] hover:cursor-pointer"
         }
         {...(!view
           ? {}

@@ -14,18 +14,22 @@ export const Card = ({
   classMainImg,
   classDescription,
   onClick,
+  clickId,
+  clickH3,
 }) => {
   return (
     <div className={classCard} onClick={onClick}>
       {showImage && (
-        <div className={classMainImg}>
+        <div className={classMainImg} onClick={clickId}>
           <img src={imageUrl} className={classImage} alt="..." />
         </div>
       )}
       {showStruc && (
         <div className={cardBody}>
-          <h2 className={classTitle}>{title}</h2>
-          <h3 className={classRole}>{role}</h3>
+          <h2 className={classTitle}>
+            {title}
+          </h2>
+          <h3 className={classRole} onClick={clickH3}>{role}</h3>
           <p className={classDescription}>{description}</p>
         </div>
       )}
