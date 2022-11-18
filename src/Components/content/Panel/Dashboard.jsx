@@ -106,7 +106,7 @@ const Dashboard = () => {
               >
                 <img
                   src={getDate().orderedDates.lesson.image}
-                  className="w-20 group-hover:scale-105 duration-700 rounded-md"
+                  className="w-40 group-hover:scale-105 duration-700 rounded-md"
                 />
                 <div className="w-full mr-5 sm:mr-10 dark:text-dark-secondary-title">
                   <p className="text-2xl font-bold mb-4">
@@ -136,48 +136,29 @@ const Dashboard = () => {
             </>
           ) : (
             <>
-              <Link to="/single-course">
-                <div
-                  className="border-4 dark:border-dark-tertiary rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
+              {data.slice(0, 2).map((item) => (
+                <Link to={`/courses/${item._id}`}>
+                  <div
+                    className="border-4 dark:border-dark-tertiary rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
               hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
               dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
-                >
-                  <img
-                    src={reactIcon}
-                    className="w-20 group-hover:scale-105 duration-700 rounded-md"
-                  />
-                  <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
-                    <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره React
-                    </p>
-                    <div className="sm:flex justify-between text-lg">
-                      <div>دکتر بحر</div>
-                      <div>500,000 ت</div>
+                  >
+                    <img
+                      src={item.lesson.image}
+                      className="w-20 group-hover:scale-105 duration-700 rounded-md"
+                    />
+                    <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
+                      <p className="text-xl md:text-2xl font-bold mb-4">
+                        {item.title}
+                      </p>
+                      <div className="sm:flex justify-between text-lg">
+                        <div>{item.teacher.fullName}</div>
+                        <div>{item.cost} ت</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
-              <Link to="/single-course">
-                <div
-                  className="border-4 dark:border-dark-tertiary rounded-xl py-4 px-6 flex bg-gradient-to-l from-lite-gray to-white mb-6
-              hover:ring group hover:ring-gray-400 hover:ring-offset-0 transition ease-out duration-300 cursor-pointer
-              dark:bg-gradient-to-l dark:from-dark-secondary dark:to-dark-tertiary"
-                >
-                  <img
-                    src={reactIcon}
-                    className="w-20 group-hover:scale-105 duration-700 rounded-md"
-                  />
-                  <div className="w-full mr-5 md:mr-10 dark:text-dark-secondary-title">
-                    <p className="text-xl md:text-2xl font-bold mb-4">
-                      دوره HTML
-                    </p>
-                    <div className="sm:flex justify-between text-lg">
-                      <div>دکتر بحر</div>
-                      <div>500,000 ت</div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              ))}
             </>
           )}
         </div>

@@ -1,4 +1,4 @@
-import React , {useState} from "react";
+import React, { useState } from "react";
 import CartTable from "./cart-table.component";
 import { Button } from "./../../common/button-component/button.component";
 import { resetItem, selectCartTotalPrice } from "../../../store/cart/cartSlice";
@@ -23,13 +23,16 @@ const CartPage = () => {
   };
 
   return (
-    <div className="dark:bg-dark-primary w-full h-96">
+    <div className="dark:bg-dark-primary w-full h-fit">
       <div className="py-12">
         <div className="w-[95%] m-auto border-2 dark:border-dark-tertiary rounded-lg dark:bg-dark-secondary">
           <CartTable />
           <div className="sm:flex w-full justify-between dark:bg-dark-secondary bg-[#f8f8f8] rounded-lg">
             <div className="font-bold text-deep-purple dark:text-lite-purple text-xl p-5">
-             <span className="text-black dark:text-gray-400"> قیمت کل محصولات:</span> {cartTotal} تومان
+              <span className="text-black dark:text-gray-400">
+                قیمت کل محصولات:
+              </span>
+              {cartTotal} تومان
             </div>
             <div className="sm:flex">
               <Modal
@@ -44,15 +47,18 @@ const CartPage = () => {
                 حذف همه
               </Button>
               {currentUser || currentSessionUser ? (
-                <Button className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary">
-                  ثبت سفارش
+                <Button
+                  onClick={() => navigate("/user-panel/myCourses")}
+                  className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary"
+                >
+                  دیدن دوره ها
                 </Button>
               ) : (
                 <Button
                   onClick={() => navigate("/login")}
                   className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary"
                 >
-                  ورود و ثبت سفارش
+                  ورود و دیدن دوره ها
                 </Button>
               )}
             </div>

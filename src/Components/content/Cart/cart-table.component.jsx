@@ -2,9 +2,14 @@ import React from "react";
 import TableBody from "./table-body.component";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../../store/cart/cartSlice";
+import { selectCurrentUser } from "../../../store/auth/authSlice";
+import { selectSessionCurrentUser } from "./../../../store/auth/authSessionSlice";
 
 const CartTable = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
   const cartItems = useSelector(selectCartItems);
+
   return (
     <table className="min-w-full h-fit dark:bg-dark-primary">
       <thead className="text-base lg:text-xl font-bold bg-[#f8f8f8] dark:bg-dark-secondary">
@@ -33,6 +38,11 @@ const CartTable = () => {
           >
             تاریخ آغاز
           </th>
+          {currentUser || currentSessionUser ? (
+            <th scope="col" className="text-gray-900 dark:text-gray-400 py-4">
+              افزودن
+            </th>
+          ) : null}
           <th scope="col" className="text-gray-900 dark:text-gray-400 py-4">
             حذف
           </th>
@@ -48,9 +58,9 @@ const CartTable = () => {
         </tbody>
       ) : (
         <tbody>
-          {cartItems.map((course) => (
-            <TableBody key={course._id} course={course} />
-          ))}
+          {cartItems.map((course) => {
+            return <TableBody key={course._id} course={course} />;
+          })}
         </tbody>
       )}
     </table>

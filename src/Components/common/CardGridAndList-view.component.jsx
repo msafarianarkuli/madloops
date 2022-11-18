@@ -27,15 +27,13 @@ const CardGridListView = ({ item, view }) => {
   const handleLead = (value) => {
     const trimmedLead =
       value
-        .substring(0, 120)
+        .substring(0, 80)
         .substring(0, value.substring(0, 120).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
   const navigate = useNavigate();
 
   const dates = dateConvert(item.startDate);
-
-  console.log(view);
 
   return (
     <Fragment>
@@ -51,15 +49,15 @@ const CardGridListView = ({ item, view }) => {
         imageUrl={item.lesson.image}
         classImage={
           view
-            ? "inset-0 w-full h-full object-cover object-center hover:cursor-pointer"
-            : "rounded-t-lg w-full h-full hover:cursor-pointer"
+            ? "inset-0 h-full w-full object-cover"
+            : "rounded-t-lg w-full h-full"
         }
         clickId={() => navigate(`${item._id}`)}
         clickH3={() => navigate(`${item._id}`)}
         classMainImg={
-          view ? "h-64 w-96" : "m-auto w-full h-52"
+          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-full h-52"
         }
-        cardBody={!view ? "w-80 mx-6 mt-5" : "w-100 h-[50%] sm:mr-3 mr-6 mt-4"}
+        cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4"}
         role={item.title}
         classRole={
           view
@@ -101,7 +99,7 @@ const CardGridListView = ({ item, view }) => {
             </div>
           </div>
         ) : (
-          <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[40%] xl:right-[35%] lg:right-[28%] sm:right-[20%]">
+          <div className="sm:m-0 mx-6 sm:absolute sm:top-32 2xl:right-[37%] xl:right-[35%] lg:right-[32%] md:right-[33%] sm:right-[20%]">
             <div className="flex sm:justify-start sm:m-0 my-3">
               <div className="flex items-center ml-4">
                 <BsPerson className="w-5 dark:text-[#E5E7EB]" />
@@ -126,9 +124,6 @@ const CardGridListView = ({ item, view }) => {
               <h3 className="text-[#3A3737] dark:text-[#E5E7EB] pt-2 pr-2">
                 {rateCalculate(courseLike?.result)}
               </h3>
-              <h5 className="text-[#605d5d] dark:text-[#E5E7EB] pt-3 pr-2 text-xs">
-                (145,236)
-              </h5>
             </div>
 
             <div className="flex sm:justify-between justify-start">
@@ -239,7 +234,7 @@ const CardGridListView = ({ item, view }) => {
             className={
               !view
                 ? "flex justify-between rounded-lg p-0 "
-                : "flex items-stretch rounded-lg p-0 sm:w-fit sm:h-fit w-64 h-10 md:mt-28 sm:mt-36"
+                : "flex items-stretch rounded-lg p-0 lg:w-fit md:w-40 sm:w-fit sm:h-fit w-64 h-10 md:mt-28 sm:mt-36"
             }
           >
             <Button

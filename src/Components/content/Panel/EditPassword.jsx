@@ -17,7 +17,7 @@ const EditPassword = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
   const [userData, setUserData] = useState();
-  const [ref, setRef] = useState(false);
+  const [ref, setRef] = useState(true);
   const [studentInfo, setStudentInfo] = useState({
     password: "",
     confirmPassword: "",
@@ -26,69 +26,43 @@ const EditPassword = () => {
     data: userById,
     isLoading,
     isFetching,
-  } = useGetStudentByIdQuery({
-    id: currentUser?._id || currentSessionUser?._id,
-  });
-
-  // useEffect(() => {
-  //   const getMountUser = async () => {
-  //     const userdata = await userById;
-  //     setUserData(userdata);
-  //     console.log(userData);
-  //   };
-  //   getMountUser();
-  // }, [ref, isLoading, isFetching]);
-
-  console.log(userData, userById);
+    refetch,
+  } = useGetStudentByIdQuery(
+    {
+      id: currentUser?._id || currentSessionUser?._id,
+    },
+    { ref }
+  );
   const [resetPassword] = useResetPasswordMutation();
   const [forgetPassword] = useForgetPasswordMutation();
 
+  useEffect(() => {
+    if (userById) {
+      const getMountUser = async () => {
+        await forgetPassword({ email: userById?.email });
+      };
+      getMountUser();
+    }
+
+    refetch();
+  }, [userById]);
+
+  console.log(userById);
+
   const handleSubmit = (values) => {
     const editing = async () => {
-      console.log("first", userById);
-
-      if (
-        userById?.resetPasswordToken !== undefined &&
-        userById?.resetPasswordToken !== null
-      ) {
-        const response = await resetPassword({
-          password: values.password,
-          token: userById?.resetPasswordToken,
-        });
-        console.log(response);
-        if (response.data) {
-          toastifyToast.success(response.data.message[0].message);
-          values.password = "";
-          values.confirmPassword = "";
-        } else {
-          toastifyToast.warning("لطفا مجددا امتحان فرمایید");
-          console.log("userData");
-        }
+      const response = await resetPassword({
+        password: values.password,
+        token: userById?.resetPasswordToken,
+      });
+      console.log(response);
+      if (response.data) {
+        toastifyToast.success(response.data.message[0].message);
+        values.password = "";
+        values.confirmPassword = "";
       } else {
-        const res = await forgetPassword({ email: userById?.email });
-        const userdata = await userById;
-        setUserData(userdata);
-        // setRef((old) => !old);
-
-        console.log(res);
-        if (userData?.resetPasswordToken) {
-          const response = await resetPassword({
-            password: values.password,
-            token: userData?.resetPasswordToken,
-          });
-          console.log("reset", response);
-          if (response.data) {
-            toastifyToast.success(response.data.message[0].message);
-            values.password = "";
-            values.confirmPassword = "";
-          } else {
-            toastifyToast.warning("لطفا مجددا امتحان فرمایید");
-            console.log("userba");
-          }
-        } else {
-          toastifyToast.warning("لطفا مجددا امتحان فرمایید");
-          console.log("userfas");
-        }
+        toastifyToast.warning("لطفا مجددا امتحان فرمایید");
+        console.log("userData");
       }
     };
 
