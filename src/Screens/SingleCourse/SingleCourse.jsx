@@ -9,6 +9,9 @@ import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo
 import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
 import CoursesTab from '../../Components/common/tabs/CoursesTab';
 import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
+import { FiClock } from 'react-icons/fi';
+import { dateConvert } from '../../Core/utils/TimeAndDateConverter';
+import Like from '../../Components/common/Like/Like';
 
 const SingleCourse = () => {
   const { id } = useParams();
@@ -37,6 +40,30 @@ const SingleCourse = () => {
               <p className="text-lg lg:text-2xl text-gray-400 leading-10 dark:text-dark-text">
                 {course?.lesson.description}
               </p>
+            </div>
+            <div className="h-16 sm:my-5 my-32 ">
+              <div className="w-11/12 m-auto grid grid-cols-10 rounded-lg">
+                <div className="sm:col-span-5 col-span-10 flex justify-start sm:border-none border-lite-purple border-b-2">
+                  <span className="">
+                    <img
+                      className="w-10 m-2 sm:mr-5 mr-20"
+                      src={require('../../Assets/img/profile.png')}
+                      alt="profile"
+                    />
+                  </span>
+                  <h2 className="2xl:text-lg xl:text-md mt-4 dark:text-dark-secondary-title text-left">
+                    {course?.teacher?.fullName}
+                  </h2>
+                </div>
+                <div className="sm:col-span-5 col-span-10 flex justify-end items-center">
+                  <div className="mt-4 sm:mb-0 mb-4 mr-3 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
+                    آیا این مطلب براتون مفید بود ؟
+                  </div>
+                  <div className="ml-2 mt-4">
+                    <Like id={course?._id} />
+                  </div>
+                </div>
+              </div>
             </div>
             <CoursesTab courseId={id} />
           </div>

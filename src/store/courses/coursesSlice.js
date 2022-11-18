@@ -1,9 +1,9 @@
-import { apiSlice } from "../../Core/services/api/apiSlice";
+import { apiSlice } from '../../Core/services/api/apiSlice';
 
 export const courseApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getCourses: builder.query({
-      query: () => "course/getall",
+      query: () => 'course/getall',
       transformResponse: (responseData) => {
         const loadedCourse = responseData.result.map((course) => {
           const disCountRound = Math.floor(Math.random() * 50);
@@ -23,36 +23,55 @@ export const courseApiSlice = apiSlice.injectEndpoints({
         });
         return loadedCourse;
       },
-      providesTags: ["courses"],
+      providesTags: ['courses'],
     }),
     getCoursesById: builder.query({
       query: (id) => `course/${id}`,
-      providesTags: ["courses"],
+      providesTags: ['courses'],
     }),
     getCoursesLike: builder.query({
       query: (id) => `course/likeCount/${id}`,
-      providesTags: ["courses"],
+      transformResponse: (response) => {
+        return response.result;
+      },
+      providesTags: ['courses'],
     }),
     getCoursesByPagination: builder.query({
       query: (pageInfo) =>
         `course/list?pagenumber=${pageInfo.pagenumber}&pagesize=${pageInfo.pageSize}`,
-      providesTags: ["courses"],
+      providesTags: ['courses'],
     }),
     addStudentToCourse: builder.mutation({
       query: (obj) => ({
         url: `course/addStudentToCourse/${obj.obj}`,
-        method: "POST",
+        method: 'POST',
         body: obj.courseId,
       }),
-      invalidatesTags: ["courses"],
+      invalidatesTags: ['courses'],
     }),
     deleteStudentFromCourse: builder.mutation({
       query: (obj) => ({
         url: `course/removeStudentFromCourse/${obj.obj}`,
-        method: "POST",
+        method: 'POST',
         body: obj.courseId,
       }),
-      invalidatesTags: ["courses"],
+      invalidatesTags: ['courses'],
+    }),
+    likedCourse: builder.mutation({
+      query: (obj) => ({
+        url: `course/like`,
+        method: 'POST',
+        body: obj,
+      }),
+      invalidatesTags: ['courses'],
+    }),
+    disLikedCourse: builder.mutation({
+      query: (obj) => ({
+        url: `course/dislike`,
+        method: 'POST',
+        body: obj,
+      }),
+      invalidatesTags: ['courses'],
     }),
   }),
 });
@@ -64,4 +83,6 @@ export const {
   useAddStudentToCourseMutation,
   useDeleteStudentFromCourseMutation,
   useGetCoursesLikeQuery,
+  useDisLikedCourseMutation,
+  useLikedCourseMutation,
 } = courseApiSlice;

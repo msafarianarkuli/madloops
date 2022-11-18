@@ -1,19 +1,25 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { FieldName } from "../../Components/common/field-name-component/field-name.component";
-import { FiClock } from "react-icons/fi";
-import { Button } from "../../Components/common/button-component/button.component";
-import BlogTab from "../../Components/common/tabs/BlogTab";
-import commentData from "../../Core/services/Fake Service/CourseComments";
-import { handleDateSortingDes } from "../../Core/utils/sorting";
-import Like from "../../Components/common/Like/Like";
-import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
+import { useState, useEffect } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { FieldName } from '../../Components/common/field-name-component/field-name.component';
+import { FiClock } from 'react-icons/fi';
+import { Button } from '../../Components/common/button-component/button.component';
+import BlogTab from '../../Components/common/tabs/BlogTab';
+import commentData from '../../Core/services/Fake Service/CourseComments';
+import { handleDateSortingDes } from '../../Core/utils/sorting';
+import Like from '../../Components/common/Like/Like';
+import { useGetAllNewsQuery } from '../../store/news/newsApiSlice';
 
 const SingleBlog = () => {
   const { id } = useParams();
   const { blogs, blogItem, isLoading, isSuccess, isError, error } =
-    useGetAllNewsQuery("getAllNews", {
-      selectFromResult: ({ data, isLoading, isSuccess, isError, error }) => ({
+    useGetAllNewsQuery('getAllNews', {
+      selectFromResult: ({
+        data,
+        isLoading,
+        isSuccess,
+        isError,
+        error,
+      }) => ({
         blogItem: data?.find((item) => item._id === id),
         isLoading,
         isSuccess,
@@ -34,87 +40,21 @@ const SingleBlog = () => {
   }, [isLoading]);
 
   const navigate = useNavigate();
-  const [comments, setComments] = useState(commentData);
-
-  const handlelike = (id) => {
-    setComments(
-      comments.map((comment) => {
-        return comment.id === id
-          ? {
-              ...comment,
-              liked: !comment.liked,
-              disLiked: false,
-              disLikeCount: comment.disLiked
-                ? comment.disLikeCount - 1
-                : comment.disLikeCount,
-              likeCount: comment.liked
-                ? comment.likeCount - 1
-                : comment.likeCount + 1,
-            }
-          : comment;
-      })
-    );
-    console.log("liked", id);
-  };
-
-  const handleDislike = (id) => {
-    setComments(
-      comments.map((comment) => {
-        return comment.id === id
-          ? {
-              ...comment,
-              disLiked: !comment.disLiked,
-              liked: false,
-              likeCount: comment.liked
-                ? comment.likeCount - 1
-                : comment.likeCount,
-              disLikeCount: comment.disLiked
-                ? comment.disLikeCount - 1
-                : comment.disLikeCount + 1,
-            }
-          : comment;
-      })
-    );
-    console.log("disLiked", id);
-  };
-
-  const handleSendReply = (
-    refId,
-    reply,
-    name = "میهمان",
-    email = "example@gmail.com"
-  ) => {
-    const newReply = {
-      id: comments.length + 1,
-      refId: refId,
-      userName: name,
-      date: "16 خرداد 1401",
-      time: "14:53",
-      body: reply,
-      liked: false,
-      disLiked: false,
-      likeCount: 0,
-      disLikeCount: 0,
-      userImg: "",
-      email: email,
-    };
-    comments.unshift(newReply);
-    setComments(comments);
-    console.log("sent", comments);
-  };
 
   const handleLeadP = (value) => {
     const trimmedLead =
       value
         .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
   const handleLeadH = (value) => {
     const trimmedLead =
       value
         .substring(0, 42)
-        .substring(0, value.substring(0, 40).lastIndexOf(" ")) + "...";
+        .substring(0, value.substring(0, 40).lastIndexOf(' ')) +
+      '...';
     return trimmedLead;
   };
 
@@ -165,45 +105,6 @@ const SingleBlog = () => {
           >
             <div className="2xl:w-10/12 xl:w-11/12 lg:w-10/12 md:w-full sm:w-full w-full lg:float-left ml-5 rounded-lg bg-lite-white custom-shadow mb-10 dark:shadow-none dark:bg-dark-secondary">
               {body}
-              <div className="h-16 sm:my-5 my-32 ">
-                <div className="w-11/12 m-auto grid grid-cols-10 rounded-lg">
-                  <div className="sm:col-span-3 col-span-10 flex justify-between sm:border-none border-lite-purple border-b-2">
-                    <span className="">
-                      <img
-                        className="w-10 m-2 sm:mr-5 mr-20"
-                        src={require("../../Assets/img/profile.png")}
-                        alt="profile"
-                      />
-                    </span>
-                    <h2 className="2xl:text-lg xl:text-md md:ml-10 sm:ml-5 ml-24 mt-4 dark:text-dark-secondary-title">
-                      {/* {blogItem.people} */}
-                      123
-                    </h2>
-                  </div>
-                  <div className="sm:col-span-5 col-span-10 flex justify-between items-center sm:border-r-2 sm:border-b-0 border-b-2 border-lite-purple">
-                    <div className="mt-4 sm:mb-0 mb-4 mr-3 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
-                      آیا این مطلب براتون مفید بود ؟
-                    </div>
-                    {/* <div className="ml-2 mt-4">
-                    <Like
-                      id={blogItem._id}
-                      liked={blogItem.liked}
-                      disLiked={blogItem.disLiked}
-                      likeCount={blogItem.likeCount}
-                      disLikeCount={blogItem.disLikeCount}
-                      // onDisLike={onDisLike}
-                      onLike={handleBlogLike}
-                    />
-                  </div> */}
-                  </div>
-                  <div className="sm:col-span-2 col-span-10 flex justify-between sm:border-r-2 border-b-none border-lite-purple">
-                    <FiClock className="mt-5 md:mr-5 sm:mr-2 mr-24 text-lg text-gray-600 dark:text-dark-secondary-title" />
-                    <span className="mt-4 sm:mb-0 mb-4 md:ml-4 sm:ml-2 ml-28 text-gray-600 2xl:text-lg xl:text-md dark:text-dark-secondary-title">
-                      {blogItem?.date}
-                    </span>
-                  </div>
-                </div>
-              </div>
               <div className="my-10 pb-5">
                 <BlogTab blogId={id} />
               </div>
