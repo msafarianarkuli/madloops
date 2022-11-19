@@ -81,82 +81,145 @@ const CoursesPage = () => {
   };
 
   const [filteredItem, setFilteredItem] = useState(filterList);
-  const [filters, setFilters] = useState([]);
+  // const [filters, setFilters] = useState([]);
 
-  const handleFilterChange = (event) => {
-    if (event.target.checked) {
-      //  to change checked item to true or false
-      setFilteredItem(
-        filteredItem.map((service) => {
-          return {
-            ...service,
-            filterServices: service.filterServices.map((item) =>
-              item.title.toString().toLowerCase() ===
-              event.target.value.toLowerCase()
-                ? { ...item, checked: true }
-                : item
-            ),
-          };
-        })
-      );
+  // const handleFilterChange = (event) => {
+  //   if (event.target.checked) {
+  //     //  to change checked item to true or false
+  //     setFilteredItem(
+  //       filteredItem.map((service) => {
+  //         return {
+  //           ...service,
+  //           filterServices: service.filterServices.map((item) =>
+  //             item.title.toString().toLowerCase() ===
+  //             event.target.value.toLowerCase()
+  //               ? { ...item, checked: true }
+  //               : item
+  //           ),
+  //         };
+  //       })
+  //     );
 
-      const ppp = data?.filter((product) => {
-        return Number(event.target.value)
-          ? product.cost !== 0
-          : product.cost === 0;
-      });
+  //     // const pproducts = data?.filter((product) => {
+  //     //   return product.lesson.topics.includes(
+  //     //     event.target.value.toLowerCase()
+  //     //   );
+  //     // });
 
-      const pproducts = ppp?.filter((product) => {
-        return product.lesson.topics.includes(
-          event.target.value.toLowerCase()
-        );
-      });
-
-      console.log(ppp);
-
-      setFilters((current) => [...current, ...pproducts]);
-    } else {
-      setFilteredItem(
-        filteredItem.map((service) => {
-          return {
-            ...service,
-            filterServices: service.filterServices.map((item) =>
-              item.title.toString().toLowerCase() ===
-              event.target.value.toLowerCase()
-                ? { ...item, checked: false }
-                : item
-            ),
-          };
-        })
-      );
-      const pproducts = filterCourses?.filter((product) => {
-        return !product.lesson.topics.includes(
-          event.target.value.toLowerCase()
-        );
-      });
-      setFilters(pproducts);
-    }
-  };
+  //     // setFilters((current) => [...current, ...pproducts]);
+  //   } else {
+  //     setFilteredItem(
+  //       filteredItem.map((service) => {
+  //         return {
+  //           ...service,
+  //           filterServices: service.filterServices.map((item) =>
+  //             item.title.toString().toLowerCase() ===
+  //             event.target.value.toLowerCase()
+  //               ? { ...item, checked: false }
+  //               : item
+  //           ),
+  //         };
+  //       })
+  //     );
+  //     // const pproducts = filterCourses?.filter((product) => {
+  //     //   return !product.lesson.topics.includes(
+  //     //     event.target.value.toLowerCase()
+  //     //   );
+  //     // });
+  //     // setFilters(pproducts);
+  //   }
+  // };
 
   const handleFilter = () => {
     setOpenFilter(false);
-    setFilterCourses([]);
-    setFilterCourses(filters);
+    // setFilterCourses([]);
+    // setFilterCourses(filters);
+  };
+
+  const [filtered, setFiltered] = useState({
+    products: data,
+    filters: new Set(),
+  });
+
+  useEffect(() => {
+    setFiltered({
+      products: data,
+      filters: new Set(),
+    });
+  }, [data]);
+
+  const handleFilterChange = (event) => {
+    setFiltered((previousState) => {
+      let filters = new Set(previousState.filters);
+      let products = previousState.products;
+
+      if (event.target.checked) {
+        setFilteredItem(
+          filteredItem.map((service) => {
+            return {
+              ...service,
+              filterServices: service.filterServices.map((item) =>
+                item.title.toString().toLowerCase() ===
+                event.target.value.toLowerCase()
+                  ? { ...item, checked: true }
+                  : item
+              ),
+            };
+          })
+        );
+        filters.add(event.target.value);
+      } else {
+        setFilteredItem(
+          filteredItem.map((service) => {
+            return {
+              ...service,
+              filterServices: service.filterServices.map((item) =>
+                item.title.toString().toLowerCase() ===
+                event.target.value.toLowerCase()
+                  ? { ...item, checked: false }
+                  : item
+              ),
+            };
+          })
+        );
+        filters.delete(event.target.value);
+      }
+
+      if (filters.size) {
+        setFilterCourses(
+          products?.filter((product) => {
+            return filters.has(product?.lesson.topics.toString());
+          })
+        );
+      } else {
+        setFilterCourses(data);
+      }
+
+      return {
+        filters,
+        products,
+      };
+    });
   };
 
   let content;
   if (isLoading) {
     content = <Skeleton items={nextCard} view={showGrid} />;
   } else if (isSuccess) {
-    content = filterCourses
-      ?.slice(0, nextCard)
-      .map((item) => (
-        <CardGridListView
-          view={showGrid}
-          item={item}
-          key={item._id}
-        />
-      ));
+    content =
+      filterCourses?.length === 0 ? (
+        <p>هیچی</p>
+      ) : (
+        filterCourses
+          ?.slice(0, nextCard)
+          .map((item) => (
+            <CardGridListView
+              view={showGrid}
+              item={item}
+              key={item._id}
+            />
+          ))
+      );
   }
 
   return (
