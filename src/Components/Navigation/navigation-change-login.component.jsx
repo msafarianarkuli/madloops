@@ -17,6 +17,7 @@ import {
 import { useGetStudentByIdQuery } from "../../store/studentManager/studentApi";
 import { useEffect, useState } from "react";
 import { Button } from "../common/button-component/button.component";
+import { useGetEmployeeQuery } from "../../store/teacherManager/teacherApiSlice";
 
 const NavigationChange = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -24,21 +25,28 @@ const NavigationChange = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [userData, setUserData] = useState();
+
+  const { data: admin, isLoading: isLoad } = useGetEmployeeQuery({
+    id: currentUser?._id,
+  });
   const { data: userById, isLoading } = useGetStudentByIdQuery({
     id: currentUser?._id || currentSessionUser?._id,
   });
+
   useEffect(() => {
-    if (currentUser?.role === "student") {
+    if (currentUser?.role === "admin" || currentUser?.role === "teacher") {
+      setUserData(admin);
+    } else {
       setUserData(userById);
     }
-  }, [isLoading]);
+  }, [isLoading, isLoad]);
 
   const classNames = (...classes) => {
     return classes.filter(Boolean).join(" ");
   };
 
   const handleGoPanel = () => {
-    if (currentUser.role === "admin") {
+    if (currentUser?.role === "admin" || currentUser?.role === "teacher") {
       dispatch(logOut(currentUser));
       window.location.href = `http://localhost:2001/home`;
     }
@@ -51,9 +59,9 @@ const NavigationChange = () => {
           <img
             className="ml-2 w-12 h-12 rounded-r-lg"
             src={
-              currentUser?.role === "admin" || currentUser?.role === "teacher"
-                ? currentUser?.profile
-                : currentUser?.profile || currentSessionUser?.profile
+              userData?.role === "admin" || userData?.role === "teacher"
+                ? userData?.profile
+                : userData?.profile
             }
             alt="profile"
           />
@@ -77,8 +85,7 @@ const NavigationChange = () => {
                 <Button
                   classButton="w-full text-right"
                   onClick={
-                    currentUser?.role === "student" ||
-                    currentSessionUser?.role === "student"
+                    userData?.role === "student"
                       ? () => navigate("/user-panel")
                       : handleGoPanel
                   }
@@ -93,18 +100,17 @@ const NavigationChange = () => {
                         "block px-5 py-6 text-xl rounded-t-lg dark:text-gray-400"
                       )}
                     >
-                      {currentUser?.role === "admin" ||
-                      currentUser?.role === "teacher"
-                        ? currentUser?.fullName
-                        : currentUser?.fullName || currentSessionUser?.fullName}
+                      {userData?.role === "admin" ||
+                      userData?.role === "teacher"
+                        ? userData?.fullName
+                        : userData?.fullName}
                     </div>
                   </div>
                 </Button>
               )}
             </Menu.Item>
             <hr className="py-1 dark:border-dark-tertiary" />
-            {currentUser?.role === "student" ||
-            currentSessionUser?.role === "student" ? (
+            {userData?.role === "student" ? (
               <>
                 <Menu.Item>
                   {({ active }) => (
@@ -173,8 +179,8 @@ const NavigationChange = () => {
                   <FiLogOut className="w-5 h-5 ml-2 absolute right-5 top-6 text-red-500 group-hover:text-red-600 dark:group-hover:text-gray-300 duration-150" />
                   <button
                     onClick={() => {
-                      dispatch(logOut(currentUser));
-                      dispatch(logOutSession(currentSessionUser));
+                      dispatch(logOut(userData));
+                      dispatch(logOutSession(userData));
                       clearStorage();
                     }}
                     type="submit"

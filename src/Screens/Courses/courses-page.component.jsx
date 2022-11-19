@@ -9,8 +9,6 @@ import Data from '../../Core/services/Fake Service/CoursesPage';
 import CardGridListView from '../../Components/common/CardGridAndList-view.component';
 import GridAndList from './../../Components/common/gridAndList-item.component';
 import Accordion from './../../Components/common/Accordion/Accordion';
-import { Formik, Form } from 'formik';
-import InputGroups from './../../Components/common/Inputs/TextInputs/Input';
 import {
   handleDateSortingDes,
   handleCostSorting,
@@ -136,11 +134,166 @@ const CoursesPage = () => {
       }
 
       if (filters.size) {
-        setFilterCourses(
-          products?.filter((product) => {
-            return filters.has(product?.lesson.topics.toString());
-          })
-        );
+        if (
+          products.filter((item) =>
+            filters.has(item?.lesson.topics.toString())
+          ).length &&
+          products.filter((item) =>
+            filters.has(
+              (
+                (new Date(item?.endDate) -
+                  new Date(item?.startDate)) /
+                86400000
+              ).toString()
+            )
+          ).length &&
+          (filters.has('0') || filters.has('1'))
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return (
+                filters.has(
+                  (
+                    (new Date(product?.endDate) -
+                      new Date(product?.startDate)) /
+                    86400000
+                  ).toString()
+                ) &&
+                filters.has(product?.lesson.topics.toString()) &&
+                (filters.has('0') && filters.has('1')
+                  ? products.filter((product) => product?.cost >= 0)
+                  : filters.has('1')
+                  ? products.filter((product) => product?.cost !== 0)
+                  : filters.has('0')
+                  ? products.filter((product) => product?.cost === 0)
+                  : null)
+              );
+            })
+          );
+        } else if (
+          products.filter((item) =>
+            filters.has(item?.lesson.topics.toString())
+          ).length &&
+          products.filter((item) =>
+            filters.has(
+              (
+                (new Date(item?.endDate) -
+                  new Date(item?.startDate)) /
+                86400000
+              ).toString()
+            )
+          ).length
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return (
+                filters.has(
+                  (
+                    (new Date(product?.endDate) -
+                      new Date(product?.startDate)) /
+                    86400000
+                  ).toString()
+                ) && filters.has(product?.lesson.topics.toString())
+              );
+            })
+          );
+        } else if (
+          products.filter((item) =>
+            filters.has(item?.lesson.topics.toString())
+          ).length &&
+          (filters.has('0') || filters.has('1'))
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return (
+                filters.has(product?.lesson.topics.toString()) &&
+                (filters.has('0') && filters.has('1')
+                  ? products.filter((product) => product?.cost >= 0)
+                  : filters.has('1')
+                  ? products.filter((product) => product?.cost !== 0)
+                  : filters.has('0')
+                  ? products.filter((product) => product?.cost === 0)
+                  : null)
+              );
+            })
+          );
+        } else if (
+          products.filter((item) =>
+            filters.has(
+              (
+                (new Date(item?.endDate) -
+                  new Date(item?.startDate)) /
+                86400000
+              ).toString()
+            )
+          ).length &&
+          (filters.has('0') || filters.has('1'))
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return (
+                filters.has(
+                  (
+                    (new Date(product?.endDate) -
+                      new Date(product?.startDate)) /
+                    86400000
+                  ).toString()
+                ) &&
+                (filters.has('0') && filters.has('1')
+                  ? products.filter((product) => product?.cost >= 0)
+                  : filters.has('1')
+                  ? products.filter((product) => product?.cost !== 0)
+                  : filters.has('0')
+                  ? products.filter((product) => product?.cost === 0)
+                  : null)
+              );
+            })
+          );
+        } else if (
+          products.filter((item) =>
+            filters.has(item?.lesson.topics.toString())
+          ).length
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return filters.has(product?.lesson.topics.toString());
+            })
+          );
+        } else if (
+          products.filter((item) =>
+            filters.has(
+              (
+                (new Date(item?.endDate) -
+                  new Date(item?.startDate)) /
+                86400000
+              ).toString()
+            )
+          ).length
+        ) {
+          setFilterCourses(
+            products?.filter((product) => {
+              return filters.has(
+                (
+                  (new Date(product?.endDate) -
+                    new Date(product?.startDate)) /
+                  86400000
+                ).toString()
+              );
+            })
+          );
+        } else if (filters.has('0') || filters.has('1')) {
+          setFilterCourses(
+            filters.has('0') && filters.has('1')
+              ? products.filter((product) => product?.cost >= 0)
+              : filters.has('1')
+              ? products.filter((product) => product?.cost !== 0)
+              : filters.has('0')
+              ? products.filter((product) => product?.cost === 0)
+              : null
+          );
+        } else {
+          setFilterCourses([]);
+        }
       } else {
         setFilterCourses(data);
       }
@@ -343,7 +496,7 @@ const CoursesPage = () => {
                             className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
                             htmlFor="checkbox"
                           >
-                            {item.title}
+                            {item.topic}
                             <input
                               type="checkbox"
                               id="checkbox"
