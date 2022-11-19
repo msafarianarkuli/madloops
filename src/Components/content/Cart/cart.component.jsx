@@ -51,7 +51,7 @@ const CartPage = () => {
                   onClick={() => navigate("/user-panel/myCourses")}
                   className="sm:w-fit w-3/5 btn btn-primary rounded-none md:text-2xl sm:text-xl text-lg h-full rounded-bl-md dark:text-dark-primary"
                 >
-                  دیدن دوره ها
+                  مشاهده دوره ها
                 </Button>
               ) : (
                 <Button

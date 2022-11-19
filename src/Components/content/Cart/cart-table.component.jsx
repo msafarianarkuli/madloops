@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { selectCartItems } from "../../../store/cart/cartSlice";
 import { selectCurrentUser } from "../../../store/auth/authSlice";
 import { selectSessionCurrentUser } from "./../../../store/auth/authSessionSlice";
+import EmptyCourse from "../../common/EmptyCourse/empty-course.component";
 
 const CartTable = () => {
   const currentUser = useSelector(selectCurrentUser);
@@ -51,8 +52,13 @@ const CartTable = () => {
       {cartItems.length === 0 ? (
         <tbody className="text-4xl text-center">
           <tr>
-            <td className="text-deep-purple dark:text-lite-purple py-14">
-              سبد خرید شما خالی است.
+            <td className="relative">
+              <div className="h-[450px] relative">
+                <EmptyCourse
+                  className="lg:text-3xl mt-5 md:mr-32 sm:mr-12 mr-16 sm:text-3xl text-2xl"
+                  field="سبد خرید خالی است"
+                />
+              </div>
             </td>
           </tr>
         </tbody>

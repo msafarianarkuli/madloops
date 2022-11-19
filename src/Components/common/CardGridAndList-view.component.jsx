@@ -57,9 +57,9 @@ const CardGridListView = ({ item, view }) => {
         clickId={() => navigate(`${item._id}`)}
         clickH3={() => navigate(`${item._id}`)}
         classMainImg={
-          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-96 h-52"
+          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto 2xl:w-96 sm:w-full h-52 hover:cursor-pointer"
         }
-        cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4"}
+        cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4 hover:cursor-pointer"}
         role={item.title}
         classRole={
           view

@@ -55,7 +55,7 @@ const NavigationChange = () => {
                 ? currentUser?.profile
                 : currentUser?.profile || currentSessionUser?.profile
             }
-            alt="shopping"
+            alt="profile"
           />
           <FiChevronLeft className="w-4 h-4 -rotate-90 mt-4 ml-2 dark:text-gray-400" />
         </Menu.Button>
@@ -144,7 +144,7 @@ const NavigationChange = () => {
                     </Link>
                   )}
                 </Menu.Item>
-                <Menu.Item>
+                {/* <Menu.Item>
                   {({ active }) => (
                     <Link to="/">
                       <div className="relative group">
@@ -162,7 +162,7 @@ const NavigationChange = () => {
                       </div>
                     </Link>
                   )}
-                </Menu.Item>
+                </Menu.Item> */}
                 <hr className="mt-2 dark:border-dark-tertiary" />
               </>
             ) : null}
