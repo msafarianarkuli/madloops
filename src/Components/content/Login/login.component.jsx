@@ -195,7 +195,7 @@ const Login = () => {
                     <Button
                       ButtonType="button"
                       onClick={handleEmpLogin}
-                      className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:shadow-purple sm:w-96 w-80 text-xl h-12 mt-1 text-right sm:pr-32 pr-24 rounded-xl hover:button-shadow duration-300 
+                      className="border-2 border-button-purple text-deep-purple dark:border-[#b073cc] dark:text-[#b073cc] dark:hover:shadow-purple sm:w-96 w-80 text-xl h-12 mt-1 text-center rounded-xl hover:button-shadow duration-300 
                     ease-in-out group"
                     >
                       ورود کارمندان
