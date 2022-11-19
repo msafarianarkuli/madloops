@@ -9,8 +9,8 @@ import {
 import { Button, Input } from '..';
 import logo from '../../Assets/img/site-logo.png';
 import emailjs from '@emailjs/browser';
-
 import { useRef } from 'react';
+import { toastifyToast } from '../common/Toast/toast';
 
 const Footer = () => {
   const form = useRef();
@@ -36,20 +36,23 @@ const Footer = () => {
                 <Formik
                   initialValues={{ newsletter: '' }}
                   onSubmit={(values) => {
-                    // console.log(values);
                     emailjs
                       .sendForm(
-                        'service_c9hseyg',
+                        'service_hl9vgd3',
                         'template_676mj19',
                         form.current,
                         '_634HVXWIC459yFkP'
                       )
                       .then(
                         (result) => {
-                          console.log(result.text);
+                          toastifyToast.success(
+                            'ایمیل شما برای اشتراک در خبرنامه ثبت شد'
+                          );
                         },
                         (error) => {
-                          console.log(error.text);
+                          toastifyToast.success(
+                            'لطفا مجددا امتحان فرمایید'
+                          );
                         }
                       );
                   }}
@@ -57,6 +60,7 @@ const Footer = () => {
                   {({ values }) => (
                     <Form className="flex" ref={form}>
                       <Input
+                        id="newsletter"
                         name="newsletter"
                         type="text"
                         placeholder="ایمیل خود را وارد نمایید"
