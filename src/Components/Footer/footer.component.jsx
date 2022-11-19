@@ -10,12 +10,10 @@ import { Button, Input } from '..';
 import logo from '../../Assets/img/site-logo.png';
 import emailjs from '@emailjs/browser';
 
-const Footer = () => {
-  const templateParams = {
-    name: 'James',
-    notes: 'Check this out!',
-  };
+import { useRef } from 'react';
 
+const Footer = () => {
+  const form = useRef();
   return (
     <footer>
       <div className="bg-lite-gray dark:bg-dark-secondary">
@@ -38,11 +36,26 @@ const Footer = () => {
                 <Formik
                   initialValues={{ newsletter: '' }}
                   onSubmit={(values) => {
-                    console.log(values);
+                    // console.log(values);
+                    emailjs
+                      .sendForm(
+                        'service_c9hseyg',
+                        'template_676mj19',
+                        form.current,
+                        '_634HVXWIC459yFkP'
+                      )
+                      .then(
+                        (result) => {
+                          console.log(result.text);
+                        },
+                        (error) => {
+                          console.log(error.text);
+                        }
+                      );
                   }}
                 >
                   {({ values }) => (
-                    <Form className="flex">
+                    <Form className="flex" ref={form}>
                       <Input
                         name="newsletter"
                         type="text"
