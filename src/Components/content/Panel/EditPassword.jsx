@@ -17,7 +17,7 @@ const EditPassword = () => {
   const currentUser = useSelector(selectCurrentUser);
   const currentSessionUser = useSelector(selectSessionCurrentUser);
   const [userData, setUserData] = useState();
-  const [ref, setRef] = useState(true);
+  const [ref, setRef] = useState(false);
   const [studentInfo, setStudentInfo] = useState({
     password: "",
     confirmPassword: "",
@@ -27,12 +27,9 @@ const EditPassword = () => {
     isLoading,
     isFetching,
     refetch,
-  } = useGetStudentByIdQuery(
-    {
-      id: currentUser?._id || currentSessionUser?._id,
-    },
-    { ref }
-  );
+  } = useGetStudentByIdQuery({
+    id: currentUser?._id || currentSessionUser?._id,
+  });
   const [resetPassword] = useResetPasswordMutation();
   const [forgetPassword] = useForgetPasswordMutation();
 
@@ -43,9 +40,11 @@ const EditPassword = () => {
       };
       getMountUser();
     }
+  }, [ref]);
 
+  useEffect(() => {
     refetch();
-  }, [userById]);
+  }, [ref]);
 
   console.log(userById);
 
@@ -58,6 +57,7 @@ const EditPassword = () => {
       console.log(response);
       if (response.data) {
         toastifyToast.success(response.data.message[0].message);
+        setRef((old) => !old);
         values.password = "";
         values.confirmPassword = "";
       } else {

@@ -16,6 +16,7 @@ import BlogSkeleton from "./../../Components/common/blogSkeleton";
 import { useGetAllNewsQuery } from "../../store/news/newsApiSlice";
 import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
 import { handleCategory } from "../../Core/utils/funcs";
+import LoadingBar from "react-top-loading-bar";
 
 const cardPerRow = 3;
 
@@ -110,7 +111,7 @@ const BlogsPage = () => {
         .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
-  console.log(filteredBlog);
+
   const navigate = useNavigate();
   let content;
   if (isLoading) {
@@ -157,9 +158,6 @@ const BlogsPage = () => {
                 className="w-10 rounded-full"
                 alt=""
               />
-              {/* <h3 className="text-[#636363] pr-2 dark:text-dark-secondary-title">
-                {card.people} 12
-              </h3> */}
             </div>
             <div className="text-[#636363] flex items-center dark:text-dark-secondary-title">
               <BsHeart className="pb-1" />

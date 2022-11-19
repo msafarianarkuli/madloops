@@ -14,13 +14,15 @@ import {
   BsFillShareFill,
 } from "react-icons/bs";
 import img from "../../Assets/img/blog1.JPG";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addBookMark } from "./../../store/bookmark/bookmarkSlice";
 import { addComma, rateCalculate } from "../../Core/utils/funcs";
 import { useGetCoursesLikeQuery } from "../../store/courses/coursesSlice";
 import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
+import { selectCurrentUser } from "./../../store/auth/authSlice";
 
 const CardGridListView = ({ item, view }) => {
+  const currentUser = useSelector(selectCurrentUser);
   const dispatch = useDispatch();
   const { data: courseLike } = useGetCoursesLikeQuery(item._id);
 
@@ -44,7 +46,7 @@ const CardGridListView = ({ item, view }) => {
         classCard={
           view
             ? "sm:flex sm:flex-row sm:justify-between shadow-lg custom-shadow mt-8 overflow-hidden hover:shadow-purple w-full relative rounded-md transition ease-in-out group duration-200 hover:shadow-lg hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md dark:hover:custom-dark-shadow"
-            : "my-8 sm:mb-0 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
+            : "my-8 sm:mb-0 mx-2 shadow-lg custom-shadow rounded-md flex flex-col relative ease-in-out duration-200 hover:shadow-lg hover:scale-105 hover:shadow-[#E8E3FE] dark:bg-zinc-800 dark:hover:shadow-md group"
         }
         imageUrl={item.lesson.image}
         classImage={
@@ -53,7 +55,7 @@ const CardGridListView = ({ item, view }) => {
             : "rounded-t-lg w-full h-full"
         }
         classMainImg={
-          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-full h-52"
+          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-96 h-52"
         }
         cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4"}
         role={item.title}
@@ -246,7 +248,11 @@ const CardGridListView = ({ item, view }) => {
               className={`hover:btn-base md:w-[20%] border-t-2 border-b-2 group-hover:border-lite-purple dark:group-hover:border-[#8055D9] duration-150 sm:w-fit w-fit h-fit md:p-4 ${
                 view ? "sm:p-2 p-[11px]" : "p-4 sm:w-full"
               } outline-none self-end`}
-              onClick={() => dispatch(addBookMark(item))}
+              onClick={
+                currentUser?.role === "student"
+                  ? () => dispatch(addBookMark(item))
+                  : null
+              }
             >
               <BsFillBookmarkPlusFill className="mx-auto dark:text-[#E5E7EB]" />
             </Button>

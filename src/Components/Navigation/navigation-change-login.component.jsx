@@ -40,7 +40,7 @@ const NavigationChange = () => {
   const handleGoPanel = () => {
     if (currentUser.role === "admin") {
       dispatch(logOut(currentUser));
-      window.location.href = `http://localhost:2001`;
+      window.location.href = `http://localhost:2001/home`;
     }
   };
 
