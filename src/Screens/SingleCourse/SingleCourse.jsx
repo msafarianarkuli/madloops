@@ -1,21 +1,24 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import CourseDetails from '../../Components/content/SingleCourse/CourseDetails';
-import CourseOpacity from '../../Components/content/SingleCourse/CourseOpacity';
-import CourseTeacher from '../../Components/content/SingleCourse/CourseTeacher';
-import CoursePrice from '../../Components/content/SingleCourse/CoursePrice';
-import CoursePrerequisite from '../../Components/content/SingleCourse/CoursePrerequisite';
-import CourseProperTo from '../../Components/content/SingleCourse/CourseProperTo';
-import CourceImproperTo from '../../Components/content/SingleCourse/CourceImproperTo';
-import CoursesTab from '../../Components/common/tabs/CoursesTab';
-import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
-import { FiClock } from 'react-icons/fi';
-import { dateConvert } from '../../Core/utils/TimeAndDateConverter';
-import Like from '../../Components/common/Like/Like';
+import React from "react";
+import { useParams } from "react-router-dom";
+import CourseDetails from "../../Components/content/SingleCourse/CourseDetails";
+import CourseOpacity from "../../Components/content/SingleCourse/CourseOpacity";
+import CourseTeacher from "../../Components/content/SingleCourse/CourseTeacher";
+import CoursePrice from "../../Components/content/SingleCourse/CoursePrice";
+import CoursePrerequisite from "../../Components/content/SingleCourse/CoursePrerequisite";
+import CourseProperTo from "../../Components/content/SingleCourse/CourseProperTo";
+import CourceImproperTo from "../../Components/content/SingleCourse/CourceImproperTo";
+import CoursesTab from "../../Components/common/tabs/CoursesTab";
+import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
+import { FiClock } from "react-icons/fi";
+import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
+import Like from "../../Components/common/Like/Like";
+import { selectCurrentUser } from "./../../store/auth/authSlice";
+import { useSelector } from "react-redux";
 
 const SingleCourse = () => {
+  const currentUser = useSelector(selectCurrentUser);
   const { id } = useParams();
-  const { course } = useGetCoursesQuery('getCourses', {
+  const { course } = useGetCoursesQuery("getCourses", {
     selectFromResult: ({ data }) => ({
       course: data?.find((item) => item._id === id),
     }),
@@ -29,10 +32,7 @@ const SingleCourse = () => {
           data-aos="fade-up"
         >
           <div className="rounded-lg overflow-hidden">
-            <img
-              src={course?.lesson.image}
-              className="w-full h-500"
-            />
+            <img src={course?.lesson.image} className="w-full h-500" />
             <div className="px-4 lg:px-16">
               <h1 className="text-2xl lg:text-4xl font-bold text-center my-5 lg:my-10 dark:text-dark-primary-title">
                 {course?.lesson.lessonName}
@@ -47,7 +47,7 @@ const SingleCourse = () => {
                   <span className="">
                     <img
                       className="w-10 m-2 sm:mr-5 mr-20"
-                      src={require('../../Assets/img/profile.png')}
+                      src={require("../../Assets/img/profile.png")}
                       alt="profile"
                     />
                   </span>
@@ -73,7 +73,12 @@ const SingleCourse = () => {
             <CourseDetails item={course} />
             <CourseOpacity item={course} />
             <CourseTeacher item={course} />
-            <CoursePrice item={course} />
+            {currentUser?.role === "admin" ||
+            currentUser?.role === "teacher" ? (
+              <></>
+            ) : (
+              <CoursePrice item={course} />
+            )}
             <CoursePrerequisite />
             <CourseProperTo />
             <CourceImproperTo />

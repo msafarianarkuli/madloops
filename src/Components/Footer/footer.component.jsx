@@ -9,13 +9,11 @@ import {
 import { Button, Input } from '..';
 import logo from '../../Assets/img/site-logo.png';
 import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
+import { toastifyToast } from '../common/Toast/toast';
 
 const Footer = () => {
-  const templateParams = {
-    name: 'James',
-    notes: 'Check this out!',
-  };
-
+  const form = useRef();
   return (
     <footer>
       <div className="bg-lite-gray dark:bg-dark-secondary">
@@ -38,12 +36,31 @@ const Footer = () => {
                 <Formik
                   initialValues={{ newsletter: '' }}
                   onSubmit={(values) => {
-                    console.log(values);
+                    emailjs
+                      .sendForm(
+                        'service_hl9vgd3',
+                        'template_676mj19',
+                        form.current,
+                        '_634HVXWIC459yFkP'
+                      )
+                      .then(
+                        (result) => {
+                          toastifyToast.success(
+                            'ایمیل شما برای اشتراک در خبرنامه ثبت شد'
+                          );
+                        },
+                        (error) => {
+                          toastifyToast.success(
+                            'لطفا مجددا امتحان فرمایید'
+                          );
+                        }
+                      );
                   }}
                 >
                   {({ values }) => (
-                    <Form className="flex">
+                    <Form className="flex" ref={form}>
                       <Input
+                        id="newsletter"
                         name="newsletter"
                         type="text"
                         placeholder="ایمیل خود را وارد نمایید"

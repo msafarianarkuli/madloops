@@ -1,23 +1,23 @@
-import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
-import { FaMinus, FaPlus } from "react-icons/fa";
-import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
-import { useState, useRef, useEffect, useCallback } from "react";
-import { Typewriter } from "react-simple-typewriter";
-import GroupButton from "./../../Components/common/GroupButton/GroupButton";
-import { Button } from "./../../Components/common/button-component/button.component";
-import Data from "../../Core/services/Fake Service/CoursesPage";
-import CardGridListView from "../../Components/common/CardGridAndList-view.component";
-import GridAndList from "./../../Components/common/gridAndList-item.component";
-import Accordion from "./../../Components/common/Accordion/Accordion";
-import { Formik, Form } from "formik";
-import InputGroups from "./../../Components/common/Inputs/TextInputs/Input";
+import { BsDashLg, BsFilter, BsArrowLeftShort } from 'react-icons/bs';
+import { FaMinus, FaPlus } from 'react-icons/fa';
+import { FieldName } from './../../Components/common/field-name-component/field-name.component';
+import { useState, useRef, useEffect, useCallback } from 'react';
+import { Typewriter } from 'react-simple-typewriter';
+import GroupButton from './../../Components/common/GroupButton/GroupButton';
+import { Button } from './../../Components/common/button-component/button.component';
+import Data from '../../Core/services/Fake Service/CoursesPage';
+import CardGridListView from '../../Components/common/CardGridAndList-view.component';
+import GridAndList from './../../Components/common/gridAndList-item.component';
+import Accordion from './../../Components/common/Accordion/Accordion';
+import { Formik, Form } from 'formik';
+import InputGroups from './../../Components/common/Inputs/TextInputs/Input';
 import {
   handleDateSortingDes,
   handleCostSorting,
   handleViewSorting,
-} from "./../../Core/utils/sorting";
-import Skeleton from "../../Components/common/coursesSkeleton.component";
-import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
+} from './../../Core/utils/sorting';
+import Skeleton from '../../Components/common/coursesSkeleton.component';
+import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
 
 const cardPerRow = 6;
 
@@ -28,30 +28,30 @@ const CoursesPage = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
-    { id: 1, title: "همه", type: "all" },
-    { id: 2, title: "جدیدترین ها", type: "new" },
-    { id: 3, title: "گران ترین ها", type: "like" },
-    { id: 4, title: "پربازدید ترین ها", type: "view" },
+    { id: 1, title: 'همه', type: 'all' },
+    { id: 2, title: 'جدیدترین ها', type: 'new' },
+    { id: 3, title: 'گران ترین ها', type: 'like' },
+    { id: 4, title: 'پربازدید ترین ها', type: 'view' },
   ]);
 
   const [filterCourses, setFilterCourses] = useState([]);
 
   useEffect(() => {
-    handleSorting("all");
+    handleSorting('all');
   }, [isLoading]);
 
   const handleSorting = (type) => {
     switch (type) {
-      case "all":
+      case 'all':
         setFilterCourses(data);
         break;
-      case "view":
+      case 'view':
         setFilterCourses(handleViewSorting(data));
         break;
-      case "new":
+      case 'new':
         setFilterCourses(handleDateSortingDes(data));
         break;
-      case "like":
+      case 'like':
         setFilterCourses(handleCostSorting(data));
         break;
     }
@@ -81,78 +81,95 @@ const CoursesPage = () => {
   };
 
   const [filteredItem, setFilteredItem] = useState(filterList);
-  const [filters, setFilters] = useState([]);
-
-  const handleFilterChange = (event) => {
-    if (event.target.checked) {
-      setFilteredItem(
-        filteredItem.map((service) => {
-          return {
-            ...service,
-            filterServices: service.filterServices.map((item) =>
-              item.title.toString().toLowerCase() ===
-              event.target.value.toLowerCase()
-                ? { ...item, checked: true }
-                : item
-            ),
-          };
-        })
-      );
-
-      // let test;
-      // if (event.target.value === '0') {
-      //   test = data?.filter((product) => product.cost === 0);
-      // } else {
-      //   test = data?.filter((product) => product.cost !== 0);
-      // }
-      // console.log(test);
-      // && event.target.value === '0'
-      //     ? product.cost === 0
-      //     : product.cost !== 0;
-
-      const pproducts = data?.filter((product) => {
-        return product.lesson.topics.includes(event.target.value.toLowerCase());
-      });
-
-      setFilters((current) => [...current, ...pproducts]);
-    } else {
-      setFilteredItem(
-        filteredItem.map((service) => {
-          return {
-            ...service,
-            filterServices: service.filterServices.map((item) =>
-              item.title.toString().toLowerCase() ===
-              event.target.value.toLowerCase()
-                ? { ...item, checked: false }
-                : item
-            ),
-          };
-        })
-      );
-      const pproducts = filterCourses?.filter((product) => {
-        return !product.lesson.topics.includes(
-          event.target.value.toLowerCase()
-        );
-      });
-      setFilters(pproducts);
-    }
-  };
 
   const handleFilter = () => {
     setOpenFilter(false);
-    setFilterCourses([]);
-    setFilterCourses(filters);
+  };
+
+  const [filtered, setFiltered] = useState({
+    products: data,
+    filters: new Set(),
+  });
+
+  useEffect(() => {
+    setFiltered({
+      products: data,
+      filters: new Set(),
+    });
+  }, [data]);
+
+  const handleFilterChange = (event) => {
+    setFiltered((previousState) => {
+      let filters = new Set(previousState.filters);
+      let products = previousState.products;
+
+      if (event.target.checked) {
+        setFilteredItem(
+          filteredItem.map((service) => {
+            return {
+              ...service,
+              filterServices: service.filterServices.map((item) =>
+                item.title.toString().toLowerCase() ===
+                event.target.value.toLowerCase()
+                  ? { ...item, checked: true }
+                  : item
+              ),
+            };
+          })
+        );
+        filters.add(event.target.value);
+      } else {
+        setFilteredItem(
+          filteredItem.map((service) => {
+            return {
+              ...service,
+              filterServices: service.filterServices.map((item) =>
+                item.title.toString().toLowerCase() ===
+                event.target.value.toLowerCase()
+                  ? { ...item, checked: false }
+                  : item
+              ),
+            };
+          })
+        );
+        filters.delete(event.target.value);
+      }
+
+      if (filters.size) {
+        setFilterCourses(
+          products?.filter((product) => {
+            return filters.has(product?.lesson.topics.toString());
+          })
+        );
+      } else {
+        setFilterCourses(data);
+      }
+
+      return {
+        filters,
+        products,
+      };
+    });
   };
 
   let content;
   if (isLoading) {
     content = <Skeleton items={nextCard} view={showGrid} />;
   } else if (isSuccess) {
-    content = filterCourses
-      ?.slice(0, nextCard)
-      .map((item) => (
-        <CardGridListView view={showGrid} item={item} key={item._id} />
-      ));
+    content =
+      filterCourses?.length === 0 ? (
+        <p>هیچی</p>
+      ) : (
+        filterCourses
+          ?.slice(0, nextCard)
+          .map((item) => (
+            <CardGridListView
+              view={showGrid}
+              item={item}
+              key={item._id}
+            />
+          ))
+      );
   }
 
   return (
@@ -174,7 +191,7 @@ const CoursesPage = () => {
             >
               <Typewriter
                 words={[
-                  "یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند",
+                  'یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند',
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -187,7 +204,10 @@ const CoursesPage = () => {
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-40 drop-shadow-xl shadow-black">
               <img
                 data-aos="fade-left"
-                src={require("../../Assets/Online learning-amico.svg").default}
+                src={
+                  require('../../Assets/Online learning-amico.svg')
+                    .default
+                }
                 alt=""
               />
             </div>
@@ -199,7 +219,8 @@ const CoursesPage = () => {
             data-aos="flip-right"
           >
             <div className="text-[#C53F3F] text-4xl mt-6">
-              {filterCourses?.reduce((a, b) => a + b.lessonNumber, 0)}+
+              {filterCourses?.reduce((a, b) => a + b.lessonNumber, 0)}
+              +
             </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl dark:text-dark-text">
@@ -260,14 +281,17 @@ const CoursesPage = () => {
                 width="sm:text-base sm:w-fit sm:p-fit"
               />
             </div>
-            <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
+            <GridAndList
+              showGrid={showGrid}
+              setShowGrid={setShowGrid}
+            />
           </div>
         </div>
         <div
           className={
             !showGrid
-              ? "sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]"
-              : "sm:mt-20 pb-20 mx-auto sm:w-10/12 mt-10 w-[80%]"
+              ? 'sm:grid 2xl:grid-cols-3 2xl:gap-10 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]'
+              : 'sm:mt-20 pb-20 mx-auto sm:w-10/12 mt-10 w-[80%]'
           }
         >
           {content}
@@ -290,8 +314,8 @@ const CoursesPage = () => {
           <div
             className={`${
               openFilter
-                ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative"
-                : "w-0 z-0"
+                ? 'bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative'
+                : 'w-0 z-0'
             } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (
@@ -312,13 +336,6 @@ const CoursesPage = () => {
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
-                    {/* <Formik
-                      initialValues={{
-                        checkbox: true,
-                      }}
-                    >
-                      {({ initialValues }) => (
-                        <Form> */}
                     {filter.filterServices?.map((item) => {
                       return (
                         <div className="m-auto" key={item.id}>
@@ -326,18 +343,7 @@ const CoursesPage = () => {
                             className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
                             htmlFor="checkbox"
                           >
-                            ({item.total}) ,
-                            {item.title
-                              ? item.title
-                              : item.rate
-                              ? item.rate
-                              : item.duration}
-                            {/* <InputGroups
-                              type="checkbox"
-                              id="checkbox"
-                              check={item.checked}
-                              className="inline-block w-10 h-5"
-                            /> */}
+                            {item.title}
                             <input
                               type="checkbox"
                               id="checkbox"
@@ -350,9 +356,6 @@ const CoursesPage = () => {
                         </div>
                       );
                     })}
-                    {/* </Form>
-                      )}
-                    </Formik> */}
                   </Accordion>
                 ))}
                 <div className="w-full bg-deep-purple dark:bg-dark-secondary p-4 absolute bottom-0">
