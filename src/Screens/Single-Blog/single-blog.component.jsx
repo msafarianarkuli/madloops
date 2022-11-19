@@ -44,9 +44,8 @@ const SingleBlog = () => {
   const handleLeadP = (value) => {
     const trimmedLead =
       value
-        .substring(0, 60)
-        .substring(0, value.substring(0, 60).lastIndexOf(' ')) +
-      '...';
+        .substring(0, 40)
+        .substring(0, value.substring(0, 40).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
   const handleLeadH = (value) => {
@@ -76,7 +75,7 @@ const SingleBlog = () => {
             <FieldName
               showH2
               title={blogItem?.title}
-              classH2Field="sm:text-3xl text-xl mr-5 dark:text-dark-primary-title"
+              classH2Field="sm:text-3xl text-xl mr-5 px-10 dark:text-dark-primary-title"
             />
           </div>
         </div>
@@ -129,11 +128,11 @@ const SingleBlog = () => {
                     <div
                       onClick={() => navigate(`/blogs/${item._id}`)}
                       key={item._id}
-                      className="sm:h-44 h-32 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow dark:hover:custom-dark-shadow duration-300 group"
+                      className="sm:h-44 h-40 w-11/12 mb-5 grid grid-cols-5 rounded-lg hover:cursor-pointer hover:-translate-x-4 hover:custom-shadow dark:hover:custom-dark-shadow duration-300 group"
                     >
                       <div className="col-span-2 overflow-hidden">
                         <img
-                          className="w-full h-full duration-300 rounded-l-lg group-hover:rounded-r-lg group-hover:rounded-l-none"
+                          className="w-full sm:h-44 h-40 duration-300 rounded-l-lg group-hover:rounded-r-lg group-hover:rounded-l-none"
                           src={item.image}
                           alt=""
                         />
@@ -149,7 +148,7 @@ const SingleBlog = () => {
                         <p className="mr-3 sm:text-lg text-md sm:w-48 md:w-72 lg:w-80 xl:w-48 w-44 text-gray-400 dark:text-dark-text">
                           {handleLeadP(item.text)}
                         </p>
-                        <div className="col-span-2 w-36 flex justify-between">
+                        <div className="col-span-2 sm:w-40 w-44 flex justify-between">
                           <FiClock className="mt-3 mr-5 sm:text-lg text-md text-gray-600 dark:text-dark-secondary-title" />
                           <span className="mt-2 sm:ml-4 ml-8 text-gray-600 sm:text-lg text-md dark:text-dark-secondary-title">
                             {item?.date}
