@@ -13,16 +13,18 @@ import {
   BsFillBookmarkPlusFill,
   BsFillShareFill,
 } from "react-icons/bs";
-import img from "../../Assets/img/blog1.JPG";
 import { useDispatch, useSelector } from "react-redux";
 import { addBookMark } from "./../../store/bookmark/bookmarkSlice";
 import { addComma, rateCalculate } from "../../Core/utils/funcs";
 import { useGetCoursesLikeQuery } from "../../store/courses/coursesSlice";
 import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
 import { selectCurrentUser } from "./../../store/auth/authSlice";
+import { selectSessionCurrentUser } from "./../../store/auth/authSessionSlice";
 
 const CardGridListView = ({ item, view }) => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+
   const dispatch = useDispatch();
   const { data: courseLike } = useGetCoursesLikeQuery(item._id);
 
@@ -251,7 +253,8 @@ const CardGridListView = ({ item, view }) => {
                 view ? "sm:p-2 p-[11px]" : "p-4 sm:w-full"
               } outline-none self-end`}
               onClick={
-                currentUser?.role === "student"
+                currentUser?.role === "student" ||
+                currentSessionUser?.role === "student"
                   ? () => dispatch(addBookMark(item))
                   : null
               }

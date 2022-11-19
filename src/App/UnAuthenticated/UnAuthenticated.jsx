@@ -11,10 +11,10 @@ const UnAuthenticated = (props) => {
   return (
     <Routes>
       <Route path="*" element={<PublicRoute setTheme={props.setTheme} />} />
+      <Route path="/adminAuth/:token" element={<AdminAuth />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="sign-up" element={<SignUpPage />} />
       <Route path="forget-pass" element={<ForgetPasswordPage />} />
-      <Route path="/adminAuth/:token" element={<AdminAuth />} />
     </Routes>
   );
 };
