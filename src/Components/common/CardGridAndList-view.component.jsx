@@ -54,6 +54,8 @@ const CardGridListView = ({ item, view }) => {
             ? "inset-0 h-full w-full object-cover"
             : "rounded-t-lg w-full h-full"
         }
+        clickId={() => navigate(`${item._id}`)}
+        clickH3={() => navigate(`${item._id}`)}
         classMainImg={
           view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-96 h-52"
         }
@@ -61,8 +63,8 @@ const CardGridListView = ({ item, view }) => {
         role={item.title}
         classRole={
           view
-            ? "text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900 dark:text-[#E5E7EB]"
-            : "text-right font-bold text-2xl text-gray-900 dark:text-[#E5E7EB]"
+            ? "text-right font-bold md:text-2xl sm:text-xl text-xl text-gray-900 dark:text-[#E5E7EB] hover:cursor-pointer"
+            : "text-right font-bold text-2xl text-gray-900 dark:text-[#E5E7EB] hover:cursor-pointer"
         }
         {...(!view
           ? {}

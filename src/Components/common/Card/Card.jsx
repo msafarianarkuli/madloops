@@ -12,8 +12,8 @@ const CardAI = ({ item }) => {
   const handleLead = (value) => {
     const trimmedLead =
       value
-        .substring(0, 120)
-        .substring(0, value.substring(0, 120).lastIndexOf(" ")) + "...";
+        .substring(0, 60)
+        .substring(0, value.substring(0, 60).lastIndexOf(" ")) + "...";
     return trimmedLead;
   };
 
@@ -23,8 +23,9 @@ const CardAI = ({ item }) => {
     <div className="bg-white dark:bg-dark-secondary text-gray-500 hover:-translate-y-2 hover:z-50 transition ease-in-out duration-300 custom-shadow dark:shadow-none rounded-lg p-3 my-4 flex flex-col group">
       <div className="w-full h-56">
         <img
+          onClick={() => navigate(`courses/${item._id}`)}
           src={item.lesson.image}
-          className="rounded-md w-full h-full"
+          className="rounded-md w-full h-full hover:cursor-pointer"
           alt=""
         />
       </div>
@@ -32,7 +33,10 @@ const CardAI = ({ item }) => {
         آرشیو شده
       </p> */}
       <div className="mt-5">
-        <p className="text-right text-xl mb-3 text-gray-900 dark:text-dark-primary-title">
+        <p
+          onClick={() => navigate(`courses/${item._id}`)}
+          className="text-right text-xl mb-3 hover:cursor-pointer text-gray-900 dark:text-dark-primary-title"
+        >
           {item.title}
         </p>
         <p className="text-gray-500 text-sm mb-3 text-right dark:text-dark-text">
