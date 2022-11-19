@@ -1,14 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { FaCoins } from 'react-icons/fa';
-import { TbDiscount2 } from 'react-icons/tb';
-import { useDispatch } from 'react-redux';
-import { addBookMark } from '../../../store/bookmark/bookmarkSlice';
-import {
-  addItem,
-  setIsCartOpen,
-} from '../../../store/cart/cartSlice';
-import Modal from '../../common/Modal/modal.component';
-import { Button } from './../../common/button-component/button.component';
+import React, { useState, useRef, useEffect } from "react";
+import { FaCoins } from "react-icons/fa";
+import { TbDiscount2 } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { addBookMark } from "../../../store/bookmark/bookmarkSlice";
+import { addItem } from "../../../store/cart/cartSlice";
+import Modal from "../../common/Modal/modal.component";
+import { Button } from "./../../common/button-component/button.component";
 
 const CoursePrice = ({ item }) => {
   const [showModal, setShowModal] = useState(false);
@@ -30,7 +27,6 @@ const CoursePrice = ({ item }) => {
   const [hours, setHours] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
-  const [stop, setStop] = useState(false);
 
   const getTime = () => {
     const startDate = new Date(item?.startDate).getTime();
@@ -48,10 +44,7 @@ const CoursePrice = ({ item }) => {
       intervalRef.current = null;
       return;
     }
-    const interval = (intervalRef.current = setInterval(
-      () => getTime(),
-      1000
-    ));
+    const interval = (intervalRef.current = setInterval(() => getTime(), 1000));
     return () => clearInterval(interval);
   }, [item]);
 
@@ -72,9 +65,7 @@ const CoursePrice = ({ item }) => {
                 {item?.cost} تومان
               </del>
             ) : (
-              <span className="text-[#42CD36]">
-                {item?.cost} تومان
-              </span>
+              <span className="text-[#42CD36]">{item?.cost} تومان</span>
             )}
           </p>
         </div>

@@ -35,69 +35,42 @@ const Data = {
     },
     {
       id: 2,
-      title: 'سطح',
-      active: false,
-      filterServices: [
-        { id: uuidv4(), title: 'همه', total: 1000, checked: false },
-        { id: uuidv4(), title: 'ساده', total: 1000, checked: false },
-        {
-          id: uuidv4(),
-          title: 'حد واسط',
-          total: 230,
-          checked: false,
-        },
-        { id: uuidv4(), title: 'پیشرفته', total: 56, checked: false },
-      ],
-    },
-    {
-      id: 3,
-      title: 'رتبه بندی',
-      active: false,
-      filterServices: [
-        { id: uuidv4(), title: 3.4, total: 1000, checked: false },
-        { id: uuidv4(), title: 3.2, total: 1000, checked: false },
-        { id: uuidv4(), title: 3.1, total: 1000, checked: false },
-        { id: uuidv4(), title: 3.7, total: 1000, checked: false },
-      ],
-    },
-    {
-      id: 4,
       title: 'مدت زمان دوره',
       active: false,
       filterServices: [
         {
           id: uuidv4(),
           title: '1 ماه',
-          total: 10000,
+
           checked: false,
         },
         {
           id: uuidv4(),
           title: '3 ماه',
-          total: 20000,
+
           checked: false,
         },
         {
           id: uuidv4(),
           title: '6 ماه',
-          total: 30000,
+
           checked: false,
         },
         {
           id: uuidv4(),
           title: '9 ماه',
-          total: 40000,
+
           checked: false,
         },
       ],
     },
     {
-      id: 5,
+      id: 3,
       title: 'حدود قیمت',
       active: false,
       filterServices: [
-        { id: uuidv4(), title: '0', total: 3000, checked: false },
-        { id: uuidv4(), title: '1', total: 200, checked: false },
+        { id: uuidv4(), title: '0', checked: false },
+        { id: uuidv4(), title: '1', checked: false },
       ],
     },
   ],

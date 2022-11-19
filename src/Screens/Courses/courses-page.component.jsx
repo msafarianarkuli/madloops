@@ -81,59 +81,9 @@ const CoursesPage = () => {
   };
 
   const [filteredItem, setFilteredItem] = useState(filterList);
-  // const [filters, setFilters] = useState([]);
-
-  // const handleFilterChange = (event) => {
-  //   if (event.target.checked) {
-  //     //  to change checked item to true or false
-  //     setFilteredItem(
-  //       filteredItem.map((service) => {
-  //         return {
-  //           ...service,
-  //           filterServices: service.filterServices.map((item) =>
-  //             item.title.toString().toLowerCase() ===
-  //             event.target.value.toLowerCase()
-  //               ? { ...item, checked: true }
-  //               : item
-  //           ),
-  //         };
-  //       })
-  //     );
-
-  //     // const pproducts = data?.filter((product) => {
-  //     //   return product.lesson.topics.includes(
-  //     //     event.target.value.toLowerCase()
-  //     //   );
-  //     // });
-
-  //     // setFilters((current) => [...current, ...pproducts]);
-  //   } else {
-  //     setFilteredItem(
-  //       filteredItem.map((service) => {
-  //         return {
-  //           ...service,
-  //           filterServices: service.filterServices.map((item) =>
-  //             item.title.toString().toLowerCase() ===
-  //             event.target.value.toLowerCase()
-  //               ? { ...item, checked: false }
-  //               : item
-  //           ),
-  //         };
-  //       })
-  //     );
-  //     // const pproducts = filterCourses?.filter((product) => {
-  //     //   return !product.lesson.topics.includes(
-  //     //     event.target.value.toLowerCase()
-  //     //   );
-  //     // });
-  //     // setFilters(pproducts);
-  //   }
-  // };
 
   const handleFilter = () => {
     setOpenFilter(false);
-    // setFilterCourses([]);
-    // setFilterCourses(filters);
   };
 
   const [filtered, setFiltered] = useState({
@@ -340,7 +290,7 @@ const CoursesPage = () => {
         <div
           className={
             !showGrid
-              ? 'sm:grid 2xl:grid-cols-3 2xl:gap-20 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]'
+              ? 'sm:grid 2xl:grid-cols-3 2xl:gap-10 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]'
               : 'sm:mt-20 pb-20 mx-auto sm:w-10/12 mt-10 w-[80%]'
           }
         >
@@ -386,13 +336,6 @@ const CoursesPage = () => {
                     activeIcon={<FaMinus />}
                     inactiveIcon={<FaPlus />}
                   >
-                    {/* <Formik
-                      initialValues={{
-                        checkbox: true,
-                      }}
-                    >
-                      {({ initialValues }) => (
-                        <Form> */}
                     {filter.filterServices?.map((item) => {
                       return (
                         <div className="m-auto" key={item.id}>
@@ -400,18 +343,7 @@ const CoursesPage = () => {
                             className="flex flex-row-reverse justify-end py-1 leading-[25px] items-center cursor-pointer"
                             htmlFor="checkbox"
                           >
-                            ({item.total}) ,
-                            {item.title
-                              ? item.title
-                              : item.rate
-                              ? item.rate
-                              : item.duration}
-                            {/* <InputGroups
-                              type="checkbox"
-                              id="checkbox"
-                              check={item.checked}
-                              className="inline-block w-10 h-5"
-                            /> */}
+                            {item.title}
                             <input
                               type="checkbox"
                               id="checkbox"
@@ -424,9 +356,6 @@ const CoursesPage = () => {
                         </div>
                       );
                     })}
-                    {/* </Form>
-                      )}
-                    </Formik> */}
                   </Accordion>
                 ))}
                 <div className="w-full bg-deep-purple dark:bg-dark-secondary p-4 absolute bottom-0">
