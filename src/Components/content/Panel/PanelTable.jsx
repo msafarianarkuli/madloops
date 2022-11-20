@@ -61,7 +61,7 @@ const PanelTable = ({ data, onDelete, onAdd }) => {
         </tbody>
       ) : (
         <div className="absolute z-50">
-          <EmptyCourse />
+          <EmptyCourse className="lg:text-4xl sm:text-3xl text-xl" field="دوره ای وجود ندارد" />
         </div>
       )}
     </table>

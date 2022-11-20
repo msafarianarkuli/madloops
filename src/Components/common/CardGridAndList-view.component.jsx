@@ -13,16 +13,18 @@ import {
   BsFillBookmarkPlusFill,
   BsFillShareFill,
 } from "react-icons/bs";
-import img from "../../Assets/img/blog1.JPG";
 import { useDispatch, useSelector } from "react-redux";
 import { addBookMark } from "./../../store/bookmark/bookmarkSlice";
 import { addComma, rateCalculate } from "../../Core/utils/funcs";
 import { useGetCoursesLikeQuery } from "../../store/courses/coursesSlice";
 import { dateConvert } from "../../Core/utils/TimeAndDateConverter";
 import { selectCurrentUser } from "./../../store/auth/authSlice";
+import { selectSessionCurrentUser } from "./../../store/auth/authSessionSlice";
 
 const CardGridListView = ({ item, view }) => {
   const currentUser = useSelector(selectCurrentUser);
+  const currentSessionUser = useSelector(selectSessionCurrentUser);
+
   const dispatch = useDispatch();
   const { data: courseLike } = useGetCoursesLikeQuery(item._id);
 
@@ -57,9 +59,9 @@ const CardGridListView = ({ item, view }) => {
         clickId={() => navigate(`${item._id}`)}
         clickH3={() => navigate(`${item._id}`)}
         classMainImg={
-          view ? "h-64 w-auto md:w-[90%] sm:w-[40%]" : "m-auto w-96 h-52"
+          view ? "h-64 w-auto md:w-[90%] sm:w-[40%] hover:cursor-pointer" : "m-auto 2xl:w-96 sm:w-full h-52 hover:cursor-pointer"
         }
-        cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4"}
+        cardBody={!view ? "w-80 mx-6 mt-5" : "w-full h-[50%] sm:mr-3 mr-6 mt-4 hover:cursor-pointer"}
         role={item.title}
         classRole={
           view
@@ -251,7 +253,8 @@ const CardGridListView = ({ item, view }) => {
                 view ? "sm:p-2 p-[11px]" : "p-4 sm:w-full"
               } outline-none self-end`}
               onClick={
-                currentUser?.role === "student"
+                currentUser?.role === "student" ||
+                currentSessionUser?.role === "student"
                   ? () => dispatch(addBookMark(item))
                   : null
               }
