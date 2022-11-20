@@ -61,7 +61,7 @@ const Data = {
         },
         {
           id: uuidv4(),
-          title: 60,
+          title: 90,
           topic: '3 ماه',
           checked: false,
         },
