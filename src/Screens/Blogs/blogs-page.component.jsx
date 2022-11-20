@@ -128,7 +128,7 @@ const BlogsPage = () => {
         classMainImg="w-full h-72"
         cardBody="w-80 mx-6 order-last"
         role={handleLead(card.title)}
-        classRole="text-right h-20 font-bold w-fit text-xl text-gray-900 dark:text-dark-text"
+        classRole="text-right h-20 font-bold sm:w-fit w-60 text-xl text-gray-900 dark:text-dark-text"
         onClick={() => navigate(`${card._id}`)}
       >
         <div className="mx-6 my-5">
@@ -182,11 +182,11 @@ const BlogsPage = () => {
               <FieldName
                 showH2
                 title="بخش بلاگ آکادمی بحر"
-                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4  m-auto md:pt-12 sm:mr-0 sm:pt-12
+                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 md:text-2xl md:mr-4 mt-5 m-auto md:pt-12 sm:mr-0 sm:pt-12
                 dark:text-dark-primary-title"
               />
             </div>
-            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0 m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text">
+            <div className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 m-auto mt-3 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text">
               <Typewriter
                 words={[
                   "پست‌ها، راهنماها، آموزش‌ها و خبرنامه‌های رایگان برای کمک به شما در یادگیری مهارت‌های مورد تقاضا، استخدام شدن و پیشرفت شغلی.",

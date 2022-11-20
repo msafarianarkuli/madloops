@@ -190,34 +190,8 @@
 @media (max-width: 500px) {
   .cont_principal {
     position: absolute;
-    width: 400px;
+    width: 290px;
     height: 420px;
     overflow: hidden;
   }
 }
-
-@media (max-width: 400px) {
-  .cont_principal {
-    position: absolute;
-    width: 300px;
-    height: 420px;
-    overflow: hidden;
-  }
-}
-
-
-// {comments.length > 0 ? (
-//   comments?.map(
-//     (comment) =>
-//       comment.verified === true && (
-//         <Comment key={comment._id} info={comment} />
-//       )
-//   )
-// ) : (
-//   <div className="h-[425px]">
-//     <EmptyCourse
-//       className="lg:text-3xl sm:text-3xl text-xl"
-//       field="دیدگاهی وجود ندارد"
-//     />
-//   </div>
-// )}

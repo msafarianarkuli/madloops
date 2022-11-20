@@ -1,21 +1,21 @@
-import { BsDashLg, BsFilter, BsArrowLeftShort } from 'react-icons/bs';
-import { FaMinus, FaPlus } from 'react-icons/fa';
-import { FieldName } from './../../Components/common/field-name-component/field-name.component';
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-import GroupButton from './../../Components/common/GroupButton/GroupButton';
-import { Button } from './../../Components/common/button-component/button.component';
-import Data from '../../Core/services/Fake Service/CoursesPage';
-import CardGridListView from '../../Components/common/CardGridAndList-view.component';
-import GridAndList from './../../Components/common/gridAndList-item.component';
-import Accordion from './../../Components/common/Accordion/Accordion';
+import { BsDashLg, BsFilter, BsArrowLeftShort } from "react-icons/bs";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import { FieldName } from "./../../Components/common/field-name-component/field-name.component";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { Typewriter } from "react-simple-typewriter";
+import GroupButton from "./../../Components/common/GroupButton/GroupButton";
+import { Button } from "./../../Components/common/button-component/button.component";
+import Data from "../../Core/services/Fake Service/CoursesPage";
+import CardGridListView from "../../Components/common/CardGridAndList-view.component";
+import GridAndList from "./../../Components/common/gridAndList-item.component";
+import Accordion from "./../../Components/common/Accordion/Accordion";
 import {
   handleDateSortingDes,
   handleCostSorting,
   handleViewSorting,
-} from './../../Core/utils/sorting';
-import Skeleton from '../../Components/common/coursesSkeleton.component';
-import { useGetCoursesQuery } from '../../store/courses/coursesSlice';
+} from "./../../Core/utils/sorting";
+import Skeleton from "../../Components/common/coursesSkeleton.component";
+import { useGetCoursesQuery } from "../../store/courses/coursesSlice";
 
 const cardPerRow = 6;
 
@@ -26,30 +26,30 @@ const CoursesPage = () => {
   const [showGrid, setShowGrid] = useState(false);
   const [openFilter, setOpenFilter] = useState(false);
   const [groupBtnList] = useState([
-    { id: 1, title: 'همه', type: 'all' },
-    { id: 2, title: 'جدیدترین ها', type: 'new' },
-    { id: 3, title: 'گران ترین ها', type: 'like' },
-    { id: 4, title: 'پربازدید ترین ها', type: 'view' },
+    { id: 1, title: "همه", type: "all" },
+    { id: 2, title: "جدیدترین ها", type: "new" },
+    { id: 3, title: "گران ترین ها", type: "like" },
+    { id: 4, title: "پربازدید ترین ها", type: "view" },
   ]);
 
   const [filterCourses, setFilterCourses] = useState([]);
 
   useEffect(() => {
-    handleSorting('all');
+    handleSorting("all");
   }, [isLoading]);
 
   const handleSorting = (type) => {
     switch (type) {
-      case 'all':
+      case "all":
         setFilterCourses(data);
         break;
-      case 'view':
+      case "view":
         setFilterCourses(handleViewSorting(data));
         break;
-      case 'new':
+      case "new":
         setFilterCourses(handleDateSortingDes(data));
         break;
-      case 'like':
+      case "like":
         setFilterCourses(handleCostSorting(data));
         break;
     }
@@ -135,19 +135,17 @@ const CoursesPage = () => {
 
       if (filters.size) {
         if (
-          products.filter((item) =>
-            filters.has(item?.lesson.topics.toString())
-          ).length &&
+          products.filter((item) => filters.has(item?.lesson.topics.toString()))
+            .length &&
           products.filter((item) =>
             filters.has(
               (
-                (new Date(item?.endDate) -
-                  new Date(item?.startDate)) /
+                (new Date(item?.endDate) - new Date(item?.startDate)) /
                 86400000
               ).toString()
             )
           ).length &&
-          (filters.has('0') || filters.has('1'))
+          (filters.has("0") || filters.has("1"))
         ) {
           setFilterCourses(
             products?.filter((product) => {
@@ -160,25 +158,23 @@ const CoursesPage = () => {
                   ).toString()
                 ) &&
                 filters.has(product?.lesson.topics.toString()) &&
-                (filters.has('0') && filters.has('1')
+                (filters.has("0") && filters.has("1")
                   ? products.filter((product) => product?.cost >= 0)
-                  : filters.has('1')
+                  : filters.has("1")
                   ? products.filter((product) => product?.cost !== 0)
-                  : filters.has('0')
+                  : filters.has("0")
                   ? products.filter((product) => product?.cost === 0)
                   : null)
               );
             })
           );
         } else if (
-          products.filter((item) =>
-            filters.has(item?.lesson.topics.toString())
-          ).length &&
+          products.filter((item) => filters.has(item?.lesson.topics.toString()))
+            .length &&
           products.filter((item) =>
             filters.has(
               (
-                (new Date(item?.endDate) -
-                  new Date(item?.startDate)) /
+                (new Date(item?.endDate) - new Date(item?.startDate)) /
                 86400000
               ).toString()
             )
@@ -198,20 +194,19 @@ const CoursesPage = () => {
             })
           );
         } else if (
-          products.filter((item) =>
-            filters.has(item?.lesson.topics.toString())
-          ).length &&
-          (filters.has('0') || filters.has('1'))
+          products.filter((item) => filters.has(item?.lesson.topics.toString()))
+            .length &&
+          (filters.has("0") || filters.has("1"))
         ) {
           setFilterCourses(
             products?.filter((product) => {
               return (
                 filters.has(product?.lesson.topics.toString()) &&
-                (filters.has('0') && filters.has('1')
+                (filters.has("0") && filters.has("1")
                   ? products.filter((product) => product?.cost >= 0)
-                  : filters.has('1')
+                  : filters.has("1")
                   ? products.filter((product) => product?.cost !== 0)
-                  : filters.has('0')
+                  : filters.has("0")
                   ? products.filter((product) => product?.cost === 0)
                   : null)
               );
@@ -221,13 +216,12 @@ const CoursesPage = () => {
           products.filter((item) =>
             filters.has(
               (
-                (new Date(item?.endDate) -
-                  new Date(item?.startDate)) /
+                (new Date(item?.endDate) - new Date(item?.startDate)) /
                 86400000
               ).toString()
             )
           ).length &&
-          (filters.has('0') || filters.has('1'))
+          (filters.has("0") || filters.has("1"))
         ) {
           setFilterCourses(
             products?.filter((product) => {
@@ -239,20 +233,19 @@ const CoursesPage = () => {
                     86400000
                   ).toString()
                 ) &&
-                (filters.has('0') && filters.has('1')
+                (filters.has("0") && filters.has("1")
                   ? products.filter((product) => product?.cost >= 0)
-                  : filters.has('1')
+                  : filters.has("1")
                   ? products.filter((product) => product?.cost !== 0)
-                  : filters.has('0')
+                  : filters.has("0")
                   ? products.filter((product) => product?.cost === 0)
                   : null)
               );
             })
           );
         } else if (
-          products.filter((item) =>
-            filters.has(item?.lesson.topics.toString())
-          ).length
+          products.filter((item) => filters.has(item?.lesson.topics.toString()))
+            .length
         ) {
           setFilterCourses(
             products?.filter((product) => {
@@ -263,8 +256,7 @@ const CoursesPage = () => {
           products.filter((item) =>
             filters.has(
               (
-                (new Date(item?.endDate) -
-                  new Date(item?.startDate)) /
+                (new Date(item?.endDate) - new Date(item?.startDate)) /
                 86400000
               ).toString()
             )
@@ -274,20 +266,19 @@ const CoursesPage = () => {
             products?.filter((product) => {
               return filters.has(
                 (
-                  (new Date(product?.endDate) -
-                    new Date(product?.startDate)) /
+                  (new Date(product?.endDate) - new Date(product?.startDate)) /
                   86400000
                 ).toString()
               );
             })
           );
-        } else if (filters.has('0') || filters.has('1')) {
+        } else if (filters.has("0") || filters.has("1")) {
           setFilterCourses(
-            filters.has('0') && filters.has('1')
+            filters.has("0") && filters.has("1")
               ? products.filter((product) => product?.cost >= 0)
-              : filters.has('1')
+              : filters.has("1")
               ? products.filter((product) => product?.cost !== 0)
-              : filters.has('0')
+              : filters.has("0")
               ? products.filter((product) => product?.cost === 0)
               : null
           );
@@ -311,16 +302,31 @@ const CoursesPage = () => {
   } else if (isSuccess) {
     content =
       filterCourses?.length === 0 ? (
-        <p>هیچی</p>
+        <div className="relative sm:mt-10 sm:mb-32 sm:pb-0 pb-24">
+          <div className="sm:text-5xl text-4xl w-96 absolute 2xl:-right-24 xl:right-[430px] lg:right-[270px] md:right-[160px] right-7 sm:right-[100px] text-deep-purple dark:text-lite-purple">
+            <Typewriter
+              words={["دوره ای یافت نشد"]}
+              cursor
+              cursorStyle=" | "
+              typeSpeed={30}
+              delaySpeed={1000}
+            />
+          </div>
+          <div className="sm:text-xl text-lg w-96 absolute top-16 2xl:-right-20 xl:right-[445px] lg:right-[285px] md:right-[175px] right-6 sm:right-[115px] text-gray-500">
+            <Typewriter
+              words={["لطفا موضوع دیگری را انتخاب کنید 🙏"]}
+              cursor
+              cursorStyle=" | "
+              typeSpeed={50}
+              delaySpeed={5000}
+            />
+          </div>
+        </div>
       ) : (
         filterCourses
           ?.slice(0, nextCard)
           .map((item) => (
-            <CardGridListView
-              view={showGrid}
-              item={item}
-              key={item._id}
-            />
+            <CardGridListView view={showGrid} item={item} key={item._id} />
           ))
       );
   }
@@ -334,17 +340,17 @@ const CoursesPage = () => {
               <FieldName
                 showH2
                 title="دوره های آکادمی بحر"
-                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 
+                classH2Field="2xl:text-7xl 2xl:mb-6 xl:mb-6 xl:text-5xl xl:mr-10 lg:mb-6 lg:text-3xl lg:mr-6 lg:pt-28 mt-5
                 md:text-2xl md:mr-4 m-auto md:pt-12 sm:mr-0 sm:pt-12 dark:text-dark-primary-title"
               />
             </div>
             <div
-              className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-0
+              className="text-base mx-2 text-center sm:text-right xl:mr-10 lg:mr-6 md:mr-4 mt-3
              m-auto 2xl:text-2xl xl:text-lg lg:text-md md:text-sm sm:mx-0 sm:text-xs text-gray-700 dark:text-dark-text"
             >
               <Typewriter
                 words={[
-                  'یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند',
+                  "یک دوره آکادمی بحر برای هر مرحله از حرفه شما وجود دارد. از بوت‌کمپ‌های کدنویسی که افراد مبتدی مطلق را از صفر تا استخدام می‌کنند، تا دوره‌های پیشرفته‌ای که متخصصان با تجربه برای ارتقاء مهارت و پیشرفت شغلی خود از آنها استفاده می‌کنند",
                 ]}
                 cursor
                 cursorStyle=" | "
@@ -357,10 +363,7 @@ const CoursesPage = () => {
             <div className="w-[50%] h-48 2xl:mx-80 xl:mx-64 lg:mx-56 lg:mt-5 md:mx-40 sm:mx-40 drop-shadow-xl shadow-black">
               <img
                 data-aos="fade-left"
-                src={
-                  require('../../Assets/Online learning-amico.svg')
-                    .default
-                }
+                src={require("../../Assets/Online learning-amico.svg").default}
                 alt=""
               />
             </div>
@@ -372,8 +375,7 @@ const CoursesPage = () => {
             data-aos="flip-right"
           >
             <div className="text-[#C53F3F] text-4xl mt-6">
-              {filterCourses?.reduce((a, b) => a + b.lessonNumber, 0)}
-              +
+              {filterCourses?.reduce((a, b) => a + b.lessonNumber, 0)}+
             </div>
             <BsDashLg className="text-[#373F49] w-20 text-4xl mx-auto" />
             <div className="text-[#675F74] text-3xl dark:text-dark-text">
@@ -434,17 +436,14 @@ const CoursesPage = () => {
                 width="sm:text-base sm:w-fit sm:p-fit"
               />
             </div>
-            <GridAndList
-              showGrid={showGrid}
-              setShowGrid={setShowGrid}
-            />
+            <GridAndList showGrid={showGrid} setShowGrid={setShowGrid} />
           </div>
         </div>
         <div
           className={
             !showGrid
-              ? 'sm:grid 2xl:grid-cols-3 2xl:gap-10 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]'
-              : 'sm:mt-20 pb-20 mx-auto sm:w-10/12 mt-10 w-[80%]'
+              ? "sm:grid 2xl:grid-cols-3 2xl:gap-10 2xl:w-fit 2xl:mx-auto xl:grid-cols-3 xl:gap-x-20 xl:w-[90%] lg:grid-cols-2 lg:gap-20 lg:mx-auto md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:w-[80%] sm:grid-cols-1 sm:mx-auto sm:gap-20 mx-auto mt-10 pb-10 w-[80%]"
+              : "sm:mt-20 pb-20 mx-auto sm:w-10/12 mt-10 w-[80%]"
           }
         >
           {content}
@@ -467,8 +466,8 @@ const CoursesPage = () => {
           <div
             className={`${
               openFilter
-                ? 'bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative'
-                : 'w-0 z-0'
+                ? "bg-deep-purple dark:bg-dark-secondary h-screen pt-8 w-80 z-50 relative"
+                : "w-0 z-0"
             } duration-300 ease-in-out relative top-0 right-0`}
           >
             {openFilter && (

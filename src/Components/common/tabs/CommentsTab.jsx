@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import SendComment from '../comments/SendComment';
-import Comment from '../comments/Comment';
-import { useGetCommentsQuery } from '../../../store/comments/commentsSlice';
+import React, { useState } from "react";
+import SendComment from "../comments/SendComment";
+import Comment from "../comments/Comment";
+import { useGetCommentsQuery } from "../../../store/comments/commentsSlice";
+import EmptyCourse from "../EmptyCourse/empty-course.component";
 
 const CommentsTab = ({ id }) => {
-  const { comments } = useGetCommentsQuery('getComments', {
+  const { comments } = useGetCommentsQuery("getComments", {
     selectFromResult: ({ data }) => ({
       comments: data?.filter(
-        (comment) =>
-          comment.postId === id && comment.verified === true
+        (comment) => comment.postId === id && comment.verified === true
       ),
     }),
   });
@@ -24,10 +24,7 @@ const CommentsTab = ({ id }) => {
           >
             انصراف
           </div>
-          <SendComment
-            onCommentActive={setCommentActive}
-            courseId={id}
-          />
+          <SendComment onCommentActive={setCommentActive} courseId={id} />
         </div>
       ) : (
         <div>
@@ -37,9 +34,21 @@ const CommentsTab = ({ id }) => {
           >
             ارسال دیدگاه
           </div>
-          {comments?.map((comment) => (
-            <Comment key={comment._id} info={comment} />
-          ))}
+          {comments.length > 0 ? (
+            comments?.map(
+              (comment) =>
+                comment.verified === true && (
+                  <Comment key={comment._id} info={comment} />
+                )
+            )
+          ) : (
+            <div className="h-[423px]">
+              <EmptyCourse
+                className="lg:text-3xl 2xl:-mr-10 xl:-mr-16 lg:mr-14 md:mr-9 sm:text-3xl text-xl"
+                field="دیدگاهی وجود ندارد"
+              />
+            </div>
+          )}
         </div>
       )}
     </>
